@@ -1,3 +1,5 @@
+
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 
 :root {
@@ -66,6 +68,7 @@ header p {
   border: 2px solid var(--artaud-yellow);
 }
 
+
 .socials a[href*="twitter"]:hover {
   background: #1DA1F2;
   color: #fff;
@@ -106,34 +109,6 @@ header p {
 }
 
 
-.nav {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.nav-button {
-  display: inline-block;
-  padding: 10px 20px;
-  background: var(--artaud-green);
-  color: var(--artaud-yellow);
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 700;
-  border: 2px solid var(--artaud-yellow);
-  border-radius: 8px;
-  transition: 0.3s;
-  box-shadow: 0 0 10px rgba(214,185,40,0.3);
-}
-
-.nav-button:hover {
-  background: var(--artaud-yellow);
-  color: var(--artaud-black);
-  transform: scale(1.1) rotate(-2deg);
-  box-shadow: 0 0 20px var(--artaud-yellow);
-}
-
 .about {
   max-width: 800px;
   margin: 3rem auto;
@@ -165,6 +140,7 @@ footer {
   border-top: 2px solid var(--artaud-yellow);
   margin-top: 3rem;
 }
+
 
 .background {
   position: fixed;
@@ -271,45 +247,55 @@ footer {
 }
 
 
-.badges {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  flex-wrap: wrap;
+nav {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
 }
 
-.badge {
-  display: inline-block;
-  padding: 0.25rem 0.75rem; 
-  font-size: 0.875rem; 
-  font-weight: 600;
-  border-radius: 9999px; 
-  border: 1px solid;
-  transition: all 0.2s ease;
-}
-
-.badge:hover {
-  transform: scale(1.05);
-}
-
-
-.badge-java {
-  background: rgba(0, 255, 255, 0.2); 
-  color: #00ffff;
-  border-color: #00ffff;
-}
-
-.badge-paper {
-  background: rgba(46, 68, 63, 0.2); 
-  color: var(--artaud-green);
-  border-color: var(--artaud-green);
-}
-
-.badge-fabric {
-  background: rgba(214, 185, 40, 0.2); 
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; 
+  padding: 12px 18px;
+  background: var(--artaud-green);
   color: var(--artaud-yellow);
-  border-color: var(--artaud-yellow);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: 1px solid var(--artaud-yellow);
+  border-radius: 6px;
+  transition: all 0.2s ease; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+.nav-button:hover {
+  background: var(--artaud-yellow);
+  color: var(--artaud-black);
+  transform: scale(1.05); 
+  box-shadow: 0 4px 8px rgba(214, 185, 40, 0.4);
+}
+
+.nav-button i {
+  font-size: 1.2rem; 
+}
+
+
+@media (max-width: 768px) {
+  nav {
+    top: 15px;
+    left: 15px;
+  }
+  .nav-button {
+    padding: 10px 14px;
+    font-size: 1rem;
+  }
+  .nav-button i {
+    font-size: 1.1rem;
+  }
+}
+
 
 .lang-button {
   cursor: pointer; 
