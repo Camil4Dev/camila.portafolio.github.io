@@ -269,3 +269,44 @@ footer {
   color: var(--artaud-yellow);
   text-shadow: 0 0 10px rgba(214,185,40,0.8);
 }
+
+
+.badges {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem; 
+  font-size: 0.875rem; 
+  font-weight: 600;
+  border-radius: 9999px; 
+  border: 1px solid;
+  transition: all 0.2s ease;
+}
+
+.badge:hover {
+  transform: scale(1.05);
+}
+
+
+.badge-java {
+  background: rgba(0, 255, 255, 0.2); 
+  color: #00ffff;
+  border-color: #00ffff;
+}
+
+.badge-paper {
+  background: rgba(46, 68, 63, 0.2); 
+  color: var(--artaud-green);
+  border-color: var(--artaud-green);
+}
+
+.badge-fabric {
+  background: rgba(214, 185, 40, 0.2); 
+  color: var(--artaud-yellow);
+  border-color: var(--artaud-yellow);
+}
