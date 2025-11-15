@@ -68,7 +68,7 @@ const translations = {
       aboutText: "Soy desarrolladora especializada en la creación de <strong>plugins para Paper</strong>, <strong>mods Fabric</strong> y sistemas avanzados para servidores. Trabajo con Mixin, GeckoLib, entidades personalizadas, packets, mundos dinámicos y mecánicas complejas para minijuegos. <br><br> Actualmente desarrollo en <strong>ScreamingLAB</strong> y colaboro en proyectos privados.",
       contactTitle: "Contacto",
       contactText: "¿Necesitás un plugin, mod o sistema personalizado? Podés escribirme a:",
-      footer: "© 2024 camila — Minecraft Developer 🎶",
+      footer: "© 2025 camila — Minecraft Developer 🎶",
       projectsButton: "Proyectos",
       langButton: "🇺🇸"
     },
@@ -89,7 +89,7 @@ const translations = {
       project5Title: "Perspective Lock (Fabric 1.20.4-1.21.1)",
       project5Desc: "Mod de cliente que recibe packets de un plugin para cambiar de perspectivas y bloquear la camara del jugador en cualquier posicion.",
       backButton: "← Volver al Inicio",
-      footer: "© 2024 camila — Minecraft Developer 🎶",
+      footer: "© 2025 camila — Minecraft Developer 🎶",
       langButton: "🇺🇸"
     }
   },
@@ -103,7 +103,7 @@ const translations = {
       aboutText: "I am a developer specialized in creating <strong>Paper plugins</strong>, <strong>Fabric mods</strong>, and advanced server systems. I work with Mixin, GeckoLib, custom entities, packets, dynamic worlds, and complex minigame mechanics. <br><br> Currently developing at <strong>ScreamingLAB</strong> and collaborating on private projects.",
       contactTitle: "Contact",
       contactText: "Need a custom plugin, mod, or system? You can write to me at:",
-      footer: "© 2024 camila — Minecraft Developer 🎶",
+      footer: "© 2025 camila — Minecraft Developer 🎶",
       projectsButton: "Projects",
       langButton: "🇪🇸"
     },
@@ -124,7 +124,7 @@ const translations = {
       project5Title: "Perspective Lock (Fabric 1.20.4-1.21.1)",
       project5Desc: "Client mod that receives packets from a plugin to change perspectives and lock the player's camera in any position.",
       backButton: "← Back to Home",
-      footer: "© 2024 camila — Minecraft Developer 🎶",
+      footer: "© 2025 camila — Minecraft Developer 🎶",
       langButton: "🇪🇸"
     }
   }
