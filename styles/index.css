@@ -246,28 +246,52 @@ footer {
   text-shadow: 0 0 10px rgba(214,185,40,0.8);
 }
 
+
 nav {
   position: fixed;
   top: 20px;
   left: 20px;
-  z-index: 1000; 
+  z-index: 1000;
 }
+
 .nav-button {
-  display: inline-block;
-  padding: 10px 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; 
+  padding: 12px 18px;
   background: var(--artaud-green);
   color: var(--artaud-yellow);
   text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 700;
-  border: 2px solid var(--artaud-yellow);
-  border-radius: 8px;
-  transition: 0.3s;
-  box-shadow: 0 0 10px rgba(214,185,40,0.3);
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: 1px solid var(--artaud-yellow);
+  border-radius: 6px;
+  transition: all 0.2s ease; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
 .nav-button:hover {
   background: var(--artaud-yellow);
   color: var(--artaud-black);
-  transform: scale(1.1) rotate(-2deg);
-  box-shadow: 0 0 20px var(--artaud-yellow);
+  transform: scale(1.05); 
+  box-shadow: 0 4px 8px rgba(214, 185, 40, 0.4);
+}
+
+.nav-button i {
+  font-size: 1.2rem; 
+}
+
+
+@media (max-width: 768px) {
+  nav {
+    top: 15px;
+    left: 15px;
+  }
+  .nav-button {
+    padding: 10px 14px;
+    font-size: 1rem;
+  }
+  .nav-button i {
+    font-size: 1.1rem;
+  }
 }
