@@ -324,3 +324,14 @@ footer {
   outline: 2px solid var(--artaud-yellow);
   outline-offset: 2px;
 }
+
+.project-image {
+    width: 100%;
+    height: auto; 
+    border-radius: 8px;
+}
+
+.project-card:hover .project-image {
+    border-color: var(--artaud-yellow);
+    box-shadow: 0 0 20px rgba(214,185,40,0.25);
+}
