@@ -55,128 +55,106 @@ initParticles();
 animate();
 
 
+const fxCanvas = document.getElementById("parallaxCanvas");
+const fxCtx = fxCanvas.getContext("2d");
+
+function resizeFX() {
+    fxCanvas.width = window.innerWidth;
+    fxCanvas.height = window.innerHeight;
+}
+resizeFX();
+window.addEventListener("resize", resizeFX);
 
 
-const translations = {
-  es: {
+const layers = [
+    { type: "bubble", count: 20,  size: 80,  speed: 0.10, color: "rgba(214,185,40,0.18)" },
+    { type: "bubble", count: 50,  size: 45,  speed: 0.25, color: "rgba(214,185,40,0.25)" },
+    { type: "bubble", count: 120, size: 20,  speed: 0.55, color: "rgba(214,185,40,0.35)" },
+];
 
-    index: {
-      title: "camila.dev",
-      h1: "camila",
-      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB",
-      aboutTitle: "Sobre mí",
-      aboutText: "Soy desarrolladora especializada en la creación de <strong>plugins para Paper</strong>, <strong>mods Fabric</strong> y sistemas avanzados para servidores. Trabajo con Mixin, GeckoLib, entidades personalizadas, packets, mundos dinámicos y mecánicas complejas para minijuegos. <br><br> Actualmente desarrollo en <strong>ScreamingLAB</strong> y colaboro en proyectos privados.",
-      contactTitle: "Contacto",
-      contactText: "¿Necesitás un plugin, mod o sistema personalizado? Podés escribirme a:",
-      footer: "© 2025 camila — Minecraft Developer 🎶",
-      projectsButton: "Proyectos",
-      langButton: "🇺🇸"
-    },
-   
-    projects: {
-      title: "Proyectos - camila.dev",
-      h1: "camila",
-      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB",
-      projectsTitle: "Proyectos destacados",
-      project1Title: "Perfectamente equilibrado (Paper 1.21.1)",
-      project1Desc: "Minijuego donde tenes que equilibrar el libro en tu cabeza para conseguir puntos, minijuego creado para el Geo ware Oddysey.",
-      project2Title: "Fork de UniverseJobs(Paper 1.21.8)",
-      project2Desc: "ReCodeo del plugin de trabajos de Masivo SMP compatible con Folia.",
-      project3Title: "Fork de nocape (Fabric 1.20.4)",
-      project3Desc: "Mod para desactivar todas las capas del juego desde el Cliente.",
-      project4Title: "Port de Sniffers Delight (Fabric 1.20.1)",
-      project4Desc: "mod de comidas sobre el sniffer.",
-      project5Title: "Perspective Lock (Fabric 1.20.4-1.21.1)",
-      project5Desc: "Mod de cliente que recibe packets de un plugin para cambiar de perspectivas y bloquear la camara del jugador en cualquier posicion.",
-      backButton: "← Volver al Inicio",
-      footer: "© 2025 camila — Minecraft Developer 🎶",
-      langButton: "🇺🇸"
+const floatingParticlesCount = 70;
+
+let fxObjects = [];
+let mouseX = 0, mouseY = 0;
+
+
+layers.forEach(layer => {
+    for (let i = 0; i < layer.count; i++) {
+        fxObjects.push({
+            layer,
+            type: "bubble",
+            x: Math.random() * fxCanvas.width,
+            y: Math.random() * fxCanvas.height,
+            size: layer.size,
+            speed: layer.speed,
+            color: layer.color
+        });
     }
-  },
-  en: {
-   
-    index: {
-      title: "camila.dev",
-      h1: "camila",
-      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB",
-      aboutTitle: "About Me",
-      aboutText: "I am a developer specialized in creating <strong>Paper plugins</strong>, <strong>Fabric mods</strong>, and advanced server systems. I work with Mixin, GeckoLib, custom entities, packets, dynamic worlds, and complex minigame mechanics. <br><br> Currently developing at <strong>ScreamingLAB</strong> and collaborating on private projects.",
-      contactTitle: "Contact",
-      contactText: "Need a custom plugin, mod, or system? You can write to me at:",
-      footer: "© 2025 camila — Minecraft Developer 🎶",
-      projectsButton: "Projects",
-      langButton: "🇪🇸"
-    },
-    
-    projects: {
-      title: "Projects - camila.dev",
-      h1: "camila",
-      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB",
-      projectsTitle: "Featured Projects",
-      project1Title: "Perfectly Balanced (Paper 1.21.1)",
-      project1Desc: "Minigame where you have to balance the book on your head to score points, minigame created for Geo Ware Odyssey.",
-      project2Title: "UniverseJobs Fork (Paper 1.21.8)",
-      project2Desc: "Recode of the Masivo SMP jobs plugin compatible with Folia.",
-      project3Title: "nocape Fork (Fabric 1.20.4)",
-      project3Desc: "Mod to disable all game layers from the Client.",
-      project4Title: "Sniffers Delight Port (Fabric 1.20.1)",
-      project4Desc: "mod of foods about the sniffer.",
-      project5Title: "Perspective Lock (Fabric 1.20.4-1.21.1)",
-      project5Desc: "Client mod that receives packets from a plugin to change perspectives and lock the player's camera in any position.",
-      backButton: "← Back to Home",
-      footer: "© 2025 camila — Minecraft Developer 🎶",
-      langButton: "🇪🇸"
-    }
-  }
-};
+});
 
 
-let currentLang = localStorage.getItem('lang') || 'es';
-
-
-changeLanguage();
-
-function changeLanguage() {
-  const isProjectsPage = window.location.pathname.includes('projects.html');
-  const pageKey = isProjectsPage ? 'projects' : 'index';
-  const trans = translations[currentLang][pageKey];
-
-
-  document.title = trans.title;
-  document.querySelector('h1').textContent = trans.h1;
-  document.querySelector('header p').textContent = trans.subtitle;
-  document.querySelector('footer p').textContent = trans.footer;
-  document.getElementById('lang-toggle').innerHTML = trans.langButton;
-
-  if (isProjectsPage) {
-  
-    document.querySelector('.projects h2').textContent = trans.projectsTitle;
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards[0].querySelector('h3').textContent = trans.project1Title;
-    projectCards[0].querySelector('p').textContent = trans.project1Desc;
-    projectCards[1].querySelector('h3').textContent = trans.project2Title;
-    projectCards[1].querySelector('p').textContent = trans.project2Desc;
-    projectCards[2].querySelector('h3').textContent = trans.project3Title;
-    projectCards[2].querySelector('p').textContent = trans.project3Desc;
-    projectCards[3].querySelector('h3').textContent = trans.project4Title;
-    projectCards[3].querySelector('p').textContent = trans.project4Desc;
-    projectCards[4].querySelector('h3').textContent = trans.project5Title;
-    projectCards[4].querySelector('p').textContent = trans.project5Desc;
-    document.querySelector('.nav-button[href="index.html"]').innerHTML = trans.backButton;
-  } else {
-    
-    document.querySelector('.about h2').textContent = trans.aboutTitle;
-    document.querySelector('.about p').innerHTML = trans.aboutText;
-    document.querySelector('.contact h2').textContent = trans.contactTitle;
-    document.querySelector('.contact p').textContent = trans.contactText;
-    document.querySelector('.nav-button[href="projects.html"]').innerHTML = `<i class="fas fa-folder-open"></i> ${trans.projectsButton}`;
-  }
+for (let i = 0; i < floatingParticlesCount; i++) {
+    fxObjects.push({
+        type: "particle",
+        x: Math.random() * fxCanvas.width,
+        y: Math.random() * fxCanvas.height,
+        size: Math.random() * 2 + 1,
+        speedX: (Math.random() - 0.5) * 0.6,
+        speedY: (Math.random() - 0.5) * 0.6,
+        opacity: Math.random() * 0.6 + 0.2
+    });
 }
 
 
-document.getElementById('lang-toggle').addEventListener('click', () => {
-  currentLang = currentLang === 'es' ? 'en' : 'es';
-  localStorage.setItem('lang', currentLang); 
-  changeLanguage();
+
+document.addEventListener("mousemove", e => {
+    mouseX = (e.clientX - window.innerWidth / 2) / window.innerWidth;
+    mouseY = (e.clientY - window.innerHeight / 2) / window.innerHeight;
 });
 
+
+
+function fxLoop() {
+    fxCtx.clearRect(0, 0, fxCanvas.width, fxCanvas.height);
+
+    fxObjects.forEach(obj => {
+
+        if (obj.type === "bubble") {
+            
+            obj.y += obj.speed;
+            if (obj.y - obj.size > fxCanvas.height) {
+                obj.y = -obj.size;
+                obj.x = Math.random() * fxCanvas.width;
+            }
+
+            
+            const px = obj.x + mouseX * obj.layer.speed * 50;
+            const py = obj.y + mouseY * obj.layer.speed * 50;
+
+            fxCtx.globalAlpha = 0.9;
+            fxCtx.fillStyle = obj.color;
+
+            fxCtx.beginPath();
+            fxCtx.arc(px, py, obj.size * 0.12, 0, Math.PI * 2);
+            fxCtx.fill();
+        }
+
+        else if (obj.type === "particle") {
+            obj.x += obj.speedX;
+            obj.y += obj.speedY;
+
+            if (obj.x < 0 || obj.x > fxCanvas.width) obj.x = Math.random() * fxCanvas.width;
+            if (obj.y < 0 || obj.y > fxCanvas.height) obj.y = Math.random() * fxCanvas.height;
+
+            fxCtx.fillStyle = `rgba(214,185,40,${obj.opacity})`;
+            fxCtx.beginPath();
+            fxCtx.arc(obj.x, obj.y, obj.size, 0, Math.PI * 2);
+            fxCtx.fill();
+        }
+
+    });
+
+    requestAnimationFrame(fxLoop);
+}
+
+fxLoop();
