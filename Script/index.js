@@ -107,10 +107,55 @@ for (let i = 0; i < floatingParticlesCount; i++) {
 
 
 
+
+
+
 document.addEventListener("mousemove", e => {
     mouseX = (e.clientX - window.innerWidth / 2) / window.innerWidth;
     mouseY = (e.clientY - window.innerHeight / 2) / window.innerHeight;
 });
+
+
+
+let lastTouchX = null;
+let lastTouchY = null;
+
+document.addEventListener("touchmove", e => {
+    if (e.touches.length > 0) {
+        const t = e.touches[0];
+
+        if (lastTouchX === null) {
+            lastTouchX = t.clientX;
+            lastTouchY = t.clientY;
+        }
+
+        const dx = t.clientX - lastTouchX;
+        const dy = t.clientY - lastTouchY;
+
+        mouseX = dx / window.innerWidth;
+        mouseY = dy / window.innerHeight;
+
+        lastTouchX = t.clientX;
+        lastTouchY = t.clientY;
+    }
+}, { passive: true });
+
+document.addEventListener("touchend", () => {
+    lastTouchX = null;
+    lastTouchY = null;
+});
+
+
+
+if (window.DeviceOrientationEvent) {
+    window.addEventListener("deviceorientation", event => {
+        
+        if (event.gamma !== null && event.beta !== null) {
+            mouseX = event.gamma / 45;  
+            mouseY = event.beta / 45;
+        }
+    });
+}
 
 
 
