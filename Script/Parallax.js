@@ -5,6 +5,7 @@ function resizeFX() {
     fxCanvas.width = window.innerWidth;
     fxCanvas.height = window.innerHeight;
 }
+
 resizeFX();
 window.addEventListener("resize", resizeFX);
 
