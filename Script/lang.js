@@ -11,9 +11,10 @@ const translations = {
       contactText: "¿Necesitás un plugin, mod o sistema personalizado? Podés escribirme a:",
       footer: "© 2025 camila — Minecraft Developer 🎶",
       projectsButton: "Proyectos",
+      skillsButton: "Habilidades",
       langButton: "🇺🇸"
     },
-   
+
     projects: {
       title: "Proyectos - camila.dev",
       h1: "camila",
@@ -32,10 +33,27 @@ const translations = {
       backButton: "← Volver al Inicio",
       footer: "© 2025 camila — Minecraft Developer 🎶",
       langButton: "🇺🇸"
+    },
+
+    skills: {
+      title: "Habilidades - camila.dev",
+      h1: "camila",
+      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB",
+
+      skillsTitle: "Habilidades",
+      skillsSubtitle: "Tecnologías que utilizo diariamente",
+
+      devSkillsTitle: "Desarrollo",
+      toolsTitle: "Herramientas & Tecnologías",
+
+      backHome: "← Inicio",
+      footer: "© 2025 camila — Minecraft Developer 🎶",
+      langButton: "🇺🇸"
     }
   },
+
   en: {
-   
+
     index: {
       title: "camila.dev",
       h1: "camila",
@@ -46,9 +64,10 @@ const translations = {
       contactText: "Need a custom plugin, mod, or system? You can write to me at:",
       footer: "© 2025 camila — Minecraft Developer 🎶",
       projectsButton: "Projects",
+      skillsButton: "Skills",
       langButton: "🇪🇸"
     },
-    
+
     projects: {
       title: "Projects - camila.dev",
       h1: "camila",
@@ -61,10 +80,26 @@ const translations = {
       project3Title: "nocape Fork (Fabric 1.20.4)",
       project3Desc: "Mod to disable all game layers from the Client.",
       project4Title: "Sniffers Delight Port (Fabric 1.20.1)",
-      project4Desc: "mod of foods about the sniffer.",
+      project4Desc: "Food-related mod about the sniffer.",
       project5Title: "Perspective Lock (Fabric 1.20.4-1.21.1)",
       project5Desc: "Client mod that receives packets from a plugin to change perspectives and lock the player's camera in any position.",
       backButton: "← Back to Home",
+      footer: "© 2025 camila — Minecraft Developer 🎶",
+      langButton: "🇪🇸"
+    },
+
+    skills: {
+      title: "Skills - camila.dev",
+      h1: "camila",
+      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB",
+
+      skillsTitle: "Skills",
+      skillsSubtitle: "Technologies I use daily",
+
+      devSkillsTitle: "Development",
+      toolsTitle: "Tools & Technologies",
+
+      backHome: "← Home",
       footer: "© 2025 camila — Minecraft Developer 🎶",
       langButton: "🇪🇸"
     }
@@ -83,48 +118,95 @@ if (storedLang) {
 }
 
 
-changeLanguage();
+
+
 
 function changeLanguage() {
-  const isProjectsPage = window.location.pathname.includes('projects.html');
-  const pageKey = isProjectsPage ? 'projects' : 'index';
+  const path = window.location.pathname;
+
+  let pageKey = "index";
+  if (path.includes("projects")) pageKey = "projects";
+  if (path.includes("skills")) pageKey = "skills";
+
   const trans = translations[currentLang][pageKey];
 
 
   document.title = trans.title;
-  document.querySelector('h1').textContent = trans.h1;
-  document.querySelector('header p').textContent = trans.subtitle;
-  document.querySelector('footer p').textContent = trans.footer;
-  document.getElementById('lang-toggle').innerHTML = trans.langButton;
 
-  if (isProjectsPage) {
-  
-    document.querySelector('.projects h2').textContent = trans.projectsTitle;
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards[0].querySelector('h3').textContent = trans.project1Title;
-    projectCards[0].querySelector('p').textContent = trans.project1Desc;
-    projectCards[1].querySelector('h3').textContent = trans.project2Title;
-    projectCards[1].querySelector('p').textContent = trans.project2Desc;
-    projectCards[2].querySelector('h3').textContent = trans.project3Title;
-    projectCards[2].querySelector('p').textContent = trans.project3Desc;
-    projectCards[3].querySelector('h3').textContent = trans.project4Title;
-    projectCards[3].querySelector('p').textContent = trans.project4Desc;
-    projectCards[4].querySelector('h3').textContent = trans.project5Title;
-    projectCards[4].querySelector('p').textContent = trans.project5Desc;
-    document.querySelector('.nav-button[href="index.html"]').innerHTML = trans.backButton;
-  } else {
-    
-    document.querySelector('.about h2').textContent = trans.aboutTitle;
-    document.querySelector('.about p').innerHTML = trans.aboutText;
-    document.querySelector('.contact h2').textContent = trans.contactTitle;
-    document.querySelector('.contact p').textContent = trans.contactText;
-    document.querySelector('.nav-button[href="projects.html"]').innerHTML = `<i class="fas fa-folder-open"></i> ${trans.projectsButton}`;
+  document.querySelector("h1").textContent = trans.h1;
+  document.querySelector("header p").textContent = trans.subtitle;
+  document.querySelector("footer p").textContent = trans.footer;
+
+  document.getElementById("lang-toggle").innerHTML = trans.langButton;
+
+
+
+  if (pageKey === "index") {
+    document.querySelector(".about h2").textContent = trans.aboutTitle;
+    document.querySelector(".about p").innerHTML = trans.aboutText;
+
+    document.querySelector(".contact h2").textContent = trans.contactTitle;
+    document.querySelector(".contact p").textContent = trans.contactText;
+
+    document.querySelector('.nav-button[href="projects.html"]').innerHTML =
+      `<i class="fas fa-folder-open"></i> ${trans.projectsButton}`;
+
+    document.querySelector('.nav-button[href="skills.html"]').innerHTML =
+      `<i class="fas fa-code"></i> ${trans.skillsButton}`;
   }
+
+
+
+  if (pageKey === "projects") {
+    document.querySelector(".projects h2").textContent = trans.projectsTitle;
+
+    const projectCards = document.querySelectorAll(".project-card");
+
+    projectCards[0].querySelector("h3").textContent = trans.project1Title;
+    projectCards[0].querySelector("p").textContent = trans.project1Desc;
+
+    projectCards[1].querySelector("h3").textContent = trans.project2Title;
+    projectCards[1].querySelector("p").textContent = trans.project2Desc;
+
+    projectCards[2].querySelector("h3").textContent = trans.project3Title;
+    projectCards[2].querySelector("p").textContent = trans.project3Desc;
+
+    projectCards[3].querySelector("h3").textContent = trans.project4Title;
+    projectCards[3].querySelector("p").textContent = trans.project4Desc;
+
+    projectCards[4].querySelector("h3").textContent = trans.project5Title;
+    projectCards[4].querySelector("p").textContent = trans.project5Desc;
+
+    document.querySelector('.nav-button[href="index.html"]').innerHTML =
+      trans.backButton;
+  }
+
+
+
+  if (pageKey === "skills") {
+  // Títulos principales
+  document.querySelector('[data-lang="skills-title"]').textContent = trans.skillsTitle;
+  document.querySelector('[data-lang="skills-subtitle"]').textContent = trans.skillsSubtitle;
+
+  // Subtítulos de secciones
+  document.querySelector('[data-lang="dev-skills-title"]').textContent = trans.devSkillsTitle;
+  document.querySelector('[data-lang="tools-title"]').textContent = trans.toolsTitle;
+
+  // Botón volver
+  const backBtn = document.querySelector('.nav-button[href="index.html"]');
+  if (backBtn) backBtn.innerHTML = trans.backHome;
+}
 }
 
 
-document.getElementById('lang-toggle').addEventListener('click', () => {
-  currentLang = currentLang === 'es' ? 'en' : 'es';
-  localStorage.setItem('lang', currentLang); 
+
+
+document.getElementById("lang-toggle").addEventListener("click", () => {
+  currentLang = currentLang === "es" ? "en" : "es";
+  localStorage.setItem("lang", currentLang);
   changeLanguage();
 });
+
+
+
+changeLanguage();
