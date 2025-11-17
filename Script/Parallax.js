@@ -1,34 +1,34 @@
-const fxCanvas = document.getElementById("parallaxCanvas");
-const fxCtx = fxCanvas.getContext("2d");
+const canvas = document.getElementById("parallaxCanvas");
+const ctx = canvas.getContext("2d");
 
-function resizeFX() {
-    fxCanvas.width = window.innerWidth;
-    fxCanvas.height = window.innerHeight;
+function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 }
-
-resizeFX();
-window.addEventListener("resize", resizeFX);
+resize();
+window.addEventListener("resize", resize);
 
 
 const layers = [
-    { type: "bubble", count: 20,  size: 80,  speed: 0.10, color: "rgba(214,185,40,0.18)" },
-    { type: "bubble", count: 50,  size: 45,  speed: 0.25, color: "rgba(214,185,40,0.25)" },
-    { type: "bubble", count: 120, size: 20,  speed: 0.55, color: "rgba(214,185,40,0.35)" },
+    { count: 20,  size: 80,  speed: 0.10, color: "rgba(214,185,40,0.18)" },
+    { count: 50,  size: 45,  speed: 0.25, color: "rgba(214,185,40,0.25)" },
+    { count: 120, size: 20,  speed: 0.55, color: "rgba(214,185,40,0.35)" }
 ];
 
-const floatingParticlesCount = 70;
 
-let fxObjects = [];
+const FLOATING_COUNT = 70;
+
+let objects = [];
 let mouseX = 0, mouseY = 0;
 
 
 layers.forEach(layer => {
     for (let i = 0; i < layer.count; i++) {
-        fxObjects.push({
-            layer,
+        objects.push({
             type: "bubble",
-            x: Math.random() * fxCanvas.width,
-            y: Math.random() * fxCanvas.height,
+            layer,
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
             size: layer.size,
             speed: layer.speed,
             color: layer.color
@@ -37,11 +37,11 @@ layers.forEach(layer => {
 });
 
 
-for (let i = 0; i < floatingParticlesCount; i++) {
-    fxObjects.push({
+for (let i = 0; i < FLOATING_COUNT; i++) {
+    objects.push({
         type: "particle",
-        x: Math.random() * fxCanvas.width,
-        y: Math.random() * fxCanvas.height,
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
         size: Math.random() * 2 + 1,
         speedX: (Math.random() - 0.5) * 0.6,
         speedY: (Math.random() - 0.5) * 0.6,
@@ -56,48 +56,46 @@ document.addEventListener("mousemove", e => {
 });
 
 
-function fxLoop() {
-    fxCtx.clearRect(0, 0, fxCanvas.width, fxCanvas.height);
+function loop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    fxObjects.forEach(obj => {
+    objects.forEach(obj => {
 
-    
+        
         if (obj.type === "bubble") {
             obj.y += obj.speed;
-
-            if (obj.y - obj.size > fxCanvas.height) {
+            if (obj.y - obj.size > canvas.height) {
                 obj.y = -obj.size;
-                obj.x = Math.random() * fxCanvas.width;
+                obj.x = Math.random() * canvas.width;
             }
 
             const px = obj.x + mouseX * obj.layer.speed * 50;
             const py = obj.y + mouseY * obj.layer.speed * 50;
 
-            fxCtx.globalAlpha = 0.9;
-            fxCtx.fillStyle = obj.color;
-
-            fxCtx.beginPath();
-            fxCtx.arc(px, py, obj.size * 0.12, 0, Math.PI * 2);
-            fxCtx.fill();
+            ctx.globalAlpha = 0.9;
+            ctx.fillStyle = obj.color;
+            ctx.beginPath();
+            ctx.arc(px, py, obj.size * 0.12, 0, Math.PI * 2);
+            ctx.fill();
         }
 
-       
-        else if (obj.type === "particle") {
+        
+        else {
             obj.x += obj.speedX;
             obj.y += obj.speedY;
 
-            if (obj.x < 0 || obj.x > fxCanvas.width) obj.x = Math.random() * fxCanvas.width;
-            if (obj.y < 0 || obj.y > fxCanvas.height) obj.y = Math.random() * fxCanvas.height;
+            if (obj.x < 0 || obj.x > canvas.width) obj.x = Math.random() * canvas.width;
+            if (obj.y < 0 || obj.y > canvas.height) obj.y = Math.random() * canvas.height;
 
-            fxCtx.fillStyle = `rgba(214,185,40,${obj.opacity})`;
-            fxCtx.beginPath();
-            fxCtx.arc(obj.x, obj.y, obj.size, 0, Math.PI * 2);
-            fxCtx.fill();
+            ctx.globalAlpha = 1;
+            ctx.fillStyle = `rgba(214,185,40,${obj.opacity})`;
+            ctx.beginPath();
+            ctx.arc(obj.x, obj.y, obj.size, 0, Math.PI * 2);
+            ctx.fill();
         }
-
     });
 
-    requestAnimationFrame(fxLoop);
+    requestAnimationFrame(loop);
 }
 
-fxLoop();
+loop();
