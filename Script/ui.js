@@ -79,7 +79,7 @@
     });
 
  
-    const konami = [38,38,40,40,37,39,37,39,66,65];
+    const konami = [38,38,40,40];
     let idx = 0;
     window.addEventListener('keydown', (e) => {
       if (e.keyCode === konami[idx]) {
