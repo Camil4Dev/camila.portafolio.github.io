@@ -11,7 +11,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto Mono', monospace;
-  background: var(--artaud-black);
+  background: linear-gradient(135deg, var(--artaud-black) 0%, #1a1a1a 50%, var(--artaud-black) 100%);
   color: #f5f5f5;
   overflow-x: hidden;
 }
@@ -63,7 +63,7 @@ header h1 {
   font-size: 3rem;
   color: var(--artaud-yellow);
   letter-spacing: 2px;
-  text-shadow: 0 0 15px rgba(214,185,40,0.8);
+  text-shadow: 0 0 15px rgba(214,185,40,0.8), 0 0 30px rgba(214,185,40,0.4), 0 0 45px rgba(214,185,40,0.2);
 }
 
 header p {
@@ -166,8 +166,8 @@ footer {
 .background {
   position: fixed;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   z-index: -11;
 
   background: radial-gradient(circle at center, rgba(46,68,63,0.3), transparent 70%);
@@ -183,8 +183,8 @@ footer {
 .falling-particles {
   position: fixed;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
   overflow: hidden;
   z-index: -5;
@@ -407,4 +407,208 @@ footer {
   border-color: var(--artaud-yellow);
   transform: scale(1.1);
   box-shadow: 0 0 18px rgba(214,185,40,0.4);
+}
+
+
+@media (max-width: 768px) {
+
+  .falling-particles,
+  #parallaxCanvas {
+    display: none;
+  }
+
+  .background {
+    animation: none;
+  }
+
+  header {
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  nav {
+    top: 10px;
+    left: 10px;
+    gap: 8px;
+  }
+
+  .nav-button {
+    padding: 10px 14px;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+  }
+
+  .nav-button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 6px rgba(214, 185, 40, 0.2);
+  }
+
+  .skills-section {
+    max-width: 95%;
+    padding: 1.5rem;
+    margin: 2rem auto;
+  }
+
+  .skills-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+  }
+
+  .skill-card {
+    padding: 14px;
+    font-size: 1rem;
+    box-shadow: 0 0 10px rgba(214,185,40,0.1);
+    transition: transform 0.2s ease;
+  }
+
+  .skill-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(214,185,40,0.2);
+  }
+
+  .skill-card img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .timeline {
+    max-width: 95%;
+    padding: 40px 0;
+  }
+
+  .timeline h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .timeline-list {
+    margin-left: 30px;
+    padding-left: 15px;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(214,185,40,0.08);
+    transition: transform 0.2s ease;
+  }
+
+  .timeline-item:hover {
+    transform: translateX(3px);
+    box-shadow: 0 0 15px rgba(214,185,40,0.15);
+  }
+
+  .timeline-item .dot {
+    left: -20px;
+    top: 20px;
+  }
+
+  .timeline-item .text {
+    gap: 4px;
+  }
+
+  .timeline-item .when {
+    font-size: 1rem;
+  }
+
+  .timeline-item .what {
+    font-size: 0.95rem;
+  }
+
+  .timeline-icon {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 0.9rem;
+  }
+
+  nav {
+    top: 5px;
+    left: 5px;
+    gap: 5px;
+  }
+
+  .nav-button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .skills-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+  }
+
+  .skill-card {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  .skill-card img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .timeline h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .timeline-list {
+    margin-left: 20px;
+    padding-left: 10px;
+  }
+
+  .timeline-item {
+    padding: 15px 20px;
+    margin-bottom: 15px;
+  }
+
+  .timeline-item .dot {
+    left: -15px;
+    top: 15px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .timeline-item .when {
+    font-size: 0.95rem;
+  }
+
+  .timeline-item .what {
+    font-size: 0.9rem;
+  }
+
+  .timeline-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
 }

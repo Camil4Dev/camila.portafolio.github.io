@@ -4,6 +4,7 @@ const ctx = canvas.getContext("2d");
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  initParticles();
 }
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
@@ -61,49 +62,45 @@ const fxCtx = fxCanvas.getContext("2d");
 function resizeFX() {
     fxCanvas.width = window.innerWidth;
     fxCanvas.height = window.innerHeight;
+    initFX();
 }
 resizeFX();
 window.addEventListener("resize", resizeFX);
 
 
-const layers = [
-    { type: "bubble", count: 20,  size: 80,  speed: 0.10, color: "rgba(214,185,40,0.18)" },
-    { type: "bubble", count: 50,  size: 45,  speed: 0.25, color: "rgba(214,185,40,0.25)" },
-    { type: "bubble", count: 120, size: 20,  speed: 0.55, color: "rgba(214,185,40,0.35)" },
-];
-
-const floatingParticlesCount = 70;
-
 let fxObjects = [];
 let mouseX = 0, mouseY = 0;
 
+function initFX() {
+    fxObjects = [];
+    layers.forEach(layer => {
+        for (let i = 0; i < layer.count; i++) {
+            fxObjects.push({
+                layer,
+                type: "bubble",
+                x: Math.random() * fxCanvas.width,
+                y: Math.random() * fxCanvas.height,
+                size: layer.size,
+                speed: layer.speed,
+                color: layer.color
+            });
+        }
+    });
 
-layers.forEach(layer => {
-    for (let i = 0; i < layer.count; i++) {
+    for (let i = 0; i < floatingParticlesCount; i++) {
         fxObjects.push({
-            layer,
-            type: "bubble",
+            type: "particle",
             x: Math.random() * fxCanvas.width,
             y: Math.random() * fxCanvas.height,
-            size: layer.size,
-            speed: layer.speed,
-            color: layer.color
+            size: Math.random() * 2 + 1,
+            speedX: (Math.random() - 0.5) * 0.6,
+            speedY: (Math.random() - 0.5) * 0.6,
+            opacity: Math.random() * 0.6 + 0.2
         });
     }
-});
-
-
-for (let i = 0; i < floatingParticlesCount; i++) {
-    fxObjects.push({
-        type: "particle",
-        x: Math.random() * fxCanvas.width,
-        y: Math.random() * fxCanvas.height,
-        size: Math.random() * 2 + 1,
-        speedX: (Math.random() - 0.5) * 0.6,
-        speedY: (Math.random() - 0.5) * 0.6,
-        opacity: Math.random() * 0.6 + 0.2
-    });
 }
+
+initFX();
 
 
 
