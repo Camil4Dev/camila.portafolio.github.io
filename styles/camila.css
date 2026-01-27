@@ -395,28 +395,45 @@ nav {
 .nav-button {
   display: inline-flex;
   align-items: center;
-  gap: 8px; 
+  gap: 8px;
   padding: 12px 18px;
-  background: var(--artaud-green);
+  background: linear-gradient(135deg, var(--artaud-green), rgba(46,68,63,0.8));
   color: var(--artaud-yellow);
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 600;
-  border: 1px solid var(--artaud-yellow);
-  border-radius: 6px;
-  transition: all 0.2s ease; 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--artaud-yellow);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(214,185,40,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.nav-button:hover::before {
+  left: 100%;
 }
 
 .nav-button:hover {
   background: var(--artaud-yellow);
   color: var(--artaud-black);
-  transform: scale(1.05); 
-  box-shadow: 0 4px 8px rgba(214, 185, 40, 0.4);
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 0 20px rgba(214,185,40,0.8), 0 0 30px rgba(214,185,40,0.4);
 }
 
 .nav-button i {
-  font-size: 1.2rem; 
+  font-size: 1.2rem;
 }
 
 
@@ -436,14 +453,33 @@ nav {
 
 
 .lang-button {
-  cursor: pointer; 
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--artaud-green), rgba(46,68,63,0.8));
+  border: 2px solid var(--artaud-yellow);
+  box-shadow: 0 0 10px rgba(214,185,40,0.3);
+  transition: all 0.3s ease;
+  animation: langButtonGlow 2s ease-in-out infinite alternate;
 }
+
+@keyframes langButtonGlow {
+  0% { box-shadow: 0 0 10px rgba(214,185,40,0.3); }
+  100% { box-shadow: 0 0 15px rgba(214,185,40,0.6); }
+}
+
 .lang-button:hover {
   background: var(--artaud-yellow);
   color: var(--artaud-black);
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(214, 185, 40, 0.4);
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 20px rgba(214,185,40,0.8), 0 0 30px rgba(214,185,40,0.4);
 }
+
+.lang-button:active {
+  transform: scale(0.95) rotate(5deg);
+}
+
 .lang-button:focus {
   outline: 2px solid var(--artaud-yellow);
   outline-offset: 2px;

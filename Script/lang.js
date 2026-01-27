@@ -30,6 +30,18 @@ const translations = {
       project4Desc: "mod de comidas sobre el sniffer.",
       project5Title: "Perspective Lock (Fabric 1.20.4-1.21.1)",
       project5Desc: "Mod de cliente que recibe packets de un plugin para cambiar de perspectivas y bloquear la camara del jugador en cualquier posicion.",
+      project6Title: "UHC VR Plugin (Paper 1.21.1)",
+      project6Desc: "Plugin el cual se uso para conectar todo con el mod de UHC VR",
+      project7Title: "ScreamingRTP (Hytale Mod)",
+      project7Desc: "Mod de teletransportación aleatoria para Hytale que permite a los jugadores teleportarse a ubicaciones aleatorias en el mundo.",
+      project8Title: "Web Portfolio (HTML/CSS/JS)",
+      project8Desc: "Portafolio web interactivo con animaciones parallax y diseño responsivo, mostrando proyectos de desarrollo.",
+      project9Title: "Stealing Heart(minijuego) (Paper 1.20.4)",
+      project9Desc: "Minijuego del evento de LilithLuvsYa.",
+      project10Title: "SCZombies (Fabric 1.21.1)",
+      project10Desc: "Sistema avanzado y personalizado para spawnear hordas de zombies, mod usado para el evento de fin de año de farfadox y RichMC.",
+      project11Title: "ScreamingSupport (Paper 1.21.1)",
+      project11Desc: "Plugin el cual se encargaba de absolutamente todos los tickets ingame del evento de UHCVR de farfadox.",
       backButton: "← Volver al Inicio",
       footer: "© 2025 camila — Minecraft Developer 🎶",
       langButton: "🇺🇸"
@@ -45,6 +57,14 @@ const translations = {
 
       devSkillsTitle: "Desarrollo",
       toolsTitle: "Herramientas & Tecnologías",
+
+      experienceTitle: "Experiencia",
+      experience1Date: "7 Dec 2024",
+      experience1Desc: "ScreamingLAB",
+      experience2Date: "16 Mar 2025 → 16 May 2025",
+      experience2Desc: "Hexa Creators",
+      experience3Date: "26 Sep 2025",
+      experience3Desc: "Developer of Masivo SMP — MasivoSMP Team",
 
       backHome: "← Inicio",
       footer: "© 2025 camila — Minecraft Developer 🎶",
@@ -83,6 +103,18 @@ const translations = {
       project4Desc: "Food-related mod about the sniffer.",
       project5Title: "Perspective Lock (Fabric 1.20.4-1.21.1)",
       project5Desc: "Client mod that receives packets from a plugin to change perspectives and lock the player's camera in any position.",
+      project6Title: "UHC VR Plugin (Paper 1.21.1)",
+      project6Desc: "Plugin used to connect everything with the UHC VR mod",
+      project7Title: "ScreamingRTP (Hytale Mod)",
+      project7Desc: "Random teleportation mod for Hytale that allows players to teleport to random locations in the world.",
+      project8Title: "Web Portfolio (HTML/CSS/JS)",
+      project8Desc: "Interactive web portfolio with parallax animations and responsive design, showcasing development projects.",
+      project9Title: "Stealing Heart(minigame) (Paper 1.20.4)",
+      project9Desc: "Minigame from the LilithLuvsYa event.",
+      project10Title: "SCZombies (Fabric 1.21.1)",
+      project10Desc: "Advanced and customized system for spawning hordes of zombies, mod used for the year-end event of farfadox and RichMC.",
+      project11Title: "ScreamingSupport (Paper 1.21.1)",
+      project11Desc: "Plugin that handled absolutely all in-game tickets for the UHCVR event by farfadox.",
       backButton: "← Back to Home",
       footer: "© 2025 camila — Minecraft Developer 🎶",
       langButton: "🇪🇸"
@@ -98,6 +130,14 @@ const translations = {
 
       devSkillsTitle: "Development",
       toolsTitle: "Tools & Technologies",
+
+      experienceTitle: "Experience",
+      experience1Date: "7 Dec 2024",
+      experience1Desc: "ScreamingLAB",
+      experience2Date: "16 Mar 2025 → 16 May 2025",
+      experience2Desc: "Hexa Creators",
+      experience3Date: "26 Sep 2025",
+      experience3Desc: "Developer of Masivo SMP — MasivoSMP Team",
 
       backHome: "← Home",
       footer: "© 2025 camila — Minecraft Developer 🎶",
@@ -177,6 +217,24 @@ function changeLanguage() {
     projectCards[4].querySelector("h3").textContent = trans.project5Title;
     projectCards[4].querySelector("p").textContent = trans.project5Desc;
 
+    projectCards[5].querySelector("h3").textContent = trans.project6Title;
+    projectCards[5].querySelector("p").textContent = trans.project6Desc;
+
+    projectCards[6].querySelector("h3").textContent = trans.project7Title;
+    projectCards[6].querySelector("p").textContent = trans.project7Desc;
+
+    projectCards[7].querySelector("h3").textContent = trans.project8Title;
+    projectCards[7].querySelector("p").textContent = trans.project8Desc;
+
+    projectCards[8].querySelector("h3").textContent = trans.project9Title;
+    projectCards[8].querySelector("p").textContent = trans.project9Desc;
+
+    projectCards[9].querySelector("h3").textContent = trans.project10Title;
+    projectCards[9].querySelector("p").textContent = trans.project10Desc;
+
+    projectCards[10].querySelector("h3").textContent = trans.project11Title;
+    projectCards[10].querySelector("p").textContent = trans.project11Desc;
+
     document.querySelector('.nav-button[href="index.html"]').innerHTML =
       trans.backButton;
   }
@@ -184,15 +242,30 @@ function changeLanguage() {
 
 
   if (pageKey === "skills") {
-  // Títulos principales
+
   document.querySelector('[data-lang="skills-title"]').textContent = trans.skillsTitle;
   document.querySelector('[data-lang="skills-subtitle"]').textContent = trans.skillsSubtitle;
 
-  // Subtítulos de secciones
+
   document.querySelector('[data-lang="dev-skills-title"]').textContent = trans.devSkillsTitle;
   document.querySelector('[data-lang="tools-title"]').textContent = trans.toolsTitle;
 
-  // Botón volver
+
+  document.querySelector('[data-lang="experience-title"]').textContent = trans.experienceTitle;
+
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  if (timelineItems.length >= 3) {
+    timelineItems[0].querySelector('.when').textContent = trans.experience1Date;
+    timelineItems[0].querySelector('.what').textContent = trans.experience1Desc;
+
+    timelineItems[1].querySelector('.when').textContent = trans.experience2Date;
+    timelineItems[1].querySelector('.what').textContent = trans.experience2Desc;
+
+    timelineItems[2].querySelector('.when').textContent = trans.experience3Date;
+    timelineItems[2].querySelector('.what').textContent = trans.experience3Desc;
+  }
+
+
   const backBtn = document.querySelector('.nav-button[href="index.html"]');
   if (backBtn) backBtn.innerHTML = trans.backHome;
 }
