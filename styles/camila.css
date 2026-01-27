@@ -58,12 +58,31 @@ header p {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background: var(--artaud-green);
+  background: linear-gradient(135deg, var(--artaud-green), rgba(46,68,63,0.8));
   color: var(--artaud-yellow);
   text-decoration: none;
   font-size: 1.8rem;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   border: 2px solid var(--artaud-yellow);
+  box-shadow: 0 0 10px rgba(214,185,40,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.socials a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+  border-radius: 50%;
+}
+
+.socials a:hover::before {
+  left: 100%;
 }
 
 
