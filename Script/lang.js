@@ -4,7 +4,7 @@ const translations = {
     index: {
       title: "camila.dev",
       h1: "camila",
-      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB",
+      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
       aboutTitle: "Sobre mí",
       aboutText: "Soy desarrolladora especializada en la creación de <strong>plugins para Paper</strong>, <strong>mods Fabric</strong> y sistemas avanzados para servidores. Trabajo con Mixin, GeckoLib, entidades personalizadas, packets, mundos dinámicos y mecánicas complejas para minijuegos. <br><br> Actualmente desarrollo en <strong>ScreamingLAB</strong> y colaboro en proyectos privados.",
       contactTitle: "Contacto",
@@ -18,7 +18,7 @@ const translations = {
     projects: {
       title: "Proyectos - camila.dev",
       h1: "camila",
-      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB",
+      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
       projectsTitle: "Proyectos destacados",
       project1Title: "Perfectamente equilibrado (Paper 1.21.1)",
       project1Desc: "Minijuego donde tenes que equilibrar el libro en tu cabeza para conseguir puntos, minijuego creado para el Geo ware Oddysey.",
@@ -50,7 +50,7 @@ const translations = {
     skills: {
       title: "Habilidades - camila.dev",
       h1: "camila",
-      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB",
+      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
 
       skillsTitle: "Habilidades",
       skillsSubtitle: "Tecnologías que utilizo diariamente",
@@ -73,7 +73,7 @@ const translations = {
 
     profile: {
       title: "Perfil - camila.dev",
-      profileStatus: "Developer • Minecraft Plugins & Mods • ScreamingLAB",
+      profileStatus: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
       onlineStatus: "Online",
       aboutTitle: "Sobre mí",
       aboutText: "👋 ¡Hola! Soy Camila, una apasionada desarrolladora de 18 años especializada en software para Minecraft y Hytale. 💻<br><br>Me encanta crear mods, plugins y experiencias únicas para jugadores. <br><br>Actualmente trabajo como head dev en <strong>ScreamingLAB</strong> y como dev en <strong>MasivoSMP Team</strong>. ",
@@ -100,7 +100,7 @@ const translations = {
     index: {
       title: "camila.dev",
       h1: "camila",
-      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB",
+      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
       aboutTitle: "About Me",
       aboutText: "I am a developer specialized in creating <strong>Paper plugins</strong>, <strong>Fabric mods</strong>, and advanced server systems. I work with Mixin, GeckoLib, custom entities, packets, dynamic worlds, and complex minigame mechanics. <br><br> Currently developing at <strong>ScreamingLAB</strong> and collaborating on private projects.",
       contactTitle: "Contact",
@@ -114,7 +114,7 @@ const translations = {
     projects: {
       title: "Projects - camila.dev",
       h1: "camila",
-      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB",
+      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
       projectsTitle: "Featured Projects",
       project1Title: "Perfectly Balanced (Paper 1.21.1)",
       project1Desc: "Minigame where you have to balance the book on your head to score points, minigame created for Geo Ware Odyssey.",
@@ -146,7 +146,7 @@ const translations = {
     skills: {
       title: "Skills - camila.dev",
       h1: "camila",
-      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB",
+      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
 
       skillsTitle: "Skills",
       skillsSubtitle: "Technologies I use daily",
@@ -169,7 +169,7 @@ const translations = {
 
     profile: {
       title: "Profile - camila.dev",
-      profileStatus: "Developer • Minecraft Plugins & Mods • ScreamingLAB",
+      profileStatus: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
       onlineStatus: "Online",
       aboutTitle: "About me",
       aboutText: "👋 Hi! I'm Camila, a passionate 18-year-old developer specialized in software for Minecraft and Hytale. 💻<br><br>I love creating mods, plugins and unique experiences for players. <br><br>I'm currently working as head dev at <strong>ScreamingLAB</strong> and as dev at <strong>MasivoSMP Team</strong>. ",
