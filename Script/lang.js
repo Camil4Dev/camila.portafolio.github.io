@@ -69,6 +69,29 @@ const translations = {
       backHome: "← Inicio",
       footer: "© 2025 camila — Minecraft Developer 🎶",
       langButton: "🇺🇸"
+    },
+
+    profile: {
+      title: "Perfil - camila.dev",
+      profileStatus: "Developer • Minecraft Plugins & Mods • ScreamingLAB",
+      onlineStatus: "Online",
+      aboutTitle: "Sobre mí",
+      aboutText: "👋 ¡Hola! Soy Camila, una apasionada desarrolladora de 18 años especializada en software para Minecraft y Hytale. 💻<br><br>Me encanta crear mods, plugins y experiencias únicas para jugadores. 🎮<br><br>Actualmente trabajo como head dev en <strong>ScreamingLAB</strong> y como dev en <strong>MasivoSMP Team</strong>. 🚀",
+      rolesTitle: "Roles",
+      roleDeveloper: "Developer",
+      roleEnthusiast: "Minecraft Enthusiast",
+      roleBuilder: "Community Builder",
+      activityTitle: "Actividad Reciente",
+      activityText: "Trabajando en cosas increibles",
+      footer: "© 2025 camila — Minecraft Developer 🎶",
+      homeButton: "Inicio",
+      homeText: "Inicio",
+      projectsButton: "Proyectos",
+      projectsText: "Proyectos",
+      skillsButton: "Habilidades",
+      skillsText: "Habilidades",
+      pronounsLabel: "Pronombres:",
+      langButton: "🇺🇸"
     }
   },
 
@@ -142,6 +165,29 @@ const translations = {
       backHome: "← Home",
       footer: "© 2025 camila — Minecraft Developer 🎶",
       langButton: "🇪🇸"
+    },
+
+    profile: {
+      title: "Profile - camila.dev",
+      profileStatus: "Developer • Minecraft Plugins & Mods • ScreamingLAB",
+      onlineStatus: "Online",
+      aboutTitle: "About me",
+      aboutText: "👋 Hi! I'm Camila, a passionate 18-year-old developer specialized in software for Minecraft and Hytale. 💻<br><br>I love creating mods, plugins and unique experiences for players. 🎮<br><br>I'm currently working as head dev at <strong>ScreamingLAB</strong> and as dev at <strong>MasivoSMP Team</strong>. 🚀",
+      rolesTitle: "Roles",
+      roleDeveloper: "Developer",
+      roleEnthusiast: "Minecraft Enthusiast",
+      roleBuilder: "Community Builder",
+      activityTitle: "Recent Activity",
+      activityText: "Working on amazing things",
+      footer: "© 2025 camila — Minecraft Developer 🎶",
+      homeButton: "Home",
+      homeText: "Home",
+      projectsButton: "Projects",
+      projectsText: "Projects",
+      skillsButton: "Skills",
+      skillsText: "Skills",
+      pronounsLabel: "Pronouns:",
+      langButton: "🇪🇸"
     }
   }
 };
@@ -167,17 +213,24 @@ function changeLanguage() {
   let pageKey = "index";
   if (path.includes("projects")) pageKey = "projects";
   if (path.includes("skills")) pageKey = "skills";
+  if (path.includes("profile")) pageKey = "profile";
 
   const trans = translations[currentLang][pageKey];
 
 
   document.title = trans.title;
 
-  document.querySelector("h1").textContent = trans.h1;
-  document.querySelector("header p").textContent = trans.subtitle;
-  document.querySelector("footer p").textContent = trans.footer;
+  const h1 = document.querySelector("h1");
+  if (h1) h1.textContent = trans.h1;
 
-  document.getElementById("lang-toggle").innerHTML = trans.langButton;
+  const headerP = document.querySelector("header p");
+  if (headerP) headerP.textContent = trans.subtitle;
+
+  const footerP = document.querySelector("footer p");
+  if (footerP) footerP.textContent = trans.footer;
+
+  const langToggle = document.getElementById("lang-toggle");
+  if (langToggle) langToggle.innerHTML = trans.langButton;
 
 
 
@@ -268,7 +321,54 @@ function changeLanguage() {
 
   const backBtn = document.querySelector('.nav-button[href="index.html"]');
   if (backBtn) backBtn.innerHTML = trans.backHome;
-}
+  }
+
+  if (pageKey === "profile") {
+    const profileStatus = document.querySelector('[data-lang="profile-status"]');
+    if (profileStatus) profileStatus.textContent = trans.profileStatus;
+
+    const onlineStatus = document.querySelector('[data-lang="online-status"]');
+    if (onlineStatus) onlineStatus.textContent = trans.onlineStatus;
+
+    const aboutTitle = document.querySelector('[data-lang="about-title"]');
+    if (aboutTitle) aboutTitle.textContent = trans.aboutTitle;
+
+    const aboutText = document.querySelector('[data-lang="about-text"]');
+    if (aboutText) aboutText.innerHTML = trans.aboutText;
+
+    const rolesTitle = document.querySelector('[data-lang="roles-title"]');
+    if (rolesTitle) rolesTitle.textContent = trans.rolesTitle;
+
+    const roleDeveloper = document.querySelector('[data-lang="role-developer"]');
+    if (roleDeveloper) roleDeveloper.textContent = trans.roleDeveloper;
+
+    const roleEnthusiast = document.querySelector('[data-lang="role-enthusiast"]');
+    if (roleEnthusiast) roleEnthusiast.textContent = trans.roleEnthusiast;
+
+    const roleBuilder = document.querySelector('[data-lang="role-builder"]');
+    if (roleBuilder) roleBuilder.textContent = trans.roleBuilder;
+
+    const activityTitle = document.querySelector('[data-lang="activity-title"]');
+    if (activityTitle) activityTitle.textContent = trans.activityTitle;
+
+    const activityText = document.querySelector('[data-lang="activity-text"]');
+    if (activityText) activityText.textContent = trans.activityText;
+
+    const footer = document.querySelector('[data-lang="footer"]');
+    if (footer) footer.textContent = trans.footer;
+
+    const homeText = document.querySelector('[data-lang="home-text"]');
+    if (homeText) homeText.textContent = trans.homeText;
+
+    const projectsText = document.querySelector('[data-lang="projects-text"]');
+    if (projectsText) projectsText.textContent = trans.projectsText;
+
+    const skillsText = document.querySelector('[data-lang="skills-text"]');
+    if (skillsText) skillsText.textContent = trans.skillsText;
+
+    const pronounsLabel = document.querySelector('[data-lang="pronouns-label"]');
+    if (pronounsLabel) pronounsLabel.textContent = trans.pronounsLabel;
+  }
 }
 
 

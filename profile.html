@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang="profile-title">Perfil - camila.dev</title>
+  <link rel="stylesheet" href="styles/camila.css">
+  <link rel="stylesheet" href="styles/profile.css">
+  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="profile-page">
+
+  <canvas id="parallaxCanvas"></canvas>
+
+  <div class="background"></div>
+  <canvas id="particles"></canvas>
+
+  <div class="profile-container">
+    <div class="profile-card">
+      <div class="profile-nav">
+        <a href="index.html" class="nav-button" title="Inicio" data-lang="home-button">
+          <i class="fas fa-home"></i> <span data-lang="home-text">Inicio</span>
+        </a>
+        <a href="projects.html" class="nav-button" title="Ver Proyectos" data-lang="projects-button">
+          <i class="fas fa-folder-open"></i> <span data-lang="projects-text">Proyectos</span>
+        </a>
+        <a href="skills.html" class="nav-button" title="Ver Habilidades" data-lang="skills-button">
+          <i class="fas fa-code"></i> <span data-lang="skills-text">Habilidades</span>
+        </a>
+        <button class="nav-button lang-button" id="lang-toggle" data-lang="langButton">🇺🇸</button>
+      </div>
+      <div class="profile-banner">
+        <div class="banner-pattern"></div>
+      </div>
+      <div class="profile-content">
+        <div class="profile-avatar-section">
+          <img src="media/camilaProfile.png" alt="Foto de perfil" class="profile-avatar">
+          <div class="badges">
+            <img src="images/icons/masivo_iso.png" alt="Badge Masivo" class="badge">
+            <img src="media/proyectos/icon.png" alt="Badge Icon" class="badge">
+          </div>
+        </div>
+        <div class="profile-info">
+          <h1 class="profile-username">camila</h1>
+          <p class="profile-status" data-lang="profile-status">Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team</p>
+          <div class="profile-activity">
+            <i class="fas fa-circle" style="color: #23a559;"></i> <span data-lang="online-status">Online</span>
+          </div>          
+          <div class="pronouns">
+            🏳️‍⚧️ <span data-lang="pronouns-label">Pronombres:</span> <strong>she/her</strong>
+          </div>        
+        </div>
+      </div>
+      <div class="profile-bio">
+        <h3><i class="fas fa-user"></i> <span data-lang="about-title">Sobre mí</span></h3>
+        <p data-lang="about-text">
+          👋 ¡Hola! Soy Camila, una apasionada desarrolladora de 18 años especializada en software para Minecraft y Hytale. 💻<br><br>
+          Me encanta crear mods, plugins y experiencias únicas para jugadores. 🎮<br><br>
+          Actualmente trabajo como head dev en <strong>ScreamingLAB</strong> y como dev en <strong>MasivoSMP Team</strong>. 🚀
+        </p>
+        <div class="profile-roles">
+          <h4><i class="fas fa-crown"></i> <span data-lang="roles-title">Roles</span></h4>
+          <div class="roles-list">
+            <span class="role" data-lang="role-developer">Developer</span>
+            <span class="role" data-lang="role-enthusiast">Minecraft Enthusiast</span>
+            <span class="role" data-lang="role-developer">Hytale Dev</span>
+          </div>
+        </div>
+        <div class="profile-activity">
+          <h4><i class="fas fa-gamepad"></i> <span data-lang="activity-title">Actividad Reciente</span></h4>
+          <p data-lang="activity-text">Trabajando en cosas increibles</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p data-lang="footer">© 2025 camila — Minecraft Developer 🎶</p>
+  </footer>
+
+  <script src="Script/Parallax.js"></script>
+  <script src="Script/lang.js"></script>
+  <script src="Script/ui.js"></script>
+  <script src="Script/index.js"></script>
+</body>
+</html>
