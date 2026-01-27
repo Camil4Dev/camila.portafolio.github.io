@@ -203,10 +203,6 @@ if (storedLang) {
   localStorage.setItem('lang', currentLang);
 }
 
-
-
-
-
 function changeLanguage() {
   const path = window.location.pathname;
 
