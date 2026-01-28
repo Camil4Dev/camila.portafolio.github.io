@@ -65,6 +65,16 @@ const translations = {
       experience2Desc: "Hexa Creators",
       experience3Date: "26 Sep 2025",
       experience3Desc: "Developer of Masivo SMP — MasivoSMP Team",
+      
+      collabsTitle: "Gente con la que trabajé",
+
+      collabFarfadox: "Desarrollo de plugins y sistemas personalizados para eventos competitivos y servidores de gran escala, incluyendo proyectos colaborativos junto a <strong>Rich</strong>.",
+
+      collabLilith: "Desarrollo y soporte técnico para el evento, implementando mecánicas personalizadas para <strong>Stealing Heart</strong>.",
+
+      collabAnsi: "Desarrollo de sistemas y mecánicas personalizadas para el evento de UHC Minitas 2, enfocados en Quality of Life para los jugadores.",
+
+      collabAldo: "Desarrollo de minijuegos para el Geo Ware Oddysey 3.",
 
       backHome: "← Inicio",
       footer: "© 2025 camila — Minecraft Developer 🎶",
@@ -162,6 +172,16 @@ const translations = {
       experience3Date: "26 Sep 2025",
       experience3Desc: "Developer of Masivo SMP — MasivoSMP Team",
 
+      collabsTitle: "People I worked with",
+
+      collabFarfadox: "Development of custom plugins and systems for competitive events and large-scale servers, including collaborative projects alongside <strong>Rich</strong>.",
+
+      collabLilith: "Development and technical support for the event, implementing custom mechanics for <strong>Stealing Heart</strong>.",
+
+      collabAnsi: "Development of custom systems and mechanics for the UHC Minitas 2 event, focused on player Quality of Life.",
+
+      collabAldo: "Minigame development for Geo Ware Oddysey 3.",
+
       backHome: "← Home",
       footer: "© 2025 camila — Minecraft Developer 🎶",
       langButton: "🇪🇸"
@@ -227,6 +247,21 @@ function changeLanguage() {
 
   const langToggle = document.getElementById("lang-toggle");
   if (langToggle) langToggle.innerHTML = trans.langButton;
+
+  const collabsTitle = document.querySelector('[data-lang="collabs-title"]');
+  if (collabsTitle) collabsTitle.textContent = trans.collabsTitle;
+
+  const collabFarfadox = document.querySelector('[data-lang="collab-farfadox"]');
+  if (collabFarfadox) collabFarfadox.innerHTML = trans.collabFarfadox;
+
+  const collabLilith = document.querySelector('[data-lang="collab-lilith"]');
+  if (collabLilith) collabLilith.innerHTML = trans.collabLilith;
+
+  const collabAnsi = document.querySelector('[data-lang="collab-ansi"]');
+  if (collabAnsi) collabAnsi.innerHTML = trans.collabAnsi;
+
+  const collabAldo = document.querySelector('[data-lang="collab-aldo"]');
+  if (collabAldo) collabAldo.innerHTML = trans.collabAldo;
 
 
 

@@ -100,4 +100,52 @@
   
     console.info('ui.js loaded — reveal elements:', revealEls.length);
   });
+const track = document.getElementById("collabsTrack");
+
+
+function cloneCards() {
+  const cards = Array.from(track.children);
+  cards.forEach(card => {
+    track.appendChild(card.cloneNode(true));
+  });
+}
+
+cloneCards();
+
+
+function infiniteLoop() {
+  if (track.scrollLeft >= track.scrollWidth / 2) {
+    track.scrollLeft = 0;
+  }
+}
+
+
+function startAutoScroll() {
+  setInterval(() => {
+    track.scrollLeft += 0.6;
+    infiniteLoop();
+  }, 16); 
+}
+
+startAutoScroll();
+
+
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target
+          .querySelectorAll(".collab-card")
+          .forEach((card, i) => {
+            setTimeout(() => {
+              card.classList.add("visible");
+            }, i * 120);
+          });
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
+
+observer.observe(document.querySelector(".collabs-section"));
 })();

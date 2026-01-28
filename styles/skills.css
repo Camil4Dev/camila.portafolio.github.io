@@ -701,3 +701,145 @@ footer {
     min-width: 40px;
   }
 }
+.collabs-section {
+  max-width: 1100px;
+  margin: 5rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.collabs-section h2 {
+  font-size: 2.2rem;
+  color: var(--artaud-yellow);
+  margin-bottom: 2.5rem;
+  text-shadow: 0 0 10px rgba(214,185,40,0.6);
+}
+
+.collabs-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.collabs-track {
+  display: flex;
+  gap: 24px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.collab-card {
+  min-width: 280px;
+  max-width: 280px;
+  padding: 22px;
+  background: rgba(46,68,63,0.25);
+  border: 1px solid rgba(214,185,40,0.35);
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 18px rgba(214,185,40,0.15),
+              inset 0 0 20px rgba(46,68,63,0.3);
+  transition: 0.35s ease;
+}
+
+.collab-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  border-color: var(--artaud-yellow);
+  box-shadow: 0 0 30px rgba(214,185,40,0.35);
+}
+
+.collab-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.collab-card h3 {
+  color: var(--artaud-yellow);
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.collab-card p {
+  font-size: 0.95rem;
+  color: #e0e0e0;
+  line-height: 1.45;
+}
+
+.slider-btn {
+  background: rgba(46,68,63,0.8);
+  border: 2px solid var(--artaud-yellow);
+  color: var(--artaud-yellow);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 0 12px rgba(214,185,40,0.4);
+}
+
+.slider-btn:hover {
+  background: var(--artaud-yellow);
+  color: var(--artaud-black);
+  transform: scale(1.1);
+}
+
+.slider-btn.left {
+  margin-right: 12px;
+}
+
+.slider-btn.right {
+  margin-left: 12px;
+}
+.collabs-track {
+  cursor: grab;
+}
+
+.collabs-track.dragging {
+  cursor: grabbing;
+}
+
+.collab-card {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: 0.6s ease;
+}
+
+.collab-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.collab-card h3 a {
+  color: var(--artaud-yellow);
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.collab-card h3 a:hover {
+  text-shadow: 0 0 10px rgba(214,185,40,0.8);
+}
+
+.collab-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 14px;
+}
+
+.collab-badges span {
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  border-radius: 999px;
+  background: rgba(214,185,40,0.15);
+  border: 1px solid rgba(214,185,40,0.4);
+  color: var(--artaud-yellow);
+  letter-spacing: 0.4px;
+  text-shadow: 0 0 4px rgba(214,185,40,0.5);
+  transition: 0.25s ease;
+}
+
+.collab-badges span:hover {
+  background: rgba(214,185,40,0.3);
+  box-shadow: 0 0 10px rgba(214,185,40,0.6);
+}

@@ -303,92 +303,112 @@ footer {
 
 .badges {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.6rem;
   margin-top: 1rem;
   flex-wrap: wrap;
 }
 
 .badge {
-  display: inline-block;
-  padding: 0.25rem 0.75rem; 
-  font-size: 0.875rem; 
+  padding: 0.35rem 0.85rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  border-radius: 9999px; 
-  border: 2px solid;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-}
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
 
-.badge::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  transition: left 0.5s;
-}
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(6px);
 
-.badge:hover::before {
-  left: 100%;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #eee;
+
+  transition: all 0.25s ease;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.05),
+    0 4px 12px rgba(0,0,0,0.25);
 }
 
 .badge:hover {
-  transform: scale(1.1) translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 0 12px currentColor;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.1),
+    0 6px 18px rgba(0,0,0,0.35),
+    0 0 14px currentColor;
 }
 
 
 .badge-java {
-  background: linear-gradient(135deg, rgba(0, 255, 255, 0.3), rgba(0, 255, 255, 0.1)); 
-  color: #00ffff;
-  border-color: #00ffff;
+  color: #ffb3a7;
+  background: rgba(255, 87, 51, 0.18);
+  border-color: rgba(255, 87, 51, 0.35);
 }
 
 .badge-paper {
-  background: linear-gradient(135deg, rgba(46, 68, 63, 0.3), rgba(46, 68, 63, 0.1)); 
-  color: var(--artaud-green);
-  border-color: var(--artaud-green);
+  color: #fff1a8;
+  background: rgba(255, 214, 0, 0.18);
+  border-color: rgba(255, 214, 0, 0.35);
 }
 
 .badge-fabric {
-  background: linear-gradient(135deg, rgba(214, 185, 40, 0.3), rgba(214, 185, 40, 0.1)); 
-  color: var(--artaud-yellow);
-  border-color: var(--artaud-yellow);
+  color: #b9f6ca;
+  background: rgba(0, 230, 118, 0.18);
+  border-color: rgba(0, 230, 118, 0.35);
 }
 
 .badge-html {
-  background: linear-gradient(135deg, rgba(255, 165, 0, 0.3), rgba(255, 165, 0, 0.1)); 
-  color: #ffa500;
-  border-color: #ffa500;
+  color: #ffcc80;
+  background: rgba(255, 152, 0, 0.18);
+  border-color: rgba(255, 152, 0, 0.35);
 }
 
 .badge-css {
-  background: linear-gradient(135deg, rgba(0, 123, 255, 0.3), rgba(0, 123, 255, 0.1)); 
-  color: #007bff;
-  border-color: #007bff;
+  color: #90caf9;
+  background: rgba(33, 150, 243, 0.18);
+  border-color: rgba(33, 150, 243, 0.35);
 }
 
 .badge-js {
-  background: linear-gradient(135deg, rgba(255, 193, 7, 0.3), rgba(255, 193, 7, 0.1)); 
-  color: #ffc107;
-  border-color: #ffc107;
+  color: #fff59d;
+  background: rgba(255, 235, 59, 0.18);
+  border-color: rgba(255, 235, 59, 0.35);
 }
 
 .badge-hytale {
-  background: linear-gradient(135deg, rgba(255, 0, 255, 0.3), rgba(255, 0, 255, 0.1)); 
-  color: #ff00ff;
-  border-color: #ff00ff;
+  color: #f3a6ff;
+  background: rgba(186, 104, 200, 0.18);
+  border-color: rgba(186, 104, 200, 0.35);
 }
 
 .badge-node {
-  background: linear-gradient(135deg, rgba(104, 160, 99, 0.3), rgba(104, 160, 99, 0.1)); 
-  color: #68a063;
-  border-color: #68a063;
+  color: #b9f6ca;
+  background: rgba(76, 175, 80, 0.18);
+  border-color: rgba(76, 175, 80, 0.35);
+}
+
+.badge-folia {
+  color: #9affc2;
+  background: rgba(29, 185, 84, 0.18);
+  border-color: rgba(29, 185, 84, 0.35);
+}
+
+.badge::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.15),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.badge:hover::after {
+  opacity: 1;
 }
 
 .lang-button {
