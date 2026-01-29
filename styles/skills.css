@@ -701,98 +701,39 @@ footer {
     min-width: 40px;
   }
 }
+
 .collabs-section {
-  max-width: 1100px;
-  margin: 5rem auto;
-  padding: 2rem;
+  max-width: 1150px;
+  margin: 6rem auto;
+  padding: 2rem 1.5rem;
   text-align: center;
+  position: relative;
 }
 
 .collabs-section h2 {
-  font-size: 2.2rem;
+  font-size: 2.3rem;
   color: var(--artaud-yellow);
-  margin-bottom: 2.5rem;
-  text-shadow: 0 0 10px rgba(214,185,40,0.6);
+  margin-bottom: 3rem;
+  letter-spacing: 1px;
+  text-shadow:
+    0 0 10px rgba(214,185,40,0.5),
+    0 0 25px rgba(214,185,40,0.25);
 }
 
 .collabs-slider {
   position: relative;
   display: flex;
   align-items: center;
+  overflow: hidden;
+  padding-bottom: 1rem;
 }
 
 .collabs-track {
   display: flex;
-  gap: 24px;
+  gap: 28px;
   overflow: hidden;
   scroll-behavior: smooth;
-}
-
-.collab-card {
-  min-width: 280px;
-  max-width: 280px;
-  padding: 22px;
-  background: rgba(46,68,63,0.25);
-  border: 1px solid rgba(214,185,40,0.35);
-  border-radius: 16px;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 0 18px rgba(214,185,40,0.15),
-              inset 0 0 20px rgba(46,68,63,0.3);
-  transition: 0.35s ease;
-}
-
-.collab-card:hover {
-  transform: translateY(-8px) scale(1.05);
-  border-color: var(--artaud-yellow);
-  box-shadow: 0 0 30px rgba(214,185,40,0.35);
-}
-
-.collab-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 15px;
-}
-
-.collab-card h3 {
-  color: var(--artaud-yellow);
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-}
-
-.collab-card p {
-  font-size: 0.95rem;
-  color: #e0e0e0;
-  line-height: 1.45;
-}
-
-.slider-btn {
-  background: rgba(46,68,63,0.8);
-  border: 2px solid var(--artaud-yellow);
-  color: var(--artaud-yellow);
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 0 0 12px rgba(214,185,40,0.4);
-}
-
-.slider-btn:hover {
-  background: var(--artaud-yellow);
-  color: var(--artaud-black);
-  transform: scale(1.1);
-}
-
-.slider-btn.left {
-  margin-right: 12px;
-}
-
-.slider-btn.right {
-  margin-left: 12px;
-}
-.collabs-track {
+  padding: 10px 4px;
   cursor: grab;
 }
 
@@ -801,14 +742,99 @@ footer {
 }
 
 .collab-card {
+  min-width: 290px;
+  max-width: 290px;
+  padding: 22px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.08),
+      rgba(46,68,63,0.25)
+    );
+
+  border-radius: 18px;
+  border: 1px solid rgba(214,185,40,0.25);
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,0.35),
+    inset 0 0 0 1px rgba(255,255,255,0.05);
+
+  transition: transform 0.45s ease, box-shadow 0.45s ease, border 0.45s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.collab-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    rgba(214,185,40,0.18),
+    transparent 65%
+  );
   opacity: 0;
-  transform: translateY(30px) scale(0.95);
-  transition: 0.6s ease;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.collab-card:hover::before {
+  opacity: 1;
+}
+
+.collab-card:hover {
+  transform: translateY(-10px) scale(1.06);
+  border-color: var(--artaud-yellow);
+  box-shadow:
+    0 25px 50px rgba(0,0,0,0.45),
+    0 0 30px rgba(214,185,40,0.35);
+}
+
+.collab-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.4);
+}
+
+.collab-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.collab-card h3 a {
+  color: var(--artaud-yellow);
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.collab-card h3 a:hover {
+  text-shadow:
+    0 0 10px rgba(214,185,40,0.8),
+    0 0 20px rgba(214,185,40,0.4);
+}
+
+.collab-card p {
+  font-size: 0.95rem;
+  color: #ddd;
+  line-height: 1.55;
+  opacity: 0.95;
+}
+
+.collab-card {
+  opacity: 0;
+  transform: translateY(40px) scale(0.94);
 }
 
 .collab-card.visible {
   opacity: 1;
   transform: translateY(0) scale(1);
+  transition: 0.7s cubic-bezier(.21,.61,.35,1);
 }
 .collab-card h3 a {
   color: var(--artaud-yellow);
@@ -824,22 +850,156 @@ footer {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 10px 0 14px;
+  margin: 12px 0 14px;
 }
 
 .collab-badges span {
-  padding: 4px 10px;
-  font-size: 0.75rem;
+  position: relative;
+  padding: 4px 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
   border-radius: 999px;
-  background: rgba(214,185,40,0.15);
-  border: 1px solid rgba(214,185,40,0.4);
-  color: var(--artaud-yellow);
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(6px);
+
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #eee;
+
   letter-spacing: 0.4px;
-  text-shadow: 0 0 4px rgba(214,185,40,0.5);
-  transition: 0.25s ease;
+  white-space: nowrap;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.04),
+    0 4px 10px rgba(0,0,0,0.25);
+
+  transition: all 0.25s ease;
 }
 
 .collab-badges span:hover {
-  background: rgba(214,185,40,0.3);
-  box-shadow: 0 0 10px rgba(214,185,40,0.6);
+  transform: translateY(-2px) scale(1.06);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.08),
+    0 6px 18px rgba(0,0,0,0.35),
+    0 0 14px currentColor;
+}
+
+.collab-badges span::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.15),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.collab-badges span:hover::after {
+  opacity: 1;
+}
+
+.collab-badges span:nth-child(1) {
+  color: #ffb4a2;
+  background: rgba(255, 87, 51, 0.18);
+  border-color: rgba(255, 87, 51, 0.35);
+}
+
+.collab-badges span:nth-child(2) {
+  color: #ffd6a5;
+  background: rgba(255, 167, 38, 0.18);
+  border-color: rgba(255, 167, 38, 0.35);
+}
+
+.collab-badges span:nth-child(3) {
+  color: #b9fbc0;
+  background: rgba(0, 230, 118, 0.18);
+  border-color: rgba(0, 230, 118, 0.35);
+}
+
+.collab-badges span:nth-child(4) {
+  color: #a0c4ff;
+  background: rgba(33, 150, 243, 0.18);
+  border-color: rgba(33, 150, 243, 0.35);
+}
+
+.collab-badges span:nth-child(5) {
+  color: #ffc6ff;
+  background: rgba(186, 104, 200, 0.18);
+  border-color: rgba(186, 104, 200, 0.35);
+}
+
+.skill-card {
+  position: relative;
+}
+
+.skill-card::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  
+  background: linear-gradient(
+    135deg,
+    rgba(46,68,63,0.95),
+    rgba(20,30,28,0.95)
+  );
+
+  color: #f5f5f5;
+  padding: 10px 14px;
+  border-radius: 10px;
+
+  font-size: 0.85rem;
+  line-height: 1.4;
+  text-align: center;
+  width: max-content;
+  max-width: 220px;
+
+  opacity: 0;
+  pointer-events: none;
+
+  border: 1px solid rgba(214,185,40,0.45);
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.4),
+    0 0 20px rgba(214,185,40,0.15);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+
+  z-index: 50;
+}
+
+.skill-card::before {
+  content: "";
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+
+  border-width: 6px;
+  border-style: solid;
+  border-color:
+    rgba(46,68,63,0.95)
+    transparent
+    transparent
+    transparent;
+
+  opacity: 0;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+
+  z-index: 49;
+}
+
+.skill-card:hover::after,
+.skill-card:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
