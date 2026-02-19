@@ -4,7 +4,7 @@ const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 const ADMIN_UID = "9f531012-2216-4902-8feb-98759d266c44";
 
-const MAX_LENGTH = 100;
+const MAX_LENGTH = 500;
 const COMMENT_COOLDOWN = 10000;
 
 let lastCommentTime = 0;
@@ -99,7 +99,7 @@ async function addComment() {
   }
 
   if (message.length > MAX_LENGTH) {
-    alert("Máximo 100 caracteres");
+    alert("Máximo 500 caracteres");
     return;
   }
 
@@ -115,10 +115,10 @@ async function addComment() {
   );
 
   if (error) {
-    console.error(error);
-    alert("comentario no permitido");
-    return;
-  }
+  console.error("ERROR COMPLETO:", error);
+  alert("Error real: " + error.message);
+  return;
+}
 
   if (data?.error) {
     alert(data.error);
