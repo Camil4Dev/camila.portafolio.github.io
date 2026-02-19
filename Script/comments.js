@@ -2,8 +2,6 @@ const supabaseUrl = "https://fldqudjajhuxgvmrjduq.supabase.co";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZsZHF1ZGphamh1eGd2bXJqZHVxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1MTg3OTcsImV4cCI6MjA4NzA5NDc5N30.u9BKB3av9UD4hGSwh17Ty7MQ1ctKU7hRbao6pxn59R4";
 const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-const ADMIN_UID = "9f531012-2216-4902-8feb-98759d266c44";
-
 const MAX_LENGTH = 500;
 const COMMENT_COOLDOWN = 10000;
 
@@ -11,7 +9,6 @@ let lastCommentTime = 0;
 
 
 async function loadComments() {
-  const { data: { user } } = await supabaseClient.auth.getUser();
 
   const { data, error } = await supabaseClient
     .from("comments")
@@ -57,31 +54,31 @@ async function loadComments() {
     div.appendChild(p);
 
 
-    if (user && user.id === ADMIN_UID) {
-      const deleteBtn = document.createElement("button");
-      deleteBtn.textContent = "Borrar";
-      deleteBtn.classList.add("delete-btn");
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Borrar";
+    deleteBtn.classList.add("delete-btn");
 
-      deleteBtn.addEventListener("click", async () => {
-        if (!confirm("¿Seguro que querés borrar este comentario?")) return;
+    deleteBtn.addEventListener("click", async () => {
+      if (!confirm("¿Seguro que querés borrar este comentario?")) return;
 
-        const { error } = await supabaseClient
-          .from("comments")
-          .delete()
-          .eq("id", comment.id);
-
-        if (error) {
-          alert("No tenés permiso para borrar");
-          return;
+      const { data, error } = await supabaseClient.functions.invoke(
+        "delete-comment",
+        {
+          body: { id: comment.id }
         }
+      );
 
-        loadComments();
-      });
+      if (error || data?.error) {
+        alert("No autorizado");
+        return;
+      }
 
-      div.appendChild(deleteBtn);
-    }
+      div.remove();
+    });
 
+    div.appendChild(deleteBtn);
     container.appendChild(div);
+
   });
 }
 
