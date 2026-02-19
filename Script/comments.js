@@ -4,7 +4,7 @@ const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 const ADMIN_UID = "9f531012-2216-4902-8feb-98759d266c44";
 
-const MAX_LENGTH = 500;
+const MAX_LENGTH = 100;
 const COMMENT_COOLDOWN = 10000;
 
 let lastCommentTime = 0;
@@ -99,7 +99,7 @@ async function addComment() {
   }
 
   if (message.length > MAX_LENGTH) {
-    alert("Máximo 500 caracteres");
+    alert("Máximo 100 caracteres");
     return;
   }
 
