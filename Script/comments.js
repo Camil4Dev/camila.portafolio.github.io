@@ -2,6 +2,8 @@ const supabaseUrl = 'https://fldqudjajhuxgvmrjduq.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZsZHF1ZGphamh1eGd2bXJqZHVxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1MTg3OTcsImV4cCI6MjA4NzA5NDc5N30.u9BKB3av9UD4hGSwh17Ty7MQ1ctKU7hRbao6pxn59R4';
 const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
+const ADMIN_UID = "9f531012-2216-4902-8feb-98759d266c44";
+
 async function loadComments() {
 
   const { data: { user } } = await supabaseClient.auth.getUser();
@@ -22,21 +24,38 @@ async function loadComments() {
   container.innerHTML = "";
 
   data.forEach(comment => {
+
     const div = document.createElement("div");
     div.classList.add("comment-item");
 
-    div.innerHTML = `
-      <strong>${comment.name}</strong>
-      <span>${new Date(comment.created_at).toLocaleString()}</span>
-      <p>${comment.message}</p>
-    `;
+    
+    const strong = document.createElement("strong");
+    strong.textContent = comment.name;
 
-    if (user && user.id === "9f531012-2216-4902-8feb-98759d266c44") {
+  
+    const span = document.createElement("span");
+    span.textContent = new Date(comment.created_at).toLocaleString();
+
+   
+    const p = document.createElement("p");
+    p.textContent = comment.message;
+
+    div.appendChild(strong);
+    div.appendChild(span);
+    div.appendChild(p);
+
+  
+    if (user && user.id === ADMIN_UID) {
+
       const deleteBtn = document.createElement("button");
-      deleteBtn.textContent = "🗑 Borrar";
+      deleteBtn.textContent = "Borrar";
       deleteBtn.classList.add("delete-btn");
 
       deleteBtn.addEventListener("click", async () => {
+
+        const confirmDelete = confirm("¿Seguro que querés borrar este comentario?");
+        if (!confirmDelete) return;
+
         const { error } = await supabaseClient
           .from("comments")
           .delete()
@@ -58,11 +77,20 @@ async function loadComments() {
 }
 
 async function addComment() {
-  const name = document.getElementById("comment-name").value.trim();
-  const message = document.getElementById("comment-message").value.trim();
+
+  const nameInput = document.getElementById("comment-name");
+  const messageInput = document.getElementById("comment-message");
+
+  const name = nameInput.value.trim();
+  const message = messageInput.value.trim();
 
   if (!name || !message) {
     alert("Completá todos los campos");
+    return;
+  }
+
+  if (message.length > 500) {
+    alert("El comentario es demasiado largo (máx 500 caracteres)");
     return;
   }
 
@@ -76,17 +104,19 @@ async function addComment() {
     return;
   }
 
-  document.getElementById("comment-name").value = "";
-  document.getElementById("comment-message").value = "";
+  nameInput.value = "";
+  messageInput.value = "";
 
   loadComments();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+
   loadComments();
 
   const btn = document.getElementById("send-comment");
   if (btn) btn.addEventListener("click", addComment);
+
 });
 
 window.addComment = addComment;
