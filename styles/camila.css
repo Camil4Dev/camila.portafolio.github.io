@@ -15,7 +15,20 @@ body {
   overflow-x: hidden;
 }
 
+
+[data-parallax] {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+#parallaxCanvas {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
 header {
+  position: relative;
   text-align: center;
   padding: 4rem 1rem 2rem;
   border-bottom: 2px solid var(--artaud-yellow);
@@ -127,6 +140,7 @@ header p {
 
 
 .about {
+  position: relative;
   max-width: 850px;
   margin: 4rem auto;
   padding: 2.5rem;
@@ -268,6 +282,7 @@ footer {
 
 
 .contact {
+  position: relative;
   max-width: 850px;
   margin: 4rem auto;
   padding: 2.5rem;

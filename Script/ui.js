@@ -99,53 +99,83 @@
 
   
     console.info('ui.js loaded — reveal elements:', revealEls.length);
-  });
-const track = document.getElementById("collabsTrack");
 
-
-function cloneCards() {
-  const cards = Array.from(track.children);
-  cards.forEach(card => {
-    track.appendChild(card.cloneNode(true));
-  });
-}
-
-cloneCards();
-
-
-function infiniteLoop() {
-  if (track.scrollLeft >= track.scrollWidth / 2) {
-    track.scrollLeft = 0;
-  }
-}
-
-
-function startAutoScroll() {
-  setInterval(() => {
-    track.scrollLeft += 0.6;
-    infiniteLoop();
-  }, 16); 
-}
-
-startAutoScroll();
-
-
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target
-          .querySelectorAll(".collab-card")
-          .forEach((card, i) => {
-            setTimeout(() => {
-              card.classList.add("visible");
-            }, i * 120);
-          });
+  
+    const track = document.getElementById("collabsTrack");
+    if (track && track.children.length > 0) {
+      const originalCardCount = track.children.length;
+      
+      function cloneCards() {
+        const cards = Array.from(track.children).slice(0, originalCardCount);
+        cards.forEach(card => {
+          track.appendChild(card.cloneNode(true));
+        });
       }
-    });
-  },
-  { threshold: 0.3 }
-);
 
-observer.observe(document.querySelector(".collabs-section"));
+      cloneCards();
+
+      
+      setTimeout(() => {
+        let scrollPosition = 0;
+        const scrollSpeed = 1.5; 
+        let singleRowWidth = 0;
+
+        function calculateWidth() {
+        
+          singleRowWidth = 0;
+          for (let i = 0; i < originalCardCount; i++) {
+            const card = track.children[i];
+            if (card) {
+              singleRowWidth += card.offsetWidth + 28; 
+            }
+          }
+          console.log('Single row width:', singleRowWidth);
+        }
+
+        calculateWidth();
+
+        function autoScroll() {
+          if (singleRowWidth <= 0) {
+            calculateWidth();
+          }
+
+          scrollPosition += scrollSpeed;
+          
+          
+          if (scrollPosition >= singleRowWidth) {
+            scrollPosition = 0;
+          }
+          
+          track.scrollLeft = scrollPosition;
+          requestAnimationFrame(autoScroll);
+        }
+
+      
+        autoScroll();
+      }, 300);
+    }
+
+  
+    const collabsSection = document.querySelector(".collabs-section");
+    if (collabsSection) {
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target
+                .querySelectorAll(".collab-card")
+                .forEach((card, i) => {
+                  setTimeout(() => {
+                    card.classList.add("visible");
+                  }, i * 120);
+                });
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+
+      observer.observe(collabsSection);
+    }
+  });
 })();

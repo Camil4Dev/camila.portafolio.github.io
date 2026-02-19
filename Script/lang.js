@@ -213,6 +213,7 @@ const translations = {
 };
 
 
+let currentLang;
 let storedLang = localStorage.getItem('lang');
 
 if (storedLang) {

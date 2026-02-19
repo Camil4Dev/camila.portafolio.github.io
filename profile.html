@@ -17,7 +17,7 @@
   <div class="background"></div>
   <canvas id="particles"></canvas>
 
-  <div class="profile-container">
+  <div class="profile-container" data-parallax="0.5">
     <div class="profile-card">
       <div class="profile-nav">
         <a href="index.html" class="nav-button" title="Inicio" data-lang="home-button">
@@ -54,14 +54,14 @@
         </div>
       </div>
       <div class="profile-bio">
-        <h3><i class="fas fa-user"></i> <span data-lang="about-title">Sobre mí</span></h3>
+        <h3><span data-lang="about-title">Sobre mí</span></h3>
         <p data-lang="about-text">
           👋 ¡Hola! Soy Camila, una apasionada desarrolladora de 18 años especializada en software para Minecraft y Hytale. 💻<br><br>
           Me encanta crear mods, plugins y experiencias únicas para jugadores. <br><br>
           Actualmente trabajo como head dev en <strong>ScreamingLAB</strong> y como dev en <strong>MasivoSMP Team</strong>.
         </p>
         <div class="profile-roles">
-          <h4><i class="fas fa-crown"></i> <span data-lang="roles-title">Roles</span></h4>
+          <h4><span data-lang="roles-title">Roles</span></h4>
           <div class="roles-list">
             <span class="role" data-lang="role-developer">Developer</span>
             <span class="role" data-lang="role-enthusiast">Minecraft Enthusiast</span>
@@ -70,12 +70,27 @@
           </div>
         </div>
         <div class="profile-activity">
-          <h4><i class="fas fa-gamepad"></i> <span data-lang="activity-title">Actividad Reciente</span></h4>
+          <h4><span data-lang="activity-title">Actividad Reciente</span></h4>
           <p data-lang="activity-text">Trabajando en cosas increibles</p>
+        </div>
+        <div class="profile-social-links">
+          <a href="https://twitter.com/CamilaDev_" target="_blank" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://instagram.com/camila.cami.camiladev" target="_blank" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/Camil4Dev" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://open.spotify.com/user/h69mjpdzptibqd4vzbke29wvg" target="_blank" class="social-link" title="Spotify"><i class="fab fa-spotify"></i></a>
+        </div>
+         <div class="profile-comments">
+          <h3><i class="fas fa-comments"></i> Comentarios</h3>
+          <div class="comment-form">
+            <input type="text" id="comment-name" placeholder="Tu nombre">
+             <textarea id="comment-message" placeholder="Escribí tu mensaje..."></textarea>
+             <button id="send-comment">Enviar</button>
+            </div>
+            <div id="comments-list" class="comments-list"></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
   <footer>
     <p data-lang="footer">© 2025 camila — Minecraft Developer 🎶</p>
@@ -85,5 +100,9 @@
   <script src="Script/lang.js"></script>
   <script src="Script/ui.js"></script>
   <script src="Script/index.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script src="Script/comments.js"></script>
 </body>
 </html>

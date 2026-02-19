@@ -28,6 +28,18 @@ body {
 }
 
 
+[data-parallax] {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+#parallaxCanvas {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+
 
 
 nav {
@@ -116,6 +128,7 @@ nav {
 
 
 header {
+  position: relative;
   text-align: center;
   padding-top: 8rem;
   padding-bottom: 3rem;
@@ -143,6 +156,7 @@ header p {
 
 
 .skills-section {
+  position: relative;
   max-width: 1100px;
   margin: 3rem auto;
   padding: 2rem;
@@ -731,10 +745,16 @@ footer {
 .collabs-track {
   display: flex;
   gap: 28px;
-  overflow: hidden;
-  scroll-behavior: smooth;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: auto;
   padding: 10px 4px;
   cursor: grab;
+  scrollbar-width: none;
+}
+
+.collabs-track::-webkit-scrollbar {
+  display: none;
 }
 
 .collabs-track.dragging {

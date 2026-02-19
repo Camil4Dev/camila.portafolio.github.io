@@ -26,7 +26,20 @@ body {
   overflow-x: hidden;
 }
 
+
+[data-parallax] {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+#parallaxCanvas {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
 header {
+  position: relative;
   text-align: center;
   padding: 4rem 1rem 2rem;
   border-bottom: 2px solid var(--artaud-yellow);
@@ -222,6 +235,7 @@ footer {
 }
 
 .projects {
+  position: relative;
   max-width: 900px;
   margin: 4rem auto;
   padding: 0 1.5rem;
@@ -316,6 +330,7 @@ footer {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+  position: relative;
 
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(6px);
@@ -467,7 +482,7 @@ footer {
 .project-link {
   text-decoration: none;
   color: inherit;
-  display: block;
+  display: contents;
 }
 
 #parallaxCanvas {
