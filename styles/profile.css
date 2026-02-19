@@ -753,3 +753,18 @@ footer p {
     transform: translateY(0);
   }
 }
+
+.admin-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.admin-button.logged-in {
+  background: var(--artaud-yellow);
+  color: var(--artaud-black);
+  box-shadow: 0 0 15px rgba(214,185,40,0.6);
+}
+
+.admin-button.logged-in i {
+  animation: glow-pulse 2s infinite;
+}

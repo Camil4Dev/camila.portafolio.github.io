@@ -130,6 +130,44 @@ async function addComment() {
   loadComments();
 }
 
+async function updateAdminButton() {
+  const { data: { user } } = await supabaseClient.auth.getUser();
+  const btn = document.getElementById("admin-toggle");
+  if (!btn) return;
+
+  if (user) {
+    btn.classList.add("logged-in");
+    btn.innerHTML = `<i class="fas fa-sign-out-alt"></i><span>Logout</span>`;
+    btn.onclick = async () => {
+      await supabaseClient.auth.signOut();
+      updateAdminButton();
+      loadComments();
+    };
+  } else {
+    btn.classList.remove("logged-in");
+    btn.innerHTML = `<i class="fas fa-user-shield"></i><span>Admin</span>`;
+    btn.onclick = loginAdmin;
+  }
+}
+
+async function loginAdmin() {
+  const email = prompt("Email:");
+  const password = prompt("Password:");
+
+  const { error } = await supabaseClient.auth.signInWithPassword({
+    email,
+    password
+  });
+
+  if (error) {
+    alert("Login incorrecto");
+    return;
+  }
+
+  updateAdminButton();
+  loadComments();
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const messageInput = document.getElementById("comment-message");
@@ -143,6 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   loadComments();
+  updateAdminButton();
 
   const btn = document.getElementById("send-comment");
   if (btn) btn.addEventListener("click", addComment);
