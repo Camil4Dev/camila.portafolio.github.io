@@ -717,3 +717,39 @@ footer p {
   transform: scale(0.95);
   box-shadow: 0 0 8px rgba(214,185,40,0.3);
 }
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.comment-separator {
+  opacity: 0.5;
+}
+
+.comment-header span {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.comment-item {
+  background: rgba(46,68,63,0.2);
+  border: 1px solid rgba(214,185,40,0.2);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+
+
+  opacity: 0;
+  transform: translateY(15px);
+  animation: commentFadeIn 0.5s ease forwards;
+}
+
+@keyframes commentFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
