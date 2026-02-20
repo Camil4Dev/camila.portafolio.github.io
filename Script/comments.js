@@ -2,6 +2,8 @@ const supabaseUrl = "https://fldqudjajhuxgvmrjduq.supabase.co";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZsZHF1ZGphamh1eGd2bXJqZHVxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1MTg3OTcsImV4cCI6MjA4NzA5NDc5N30.u9BKB3av9UD4hGSwh17Ty7MQ1ctKU7hRbao6pxn59R4";
 const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
+const ADMIN_UID = "9f531012-2216-4902-8feb-98759d266c44";
+
 const MAX_LENGTH = 500;
 const COMMENT_COOLDOWN = 10000;
 
@@ -9,6 +11,9 @@ let lastCommentTime = 0;
 
 
 async function loadComments() {
+  
+  const { data: { user } } = await supabaseClient.auth.getUser();
+  const isAdmin = user && user.id === ADMIN_UID;
 
   const { data, error } = await supabaseClient
     .from("comments")
@@ -53,32 +58,32 @@ async function loadComments() {
     div.appendChild(header);
     div.appendChild(p);
 
+   
+    if (isAdmin) {
+      const deleteBtn = document.createElement("button");
+      deleteBtn.textContent = "Borrar";
+      deleteBtn.classList.add("delete-btn");
 
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Borrar";
-    deleteBtn.classList.add("delete-btn");
+      deleteBtn.addEventListener("click", async () => {
+        if (!confirm("¿Seguro que querés borrar este comentario?")) return;
 
-    deleteBtn.addEventListener("click", async () => {
-      if (!confirm("¿Seguro que querés borrar este comentario?")) return;
+        const { data, error } = await supabaseClient.functions.invoke(
+          "delete-comment",
+          { body: { id: comment.id } }
+        );
 
-      const { data, error } = await supabaseClient.functions.invoke(
-        "delete-comment",
-        {
-          body: { id: comment.id }
+        if (error || data?.error) {
+          alert("No autorizado");
+          return;
         }
-      );
 
-      if (error || data?.error) {
-        alert("No autorizado");
-        return;
-      }
+        div.remove();
+      });
 
-      div.remove();
-    });
+      div.appendChild(deleteBtn);
+    }
 
-    div.appendChild(deleteBtn);
     container.appendChild(div);
-
   });
 }
 
@@ -130,29 +135,36 @@ async function addComment() {
   loadComments();
 }
 
-async function updateAdminButton() {
+async function checkAdmin() {
   const { data: { user } } = await supabaseClient.auth.getUser();
-  const btn = document.getElementById("admin-toggle");
-  if (!btn) return;
 
-  if (user) {
-    btn.classList.add("logged-in");
-    btn.innerHTML = `<i class="fas fa-sign-out-alt"></i><span>Logout</span>`;
-    btn.onclick = async () => {
+  const adminBtn = document.getElementById("admin-toggle");
+  const badge = document.getElementById("admin-badge");
+
+  if (!adminBtn) return;
+
+  if (user && user.id === ADMIN_UID) {
+    adminBtn.classList.add("logged-in");
+    adminBtn.innerHTML = `<i class="fas fa-sign-out-alt"></i><span>Logout</span>`;
+    adminBtn.onclick = async () => {
       await supabaseClient.auth.signOut();
-      updateAdminButton();
-      loadComments();
+      location.reload();
     };
+
+    if (badge) badge.style.display = "flex";
   } else {
-    btn.classList.remove("logged-in");
-    btn.innerHTML = `<i class="fas fa-user-shield"></i><span>Admin</span>`;
-    btn.onclick = loginAdmin;
+    adminBtn.innerHTML = `<i class="fas fa-user-shield"></i><span>Admin</span>`;
+    adminBtn.onclick = () => {
+      document.getElementById("login-modal").classList.remove("hidden");
+    };
+
+    if (badge) badge.style.display = "none";
   }
 }
 
-async function loginAdmin() {
-  const email = prompt("Email:");
-  const password = prompt("Password:");
+document.getElementById("admin-login-btn").addEventListener("click", async () => {
+  const email = document.getElementById("admin-email").value;
+  const password = document.getElementById("admin-password").value;
 
   const { error } = await supabaseClient.auth.signInWithPassword({
     email,
@@ -160,13 +172,18 @@ async function loginAdmin() {
   });
 
   if (error) {
-    alert("Login incorrecto");
+    alert("Credenciales incorrectas");
     return;
   }
 
-  updateAdminButton();
+  document.getElementById("login-modal").classList.add("hidden");
+  checkAdmin();
   loadComments();
-}
+});
+
+document.getElementById("admin-cancel-btn").addEventListener("click", () => {
+  document.getElementById("login-modal").classList.add("hidden");
+});
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -180,8 +197,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  checkAdmin();
   loadComments();
-  updateAdminButton();
 
   const btn = document.getElementById("send-comment");
   if (btn) btn.addEventListener("click", addComment);

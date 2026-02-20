@@ -768,3 +768,108 @@ footer p {
 .admin-button.logged-in i {
   animation: glow-pulse 2s infinite;
 }
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(8px);
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #1a1a1a, #222);
+  border: 2px solid var(--artaud-yellow);
+  border-radius: 16px;
+  padding: 2rem;
+  width: 320px;
+  box-shadow: 0 0 30px rgba(214,185,40,0.4);
+  animation: fadeInUp 0.4s ease;
+}
+
+.modal-content h3 {
+  color: var(--artaud-yellow);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.modal-content input {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid rgba(214,185,40,0.4);
+  background: rgba(0,0,0,0.4);
+  color: white;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.modal-buttons button {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#admin-login-btn {
+  background: var(--artaud-yellow);
+  color: black;
+}
+
+.secondary {
+  background: transparent;
+  border: 2px solid var(--artaud-yellow);
+  color: var(--artaud-yellow);
+}
+
+.admin-badge {
+  margin-top: 0.8rem;
+  background: linear-gradient(135deg, #ffeb3b, #fbc02d); 
+  color: #1a1a1a; 
+  padding: 0.5rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 0 15px rgba(255, 235, 59, 0.6), 0 4px 8px rgba(0,0,0,0.2);
+  position: relative;
+  animation: pulseGlow 2s infinite;
+  text-transform: uppercase;
+}
+
+.admin-badge::before {
+  content: '●';
+  font-size: 1rem;
+  color: #23a559;
+  animation: blink 1.2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 235, 59, 0.6), 0 4px 8px rgba(0,0,0,0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 235, 59, 0.9), 0 6px 12px rgba(0,0,0,0.3);
+  }
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
