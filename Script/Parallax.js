@@ -1,4 +1,37 @@
 (function () {
+
+  let scrollY = 0;
+  let lastScrollY = 0;
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    scrollY = window.scrollY;
+    if (!ticking) {
+      window.requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  function updateParallax() {
+    lastScrollY = scrollY;
+
+    const parallaxElements = document.querySelectorAll('[data-parallax]');
+    parallaxElements.forEach(element => {
+      const speed = parseFloat(element.dataset.parallax) || 0.5;
+
+      const offset = Math.min(scrollY * (speed - 1) * 0.1, 100);
+      element.style.transform = `translateY(${offset}px)`;
+    });
+  
+    const canvas = document.getElementById('parallaxCanvas');
+    if (canvas) {
+      const offset = Math.min(scrollY * 0.02, 50);
+      canvas.style.transform = `translateY(${offset}px)`;
+    }
+
+    ticking = false;
+  }
+
   const fxCanvas = document.getElementById('parallaxCanvas');
   if (!fxCanvas) return;
   const ctx = fxCanvas.getContext('2d', { alpha: true });

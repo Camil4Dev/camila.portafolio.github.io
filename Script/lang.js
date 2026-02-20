@@ -60,9 +60,9 @@ const translations = {
 
       experienceTitle: "Experiencia",
       experience1Date: "7 Dec 2024",
-      experience1Desc: "ScreamingLAB",
+      experience1Desc: "Head Developer de ScreamingLAB",
       experience2Date: "16 Mar 2025 → 16 May 2025",
-      experience2Desc: "Hexa Creators",
+      experience2Desc: "Dev de Hexa Creators",
       experience3Date: "26 Sep 2025",
       experience3Desc: "Developer of Masivo SMP — MasivoSMP Team",
       
@@ -166,9 +166,9 @@ const translations = {
 
       experienceTitle: "Experience",
       experience1Date: "7 Dec 2024",
-      experience1Desc: "ScreamingLAB",
+      experience1Desc: "Head Developer of ScreamingLAB",
       experience2Date: "16 Mar 2025 → 16 May 2025",
-      experience2Desc: "Hexa Creators",
+      experience2Desc: "Dev of Hexa Creators",
       experience3Date: "26 Sep 2025",
       experience3Desc: "Developer of Masivo SMP — MasivoSMP Team",
 
