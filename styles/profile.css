@@ -662,6 +662,31 @@ footer p {
   color: white;
 }
 
+.creator-btn {
+  margin-top: 0.8rem;
+  margin-right: 0.5rem;
+  background: transparent;
+  border: 2px solid rgba(214,185,40,0.7);
+  color: rgba(214,185,40,0.9);
+  padding: 0.35rem 0.7rem;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  letter-spacing: 0.4px;
+}
+
+.creator-btn:hover {
+  background: rgba(214,185,40,0.15);
+  color: var(--artaud-yellow);
+  transform: translateY(-2px);
+}
+
+
 .comment-form button {
   background: var(--artaud-yellow);
   color: black;

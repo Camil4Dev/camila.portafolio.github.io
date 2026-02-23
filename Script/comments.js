@@ -8,6 +8,7 @@ const MAX_LENGTH = 500;
 const COMMENT_COOLDOWN = 10000;
 
 let lastCommentTime = 0;
+const CREATOR_EMOJI = "📺";
 
 
 async function loadComments() {
@@ -60,6 +61,34 @@ async function loadComments() {
 
    
     if (isAdmin) {
+      const creatorBtn = document.createElement("button");
+      creatorBtn.classList.add("creator-btn");
+      creatorBtn.textContent = comment.name.includes(CREATOR_EMOJI)
+        ? "Quitar 📺"
+        : "Agregar 📺";
+
+      creatorBtn.addEventListener("click", async () => {
+        const hasEmoji = strong.textContent.includes(CREATOR_EMOJI);
+        const nextName = hasEmoji
+          ? strong.textContent.replace(CREATOR_EMOJI, "").replace(/\s{2,}/g, " ").trim()
+          : `${strong.textContent} ${CREATOR_EMOJI}`;
+
+        const { error } = await supabaseClient
+          .from("comments")
+          .update({ name: nextName })
+          .eq("id", comment.id);
+
+        if (error) {
+          alert("No autorizado");
+          return;
+        }
+
+        strong.textContent = nextName;
+        creatorBtn.textContent = nextName.includes(CREATOR_EMOJI)
+          ? "Quitar 📺"
+          : "Agregar 📺";
+      });
+
       const deleteBtn = document.createElement("button");
       deleteBtn.textContent = "Borrar";
       deleteBtn.classList.add("delete-btn");
@@ -80,6 +109,7 @@ async function loadComments() {
         div.remove();
       });
 
+      div.appendChild(creatorBtn);
       div.appendChild(deleteBtn);
     }
 
