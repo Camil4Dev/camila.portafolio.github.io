@@ -1,15 +1,40 @@
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+let viewWidth = window.innerWidth;
+let viewHeight = window.innerHeight;
+let dpr = 1;
+let particles = [];
+let particleCount = 0;
+let rafId = 0;
+
+function getQualityFactor() {
+  const memory = navigator.deviceMemory || 4;
+  const cores = navigator.hardwareConcurrency || 4;
+  if (memory <= 4 || cores <= 4) return 0.7;
+  if (memory >= 8 && cores >= 8) return 1.1;
+  return 0.9;
+}
 
 function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  viewWidth = window.innerWidth;
+  viewHeight = window.innerHeight;
+  dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+  canvas.width = Math.round(viewWidth * dpr);
+  canvas.height = Math.round(viewHeight * dpr);
+  canvas.style.width = viewWidth + "px";
+  canvas.style.height = viewHeight + "px";
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  const baseDensity = prefersReducedMotion ? 0.00002 : 0.00005;
+  const quality = getQualityFactor();
+  particleCount = Math.round(Math.min(90, Math.max(30, viewWidth * viewHeight * baseDensity * quality)));
   initParticles();
 }
+
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
-
-let particles = [];
 
 class Particle {
   constructor() {
@@ -17,11 +42,11 @@ class Particle {
   }
 
   reset() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
+    this.x = Math.random() * viewWidth;
+    this.y = Math.random() * viewHeight;
     this.size = Math.random() * 2 + 1;
-    this.speedX = (Math.random() - 0.5) * 0.6;
-    this.speedY = (Math.random() - 0.5) * 0.6;
+    this.speedX = (Math.random() - 0.5) * 0.5;
+    this.speedY = (Math.random() - 0.5) * 0.5;
     this.opacity = Math.random() * 0.6 + 0.2;
   }
 
@@ -29,8 +54,8 @@ class Particle {
     this.x += this.speedX;
     this.y += this.speedY;
 
-    if (this.x < 0 || this.x > canvas.width) this.reset();
-    if (this.y < 0 || this.y > canvas.height) this.reset();
+    if (this.x < 0 || this.x > viewWidth) this.reset();
+    if (this.y < 0 || this.y > viewHeight) this.reset();
   }
 
   draw() {
@@ -43,17 +68,37 @@ class Particle {
 
 function initParticles() {
   particles = [];
-  for (let i = 0; i < 70; i++) particles.push(new Particle());
+  for (let i = 0; i < particleCount; i++) particles.push(new Particle());
 }
 
 function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0, 0, viewWidth, viewHeight);
   particles.forEach(p => { p.update(); p.draw(); });
-  requestAnimationFrame(animate);
+  rafId = requestAnimationFrame(animate);
+}
+
+function startParticles() {
+  if (prefersReducedMotion) return;
+  if (!rafId) animate();
+}
+
+function stopParticles() {
+  if (rafId) {
+    cancelAnimationFrame(rafId);
+    rafId = 0;
+  }
 }
 
 initParticles();
-animate();
+startParticles();
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    stopParticles();
+  } else {
+    startParticles();
+  }
+});
 
 
 const fxCanvas = document.getElementById("parallaxCanvas");
@@ -67,136 +112,3 @@ function resizeFX() {
 resizeFX();
 window.addEventListener("resize", resizeFX);
 
-
-let fxObjects = [];
-let mouseX = 0, mouseY = 0;
-
-function initFX() {
-    fxObjects = [];
-    layers.forEach(layer => {
-        for (let i = 0; i < layer.count; i++) {
-            fxObjects.push({
-                layer,
-                type: "bubble",
-                x: Math.random() * fxCanvas.width,
-                y: Math.random() * fxCanvas.height,
-                size: layer.size,
-                speed: layer.speed,
-                color: layer.color
-            });
-        }
-    });
-
-    for (let i = 0; i < floatingParticlesCount; i++) {
-        fxObjects.push({
-            type: "particle",
-            x: Math.random() * fxCanvas.width,
-            y: Math.random() * fxCanvas.height,
-            size: Math.random() * 2 + 1,
-            speedX: (Math.random() - 0.5) * 0.6,
-            speedY: (Math.random() - 0.5) * 0.6,
-            opacity: Math.random() * 0.6 + 0.2
-        });
-    }
-}
-
-initFX();
-
-
-
-
-
-
-document.addEventListener("mousemove", e => {
-    mouseX = (e.clientX - window.innerWidth / 2) / window.innerWidth;
-    mouseY = (e.clientY - window.innerHeight / 2) / window.innerHeight;
-});
-
-
-
-let lastTouchX = null;
-let lastTouchY = null;
-
-document.addEventListener("touchmove", e => {
-    if (e.touches.length > 0) {
-        const t = e.touches[0];
-
-        if (lastTouchX === null) {
-            lastTouchX = t.clientX;
-            lastTouchY = t.clientY;
-        }
-
-        const dx = t.clientX - lastTouchX;
-        const dy = t.clientY - lastTouchY;
-
-        mouseX = dx / window.innerWidth;
-        mouseY = dy / window.innerHeight;
-
-        lastTouchX = t.clientX;
-        lastTouchY = t.clientY;
-    }
-}, { passive: true });
-
-document.addEventListener("touchend", () => {
-    lastTouchX = null;
-    lastTouchY = null;
-});
-
-
-
-if (window.DeviceOrientationEvent) {
-    window.addEventListener("deviceorientation", event => {
-        
-        if (event.gamma !== null && event.beta !== null) {
-            mouseX = event.gamma / 45;  
-            mouseY = event.beta / 45;
-        }
-    });
-}
-
-
-
-function fxLoop() {
-    fxCtx.clearRect(0, 0, fxCanvas.width, fxCanvas.height);
-
-    fxObjects.forEach(obj => {
-
-        if (obj.type === "bubble") {
-            
-            obj.y += obj.speed;
-            if (obj.y - obj.size > fxCanvas.height) {
-                obj.y = -obj.size;
-                obj.x = Math.random() * fxCanvas.width;
-            }
-
-            
-            const px = obj.x + mouseX * obj.layer.speed * 50;
-            const py = obj.y + mouseY * obj.layer.speed * 50;
-
-            fxCtx.globalAlpha = 0.9;
-            fxCtx.fillStyle = obj.color;
-
-            fxCtx.beginPath();
-            fxCtx.arc(px, py, obj.size * 0.12, 0, Math.PI * 2);
-            fxCtx.fill();
-        }
-
-        else if (obj.type === "particle") {
-            obj.x += obj.speedX;
-            obj.y += obj.speedY;
-
-            if (obj.x < 0 || obj.x > fxCanvas.width) obj.x = Math.random() * fxCanvas.width;
-            if (obj.y < 0 || obj.y > fxCanvas.height) obj.y = Math.random() * fxCanvas.height;
-
-            fxCtx.fillStyle = `rgba(214,185,40,${obj.opacity})`;
-            fxCtx.beginPath();
-            fxCtx.arc(obj.x, obj.y, obj.size, 0, Math.PI * 2);
-            fxCtx.fill();
-        }
-
-    });
-
-    requestAnimationFrame(fxLoop);
-}
-
-fxLoop();

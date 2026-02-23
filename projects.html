@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Proyectos de plugins, mods y herramientas para Minecraft y Hytale.">
+  <meta property="og:title" content="Proyectos - camila.dev">
+  <meta property="og:description" content="Proyectos de plugins, mods y herramientas para Minecraft y Hytale.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="projects.html">
+  <meta property="og:image" content="media/camilaProfile.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="projects.html">
   <title>Proyectos - camila.dev</title>
   <link rel="stylesheet" href="styles/projects.css"> 
   <link rel="icon" href="images/icon.ico" type="image/x-icon" />
@@ -21,7 +29,6 @@
     <h1>camila</h1>
     <p>Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team</p>
 
-    
     <div class="nav">
       <a href="index.html" class="nav-button">← Volver al Inicio</a>
       <a href="profile.html" class="nav-button" title="Ver Perfil">
@@ -37,11 +44,19 @@
   <section class="projects" data-parallax="0.7">
   <h2>Proyectos destacados</h2>
 
+  <div class="project-filters" role="tablist" aria-label="Filtros de proyectos">
+    <button class="filter-button active" data-filter="all" data-lang="filter-all" aria-pressed="true">Todos</button>
+    <button class="filter-button" data-filter="paper" data-lang="filter-paper" aria-pressed="false">Paper</button>
+    <button class="filter-button" data-filter="fabric" data-lang="filter-fabric" aria-pressed="false">Fabric</button>
+    <button class="filter-button" data-filter="hytale" data-lang="filter-hytale" aria-pressed="false">Hytale</button>
+    <button class="filter-button" data-filter="web" data-lang="filter-web" aria-pressed="false">Web</button>
+  </div>
+
   <div class="project-list">
 
-    <a href="https://github.com/Camil4Dev/Minijuegos_de_Geo_Ware_Oddysey_3" target="_blank" class="project-link">
+    <a href="https://github.com/Camil4Dev/Minijuegos_de_Geo_Ware_Oddysey_3" target="_blank" rel="noopener noreferrer" class="project-link" data-tags="paper,java">
     <div class="project-card">
-      <img src="media/proyectos/equilibrado.png" alt="Preview del proyecto" class="project-image">
+      <img src="media/proyectos/equilibrado.png" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
       <h3>Perfectamente equilibrado (Paper 1.21.1)</h3>
       <p>Minijuego donde tenes que equilibrar el libro en tu cabeza para conseguir puntos, minijuego creado para el Geo ware Oddysey.</p>
       <div class="badges">
@@ -51,9 +66,9 @@
     </div>
     </a>
 
-    <a href="#" class="project-link">
+    <a href="#" class="project-link disabled" aria-disabled="true" tabindex="-1" data-tags="paper,java,folia">
     <div class="project-card">
-      <img src="media/proyectos/universejobs.png" alt="Preview del proyecto" class="project-image">
+      <img src="media/proyectos/universejobs.png" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
       <h3>Fork de UniverseJobs(Paper 1.21.8)</h3>
       <p>ReCodeo del plugin de trabajos de Masivo SMP compatible con Folia.</p>
       <div class="badges">
@@ -64,9 +79,9 @@
     </div>
     </a>
 
-    <a href="https://modrinth.com/mod/nocape" target="_blank" class="project-link">
+    <a href="https://modrinth.com/mod/nocape" target="_blank" rel="noopener noreferrer" class="project-link" data-tags="fabric,java">
     <div class="project-card">
-      <img src="media/proyectos/nocape.png" alt="Preview del proyecto" class="project-image">
+      <img src="media/proyectos/nocape.png" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
       <h3>Fork de nocape (Fabric 1.20.4)</h3>
       <p>Mod para desactivar todas las capas del juego desde el Cliente.</p>
       <div class="badges">
@@ -76,9 +91,9 @@
     </div>
     </a>
 
-    <a href="https://modrinth.com/mod/sniffers_delight" target="_blank" class="project-link">
+    <a href="https://modrinth.com/mod/sniffers_delight" target="_blank" rel="noopener noreferrer" class="project-link" data-tags="fabric,java">
     <div class="project-card">
-      <img src="media/proyectos/Sniffers Delight.png" alt="Preview del proyecto" class="project-image">
+      <img src="media/proyectos/Sniffers Delight.png" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
       <h3>Port de Sniffers Delight (Fabric 1.20.1)</h3>
       <p>mod de comidas sobre el sniffer.</p>
       <div class="badges">
@@ -88,9 +103,9 @@
     </div>
     </a>
 
-    <a href="https://modrinth.com/mod/perspectivelockmod" target="_blank" class="project-link">
+    <a href="https://modrinth.com/mod/perspectivelockmod" target="_blank" rel="noopener noreferrer" class="project-link" data-tags="fabric,java">
     <div class="project-card">
-      <img src="media/proyectos/PerspectiveLock.png" alt="Preview del proyecto" class="project-image">
+      <img src="media/proyectos/PerspectiveLock.png" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
       <h3>Perspective Lock (Fabric 1.20.4-1.21.1)</h3>
       <p>Mod de cliente que recibe packets de un plugin para cambiar de perspectivas y bloquear la camara del jugador en cualquier posicion.</p>
       <div class="badges">
@@ -100,9 +115,9 @@
     </div>
     </a>
 
-    <a href="#" class="project-link">
+    <a href="#" class="project-link disabled" aria-disabled="true" tabindex="-1" data-tags="paper,java">
     <div class="project-card">
-      <img src="media/proyectos/UHCVR.jpg" alt="Preview del proyecto" class="project-image">
+      <img src="media/proyectos/UHCVR.jpg" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
       <h3>UHC VR Plugin (Paper 1.21.1)</h3>
       <p>Plugin el cual se uso para conectar todo con el mod de UHC VR</p>
       <div class="badges">
@@ -112,9 +127,9 @@
     </div>
     </a>
 
-    <a href="https://www.curseforge.com/hytale/mods/screamingrtp" target="_blank" class="project-link">
+    <a href="https://www.curseforge.com/hytale/mods/screamingrtp" target="_blank" rel="noopener noreferrer" class="project-link" data-tags="hytale,java">
     <div class="project-card">
-      <img src="media/proyectos/RTP.png" alt="Preview del proyecto" class="project-image">
+      <img src="media/proyectos/RTP.png" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
       <h3>ScreamingRTP (Hytale Mod)</h3>
       <p>Mod de teletransportación aleatoria para Hytale que permite a los jugadores teleportarse a ubicaciones aleatorias en el mundo.</p>
       <div class="badges">
@@ -124,9 +139,9 @@
     </div>
     </a>
 
-    <a href="#" class="project-link">
+    <a href="#" class="project-link disabled" aria-disabled="true" tabindex="-1" data-tags="web,html,css,js">
     <div class="project-card">
-      <img src="media/proyectos/WEB.png" alt="Preview del proyecto" class="project-image">
+      <img src="media/proyectos/WEB.png" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
       <h3>Web Portfolio (HTML/CSS/JS)</h3>
       <p>Portafolio web interactivo con animaciones parallax y diseño responsivo, mostrando proyectos de desarrollo.</p>
       <div class="badges">
@@ -137,9 +152,9 @@
     </div>
     </a>
 
-    <a href="#" class="project-link">
+    <a href="#" class="project-link disabled" aria-disabled="true" tabindex="-1" data-tags="paper,java">
     <div class="project-card">
-      <img src="media/proyectos/stealingheart.jpg" alt="Preview del proyecto" class="project-image">
+      <img src="media/proyectos/stealingheart.jpg" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
       <h3>Stealing Heart(minijuego) (Paper 1.20.4)</h3>
       <p>Minijuego del evento de LilithLuvsYa.</p>
       <div class="badges">
@@ -149,9 +164,9 @@
     </div>
     </a>
 
-    <a href="#" class="project-link">
+    <a href="#" class="project-link disabled" aria-disabled="true" tabindex="-1" data-tags="fabric,java">
     <div class="project-card">
-      <img src="media/proyectos/icon.png" alt="Preview del proyecto" class="project-image">
+      <img src="media/proyectos/icon.png" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
       <h3>SCZombies (Fabric 1.21.1)</h3>
       <p>Sistema avanzado y personalizado para spawnear hordas de zombies, mod usado para el evento de fin de año de farfadox y RichMC.</p>
       <div class="badges">
@@ -161,9 +176,9 @@
     </div>
     </a>
 
-    <a href="#" class="project-link">
+    <a href="#" class="project-link disabled" aria-disabled="true" tabindex="-1" data-tags="paper,java">
     <div class="project-card">
-      <img src="media/proyectos/icon.png" alt="Preview del proyecto" class="project-image">
+      <img src="media/proyectos/icon.png" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
       <h3>ScreamingSupport (Paper 1.21.1)</h3>
       <p>Plugin el cual se encargaba de absolutamente todos los tickets ingame del evento de UHCVR de farfadox.</p>
       <div class="badges">
@@ -177,7 +192,7 @@
 </section>
 
   <footer>
-    <p>© 2025 camila — Minecraft Developer 🎶</p>
+    <p>© 2026 camila — Minecraft Developer 🎶</p>
   </footer>
 
   <script src="Script/Parallax.js"></script>

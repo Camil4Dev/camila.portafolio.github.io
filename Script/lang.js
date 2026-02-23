@@ -7,9 +7,26 @@ const translations = {
       subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
       aboutTitle: "Sobre mí",
       aboutText: "Soy desarrolladora especializada en la creación de <strong>plugins para Paper</strong>, <strong>mods Fabric</strong> y sistemas avanzados para servidores. Trabajo con Mixin, GeckoLib, entidades personalizadas, packets, mundos dinámicos y mecánicas complejas para minijuegos. <br><br> Actualmente desarrollo en <strong>ScreamingLAB</strong> y colaboro en proyectos privados.",
+      servicesTitle: "Servicios",
+      servicesSubtitle: "Soluciones a medida para servidores y comunidades.",
+      service1Title: "Plugins Paper",
+      service1Text: "Sistemas personalizados, minijuegos y mecánicas avanzadas.",
+      service2Title: "Mods Fabric",
+      service2Text: "Contenido de cliente y servidor con integraciones modernas.",
+      service3Title: "Sistemas & Eventos",
+      service3Text: "Arquitecturas para eventos, progresión y economía.",
+      service4Title: "Hytale",
+      service4Text: "Mods y herramientas experimentales para proyectos nuevos.",
+      stackTitle: "Stack favorito",
+      stackJava: "Java",
+      stackPaper: "Paper",
+      stackFabric: "Fabric",
+      stackHytale: "Hytale",
+      stackMysql: "MySQL",
+      stackSqlite: "SQLite",
       contactTitle: "Contacto",
       contactText: "¿Necesitás un plugin, mod o sistema personalizado? Podés escribirme a:",
-      footer: "© 2025 camila — Minecraft Developer 🎶",
+      footer: "© 2026 camila — Minecraft Developer 🎶",
       projectsButton: "Proyectos",
       skillsButton: "Habilidades",
       langButton: "🇺🇸"
@@ -20,6 +37,11 @@ const translations = {
       h1: "camila",
       subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
       projectsTitle: "Proyectos destacados",
+      filterAll: "Todos",
+      filterPaper: "Paper",
+      filterFabric: "Fabric",
+      filterHytale: "Hytale",
+      filterWeb: "Web",
       project1Title: "Perfectamente equilibrado (Paper 1.21.1)",
       project1Desc: "Minijuego donde tenes que equilibrar el libro en tu cabeza para conseguir puntos, minijuego creado para el Geo ware Oddysey.",
       project2Title: "Fork de UniverseJobs(Paper 1.21.8)",
@@ -43,7 +65,7 @@ const translations = {
       project11Title: "ScreamingSupport (Paper 1.21.1)",
       project11Desc: "Plugin el cual se encargaba de absolutamente todos los tickets ingame del evento de UHCVR de farfadox.",
       backButton: "← Volver al Inicio",
-      footer: "© 2025 camila — Minecraft Developer 🎶",
+      footer: "© 2026 camila — Minecraft Developer 🎶",
       langButton: "🇺🇸"
     },
 
@@ -77,7 +99,7 @@ const translations = {
       collabAldo: "Desarrollo de minijuegos para el Geo Ware Oddysey 3.",
 
       backHome: "← Inicio",
-      footer: "© 2025 camila — Minecraft Developer 🎶",
+      footer: "© 2026 camila — Minecraft Developer 🎶",
       langButton: "🇺🇸"
     },
 
@@ -92,8 +114,8 @@ const translations = {
       roleEnthusiast: "Minecraft Enthusiast",
       roleBuilder: "Community Builder",
       activityTitle: "Actividad Reciente",
-      activityText: "Trabajando en cosas increibles",
-      footer: "© 2025 camila — Minecraft Developer 🎶",
+      activityText: "Trabajando en cosas increíbles",
+      footer: "© 2026 camila — Minecraft Developer 🎶",
       homeButton: "Inicio",
       homeText: "Inicio",
       projectsButton: "Proyectos",
@@ -113,9 +135,26 @@ const translations = {
       subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
       aboutTitle: "About Me",
       aboutText: "I am a developer specialized in creating <strong>Paper plugins</strong>, <strong>Fabric mods</strong>, and advanced server systems. I work with Mixin, GeckoLib, custom entities, packets, dynamic worlds, and complex minigame mechanics. <br><br> Currently developing at <strong>ScreamingLAB</strong> and collaborating on private projects.",
+      servicesTitle: "Services",
+      servicesSubtitle: "Custom solutions for servers and communities.",
+      service1Title: "Paper Plugins",
+      service1Text: "Custom systems, minigames, and advanced mechanics.",
+      service2Title: "Fabric Mods",
+      service2Text: "Client and server content with modern integrations.",
+      service3Title: "Systems & Events",
+      service3Text: "Architectures for events, progression, and economy.",
+      service4Title: "Hytale",
+      service4Text: "Experimental mods and tools for new projects.",
+      stackTitle: "Favorite stack",
+      stackJava: "Java",
+      stackPaper: "Paper",
+      stackFabric: "Fabric",
+      stackHytale: "Hytale",
+      stackMysql: "MySQL",
+      stackSqlite: "SQLite",
       contactTitle: "Contact",
       contactText: "Need a custom plugin, mod, or system? You can write to me at:",
-      footer: "© 2025 camila — Minecraft Developer 🎶",
+      footer: "© 2026 camila — Minecraft Developer 🎶",
       projectsButton: "Projects",
       skillsButton: "Skills",
       langButton: "🇪🇸"
@@ -126,6 +165,11 @@ const translations = {
       h1: "camila",
       subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
       projectsTitle: "Featured Projects",
+      filterAll: "All",
+      filterPaper: "Paper",
+      filterFabric: "Fabric",
+      filterHytale: "Hytale",
+      filterWeb: "Web",
       project1Title: "Perfectly Balanced (Paper 1.21.1)",
       project1Desc: "Minigame where you have to balance the book on your head to score points, minigame created for Geo Ware Odyssey.",
       project2Title: "UniverseJobs Fork (Paper 1.21.8)",
@@ -149,7 +193,7 @@ const translations = {
       project11Title: "ScreamingSupport (Paper 1.21.1)",
       project11Desc: "Plugin that handled absolutely all in-game tickets for the UHCVR event by farfadox.",
       backButton: "← Back to Home",
-      footer: "© 2025 camila — Minecraft Developer 🎶",
+      footer: "© 2026 camila — Minecraft Developer 🎶",
       langButton: "🇪🇸"
     },
 
@@ -183,7 +227,7 @@ const translations = {
       collabAldo: "Minigame development for Geo Ware Oddysey 3.",
 
       backHome: "← Home",
-      footer: "© 2025 camila — Minecraft Developer 🎶",
+      footer: "© 2026 camila — Minecraft Developer 🎶",
       langButton: "🇪🇸"
     },
 
@@ -199,7 +243,7 @@ const translations = {
       roleBuilder: "Community Builder",
       activityTitle: "Recent Activity",
       activityText: "Working on amazing things",
-      footer: "© 2025 camila — Minecraft Developer 🎶",
+      footer: "© 2026 camila — Minecraft Developer 🎶",
       homeButton: "Home",
       homeText: "Home",
       projectsButton: "Projects",
@@ -233,6 +277,8 @@ function changeLanguage() {
   if (path.includes("profile")) pageKey = "profile";
 
   const trans = translations[currentLang][pageKey];
+
+  document.documentElement.lang = currentLang;
 
 
   document.title = trans.title;
@@ -270,6 +316,46 @@ function changeLanguage() {
     document.querySelector(".about h2").textContent = trans.aboutTitle;
     document.querySelector(".about p").innerHTML = trans.aboutText;
 
+    const servicesTitle = document.querySelector('[data-lang="services-title"]');
+    if (servicesTitle) servicesTitle.textContent = trans.servicesTitle;
+    const servicesSubtitle = document.querySelector('[data-lang="services-subtitle"]');
+    if (servicesSubtitle) servicesSubtitle.textContent = trans.servicesSubtitle;
+
+    const service1Title = document.querySelector('[data-lang="service-1-title"]');
+    if (service1Title) service1Title.textContent = trans.service1Title;
+    const service1Text = document.querySelector('[data-lang="service-1-text"]');
+    if (service1Text) service1Text.textContent = trans.service1Text;
+
+    const service2Title = document.querySelector('[data-lang="service-2-title"]');
+    if (service2Title) service2Title.textContent = trans.service2Title;
+    const service2Text = document.querySelector('[data-lang="service-2-text"]');
+    if (service2Text) service2Text.textContent = trans.service2Text;
+
+    const service3Title = document.querySelector('[data-lang="service-3-title"]');
+    if (service3Title) service3Title.textContent = trans.service3Title;
+    const service3Text = document.querySelector('[data-lang="service-3-text"]');
+    if (service3Text) service3Text.textContent = trans.service3Text;
+
+    const service4Title = document.querySelector('[data-lang="service-4-title"]');
+    if (service4Title) service4Title.textContent = trans.service4Title;
+    const service4Text = document.querySelector('[data-lang="service-4-text"]');
+    if (service4Text) service4Text.textContent = trans.service4Text;
+
+    const stackTitle = document.querySelector('[data-lang="stack-title"]');
+    if (stackTitle) stackTitle.textContent = trans.stackTitle;
+    const stackJava = document.querySelector('[data-lang="stack-java"]');
+    if (stackJava) stackJava.textContent = trans.stackJava;
+    const stackPaper = document.querySelector('[data-lang="stack-paper"]');
+    if (stackPaper) stackPaper.textContent = trans.stackPaper;
+    const stackFabric = document.querySelector('[data-lang="stack-fabric"]');
+    if (stackFabric) stackFabric.textContent = trans.stackFabric;
+    const stackHytale = document.querySelector('[data-lang="stack-hytale"]');
+    if (stackHytale) stackHytale.textContent = trans.stackHytale;
+    const stackMysql = document.querySelector('[data-lang="stack-mysql"]');
+    if (stackMysql) stackMysql.textContent = trans.stackMysql;
+    const stackSqlite = document.querySelector('[data-lang="stack-sqlite"]');
+    if (stackSqlite) stackSqlite.textContent = trans.stackSqlite;
+
     document.querySelector(".contact h2").textContent = trans.contactTitle;
     document.querySelector(".contact p").textContent = trans.contactText;
 
@@ -284,6 +370,17 @@ function changeLanguage() {
 
   if (pageKey === "projects") {
     document.querySelector(".projects h2").textContent = trans.projectsTitle;
+
+    const filterAll = document.querySelector('[data-lang="filter-all"]');
+    if (filterAll) filterAll.textContent = trans.filterAll;
+    const filterPaper = document.querySelector('[data-lang="filter-paper"]');
+    if (filterPaper) filterPaper.textContent = trans.filterPaper;
+    const filterFabric = document.querySelector('[data-lang="filter-fabric"]');
+    if (filterFabric) filterFabric.textContent = trans.filterFabric;
+    const filterHytale = document.querySelector('[data-lang="filter-hytale"]');
+    if (filterHytale) filterHytale.textContent = trans.filterHytale;
+    const filterWeb = document.querySelector('[data-lang="filter-web"]');
+    if (filterWeb) filterWeb.textContent = trans.filterWeb;
 
     const projectCards = document.querySelectorAll(".project-card");
 

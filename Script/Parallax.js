@@ -35,19 +35,24 @@
   const fxCanvas = document.getElementById('parallaxCanvas');
   if (!fxCanvas) return;
   const ctx = fxCanvas.getContext('2d', { alpha: true });
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let w = 0, h = 0, dpr = 1;
   let objects = [];
   let mouseX = 0, mouseY = 0;
   const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
+  const deviceMemory = navigator.deviceMemory || 4;
+  const cpuCores = navigator.hardwareConcurrency || 4;
+  const qualityFactor = (deviceMemory <= 4 || cpuCores <= 4) ? 0.65 : 0.9;
+
   const LAYERS = [
-    { count: 18, size: 80, speed: 0.08, color: 'rgba(214,185,40,0.14)' },
-    { count: 42, size: 45, speed: 0.22, color: 'rgba(214,185,40,0.22)' },
-    { count: 100, size: 20, speed: 0.5, color: 'rgba(214,185,40,0.32)' }
+    { count: Math.round(18 * qualityFactor), size: 80, speed: 0.08, color: 'rgba(214,185,40,0.14)' },
+    { count: Math.round(42 * qualityFactor), size: 45, speed: 0.22, color: 'rgba(214,185,40,0.22)' },
+    { count: Math.round(100 * qualityFactor), size: 20, speed: 0.5, color: 'rgba(214,185,40,0.32)' }
   ];
 
-  const FLOATING_BASE = 60;
+  const FLOATING_BASE = Math.round(60 * qualityFactor);
 
   function resize() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -97,12 +102,14 @@
     mouseY = (y - window.innerHeight / 2) / window.innerHeight;
   }
 
-  window.addEventListener('mousemove', (e) => setPointer(e.clientX, e.clientY));
-  window.addEventListener('touchmove', (e) => {
-    if (!e.touches || !e.touches[0]) return;
-    const t = e.touches[0];
-    setPointer(t.clientX, t.clientY);
-  }, { passive: true });
+  if (!prefersReducedMotion) {
+    window.addEventListener('mousemove', (e) => setPointer(e.clientX, e.clientY));
+    window.addEventListener('touchmove', (e) => {
+      if (!e.touches || !e.touches[0]) return;
+      const t = e.touches[0];
+      setPointer(t.clientX, t.clientY);
+    }, { passive: true });
+  }
 
   window.addEventListener('resize', () => {
    
@@ -110,6 +117,7 @@
     window.___parallax_resize_timeout = setTimeout(resize, 120);
   });
 
+  let rafId = 0;
   function loop() {
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
@@ -146,10 +154,26 @@
         ctx.fill();
       }
     }
-    requestAnimationFrame(loop);
+    rafId = requestAnimationFrame(loop);
   }
 
+  function startFX() {
+    if (prefersReducedMotion || rafId) return;
+    rafId = requestAnimationFrame(loop);
+  }
+
+  function stopFX() {
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = 0;
+    }
+  }
 
   resize();
-  loop();
+  startFX();
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopFX();
+    else startFX();
+  });
 })();

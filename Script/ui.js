@@ -28,7 +28,7 @@
       const obs = new IntersectionObserver((entries, ob) => {
         entries.forEach(en => {
           if (en.isIntersecting) {
-            en.target.classList.add('revealed');
+            en.target.classList.add('is-revealed');
             ob.unobserve(en.target);
           }
         });
@@ -95,6 +95,31 @@
  
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       document.documentElement.classList.add('reduced-motion');
+    }
+
+    const filterButtons = $$('.filter-button');
+    const projectLinks = $$('.project-link');
+    if (filterButtons.length && projectLinks.length) {
+      const applyFilter = (filter) => {
+        projectLinks.forEach(link => {
+          const tags = (link.dataset.tags || '').split(',').map(t => t.trim());
+          const matches = filter === 'all' || tags.includes(filter);
+          link.classList.toggle('is-hidden', !matches);
+          link.setAttribute('aria-hidden', (!matches).toString());
+        });
+
+        filterButtons.forEach(btn => {
+          const isActive = btn.dataset.filter === filter;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-pressed', isActive.toString());
+        });
+      };
+
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
+      });
+
+      applyFilter('all');
     }
 
   
