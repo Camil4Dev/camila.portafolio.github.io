@@ -98,6 +98,8 @@ const translations = {
 
       collabAldo: "Desarrollo de minijuegos para el Geo Ware Oddysey 3.",
 
+      collabRozsier: "Ayuda en infraestructura y desarrollo en un mod custom de props para su servidor femboy de la triple G.",
+
       backHome: "← Inicio",
       footer: "© 2026 camila — Minecraft Developer 🎶",
       langButton: "🇺🇸"
@@ -226,6 +228,8 @@ const translations = {
 
       collabAldo: "Minigame development for Geo Ware Oddysey 3.",
 
+      collabRozsier: "Help with infrastructure and development on a custom props mod for their Triple G femboy server.",
+
       backHome: "← Home",
       footer: "© 2026 camila — Minecraft Developer 🎶",
       langButton: "🇪🇸"
@@ -309,6 +313,9 @@ function changeLanguage() {
 
   const collabAldo = document.querySelector('[data-lang="collab-aldo"]');
   if (collabAldo) collabAldo.innerHTML = trans.collabAldo;
+
+  const collabRozsier = document.querySelector('[data-lang="collab-rozsier"]');
+  if (collabRozsier) collabRozsier.innerHTML = trans.collabRozsier;
 
 
 
