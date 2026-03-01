@@ -12,121 +12,199 @@
   <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://camila.portafolio.github.io/index.html">
   <title>camila.dev</title>
-  <link rel="stylesheet" href="styles/camila.css">
   <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#0b0b10",
+            night: "#12131a",
+            neonPink: "#ff4fd8",
+            neonCyan: "#4cf5ff",
+            neonLime: "#c8ff59"
+          },
+          fontFamily: {
+            display: ["Space Grotesk", "sans-serif"],
+            body: ["Manrope", "sans-serif"]
+          },
+          boxShadow: {
+            glow: "0 0 40px rgba(255, 79, 216, 0.35)",
+            card: "0 20px 45px rgba(0, 0, 0, 0.35)"
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles/tw.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="font-body text-slate-100 bg-ink">
+  <div class="pointer-events-none fixed inset-0 -z-30 overflow-hidden">
+    <div class="absolute -top-32 -left-24 h-80 w-80 rounded-full bg-neonPink/30 blur-3xl"></div>
+    <div class="absolute top-20 right-0 h-96 w-96 rounded-full bg-neonCyan/25 blur-3xl"></div>
+    <div class="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-neonLime/20 blur-3xl"></div>
+  </div>
 
-  <canvas id="parallaxCanvas"></canvas>
+  <canvas id="parallaxCanvas" class="fixed inset-0 -z-20"></canvas>
+  <canvas id="particles" class="fixed inset-0 -z-10 opacity-70"></canvas>
 
-  <nav>
-  <a href="profile.html" class="nav-button" title="Ver Perfil">
-    <i class="fas fa-user"></i> <span data-lang="nav-profile">Perfil</span>
-  </a>
-  <a href="projects.html" class="nav-button" title="Ver Proyectos">
-    <i class="fas fa-folder-open"></i> <span data-lang="nav-projects">Proyectos</span>
-  </a>
-
-  <a href="skills.html" class="nav-button" title="Ver Habilidades">
-    <i class="fas fa-code"></i> <span data-lang="nav-skills">Habilidades</span>
-  </a>
-
-  <button class="nav-button lang-button" id="lang-toggle" title="Cambiar idioma" aria-label="Cambiar idioma">🇺🇸</button>
+  <nav class="relative z-10 mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-6">
+    <a href="index.html" class="font-display text-xl tracking-wide text-white">camila.dev</a>
+    <div class="flex flex-wrap items-center gap-3">
+      <a href="profile.html" class="nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" title="Ver Perfil">
+        <i class="fas fa-user"></i> <span data-lang="nav-profile">Perfil</span>
+      </a>
+      <a href="projects.html" class="nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" title="Ver Proyectos">
+        <i class="fas fa-folder-open"></i> <span data-lang="nav-projects">Proyectos</span>
+      </a>
+      <a href="skills.html" class="nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" title="Ver Habilidades">
+        <i class="fas fa-code"></i> <span data-lang="nav-skills">Habilidades</span>
+      </a>
+      <button class="nav-button lang-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" id="lang-toggle" title="Cambiar idioma" aria-label="Cambiar idioma">🇺🇸</button>
+    </div>
   </nav>
 
-  <div class="background"></div>
-  <canvas id="particles"></canvas>
-
-  <header data-parallax="0.5">
-    <img src="media/camilaProfile.png" alt="Foto de perfil" class="profile-pic" width="130" height="130" loading="eager" decoding="async">
-
-    <h1>camila</h1>
-    <p>Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team</p>
-
-    <div class="socials">
-      <a href="https://twitter.com/CamilaDev_" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="https://instagram.com/camila.cami.camiladev" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://github.com/Camil4Dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://open.spotify.com/user/h69mjpdzptibqd4vzbke29wvg" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
-    </div>
-  </header>
-
-  
-  <section class="about" data-parallax="0.7">
-    <h2>Sobre mí</h2>
-    <p>
-      Soy desarrolladora especializada en la creación de <strong>plugins para Paper</strong>, 
-      <strong>mods Fabric</strong> y sistemas avanzados para servidores.  
-      Trabajo con Mixin, GeckoLib, entidades personalizadas, packets, mundos dinámicos 
-      y mecánicas complejas para minijuegos.  
-      <br><br>
-      Actualmente desarrollo en <strong>ScreamingLAB</strong> y colaboro en proyectos privados.
-    </p>
-  </section>
-
-  <section class="services" data-parallax="0.65" data-reveal>
-    <h2 data-lang="services-title">Servicios</h2>
-    <p data-lang="services-subtitle">Soluciones a medida para servidores y comunidades.</p>
-
-    <div class="services-grid">
-      <div class="service-card">
-        <h3 data-lang="service-1-title">Plugins Paper</h3>
-        <p data-lang="service-1-text">Sistemas personalizados, minijuegos y mecánicas avanzadas.</p>
+  <main class="relative z-10">
+    <header class="mx-auto grid max-w-6xl items-center gap-10 px-6 pb-12 pt-6 lg:grid-cols-[1.2fr_0.8fr]" data-parallax="0.5">
+      <div class="space-y-6">
+        <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/80" data-lang="hero-badge">
+          <span class="h-2 w-2 rounded-full bg-neonLime shadow-glow"></span>
+          Disponible para proyectos
+        </div>
+        <h1 class="font-display text-4xl font-semibold tracking-tight text-white md:text-6xl">camila</h1>
+        <p class="text-lg text-white/80 md:text-xl">Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team</p>
+        <p class="max-w-xl text-base text-white/70" data-lang="hero-copy">
+          Construyo experiencias inmersivas para servidores y comunidades, con foco en rendimiento, jugabilidad y detalles que hacen la diferencia.
+        </p>
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="projects.html" class="nav-button rounded-full bg-neonPink px-6 py-3 text-sm font-semibold text-ink shadow-glow transition hover:-translate-y-0.5" data-lang="cta-projects">Ver proyectos</a>
+          <a href="#contact" class="nav-button rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/50" data-lang="cta-contact">Contactar</a>
+        </div>
+        <div class="flex flex-wrap items-center gap-4 text-lg text-white/70">
+          <a href="https://twitter.com/CamilaDev_" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="transition hover:text-neonCyan"><i class="fab fa-twitter"></i></a>
+          <a href="https://instagram.com/camila.cami.camiladev" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="transition hover:text-neonPink"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/Camil4Dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="transition hover:text-neonLime"><i class="fab fa-github"></i></a>
+          <a href="https://open.spotify.com/user/h69mjpdzptibqd4vzbke29wvg" target="_blank" rel="noopener noreferrer" aria-label="Spotify" class="transition hover:text-white"><i class="fab fa-spotify"></i></a>
+        </div>
       </div>
-      <div class="service-card">
-        <h3 data-lang="service-2-title">Mods Fabric</h3>
-        <p data-lang="service-2-text">Contenido de cliente y servidor con integraciones modernas.</p>
+      <div class="relative">
+        <div class="absolute -top-6 left-6 h-24 w-24 rounded-3xl border border-white/10 bg-white/5"></div>
+        <div class="absolute -bottom-6 right-2 h-28 w-28 rounded-3xl border border-white/10 bg-white/5"></div>
+        <div class="relative rounded-3xl border border-white/15 bg-white/10 p-6 shadow-card backdrop-blur">
+          <img src="media/camilaProfile.png" alt="Foto de perfil" class="mx-auto h-36 w-36 rounded-3xl object-cover ring-2 ring-white/20" width="130" height="130" loading="eager" decoding="async">
+          <div class="mt-6 grid gap-4 text-sm text-white/80">
+            <div class="flex items-center justify-between">
+              <span data-lang="info-specialty-label">Especialidad</span>
+              <span class="font-semibold text-white" data-lang="info-specialty-value">Plugins & Mods</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span data-lang="info-stack-label">Stack</span>
+              <span class="font-semibold text-white" data-lang="info-stack-value">Java / Fabric / Paper</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span data-lang="info-collab-label">Colaboraciones</span>
+              <span class="font-semibold text-white" data-lang="info-collab-value">Eventos a medida</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="service-card">
-        <h3 data-lang="service-3-title">Sistemas & Eventos</h3>
-        <p data-lang="service-3-text">Arquitecturas para eventos, progresión y economía.</p>
+    </header>
+
+    <section class="about mx-auto max-w-6xl px-6 py-10" data-parallax="0.7" data-reveal>
+      <div class="grid gap-8 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-card md:grid-cols-[0.6fr_1fr]">
+        <h2 class="font-display text-2xl font-semibold text-white">Sobre mi</h2>
+        <p class="text-base text-white/75">
+          Soy desarrolladora especializada en la creacion de <strong>plugins para Paper</strong>,
+          <strong>mods Fabric</strong> y sistemas avanzados para servidores.
+          Trabajo con Mixin, GeckoLib, entidades personalizadas, packets, mundos dinamicos
+          y mecanicas complejas para minijuegos.
+          <br><br>
+          Actualmente desarrollo en <strong>ScreamingLAB</strong> y colaboro en proyectos privados.
+        </p>
       </div>
-      <div class="service-card">
-        <h3 data-lang="service-4-title">Hytale</h3>
-        <p data-lang="service-4-text">Mods y herramientas experimentales para proyectos nuevos.</p>
+    </section>
+
+    <section class="services mx-auto max-w-6xl px-6 py-10" data-parallax="0.65" data-reveal>
+      <div class="flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <h2 class="font-display text-2xl font-semibold" data-lang="services-title">Servicios</h2>
+          <p class="text-white/70" data-lang="services-subtitle">Soluciones a medida para servidores y comunidades.</p>
+        </div>
+        <div class="flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/70" data-lang="services-badge">
+          Plugins, mods, eventos
+        </div>
       </div>
-    </div>
 
-    <div class="stack">
-      <h3 data-lang="stack-title">Stack favorito</h3>
-      <div class="stack-tags">
-        <span class="stack-tag stack-tag-java" data-lang="stack-java">Java</span>
-        <span class="stack-tag stack-tag-paper" data-lang="stack-paper">Paper</span>
-        <span class="stack-tag stack-tag-fabric" data-lang="stack-fabric">Fabric</span>
-        <span class="stack-tag stack-tag-hytale" data-lang="stack-hytale">Hytale</span>
-        <span class="stack-tag stack-tag-mysql" data-lang="stack-mysql">MySQL</span>
-        <span class="stack-tag stack-tag-sqlite" data-lang="stack-sqlite">SQLite</span>
+      <div class="mt-8 grid gap-6 md:grid-cols-2">
+        <div class="service-card rounded-3xl border border-white/10 bg-white/5 p-6 shadow-card">
+          <h3 class="font-display text-lg font-semibold" data-lang="service-1-title">Plugins Paper</h3>
+          <p class="mt-2 text-sm text-white/70" data-lang="service-1-text">Sistemas personalizados, minijuegos y mecanicas avanzadas.</p>
+        </div>
+        <div class="service-card rounded-3xl border border-white/10 bg-white/5 p-6 shadow-card">
+          <h3 class="font-display text-lg font-semibold" data-lang="service-2-title">Mods Fabric</h3>
+          <p class="mt-2 text-sm text-white/70" data-lang="service-2-text">Contenido de cliente y servidor con integraciones modernas.</p>
+        </div>
+        <div class="service-card rounded-3xl border border-white/10 bg-white/5 p-6 shadow-card">
+          <h3 class="font-display text-lg font-semibold" data-lang="service-3-title">Sistemas & Eventos</h3>
+          <p class="mt-2 text-sm text-white/70" data-lang="service-3-text">Arquitecturas para eventos, progresion y economia.</p>
+        </div>
+        <div class="service-card rounded-3xl border border-white/10 bg-white/5 p-6 shadow-card">
+          <h3 class="font-display text-lg font-semibold" data-lang="service-4-title">Hytale</h3>
+          <p class="mt-2 text-sm text-white/70" data-lang="service-4-text">Mods y herramientas experimentales para proyectos nuevos.</p>
+        </div>
       </div>
-    </div>
-  </section>
 
+      <div class="stack mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 shadow-card">
+        <h3 class="font-display text-lg font-semibold" data-lang="stack-title">Stack favorito</h3>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <span class="stack-tag" data-lang="stack-java">Java</span>
+          <span class="stack-tag" data-lang="stack-paper">Paper</span>
+          <span class="stack-tag" data-lang="stack-fabric">Fabric</span>
+          <span class="stack-tag" data-lang="stack-hytale">Hytale</span>
+          <span class="stack-tag" data-lang="stack-mysql">MySQL</span>
+          <span class="stack-tag" data-lang="stack-sqlite">SQLite</span>
+        </div>
+      </div>
+    </section>
 
-  <section class="contact" data-parallax="0.6" data-reveal>
-  <h2>Contacto</h2>
-  <p>¿Necesitás un plugin, mod o sistema personalizado? Podés escribirme a:</p>
-  <div class="contact-info">
-    <a href="mailto:c.carpincho.gaucho@gmail.com" class="contact-link email-link" title="Enviar email">
-      <i class="fas fa-envelope"></i>
-      <span>c.carpincho.gaucho@gmail.com</span>
-    </a>
-    <a href="https://discord.com/users/932721517995888650" class="contact-link discord-link" title="Ver perfil en Discord">
-      <i class="fab fa-discord"></i>
-      <span>Contactar</span>
-    </a>
-  </div>
-  <div class="discord-status">
-    <img src="https://lanyard.cnrad.dev/api/932721517995888650?hideActivity=true&showDisplayName=true" alt="Estado de Discord" loading="lazy" decoding="async" />
-  </div>
-</section>
+    <section id="contact" class="contact mx-auto max-w-6xl px-6 py-12" data-parallax="0.6" data-reveal>
+      <div class="grid gap-8 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-card lg:grid-cols-[1.1fr_0.9fr]">
+        <div>
+          <h2 class="font-display text-2xl font-semibold">Contacto</h2>
+          <p class="mt-2 text-white/70">¿Necesitas un plugin, mod o sistema personalizado? Podes escribirme a:</p>
+          <div class="mt-6 flex flex-col gap-4">
+            <a href="mailto:c.carpincho.gaucho@gmail.com" class="contact-link flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm font-semibold text-white/90 transition hover:border-white/40" title="Enviar email">
+              <i class="fas fa-envelope text-neonLime"></i>
+              <span>c.carpincho.gaucho@gmail.com</span>
+            </a>
+            <a href="https://discord.com/users/932721517995888650" class="contact-link flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm font-semibold text-white/90 transition hover:border-white/40" title="Ver perfil en Discord">
+              <i class="fab fa-discord text-neonCyan"></i>
+              <span data-lang="contact-discord-cta">Contactar</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/10 p-5">
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60" data-lang="contact-status-label">Estado Discord</p>
+          <div class="mt-4 overflow-hidden rounded-2xl border border-white/10">
+            <img src="https://lanyard.cnrad.dev/api/932721517995888650?hideActivity=true&showDisplayName=true" alt="Estado de Discord" loading="lazy" decoding="async" class="w-full">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <footer>
+  <footer class="relative z-10 border-t border-white/10 px-6 py-8 text-center text-sm text-white/60">
     <p>© 2026 camila — Minecraft Developer 🎶</p>
   </footer>
 
   <script src="Script/Parallax.js"></script>
-  <script src="Script/lang.js"></script> 
+  <script src="Script/lang.js"></script>
   <script src="Script/ui.js"></script>
   <script src="Script/index.js"></script>
 </body>

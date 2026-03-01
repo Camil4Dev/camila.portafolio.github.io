@@ -12,216 +12,252 @@
   <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://camila.portafolio.github.io/projects.html">
   <title>Proyectos - camila.dev</title>
-  <link rel="stylesheet" href="styles/projects.css"> 
   <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#0b0b10",
+            night: "#12131a",
+            neonPink: "#ff4fd8",
+            neonCyan: "#4cf5ff",
+            neonLime: "#c8ff59"
+          },
+          fontFamily: {
+            display: ["Space Grotesk", "sans-serif"],
+            body: ["Manrope", "sans-serif"]
+          },
+          boxShadow: {
+            glow: "0 0 40px rgba(255, 79, 216, 0.35)",
+            card: "0 20px 45px rgba(0, 0, 0, 0.35)"
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles/tw.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="font-body text-slate-100 bg-ink">
+  <div class="pointer-events-none fixed inset-0 -z-30 overflow-hidden">
+    <div class="absolute -top-32 -left-24 h-80 w-80 rounded-full bg-neonPink/30 blur-3xl"></div>
+    <div class="absolute top-24 right-0 h-96 w-96 rounded-full bg-neonCyan/25 blur-3xl"></div>
+    <div class="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-neonLime/20 blur-3xl"></div>
+  </div>
 
-  <canvas id="parallaxCanvas"></canvas>
+  <canvas id="parallaxCanvas" class="fixed inset-0 -z-20"></canvas>
+  <canvas id="particles" class="fixed inset-0 -z-10 opacity-70"></canvas>
 
-  <div class="background"></div>
-  <canvas id="particles"></canvas>
+  <header class="relative z-10" data-parallax="0.5">
+    <nav class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-6">
+      <a href="index.html" class="font-display text-xl tracking-wide text-white">camila.dev</a>
+      <div class="flex flex-wrap items-center gap-3">
+        <a href="index.html" class="nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10"><span data-lang="projects-back">← Volver al Inicio</span></a>
+        <a href="profile.html" class="nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" title="Ver Perfil">
+          <i class="fas fa-user"></i> <span data-lang="projects-profile">Perfil</span>
+        </a>
+        <a href="skills.html" class="nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" title="Ver Habilidades">
+          <i class="fas fa-code"></i> <span data-lang="projects-skills">Habilidades</span>
+        </a>
+        <button class="nav-button lang-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" id="lang-toggle" title="Cambiar idioma" aria-label="Cambiar idioma">🇺🇸</button>
+      </div>
+    </nav>
 
-  <header data-parallax="0.5">
-    <img src="media/camilaProfile.png" alt="Foto de perfil" class="profile-pic">
-    <h1>camila</h1>
-    <p>Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team</p>
-
-    <div class="nav">
-      <a href="index.html" class="nav-button"><span data-lang="projects-back">← Volver al Inicio</span></a>
-      <a href="profile.html" class="nav-button" title="Ver Perfil">
-        <i class="fas fa-user"></i> <span data-lang="projects-profile">Perfil</span>
-      </a>
-      <a href="skills.html" class="nav-button" title="Ver Habilidades">
-        <i class="fas fa-code"></i> <span data-lang="projects-skills">Habilidades</span>
-      </a>
-      <button class="nav-button lang-button" id="lang-toggle" title="Cambiar idioma" aria-label="Cambiar idioma">🇺🇸</button>
+    <div class="mx-auto grid max-w-6xl items-center gap-8 px-6 pb-10 pt-2 md:grid-cols-[auto_1fr]">
+      <img src="media/camilaProfile.png" alt="Foto de perfil" class="h-24 w-24 rounded-3xl border border-white/20 object-cover" loading="eager" decoding="async">
+      <div>
+        <h1 class="font-display text-4xl font-semibold text-white">camila</h1>
+        <p class="mt-2 text-base text-white/75">Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team</p>
+      </div>
     </div>
   </header>
 
-  <section class="projects" data-parallax="0.7">
-  <h2>Proyectos destacados</h2>
-
-  <div class="project-filters" role="tablist" aria-label="Filtros de proyectos">
-    <button class="filter-button active" data-filter="all" data-lang="filter-all" aria-pressed="true">Todos</button>
-    <button class="filter-button" data-filter="paper" data-lang="filter-paper" aria-pressed="false">Paper</button>
-    <button class="filter-button" data-filter="fabric" data-lang="filter-fabric" aria-pressed="false">Fabric</button>
-    <button class="filter-button" data-filter="hytale" data-lang="filter-hytale" aria-pressed="false">Hytale</button>
-    <button class="filter-button" data-filter="web" data-lang="filter-web" aria-pressed="false">Web</button>
-  </div>
-
-  <div class="project-list">
-
-    <a href="https://github.com/Camil4Dev/Minijuegos_de_Geo_Ware_Oddysey_3" target="_blank" rel="noopener noreferrer" class="project-link" data-tags="paper,java">
-    <div class="project-card">
-      <img src="media/proyectos/equilibrado.png" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
-      <h3>Perfectamente equilibrado (Paper 1.21.1)</h3>
-      <p>Minijuego donde tenes que equilibrar el libro en tu cabeza para conseguir puntos, minijuego creado para el Geo ware Oddysey.</p>
-      <div class="badges">
-        <span class="badge badge-java">Java</span>
-        <span class="badge badge-paper">Paper</span>
+  <section class="projects relative z-10 mx-auto max-w-6xl px-6 pb-16" data-parallax="0.7">
+    <div class="flex flex-wrap items-center justify-between gap-6">
+      <h2 class="font-display text-2xl font-semibold">Proyectos destacados</h2>
+      <div class="project-filters flex flex-wrap gap-2" role="tablist" aria-label="Filtros de proyectos">
+        <button class="filter-button active nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-white/70 transition hover:border-white/40" data-filter="all" data-lang="filter-all" aria-pressed="true">Todos</button>
+        <button class="filter-button nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-white/70 transition hover:border-white/40" data-filter="paper" data-lang="filter-paper" aria-pressed="false">Paper</button>
+        <button class="filter-button nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-white/70 transition hover:border-white/40" data-filter="fabric" data-lang="filter-fabric" aria-pressed="false">Fabric</button>
+        <button class="filter-button nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-white/70 transition hover:border-white/40" data-filter="hytale" data-lang="filter-hytale" aria-pressed="false">Hytale</button>
+        <button class="filter-button nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-white/70 transition hover:border-white/40" data-filter="web" data-lang="filter-web" aria-pressed="false">Web</button>
       </div>
     </div>
-    </a>
 
-    <a href="#" class="project-link disabled" aria-disabled="true" tabindex="-1" data-tags="paper,java,folia">
-    <div class="project-card">
-      <img src="media/proyectos/universejobs.png" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
-      <h3>Fork de UniverseJobs(Paper 1.21.8)</h3>
-      <p>ReCodeo del plugin de trabajos de Masivo SMP compatible con Folia.</p>
-      <div class="badges">
-        <span class="badge badge-java">Java</span>
-        <span class="badge badge-paper">Paper</span>
-        <span class="badge badge-folia">Folia</span>
-      </div>
+    <div class="project-list mt-8 grid gap-6 md:grid-cols-2">
+      <a href="https://github.com/Camil4Dev/Minijuegos_de_Geo_Ware_Oddysey_3" target="_blank" rel="noopener noreferrer" class="project-link" data-tags="paper,java">
+        <div class="project-card rounded-3xl border border-white/10 bg-white/5 p-5 shadow-card transition hover:-translate-y-1">
+          <img src="media/proyectos/equilibrado.png" alt="Preview del proyecto" class="project-image h-44 w-full rounded-2xl object-cover" loading="lazy" decoding="async">
+          <h3 class="mt-4 font-display text-lg font-semibold">Perfectamente equilibrado (Paper 1.21.1)</h3>
+          <p class="mt-2 text-sm text-white/70">Minijuego donde tenes que equilibrar el libro en tu cabeza para conseguir puntos, minijuego creado para el Geo ware Oddysey.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge">Java</span>
+            <span class="badge">Paper</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="project-link disabled" aria-disabled="true" tabindex="-1" data-tags="paper,java,folia">
+        <div class="project-card rounded-3xl border border-white/10 bg-white/5 p-5 shadow-card">
+          <img src="media/proyectos/universejobs.png" alt="Preview del proyecto" class="project-image h-44 w-full rounded-2xl object-cover" loading="lazy" decoding="async">
+          <h3 class="mt-4 font-display text-lg font-semibold">Fork de UniverseJobs(Paper 1.21.8)</h3>
+          <p class="mt-2 text-sm text-white/70">ReCodeo del plugin de trabajos de Masivo SMP compatible con Folia.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge">Java</span>
+            <span class="badge">Paper</span>
+            <span class="badge">Folia</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://modrinth.com/mod/nocape" target="_blank" rel="noopener noreferrer" class="project-link" data-tags="fabric,java">
+        <div class="project-card rounded-3xl border border-white/10 bg-white/5 p-5 shadow-card transition hover:-translate-y-1">
+          <img src="media/proyectos/nocape.png" alt="Preview del proyecto" class="project-image h-44 w-full rounded-2xl object-cover" loading="lazy" decoding="async">
+          <h3 class="mt-4 font-display text-lg font-semibold">Fork de nocape (Fabric 1.20.4)</h3>
+          <p class="mt-2 text-sm text-white/70">Mod para desactivar todas las capas del juego desde el Cliente.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge">Java</span>
+            <span class="badge">Fabric</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://modrinth.com/mod/sniffers_delight" target="_blank" rel="noopener noreferrer" class="project-link" data-tags="fabric,java">
+        <div class="project-card rounded-3xl border border-white/10 bg-white/5 p-5 shadow-card transition hover:-translate-y-1">
+          <img src="media/proyectos/Sniffers Delight.png" alt="Preview del proyecto" class="project-image h-44 w-full rounded-2xl object-cover" loading="lazy" decoding="async">
+          <h3 class="mt-4 font-display text-lg font-semibold">Port de Sniffers Delight (Fabric 1.20.1)</h3>
+          <p class="mt-2 text-sm text-white/70">Mod de comidas sobre el sniffer.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge">Java</span>
+            <span class="badge">Fabric</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://modrinth.com/mod/perspectivelockmod" target="_blank" rel="noopener noreferrer" class="project-link" data-tags="fabric,java">
+        <div class="project-card rounded-3xl border border-white/10 bg-white/5 p-5 shadow-card transition hover:-translate-y-1">
+          <img src="media/proyectos/PerspectiveLock.png" alt="Preview del proyecto" class="project-image h-44 w-full rounded-2xl object-cover" loading="lazy" decoding="async">
+          <h3 class="mt-4 font-display text-lg font-semibold">Perspective Lock (Fabric 1.20.4-1.21.1)</h3>
+          <p class="mt-2 text-sm text-white/70">Mod de cliente que recibe packets de un plugin para cambiar de perspectivas y bloquear la camara del jugador en cualquier posicion.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge">Java</span>
+            <span class="badge">Fabric</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="project-link disabled" aria-disabled="true" tabindex="-1" data-tags="paper,java">
+        <div class="project-card rounded-3xl border border-white/10 bg-white/5 p-5 shadow-card">
+          <img src="media/proyectos/UHCVR.jpg" alt="Preview del proyecto" class="project-image h-44 w-full rounded-2xl object-cover" loading="lazy" decoding="async">
+          <h3 class="mt-4 font-display text-lg font-semibold">UHC VR Plugin (Paper 1.21.1)</h3>
+          <p class="mt-2 text-sm text-white/70">Plugin el cual se uso para conectar todo con el mod de UHC VR</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge">Java</span>
+            <span class="badge">Paper</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://www.curseforge.com/hytale/mods/screamingrtp" target="_blank" rel="noopener noreferrer" class="project-link" data-tags="hytale,java">
+        <div class="project-card rounded-3xl border border-white/10 bg-white/5 p-5 shadow-card transition hover:-translate-y-1">
+          <img src="media/proyectos/RTP.png" alt="Preview del proyecto" class="project-image h-44 w-full rounded-2xl object-cover" loading="lazy" decoding="async">
+          <h3 class="mt-4 font-display text-lg font-semibold">ScreamingRTP (Hytale Mod)</h3>
+          <p class="mt-2 text-sm text-white/70">Mod de teletransportacion aleatoria para Hytale que permite a los jugadores teleportarse a ubicaciones aleatorias en el mundo.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge">Java</span>
+            <span class="badge">Hytale</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="project-link disabled" aria-disabled="true" tabindex="-1" data-tags="web,html,css,js">
+        <div class="project-card rounded-3xl border border-white/10 bg-white/5 p-5 shadow-card">
+          <img src="media/proyectos/WEB.png" alt="Preview del proyecto" class="project-image h-44 w-full rounded-2xl object-cover" loading="lazy" decoding="async">
+          <h3 class="mt-4 font-display text-lg font-semibold">Web Portfolio (HTML/CSS/JS)</h3>
+          <p class="mt-2 text-sm text-white/70">Portafolio web interactivo con animaciones parallax y diseno responsivo, mostrando proyectos de desarrollo.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge">HTML</span>
+            <span class="badge">CSS</span>
+            <span class="badge">JavaScript</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="project-link disabled" aria-disabled="true" tabindex="-1" data-tags="paper,java">
+        <div class="project-card rounded-3xl border border-white/10 bg-white/5 p-5 shadow-card">
+          <img src="media/proyectos/stealingheart.jpg" alt="Preview del proyecto" class="project-image h-44 w-full rounded-2xl object-cover" loading="lazy" decoding="async">
+          <h3 class="mt-4 font-display text-lg font-semibold">Stealing Heart(minijuego) (Paper 1.20.4)</h3>
+          <p class="mt-2 text-sm text-white/70">Minijuego del evento de LilithLuvsYa.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge">Java</span>
+            <span class="badge">Paper</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="project-link disabled" aria-disabled="true" tabindex="-1" data-tags="fabric,java">
+        <div class="project-card rounded-3xl border border-white/10 bg-white/5 p-5 shadow-card">
+          <img src="media/proyectos/icon.png" alt="Preview del proyecto" class="project-image h-44 w-full rounded-2xl object-cover" loading="lazy" decoding="async">
+          <h3 class="mt-4 font-display text-lg font-semibold">SCZombies (Fabric 1.21.1)</h3>
+          <p class="mt-2 text-sm text-white/70">Sistema avanzado y personalizado para spawnear hordas de zombies, mod usado para el evento de fin de ano de farfadox y RichMC.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge">Java</span>
+            <span class="badge">Fabric</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="project-link disabled" aria-disabled="true" tabindex="-1" data-tags="paper,java">
+        <div class="project-card rounded-3xl border border-white/10 bg-white/5 p-5 shadow-card">
+          <img src="media/proyectos/icon.png" alt="Preview del proyecto" class="project-image h-44 w-full rounded-2xl object-cover" loading="lazy" decoding="async">
+          <h3 class="mt-4 font-display text-lg font-semibold">ScreamingSupport (Paper 1.21.1)</h3>
+          <p class="mt-2 text-sm text-white/70">Plugin el cual se encargaba de absolutamente todos los tickets ingame del evento de UHCVR de farfadox.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge">Java</span>
+            <span class="badge">Paper</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://x.com/TndenciaStream/status/2027538835203330540?s=20" target="_blank" rel="noopener noreferrer" class="project-link" data-tags="fabric,java">
+        <div class="project-card rounded-3xl border border-white/10 bg-white/5 p-5 shadow-card transition hover:-translate-y-1">
+          <img src="media/proyectos/oneblock.png" alt="Preview del proyecto" class="project-image h-44 w-full rounded-2xl object-cover" loading="lazy" decoding="async">
+          <h3 class="mt-4 font-display text-lg font-semibold">PiruBlock (Fabric 1.21.1)</h3>
+          <p class="mt-2 text-sm text-white/70">OneBlock desarrollado para piru y el grupo de los monos con mecanias unicas y emocionantes al igual que eventos unicos.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge">Java</span>
+            <span class="badge">Fabric</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="project-link disabled" aria-disabled="true" tabindex="-1" data-tags="paper,java">
+        <div class="project-card rounded-3xl border border-white/10 bg-white/5 p-5 shadow-card">
+          <img src="media/proyectos/heart_allay_fky.gif" alt="Preview del proyecto" class="project-image h-44 w-full rounded-2xl object-cover" loading="lazy" decoding="async">
+          <h3 class="mt-4 font-display text-lg font-semibold">Stealing Hearts 2 minijuego (Fabric 1.21.1)</h3>
+          <p class="mt-2 text-sm text-white/70">Minijuego de Stealing Hearts 1 porteado totalmente a Fabric 1.21.1 con ayuda de <strong>@kasecamii</strong>, <strong>@mragus5534</strong>,
+            <strong>@JerejOwO</strong>, <strong>@bettendone</strong> y <strong>@PancraseaX</strong>.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge">Java</span>
+            <span class="badge">Fabric</span>
+          </div>
+        </div>
+      </a>
     </div>
-    </a>
+  </section>
 
-    <a href="https://modrinth.com/mod/nocape" target="_blank" rel="noopener noreferrer" class="project-link" data-tags="fabric,java">
-    <div class="project-card">
-      <img src="media/proyectos/nocape.png" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
-      <h3>Fork de nocape (Fabric 1.20.4)</h3>
-      <p>Mod para desactivar todas las capas del juego desde el Cliente.</p>
-      <div class="badges">
-        <span class="badge badge-java">Java</span>
-        <span class="badge badge-fabric">Fabric</span>
-      </div>
-    </div>
-    </a>
-
-    <a href="https://modrinth.com/mod/sniffers_delight" target="_blank" rel="noopener noreferrer" class="project-link" data-tags="fabric,java">
-    <div class="project-card">
-      <img src="media/proyectos/Sniffers Delight.png" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
-      <h3>Port de Sniffers Delight (Fabric 1.20.1)</h3>
-      <p>mod de comidas sobre el sniffer.</p>
-      <div class="badges">
-        <span class="badge badge-java">Java</span>
-        <span class="badge badge-fabric">Fabric</span>
-      </div>
-    </div>
-    </a>
-
-    <a href="https://modrinth.com/mod/perspectivelockmod" target="_blank" rel="noopener noreferrer" class="project-link" data-tags="fabric,java">
-    <div class="project-card">
-      <img src="media/proyectos/PerspectiveLock.png" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
-      <h3>Perspective Lock (Fabric 1.20.4-1.21.1)</h3>
-      <p>Mod de cliente que recibe packets de un plugin para cambiar de perspectivas y bloquear la camara del jugador en cualquier posicion.</p>
-      <div class="badges">
-        <span class="badge badge-java">Java</span>
-        <span class="badge badge-fabric">Fabric</span>
-      </div>
-    </div>
-    </a>
-
-    <a href="#" class="project-link disabled" aria-disabled="true" tabindex="-1" data-tags="paper,java">
-    <div class="project-card">
-      <img src="media/proyectos/UHCVR.jpg" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
-      <h3>UHC VR Plugin (Paper 1.21.1)</h3>
-      <p>Plugin el cual se uso para conectar todo con el mod de UHC VR</p>
-      <div class="badges">
-        <span class="badge badge-java">Java</span>
-        <span class="badge badge-paper">Paper</span>
-      </div>
-    </div>
-    </a>
-
-    <a href="https://www.curseforge.com/hytale/mods/screamingrtp" target="_blank" rel="noopener noreferrer" class="project-link" data-tags="hytale,java">
-    <div class="project-card">
-      <img src="media/proyectos/RTP.png" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
-      <h3>ScreamingRTP (Hytale Mod)</h3>
-      <p>Mod de teletransportación aleatoria para Hytale que permite a los jugadores teleportarse a ubicaciones aleatorias en el mundo.</p>
-      <div class="badges">
-        <span class="badge badge-java">Java</span>
-        <span class="badge badge-hytale">Hytale</span>
-      </div>
-    </div>
-    </a>
-
-    <a href="#" class="project-link disabled" aria-disabled="true" tabindex="-1" data-tags="web,html,css,js">
-    <div class="project-card">
-      <img src="media/proyectos/WEB.png" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
-      <h3>Web Portfolio (HTML/CSS/JS)</h3>
-      <p>Portafolio web interactivo con animaciones parallax y diseño responsivo, mostrando proyectos de desarrollo.</p>
-      <div class="badges">
-        <span class="badge badge-html">HTML</span>
-        <span class="badge badge-css">CSS</span>
-        <span class="badge badge-js">JavaScript</span>
-      </div>
-    </div>
-    </a>
-
-    <a href="#" class="project-link disabled" aria-disabled="true" tabindex="-1" data-tags="paper,java">
-    <div class="project-card">
-      <img src="media/proyectos/stealingheart.jpg" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
-      <h3>Stealing Heart(minijuego) (Paper 1.20.4)</h3>
-      <p>Minijuego del evento de LilithLuvsYa.</p>
-      <div class="badges">
-        <span class="badge badge-java">Java</span>
-        <span class="badge badge-paper">Paper</span>
-      </div>
-    </div>
-    </a>
-
-    <a href="#" class="project-link disabled" aria-disabled="true" tabindex="-1" data-tags="fabric,java">
-    <div class="project-card">
-      <img src="media/proyectos/icon.png" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
-      <h3>SCZombies (Fabric 1.21.1)</h3>
-      <p>Sistema avanzado y personalizado para spawnear hordas de zombies, mod usado para el evento de fin de año de farfadox y RichMC.</p>
-      <div class="badges">
-        <span class="badge badge-java">Java</span>
-        <span class="badge badge-fabric">Fabric</span>
-      </div>
-    </div>
-    </a>
-
-    <a href="#" class="project-link disabled" aria-disabled="true" tabindex="-1" data-tags="paper,java">
-    <div class="project-card">
-      <img src="media/proyectos/icon.png" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
-      <h3>ScreamingSupport (Paper 1.21.1)</h3>
-      <p>Plugin el cual se encargaba de absolutamente todos los tickets ingame del evento de UHCVR de farfadox.</p>
-      <div class="badges">
-        <span class="badge badge-java">Java</span>
-        <span class="badge badge-paper">Paper</span>
-      </div>
-    </div>
-    </a>
-
-    <a href="https://x.com/TndenciaStream/status/2027538835203330540?s=20" target="_blank" rel="noopener noreferrer" class="project-link" data-tags="fabric,java">
-    <div class="project-card">
-      <img src="media/proyectos/oneblock.png" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
-      <h3>PiruBlock (Fabric 1.21.1)</h3>
-      <p>OneBlock desarrollado para piru y el grupo de los monos con mecanias unicas y emocionantes al igual que eventos unicos.</p>
-      <div class="badges">
-        <span class="badge badge-java">Java</span>
-        <span class="badge badge-fabric">Fabric</span>
-      </div>
-    </div>
-    </a>
-
-    <a href="#" class="project-link disabled" aria-disabled="true" tabindex="-1" data-tags="paper,java">
-    <div class="project-card">
-      <img src="media/proyectos/heart_allay_fky.gif" alt="Preview del proyecto" class="project-image" loading="lazy" decoding="async">
-      <h3>Stealing Hearts 2 minijuego (Fabric 1.21.1)</h3>
-      <p>Minijuego de Stealing Hearts 1 porteado totalmente a Fabric 1.21.1 con ayuda de <strong>@kasecamii</strong>, <strong>@mragus5534</strong>,
-        <strong>@JerejOwO</strong>, <strong>@bettendone</strong> y <strong>@PancraseaX</strong>.</p>
-      <div class="badges">
-        <span class="badge badge-java">Java</span>
-        <span class="badge badge-fabric">Fabric</span>
-      </div>
-    </div>
-    </a>
-
-  </div>
-</section>
-
-  <footer>
+  <footer class="relative z-10 border-t border-white/10 px-6 py-8 text-center text-sm text-white/60">
     <p>© 2026 camila — Minecraft Developer 🎶</p>
   </footer>
 
   <script src="Script/Parallax.js"></script>
-  <script src="Script/lang.js"></script> 
+  <script src="Script/lang.js"></script>
   <script src="Script/ui.js"></script>
 </body>
 </html>

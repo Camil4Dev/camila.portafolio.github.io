@@ -42,7 +42,7 @@
     $$('a, .nav-button').forEach(a => {
       try {
         const href = a.getAttribute('href');
-        if (!href || href.startsWith('http') || href.startsWith('mailto:') || a.target === '_blank') return;
+        if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto:') || a.target === '_blank') return;
         a.addEventListener('click', (ev) => {
           ev.preventDefault();
           document.body.classList.add('page-exit');

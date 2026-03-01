@@ -121,6 +121,7 @@ async function loadComments() {
 async function addComment() {
   const nameInput = document.getElementById("comment-name");
   const messageInput = document.getElementById("comment-message");
+  const countEl = document.getElementById("comment-count");
 
   const name = nameInput.value.trim();
   const message = messageInput.value.trim();
@@ -161,6 +162,9 @@ async function addComment() {
 
   nameInput.value = "";
   messageInput.value = "";
+  messageInput.style.height = "";
+
+  if (countEl) countEl.textContent = `0/${MAX_LENGTH}`;
 
   loadComments();
 }
@@ -218,14 +222,34 @@ document.getElementById("admin-cancel-btn").addEventListener("click", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const messageInput = document.getElementById("comment-message");
+  const countEl = document.getElementById("comment-count");
+
+  const resizeMessage = () => {
+    if (!messageInput) return;
+    messageInput.style.height = "";
+    messageInput.style.height = `${messageInput.scrollHeight}px`;
+  };
+
+  const updateCount = () => {
+    if (!messageInput || !countEl) return;
+    const value = messageInput.value.length;
+    countEl.textContent = `${value}/${MAX_LENGTH}`;
+    countEl.classList.toggle("is-warn", value >= 450 && value < MAX_LENGTH);
+    countEl.classList.toggle("is-danger", value >= MAX_LENGTH);
+  };
 
   if (messageInput) {
     messageInput.addEventListener("input", () => {
       if (messageInput.value.length > MAX_LENGTH) {
         messageInput.value = messageInput.value.slice(0, MAX_LENGTH);
       }
+      resizeMessage();
+      updateCount();
     });
   }
+
+  resizeMessage();
+  updateCount();
 
   checkAdmin();
   loadComments();

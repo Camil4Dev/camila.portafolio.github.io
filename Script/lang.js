@@ -5,10 +5,21 @@ const translations = {
       title: "camila.dev",
       h1: "camila",
       subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
+      heroBadge: "Disponible para proyectos",
+      heroCopy: "Construyo experiencias inmersivas para servidores y comunidades, con foco en rendimiento, jugabilidad y detalles que hacen la diferencia.",
+      ctaProjects: "Ver proyectos",
+      ctaContact: "Contactar",
+      infoSpecialtyLabel: "Especialidad",
+      infoSpecialtyValue: "Plugins & Mods",
+      infoStackLabel: "Stack",
+      infoStackValue: "Java / Fabric / Paper",
+      infoCollabLabel: "Colaboraciones",
+      infoCollabValue: "Eventos a medida",
       aboutTitle: "Sobre mí",
       aboutText: "Soy desarrolladora especializada en la creación de <strong>plugins para Paper</strong>, <strong>mods Fabric</strong> y sistemas avanzados para servidores. Trabajo con Mixin, GeckoLib, entidades personalizadas, packets, mundos dinámicos y mecánicas complejas para minijuegos. <br><br> Actualmente desarrollo en <strong>ScreamingLAB</strong> y colaboro en proyectos privados.",
       servicesTitle: "Servicios",
       servicesSubtitle: "Soluciones a medida para servidores y comunidades.",
+      servicesBadge: "Plugins, mods, eventos",
       service1Title: "Plugins Paper",
       service1Text: "Sistemas personalizados, minijuegos y mecánicas avanzadas.",
       service2Title: "Mods Fabric",
@@ -26,6 +37,8 @@ const translations = {
       stackSqlite: "SQLite",
       contactTitle: "Contacto",
       contactText: "¿Necesitás un plugin, mod o sistema personalizado? Podés escribirme a:",
+      contactDiscordCta: "Contactar",
+      contactStatusLabel: "Estado Discord",
       footer: "© 2026 camila — Minecraft Developer 🎶",
       profileButton: "Perfil",
       projectsButton: "Proyectos",
@@ -86,6 +99,8 @@ const translations = {
 
       devSkillsTitle: "Desarrollo",
       toolsTitle: "Herramientas & Tecnologías",
+      coreStackLabel: "Stack base",
+      workflowLabel: "Workflow",
 
       experienceTitle: "Experiencia",
       experience1Date: "7 Dec 2024",
@@ -94,6 +109,8 @@ const translations = {
       experience2Desc: "Dev de Hexa Creators",
       experience3Date: "26 Sep 2025",
       experience3Desc: "Developer of Masivo SMP — MasivoSMP Team",
+      experience4Date: "21 Feb 2026",
+      experience4Desc: "Dev of Hylamity",
       
       collabsTitle: "Gente con la que trabajé",
 
@@ -106,6 +123,17 @@ const translations = {
       collabAldo: "Desarrollo de minijuegos para el Geo Ware Oddysey 3.",
 
       collabRozsier: "Ayuda en infraestructura y desarrollo en un mod custom de props para su servidor femboy de la triple G.",
+      collabBadgeMasivo: "MasivoSMP",
+      collabBadgeUhcvr: "UHC VR",
+      collabBadgeYearEnd: "Fin de Año",
+      collabBadgeStealing1: "Stealing Hearts",
+      collabBadgeStealing2: "Stealing Hearts 2",
+      collabBadgeValentine: "Evento San Valentín",
+      collabBadgeUhcminitas: "UHC MINITAS 2",
+      collabBadgeGeo: "Geo Ware Oddysey 3",
+      collabBadgeInfra: "Infraestructura",
+      collabBadgeTripleG: "Triple G",
+      collabBadgePirublock: "pirublock",
 
       backHome: "← Inicio",
       profileButton: "Perfil",
@@ -118,6 +146,7 @@ const translations = {
       title: "Perfil - camila.dev",
       profileStatus: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
       onlineStatus: "Online",
+      adminOnline: "🟡 Admin Online",
       aboutTitle: "Sobre mí",
       aboutText: "👋 ¡Hola! Soy Camila, una apasionada desarrolladora de 18 años especializada en software para Minecraft y Hytale. 💻<br><br>Me encanta crear mods, plugins y experiencias únicas para jugadores. <br><br>Actualmente trabajo como head dev en <strong>ScreamingLAB</strong> y como dev en <strong>MasivoSMP Team</strong>. ",
       rolesTitle: "Roles",
@@ -126,6 +155,15 @@ const translations = {
       roleBuilder: "Community Builder",
       activityTitle: "Actividad Reciente",
       activityText: "Trabajando en cosas increíbles",
+      commentsTitle: "Comentarios",
+      commentNamePlaceholder: "Tu nombre",
+      commentMessagePlaceholder: "Escribí tu mensaje...",
+      commentSend: "Enviar",
+      adminLoginTitle: "Admin Login",
+      adminEmailPlaceholder: "Email",
+      adminPasswordPlaceholder: "Password",
+      adminLoginButton: "Entrar",
+      adminCancelButton: "Cancelar",
       footer: "© 2026 camila — Minecraft Developer 🎶",
       homeButton: "Inicio",
       homeText: "Inicio",
@@ -144,10 +182,21 @@ const translations = {
       title: "camila.dev",
       h1: "camila",
       subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
+      heroBadge: "Available for projects",
+      heroCopy: "I build immersive experiences for servers and communities, focused on performance, gameplay, and the details that make the difference.",
+      ctaProjects: "View projects",
+      ctaContact: "Contact",
+      infoSpecialtyLabel: "Specialty",
+      infoSpecialtyValue: "Plugins & Mods",
+      infoStackLabel: "Stack",
+      infoStackValue: "Java / Fabric / Paper",
+      infoCollabLabel: "Collaborations",
+      infoCollabValue: "Custom events",
       aboutTitle: "About Me",
       aboutText: "I am a developer specialized in creating <strong>Paper plugins</strong>, <strong>Fabric mods</strong>, and advanced server systems. I work with Mixin, GeckoLib, custom entities, packets, dynamic worlds, and complex minigame mechanics. <br><br> Currently developing at <strong>ScreamingLAB</strong> and collaborating on private projects.",
       servicesTitle: "Services",
       servicesSubtitle: "Custom solutions for servers and communities.",
+      servicesBadge: "Plugins, mods, events",
       service1Title: "Paper Plugins",
       service1Text: "Custom systems, minigames, and advanced mechanics.",
       service2Title: "Fabric Mods",
@@ -165,6 +214,8 @@ const translations = {
       stackSqlite: "SQLite",
       contactTitle: "Contact",
       contactText: "Need a custom plugin, mod, or system? You can write to me at:",
+      contactDiscordCta: "Contact",
+      contactStatusLabel: "Discord status",
       footer: "© 2026 camila — Minecraft Developer 🎶",
       profileButton: "Profile",
       projectsButton: "Projects",
@@ -225,6 +276,8 @@ const translations = {
 
       devSkillsTitle: "Development",
       toolsTitle: "Tools & Technologies",
+      coreStackLabel: "Core stack",
+      workflowLabel: "Workflow",
 
       experienceTitle: "Experience",
       experience1Date: "7 Dec 2024",
@@ -233,6 +286,8 @@ const translations = {
       experience2Desc: "Dev of Hexa Creators",
       experience3Date: "26 Sep 2025",
       experience3Desc: "Developer of Masivo SMP — MasivoSMP Team",
+      experience4Date: "21 Feb 2026",
+      experience4Desc: "Dev of Hylamity",
 
       collabsTitle: "People I worked with",
 
@@ -245,6 +300,17 @@ const translations = {
       collabAldo: "Minigame development for Geo Ware Oddysey 3.",
 
       collabRozsier: "Help with infrastructure and development on a custom props mod for their Triple G femboy server.",
+      collabBadgeMasivo: "MasivoSMP",
+      collabBadgeUhcvr: "UHC VR",
+      collabBadgeYearEnd: "Year End",
+      collabBadgeStealing1: "Stealing Hearts",
+      collabBadgeStealing2: "Stealing Hearts 2",
+      collabBadgeValentine: "Valentine Event",
+      collabBadgeUhcminitas: "UHC MINITAS 2",
+      collabBadgeGeo: "Geo Ware Oddysey 3",
+      collabBadgeInfra: "Infrastructure",
+      collabBadgeTripleG: "Triple G",
+      collabBadgePirublock: "pirublock",
 
       backHome: "← Home",
       profileButton: "Profile",
@@ -257,6 +323,7 @@ const translations = {
       title: "Profile - camila.dev",
       profileStatus: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
       onlineStatus: "Online",
+      adminOnline: "🟡 Admin Online",
       aboutTitle: "About me",
       aboutText: "👋 Hi! I'm Camila, a passionate 18-year-old developer specialized in software for Minecraft and Hytale. 💻<br><br>I love creating mods, plugins and unique experiences for players. <br><br>I'm currently working as head dev at <strong>ScreamingLAB</strong> and as dev at <strong>MasivoSMP Team</strong>. ",
       rolesTitle: "Roles",
@@ -265,6 +332,15 @@ const translations = {
       roleBuilder: "Community Builder",
       activityTitle: "Recent Activity",
       activityText: "Working on amazing things",
+      commentsTitle: "Comments",
+      commentNamePlaceholder: "Your name",
+      commentMessagePlaceholder: "Write your message...",
+      commentSend: "Send",
+      adminLoginTitle: "Admin Login",
+      adminEmailPlaceholder: "Email",
+      adminPasswordPlaceholder: "Password",
+      adminLoginButton: "Log in",
+      adminCancelButton: "Cancel",
       footer: "© 2026 camila — Minecraft Developer 🎶",
       homeButton: "Home",
       homeText: "Home",
@@ -338,6 +414,33 @@ function changeLanguage() {
 
 
   if (pageKey === "index") {
+    const heroBadge = document.querySelector('[data-lang="hero-badge"]');
+    if (heroBadge) heroBadge.textContent = trans.heroBadge;
+
+    const heroCopy = document.querySelector('[data-lang="hero-copy"]');
+    if (heroCopy) heroCopy.textContent = trans.heroCopy;
+
+    const ctaProjects = document.querySelectorAll('[data-lang="cta-projects"]');
+    ctaProjects.forEach(el => el.textContent = trans.ctaProjects);
+
+    const ctaContact = document.querySelectorAll('[data-lang="cta-contact"]');
+    ctaContact.forEach(el => el.textContent = trans.ctaContact);
+
+    const infoSpecialtyLabel = document.querySelector('[data-lang="info-specialty-label"]');
+    if (infoSpecialtyLabel) infoSpecialtyLabel.textContent = trans.infoSpecialtyLabel;
+    const infoSpecialtyValue = document.querySelector('[data-lang="info-specialty-value"]');
+    if (infoSpecialtyValue) infoSpecialtyValue.textContent = trans.infoSpecialtyValue;
+
+    const infoStackLabel = document.querySelector('[data-lang="info-stack-label"]');
+    if (infoStackLabel) infoStackLabel.textContent = trans.infoStackLabel;
+    const infoStackValue = document.querySelector('[data-lang="info-stack-value"]');
+    if (infoStackValue) infoStackValue.textContent = trans.infoStackValue;
+
+    const infoCollabLabel = document.querySelector('[data-lang="info-collab-label"]');
+    if (infoCollabLabel) infoCollabLabel.textContent = trans.infoCollabLabel;
+    const infoCollabValue = document.querySelector('[data-lang="info-collab-value"]');
+    if (infoCollabValue) infoCollabValue.textContent = trans.infoCollabValue;
+
     document.querySelector(".about h2").textContent = trans.aboutTitle;
     document.querySelector(".about p").innerHTML = trans.aboutText;
 
@@ -345,6 +448,9 @@ function changeLanguage() {
     if (servicesTitle) servicesTitle.textContent = trans.servicesTitle;
     const servicesSubtitle = document.querySelector('[data-lang="services-subtitle"]');
     if (servicesSubtitle) servicesSubtitle.textContent = trans.servicesSubtitle;
+
+    const servicesBadge = document.querySelector('[data-lang="services-badge"]');
+    if (servicesBadge) servicesBadge.textContent = trans.servicesBadge;
 
     const service1Title = document.querySelector('[data-lang="service-1-title"]');
     if (service1Title) service1Title.textContent = trans.service1Title;
@@ -383,6 +489,12 @@ function changeLanguage() {
 
     document.querySelector(".contact h2").textContent = trans.contactTitle;
     document.querySelector(".contact p").textContent = trans.contactText;
+
+    const contactDiscordCta = document.querySelector('[data-lang="contact-discord-cta"]');
+    if (contactDiscordCta) contactDiscordCta.textContent = trans.contactDiscordCta;
+
+    const contactStatusLabel = document.querySelector('[data-lang="contact-status-label"]');
+    if (contactStatusLabel) contactStatusLabel.textContent = trans.contactStatusLabel;
 
     const navProfile = document.querySelector('[data-lang="nav-profile"]');
     if (navProfile) navProfile.textContent = trans.profileButton;
@@ -472,6 +584,11 @@ function changeLanguage() {
   document.querySelector('[data-lang="dev-skills-title"]').textContent = trans.devSkillsTitle;
   document.querySelector('[data-lang="tools-title"]').textContent = trans.toolsTitle;
 
+  const coreStackLabel = document.querySelector('[data-lang="core-stack-label"]');
+  if (coreStackLabel) coreStackLabel.textContent = trans.coreStackLabel;
+  const workflowLabel = document.querySelector('[data-lang="workflow-label"]');
+  if (workflowLabel) workflowLabel.textContent = trans.workflowLabel;
+
 
   document.querySelector('[data-lang="experience-title"]').textContent = trans.experienceTitle;
 
@@ -487,6 +604,11 @@ function changeLanguage() {
     timelineItems[2].querySelector('.what').textContent = trans.experience3Desc;
   }
 
+  if (timelineItems.length >= 4) {
+    timelineItems[3].querySelector('.when').textContent = trans.experience4Date;
+    timelineItems[3].querySelector('.what').textContent = trans.experience4Desc;
+  }
+
 
   const backBtn = document.querySelector('[data-lang="back-home"]');
   if (backBtn) backBtn.textContent = trans.backHome;
@@ -494,6 +616,29 @@ function changeLanguage() {
   if (navProfile) navProfile.textContent = trans.profileButton;
   const navProjects = document.querySelector('[data-lang="skills-projects"]');
   if (navProjects) navProjects.textContent = trans.projectsButton;
+
+  const collabBadgeMasivo = document.querySelector('[data-lang="collab-badge-masivo"]');
+  if (collabBadgeMasivo) collabBadgeMasivo.textContent = trans.collabBadgeMasivo;
+  const collabBadgeUhcvr = document.querySelector('[data-lang="collab-badge-uhcvr"]');
+  if (collabBadgeUhcvr) collabBadgeUhcvr.textContent = trans.collabBadgeUhcvr;
+  const collabBadgeYearEnd = document.querySelector('[data-lang="collab-badge-year-end"]');
+  if (collabBadgeYearEnd) collabBadgeYearEnd.textContent = trans.collabBadgeYearEnd;
+  const collabBadgeStealing1 = document.querySelector('[data-lang="collab-badge-stealing-1"]');
+  if (collabBadgeStealing1) collabBadgeStealing1.textContent = trans.collabBadgeStealing1;
+  const collabBadgeStealing2 = document.querySelector('[data-lang="collab-badge-stealing-2"]');
+  if (collabBadgeStealing2) collabBadgeStealing2.textContent = trans.collabBadgeStealing2;
+  const collabBadgeValentine = document.querySelector('[data-lang="collab-badge-valentine"]');
+  if (collabBadgeValentine) collabBadgeValentine.textContent = trans.collabBadgeValentine;
+  const collabBadgeUhcminitas = document.querySelector('[data-lang="collab-badge-uhcminitas"]');
+  if (collabBadgeUhcminitas) collabBadgeUhcminitas.textContent = trans.collabBadgeUhcminitas;
+  const collabBadgeGeo = document.querySelector('[data-lang="collab-badge-geo"]');
+  if (collabBadgeGeo) collabBadgeGeo.textContent = trans.collabBadgeGeo;
+  const collabBadgeInfra = document.querySelector('[data-lang="collab-badge-infra"]');
+  if (collabBadgeInfra) collabBadgeInfra.textContent = trans.collabBadgeInfra;
+  const collabBadgeTripleG = document.querySelector('[data-lang="collab-badge-triple-g"]');
+  if (collabBadgeTripleG) collabBadgeTripleG.textContent = trans.collabBadgeTripleG;
+  const collabBadgePirublock = document.querySelector('[data-lang="collab-badge-pirublock"]');
+  if (collabBadgePirublock) collabBadgePirublock.textContent = trans.collabBadgePirublock;
   }
 
   if (pageKey === "profile") {
@@ -541,6 +686,36 @@ function changeLanguage() {
 
     const pronounsLabel = document.querySelector('[data-lang="pronouns-label"]');
     if (pronounsLabel) pronounsLabel.textContent = trans.pronounsLabel;
+
+    const adminOnline = document.querySelector('[data-lang="admin-online"]');
+    if (adminOnline) adminOnline.textContent = trans.adminOnline;
+
+    const commentsTitle = document.querySelector('[data-lang="comments-title"]');
+    if (commentsTitle) commentsTitle.textContent = trans.commentsTitle;
+
+    const commentName = document.querySelector('[data-lang-placeholder="comment-name"]');
+    if (commentName) commentName.placeholder = trans.commentNamePlaceholder;
+
+    const commentMessage = document.querySelector('[data-lang-placeholder="comment-message"]');
+    if (commentMessage) commentMessage.placeholder = trans.commentMessagePlaceholder;
+
+    const commentSend = document.querySelector('[data-lang="comment-send"]');
+    if (commentSend) commentSend.textContent = trans.commentSend;
+
+    const adminLoginTitle = document.querySelector('[data-lang="admin-login-title"]');
+    if (adminLoginTitle) adminLoginTitle.textContent = trans.adminLoginTitle;
+
+    const adminEmail = document.querySelector('[data-lang-placeholder="admin-email"]');
+    if (adminEmail) adminEmail.placeholder = trans.adminEmailPlaceholder;
+
+    const adminPassword = document.querySelector('[data-lang-placeholder="admin-password"]');
+    if (adminPassword) adminPassword.placeholder = trans.adminPasswordPlaceholder;
+
+    const adminLoginButton = document.querySelector('[data-lang="admin-login-button"]');
+    if (adminLoginButton) adminLoginButton.textContent = trans.adminLoginButton;
+
+    const adminCancelButton = document.querySelector('[data-lang="admin-cancel-button"]');
+    if (adminCancelButton) adminCancelButton.textContent = trans.adminCancelButton;
   }
 }
 

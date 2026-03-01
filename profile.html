@@ -12,108 +12,156 @@
   <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://camila.portafolio.github.io/profile.html">
   <title data-lang="profile-title">Perfil - camila.dev</title>
-  <link rel="stylesheet" href="styles/camila.css">
-  <link rel="stylesheet" href="styles/profile.css">
   <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#0b0b10",
+            night: "#12131a",
+            neonPink: "#ff4fd8",
+            neonCyan: "#4cf5ff",
+            neonLime: "#c8ff59"
+          },
+          fontFamily: {
+            display: ["Space Grotesk", "sans-serif"],
+            body: ["Manrope", "sans-serif"]
+          },
+          boxShadow: {
+            glow: "0 0 40px rgba(255, 79, 216, 0.35)",
+            card: "0 20px 45px rgba(0, 0, 0, 0.35)"
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles/tw.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
 
-<body class="profile-page">
+<body class="font-body text-slate-100 bg-ink">
+  <div class="pointer-events-none fixed inset-0 -z-30 overflow-hidden">
+    <div class="absolute -top-32 -left-24 h-80 w-80 rounded-full bg-neonPink/30 blur-3xl"></div>
+    <div class="absolute top-24 right-0 h-96 w-96 rounded-full bg-neonCyan/25 blur-3xl"></div>
+    <div class="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-neonLime/20 blur-3xl"></div>
+  </div>
 
-  <canvas id="parallaxCanvas"></canvas>
+  <canvas id="parallaxCanvas" class="fixed inset-0 -z-20"></canvas>
+  <canvas id="particles" class="fixed inset-0 -z-10 opacity-70"></canvas>
+  <canvas id="particles" class="fixed inset-0 -z-10 opacity-70"></canvas>
 
-  <div class="background"></div>
-  <canvas id="particles"></canvas>
+  <nav class="relative z-10 mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-6">
+    <a href="index.html" class="font-display text-xl tracking-wide text-white">camila.dev</a>
+    <div class="flex flex-wrap items-center gap-3">
+      <a href="index.html" class="nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" title="Inicio" data-lang="home-button">
+        <i class="fas fa-home"></i> <span data-lang="home-text">Inicio</span>
+      </a>
+      <a href="projects.html" class="nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" title="Ver Proyectos" data-lang="projects-button">
+        <i class="fas fa-folder-open"></i> <span data-lang="projects-text">Proyectos</span>
+      </a>
+      <a href="skills.html" class="nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" title="Ver Habilidades" data-lang="skills-button">
+        <i class="fas fa-code"></i> <span data-lang="skills-text">Habilidades</span>
+      </a>
+      <button class="nav-button admin-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" id="admin-toggle">
+        <i class="fas fa-user-shield"></i>
+        <span>Admin</span>
+      </button>
+      <button class="nav-button lang-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" id="lang-toggle" data-lang="langButton" title="Cambiar idioma" aria-label="Cambiar idioma">🇺🇸</button>
+    </div>
+  </nav>
 
-  <div class="profile-container" data-parallax="0.5">
-    <div class="profile-card">
-      <div class="profile-nav">
-        <a href="index.html" class="nav-button" title="Inicio" data-lang="home-button">
-          <i class="fas fa-home"></i> <span data-lang="home-text">Inicio</span>
-        </a>
-        <a href="projects.html" class="nav-button" title="Ver Proyectos" data-lang="projects-button">
-          <i class="fas fa-folder-open"></i> <span data-lang="projects-text">Proyectos</span>
-        </a>
-        <a href="skills.html" class="nav-button" title="Ver Habilidades" data-lang="skills-button">
-          <i class="fas fa-code"></i> <span data-lang="skills-text">Habilidades</span>
-        </a>
-        <button class="nav-button admin-button" id="admin-toggle">
-          <i class="fas fa-user-shield"></i>
-          <span>Admin</span>
-        </button>
-        <button class="nav-button lang-button" id="lang-toggle" data-lang="langButton" title="Cambiar idioma" aria-label="Cambiar idioma">🇺🇸</button>
-      </div>
-      <div class="profile-banner">
-        <div class="banner-pattern"></div>
-      </div>
-      <div class="profile-content">
-        <div class="profile-avatar-section">
-          <img src="media/camilaProfile.png" alt="Foto de perfil" class="profile-avatar" width="160" height="160" loading="eager" decoding="async">
-          <div class="badges">
-            <img src="images/icons/masivo_iso.png" alt="Badge Masivo" class="badge" loading="lazy" decoding="async">
-            <img src="media/proyectos/icon.png" alt="Badge Icon" class="badge" loading="lazy" decoding="async">
-            <img src="media/proyectos/hylamity.jpg" alt="Badge Hylamity" class="badge" loading="lazy" decoding="async">
+  <main class="relative z-10 mx-auto max-w-6xl px-6 pb-16" data-parallax="0.5">
+    <section class="grid gap-10 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-card lg:grid-cols-[0.85fr_1.15fr]">
+      <div class="space-y-6">
+        <div class="relative rounded-3xl border border-white/10 bg-white/10 p-6">
+          <img src="media/camilaProfile.png" alt="Foto de perfil" class="mx-auto h-40 w-40 rounded-3xl object-cover ring-2 ring-white/20" width="160" height="160" loading="eager" decoding="async">
+          <div class="mt-4 flex flex-wrap justify-center gap-3">
+            <span class="logo-tooltip" data-tooltip="MasivoSMP">
+              <img src="images/icons/masivo_iso.png" alt="Badge Masivo" class="h-10 w-10 rounded-2xl border border-white/20 object-cover" loading="lazy" decoding="async">
+            </span>
+            <span class="logo-tooltip" data-tooltip="ScreamingLAB">
+              <img src="media/proyectos/icon.png" alt="Badge ScreamingLAB" class="h-10 w-10 rounded-2xl border border-white/20 object-cover" loading="lazy" decoding="async">
+            </span>
+            <span class="logo-tooltip" data-tooltip="Hylamity">
+              <img src="media/proyectos/hylamity.jpg" alt="Badge Hylamity" class="h-10 w-10 rounded-2xl border border-white/20 object-cover" loading="lazy" decoding="async">
+            </span>
           </div>
         </div>
-        <div class="profile-info">
-          <h1 class="profile-username">camila</h1>
-          <div class="profile-activity">
-            <div id="admin-badge" class="admin-badge" style="display:none;">
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+          <div id="admin-badge" class="mb-3 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/80" style="display:none;" data-lang="admin-online">
             🟡 Admin Online
           </div>
+          <div class="flex items-center gap-2 text-sm text-white/70">
+            🏳️‍⚧️ <span data-lang="pronouns-label">Pronombres:</span> <strong class="text-white">she/her</strong>
           </div>
-          <p class="profile-status" data-lang="profile-status">Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team</p>          
-          <div class="pronouns">
-            🏳️‍⚧️ <span data-lang="pronouns-label">Pronombres:</span> <strong>she/her</strong>
-          </div>        
         </div>
       </div>
-      <div class="profile-bio">
-        <h3><span data-lang="about-title">Sobre mí</span></h3>
-        <p data-lang="about-text">
-          👋 ¡Hola! Soy Camila, una apasionada desarrolladora de 18 años especializada en software para Minecraft y Hytale. 💻<br><br>
-          Me encanta crear mods, plugins y experiencias únicas para jugadores. <br><br>
-          Actualmente trabajo como head dev en <strong>ScreamingLAB</strong> y como dev en <strong>MasivoSMP Team</strong>.
-        </p>
-        <div class="profile-roles">
-          <h4><span data-lang="roles-title">Roles</span></h4>
-          <div class="roles-list">
-            <span class="role" data-lang="role-developer">Developer</span>
-            <span class="role" data-lang="role-enthusiast">Minecraft Enthusiast</span>
-            <span class="role" data-lang="role-developer">Minecraft Dev</span>
-            <span class="role" data-lang="role-developer">Hytale Dev</span>
-          </div>
+
+      <div class="space-y-6">
+        <div>
+          <h1 class="profile-username font-display text-4xl font-semibold text-white">camila</h1>
+          <p class="profile-status mt-3 text-base text-white/80" data-lang="profile-status">Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team</p>
         </div>
-        <div class="profile-activity">
-          <h4><span data-lang="activity-title">Actividad Reciente</span></h4>
-          <p data-lang="activity-text">Trabajando en cosas increíbles</p>
+        <div class="profile-bio rounded-3xl border border-white/10 bg-white/5 p-6">
+          <h3 class="font-display text-xl font-semibold"><span data-lang="about-title">Sobre mi</span></h3>
+          <p class="mt-3 text-sm text-white/75" data-lang="about-text">
+            👋 ¡Hola! Soy Camila, una apasionada desarrolladora de 18 años especializada en software para Minecraft y Hytale. 💻<br><br>
+            Me encanta crear mods, plugins y experiencias unicas para jugadores. <br><br>
+            Actualmente trabajo como head dev en <strong>ScreamingLAB</strong> y como dev en <strong>MasivoSMP Team</strong>.
+          </p>
         </div>
-         <div class="profile-comments">
-          <h3><i class="fas fa-comments"></i> Comentarios</h3>
-          <div class="comment-form">
-            <input type="text" id="comment-name" placeholder="Tu nombre">
-             <textarea id="comment-message" placeholder="Escribí tu mensaje..."></textarea>
-             <button id="send-comment">Enviar</button>
+        <div class="grid gap-6 md:grid-cols-2">
+          <div class="profile-roles rounded-3xl border border-white/10 bg-white/5 p-6">
+            <h4 class="font-display text-base font-semibold"><span data-lang="roles-title">Roles</span></h4>
+            <div class="roles-list mt-4 flex flex-wrap gap-2">
+              <span class="role" data-lang="role-developer">Developer</span>
+              <span class="role" data-lang="role-enthusiast">Minecraft Enthusiast</span>
+              <span class="role" data-lang="role-developer">Minecraft Dev</span>
+              <span class="role" data-lang="role-developer">Hytale Dev</span>
             </div>
-            <div id="comments-list" class="comments-list"></div>
+          </div>
+          <div class="profile-activity rounded-3xl border border-white/10 bg-white/5 p-6">
+            <h4 class="font-display text-base font-semibold"><span data-lang="activity-title">Actividad Reciente</span></h4>
+            <p class="mt-3 text-sm text-white/75" data-lang="activity-text">Trabajando en cosas increibles</p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div id="login-modal" class="modal hidden">
-      <div class="modal-content">
-        <h3><i class="fas fa-user-shield"></i> Admin Login</h3>
-        <input type="email" id="admin-email" placeholder="Email">
-        <input type="password" id="admin-password" placeholder="Password">
-        <div class="modal-buttons">
-          <button id="admin-login-btn">Entrar</button>
-          <button id="admin-cancel-btn" class="secondary">Cancelar</button>
+    <section class="profile-comments mt-10 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-card" data-reveal>
+      <h3 class="font-display text-xl font-semibold"><i class="fas fa-comments"></i> <span data-lang="comments-title">Comentarios</span></h3>
+      <div class="comment-form mt-6 grid gap-4 md:grid-cols-[1fr_1fr_auto]">
+        <input type="text" id="comment-name" placeholder="Tu nombre" data-lang-placeholder="comment-name" class="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-white/90 placeholder:text-white/40">
+        <textarea id="comment-message" placeholder="Escribi tu mensaje..." data-lang-placeholder="comment-message" class="min-h-[48px] rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-white/90 placeholder:text-white/40 md:col-span-2"></textarea>
+        <button id="send-comment" class="nav-button rounded-2xl bg-neonPink px-6 py-3 text-sm font-semibold text-ink shadow-glow" data-lang="comment-send">Enviar</button>
+        <div class="comment-meta md:col-span-3">
+          <span id="comment-count" class="comment-count">0/500</span>
         </div>
       </div>
-    </div>
+      <div id="comments-list" class="comments-list mt-6 grid gap-4"></div>
+    </section>
+  </main>
 
-  <footer>
+  <div id="login-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3 class="font-display text-lg font-semibold"><i class="fas fa-user-shield"></i> <span data-lang="admin-login-title">Admin Login</span></h3>
+      <div class="mt-4 grid gap-3">
+        <input type="email" id="admin-email" placeholder="Email" data-lang-placeholder="admin-email" class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm text-white/90 placeholder:text-white/40">
+        <input type="password" id="admin-password" placeholder="Password" data-lang-placeholder="admin-password" class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm text-white/90 placeholder:text-white/40">
+      </div>
+      <div class="modal-buttons">
+        <button id="admin-login-btn" class="nav-button rounded-2xl bg-neonCyan px-4 py-2 text-sm font-semibold text-ink" data-lang="admin-login-button">Entrar</button>
+        <button id="admin-cancel-btn" class="secondary nav-button rounded-2xl px-4 py-2 text-sm font-semibold text-white/80" data-lang="admin-cancel-button">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="relative z-10 border-t border-white/10 px-6 py-8 text-center text-sm text-white/60">
     <p data-lang="footer">© 2026 camila — Minecraft Developer 🎶</p>
   </footer>
 
@@ -121,9 +169,7 @@
   <script src="Script/lang.js"></script>
   <script src="Script/ui.js"></script>
   <script src="Script/index.js"></script>
-  
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
   <script src="Script/comments.js"></script>
 </body>
 </html>
