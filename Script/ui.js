@@ -112,12 +112,25 @@
         filterButtons.forEach(btn => {
           const isActive = btn.dataset.filter === filter;
           btn.classList.toggle('active', isActive);
-          btn.setAttribute('aria-pressed', isActive.toString());
+          btn.setAttribute('aria-checked', isActive.toString());
+          btn.tabIndex = isActive ? 0 : -1;
         });
       };
 
-      filterButtons.forEach(btn => {
+      filterButtons.forEach((btn, idx) => {
         btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
+        btn.addEventListener('keydown', (ev) => {
+          const keys = ['ArrowRight', 'ArrowLeft', 'ArrowDown', 'ArrowUp'];
+          if (!keys.includes(ev.key)) return;
+          ev.preventDefault();
+
+          const dir = (ev.key === 'ArrowRight' || ev.key === 'ArrowDown') ? 1 : -1;
+          const nextIndex = (idx + dir + filterButtons.length) % filterButtons.length;
+          const nextBtn = filterButtons[nextIndex];
+          if (!nextBtn) return;
+          nextBtn.focus();
+          applyFilter(nextBtn.dataset.filter);
+        });
       });
 
       applyFilter('all');

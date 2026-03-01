@@ -6,11 +6,14 @@
   <meta name="description" content="Portafolio de Camila, desarrolladora de plugins y mods para Minecraft y Hytale.">
   <meta property="og:title" content="camila.dev">
   <meta property="og:description" content="Portafolio de Camila, desarrolladora de plugins y mods para Minecraft y Hytale.">
+  <meta property="og:site_name" content="camila.dev">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://camila.portafolio.github.io/index.html">
-  <meta property="og:image" content="https://camila.portafolio.github.io/media/camilaProfile.png">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:image" content="https://camila.portafolio.github.io/media/camilaProfile.png">
+  <meta property="og:image" content="https://camila.portafolio.github.io/media/og-image.svg">
+  <meta name="twitter:title" content="camila.dev">
+  <meta name="twitter:description" content="Portafolio de Camila, desarrolladora de plugins y mods para Minecraft y Hytale.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://camila.portafolio.github.io/media/og-image.svg">
   <link rel="canonical" href="https://camila.portafolio.github.io/index.html">
   <title>camila.dev</title>
   <link rel="icon" href="images/icon.ico" type="image/x-icon" />
@@ -20,10 +23,39 @@
   <script src="Script/tw-config.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles/tw.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "camila.dev",
+          "url": "https://camila.portafolio.github.io/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://camila.portafolio.github.io/projects.html",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Camila",
+          "url": "https://camila.portafolio.github.io/",
+          "jobTitle": "Minecraft Developer",
+          "knowsAbout": ["Minecraft", "Hytale", "Paper", "Fabric", "Java"],
+          "sameAs": [
+            "https://twitter.com/CamilaDev_",
+            "https://instagram.com/camila.cami.camiladev",
+            "https://github.com/Camil4Dev"
+          ]
+        }
+      ]
+    }
+  </script>
 </head>
 
 <body class="font-body text-slate-100 bg-ink">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
   <div class="pointer-events-none fixed inset-0 -z-30 overflow-hidden">
     <div class="absolute -top-32 -left-24 h-80 w-80 rounded-full bg-neonPink/30 blur-3xl"></div>
     <div class="absolute top-20 right-0 h-96 w-96 rounded-full bg-neonCyan/25 blur-3xl"></div>
@@ -37,19 +69,31 @@
     <a href="index.html" class="font-display text-xl tracking-wide text-white">camila.dev</a>
     <div class="flex flex-wrap items-center gap-3">
       <a href="profile.html" class="nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" title="Ver Perfil">
-        <i class="fas fa-user"></i> <span data-lang="nav-profile">Perfil</span>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+          <path d="M4 20a8 8 0 0116 0" />
+        </svg>
+        <span data-lang="nav-profile">Perfil</span>
       </a>
       <a href="projects.html" class="nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" title="Ver Proyectos">
-        <i class="fas fa-folder-open"></i> <span data-lang="nav-projects">Proyectos</span>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 7.5A1.5 1.5 0 014.5 6h4.5l2 2h8.5A1.5 1.5 0 0121 9.5v8A1.5 1.5 0 0119.5 19h-15A1.5 1.5 0 013 17.5v-10z" />
+        </svg>
+        <span data-lang="nav-projects">Proyectos</span>
       </a>
       <a href="skills.html" class="nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" title="Ver Habilidades">
-        <i class="fas fa-code"></i> <span data-lang="nav-skills">Habilidades</span>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8.5 6l-4.5 6 4.5 6" />
+          <path d="M15.5 6l4.5 6-4.5 6" />
+          <path d="M13 4l-2 16" />
+        </svg>
+        <span data-lang="nav-skills">Habilidades</span>
       </a>
       <button class="nav-button lang-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" id="lang-toggle" title="Cambiar idioma" aria-label="Cambiar idioma">🇺🇸</button>
     </div>
   </nav>
 
-  <main class="relative z-10">
+  <main id="main-content" class="relative z-10">
     <header class="mx-auto grid max-w-6xl items-center gap-10 px-6 pb-12 pt-6 lg:grid-cols-[1.2fr_0.8fr]" data-parallax="0.5">
       <div class="space-y-6">
         <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/80" data-lang="hero-badge">
@@ -66,10 +110,36 @@
           <a href="#contact" class="nav-button rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/50" data-lang="cta-contact">Contactar</a>
         </div>
         <div class="flex flex-wrap items-center gap-4 text-lg text-white/70">
-          <a href="https://twitter.com/CamilaDev_" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="transition hover:text-neonCyan"><i class="fab fa-twitter"></i></a>
-          <a href="https://instagram.com/camila.cami.camiladev" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="transition hover:text-neonPink"><i class="fab fa-instagram"></i></a>
-          <a href="https://github.com/Camil4Dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="transition hover:text-neonLime"><i class="fab fa-github"></i></a>
-          <a href="https://open.spotify.com/user/h69mjpdzptibqd4vzbke29wvg" target="_blank" rel="noopener noreferrer" aria-label="Spotify" class="transition hover:text-white"><i class="fab fa-spotify"></i></a>
+          <a href="https://twitter.com/CamilaDev_" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="transition hover:text-neonCyan">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 4l14 16" />
+              <path d="M19 4L5 20" />
+            </svg>
+          </a>
+          <a href="https://instagram.com/camila.cami.camiladev" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="transition hover:text-neonPink">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="4" width="16" height="16" rx="4" />
+              <circle cx="12" cy="12" r="3.5" />
+              <circle cx="17" cy="7" r="1" />
+            </svg>
+          </a>
+          <a href="https://github.com/Camil4Dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="transition hover:text-neonLime">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="7" cy="7" r="2" />
+              <circle cx="17" cy="7" r="2" />
+              <circle cx="12" cy="17" r="2" />
+              <path d="M9 8.5l2.5 6" />
+              <path d="M15 8.5l-2.5 6" />
+            </svg>
+          </a>
+          <a href="https://open.spotify.com/user/h69mjpdzptibqd4vzbke29wvg" target="_blank" rel="noopener noreferrer" aria-label="Spotify" class="transition hover:text-white">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="8" />
+              <path d="M8 10.5c2.6-0.8 5.4-0.6 8 0.6" />
+              <path d="M8.5 13c2.1-0.6 4.5-0.4 6.6 0.5" />
+              <path d="M9 15.5c1.6-0.4 3.3-0.2 4.8 0.4" />
+            </svg>
+          </a>
         </div>
       </div>
       <div class="relative">
@@ -97,12 +167,12 @@
 
     <section class="about mx-auto max-w-6xl px-6 py-10" data-parallax="0.7" data-reveal>
       <div class="grid gap-8 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-card md:grid-cols-[0.6fr_1fr]">
-        <h2 class="font-display text-2xl font-semibold text-white">Sobre mi</h2>
+        <h2 class="font-display text-2xl font-semibold text-white">Sobre mí</h2>
         <p class="text-base text-white/75">
-          Soy desarrolladora especializada en la creacion de <strong>plugins para Paper</strong>,
+          Soy desarrolladora especializada en la creación de <strong>plugins para Paper</strong>,
           <strong>mods Fabric</strong> y sistemas avanzados para servidores.
-          Trabajo con Mixin, GeckoLib, entidades personalizadas, packets, mundos dinamicos
-          y mecanicas complejas para minijuegos.
+          Trabajo con Mixin, GeckoLib, entidades personalizadas, packets, mundos dinámicos
+          y mecánicas complejas para minijuegos.
           <br><br>
           Actualmente desarrollo en <strong>ScreamingLAB</strong> y colaboro en proyectos privados.
         </p>
@@ -123,7 +193,7 @@
       <div class="mt-8 grid gap-6 md:grid-cols-2">
         <div class="service-card rounded-3xl border border-white/10 bg-white/5 p-6 shadow-card">
           <h3 class="font-display text-lg font-semibold" data-lang="service-1-title">Plugins Paper</h3>
-          <p class="mt-2 text-sm text-white/70" data-lang="service-1-text">Sistemas personalizados, minijuegos y mecanicas avanzadas.</p>
+          <p class="mt-2 text-sm text-white/70" data-lang="service-1-text">Sistemas personalizados, minijuegos y mecánicas avanzadas.</p>
         </div>
         <div class="service-card rounded-3xl border border-white/10 bg-white/5 p-6 shadow-card">
           <h3 class="font-display text-lg font-semibold" data-lang="service-2-title">Mods Fabric</h3>
@@ -131,7 +201,7 @@
         </div>
         <div class="service-card rounded-3xl border border-white/10 bg-white/5 p-6 shadow-card">
           <h3 class="font-display text-lg font-semibold" data-lang="service-3-title">Sistemas & Eventos</h3>
-          <p class="mt-2 text-sm text-white/70" data-lang="service-3-text">Arquitecturas para eventos, progresion y economia.</p>
+          <p class="mt-2 text-sm text-white/70" data-lang="service-3-text">Arquitecturas para eventos, progresión y economía.</p>
         </div>
         <div class="service-card rounded-3xl border border-white/10 bg-white/5 p-6 shadow-card">
           <h3 class="font-display text-lg font-semibold" data-lang="service-4-title">Hytale</h3>
@@ -159,11 +229,17 @@
           <p class="mt-2 text-white/70">¿Necesitas un plugin, mod o sistema personalizado? Podes escribirme a:</p>
           <div class="mt-6 flex flex-col gap-4">
             <a href="mailto:c.carpincho.gaucho@gmail.com" class="contact-link flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm font-semibold text-white/90 transition hover:border-white/40" title="Enviar email">
-              <i class="fas fa-envelope text-neonLime"></i>
+              <svg class="icon text-neonLime" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 6.75h18v10.5H3z" />
+                <path d="M3 6.75l9 6 9-6" />
+              </svg>
               <span>c.carpincho.gaucho@gmail.com</span>
             </a>
             <a href="https://discord.com/users/932721517995888650" class="contact-link flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm font-semibold text-white/90 transition hover:border-white/40" title="Ver perfil en Discord">
-              <i class="fab fa-discord text-neonCyan"></i>
+              <svg class="icon text-neonCyan" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5.25 5.25h13.5A2.25 2.25 0 0121 7.5v7.5a2.25 2.25 0 01-2.25 2.25H9l-5.25 3V7.5A2.25 2.25 0 015.25 5.25z" />
+                <path d="M9 10.5h.01M15 10.5h.01" />
+              </svg>
               <span data-lang="contact-discord-cta">Contactar</span>
             </a>
           </div>

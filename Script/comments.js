@@ -179,7 +179,15 @@ async function checkAdmin() {
 
   if (user && user.id === ADMIN_UID) {
     adminBtn.classList.add("logged-in");
-    adminBtn.innerHTML = `<i class="fas fa-sign-out-alt"></i><span>Logout</span>`;
+    adminBtn.innerHTML = `
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 12h10" />
+        <path d="M15 8l4 4-4 4" />
+        <path d="M5 5h7a2 2 0 012 2v2" />
+        <path d="M14 15v2a2 2 0 01-2 2H5" />
+      </svg>
+      <span>Logout</span>
+    `;
     adminBtn.onclick = async () => {
       await supabaseClient.auth.signOut();
       location.reload();
@@ -187,7 +195,14 @@ async function checkAdmin() {
 
     if (badge) badge.style.display = "flex";
   } else {
-    adminBtn.innerHTML = `<i class="fas fa-user-shield"></i><span>Admin</span>`;
+    adminBtn.innerHTML = `
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3l7.5 4v5.5c0 4.5-3.4 8.7-7.5 9.5-4.1-0.8-7.5-5-7.5-9.5V7l7.5-4z" />
+        <path d="M12 8v5" />
+        <path d="M12 16h.01" />
+      </svg>
+      <span>Admin</span>
+    `;
     adminBtn.onclick = () => {
       document.getElementById("login-modal").classList.remove("hidden");
     };
@@ -223,6 +238,37 @@ document.getElementById("admin-cancel-btn").addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const messageInput = document.getElementById("comment-message");
   const countEl = document.getElementById("comment-count");
+  const emojiToggle = document.getElementById("emoji-toggle");
+  const emojiPanel = document.getElementById("emoji-panel");
+  const emojiTabs = document.querySelectorAll(".emoji-tab");
+  const emojiGrid = document.getElementById("emoji-grid");
+  const emojiSearch = document.getElementById("emoji-search");
+  const emojiTitle = document.getElementById("emoji-section-title");
+  const emojiClear = document.getElementById("emoji-clear");
+
+  const EMOJI_GROUPS = {
+    faces: ["😀","😃","😄","😁","😆","😅","🤣","😂","🙂","🙃","😉","😊","😇","🥰","😍","🤩","😘","😗","😚","😙","😋","😜","😝","😛","🫠","🫶","🤗","🤭","🫢","🤫","🤔","😐","😑","😶","🙄","😬","😮","😲","😳","🥳","😎","🤓","🥸","😴","🤤"],
+    gestures: ["👍","👎","👏","🙌","🤝","✌️","🤘","🫡","💪","🙏","👌","👀","👋","🤙","🖐️","✋","🤟","☝️","👇","👉","👈","🫰","👐","🤲","🫶","🙅","🙆","🙋","🤷","🤦"],
+    hearts: ["❤️","🧡","💛","💚","💙","💜","🩷","🖤","🤍","🤎","💔","❤️‍🔥","❤️‍🩹","💖","💗","💓","💞","💕","💝","💘","💟"],
+    food: ["🍕","🍔","🍟","🌭","🍿","🥓","🥞","🧇","🍳","🍣","🍜","🍱","🍛","🍙","🍤","🥗","🥪","🍩","🍪","🎂","🍰","🧁","🍫","🍬","🍭","🧋","☕","🧃"],
+    objects: ["🎮","🕹️","🧱","⛏️","🧪","🧠","⚙️","💻","🛠️","📌","📎","📷","🎧","🎵","🎤","🚀","🔥","✨","🧲","🔮","💡","🧩","🪄","📦","📡"],
+    nature: ["🌿","🌱","🌸","🌙","⭐","☀️","⚡","🌊","🍀","🪐","🌌","🌈","🌧️","❄️","🔥","🌋","🪨","🌵","🦋","🐝","🐢"],
+    symbols: ["✅","☑️","✔️","❌","⚠️","❗","❓","💯","🔔","🔕","🔒","🔓","💬","🗯️","💭","🎯","📌","🔹","🔸","🟢","🟡","🔴","⚪","⚫"],
+    recent: []
+  };
+
+  const CATEGORY_LABELS = {
+    recent: "Recientes",
+    faces: "Emoticonos y personas",
+    gestures: "Gestos",
+    hearts: "Corazones",
+    food: "Comida",
+    objects: "Objetos",
+    nature: "Naturaleza",
+    symbols: "Simbolos"
+  };
+
+  const RECENT_KEY = "emoji_recent";
 
   const resizeMessage = () => {
     if (!messageInput) return;
@@ -238,6 +284,89 @@ document.addEventListener("DOMContentLoaded", () => {
     countEl.classList.toggle("is-danger", value >= MAX_LENGTH);
   };
 
+  const insertEmoji = (emoji) => {
+    if (!messageInput) return;
+    const start = messageInput.selectionStart ?? messageInput.value.length;
+    const end = messageInput.selectionEnd ?? messageInput.value.length;
+    const nextValue = messageInput.value.slice(0, start) + emoji + messageInput.value.slice(end);
+    if (nextValue.length > MAX_LENGTH) return;
+    messageInput.value = nextValue;
+    const caret = start + emoji.length;
+    messageInput.setSelectionRange(caret, caret);
+    messageInput.focus();
+    resizeMessage();
+    updateCount();
+    addRecentEmoji(emoji);
+  };
+
+  const closeEmojiPanel = () => {
+    if (!emojiPanel || !emojiToggle) return;
+    emojiPanel.classList.remove("is-open");
+    emojiPanel.setAttribute("aria-hidden", "true");
+    emojiToggle.setAttribute("aria-expanded", "false");
+  };
+
+  const toggleEmojiPanel = () => {
+    if (!emojiPanel || !emojiToggle) return;
+    const isOpen = emojiPanel.classList.toggle("is-open");
+    emojiPanel.setAttribute("aria-hidden", (!isOpen).toString());
+    emojiToggle.setAttribute("aria-expanded", isOpen.toString());
+  };
+
+  const loadRecentEmojis = () => {
+    try {
+      const stored = JSON.parse(localStorage.getItem(RECENT_KEY) || "[]");
+      if (Array.isArray(stored)) EMOJI_GROUPS.recent = stored;
+    } catch (e) { }
+  };
+
+  const saveRecentEmojis = () => {
+    try {
+      localStorage.setItem(RECENT_KEY, JSON.stringify(EMOJI_GROUPS.recent));
+    } catch (e) { }
+  };
+
+  const addRecentEmoji = (emoji) => {
+    EMOJI_GROUPS.recent = [emoji, ...EMOJI_GROUPS.recent.filter(e => e !== emoji)].slice(0, 24);
+    saveRecentEmojis();
+    if (getActiveGroup() === "recent") renderEmojiGrid("recent");
+  };
+
+  const clearRecent = () => {
+    EMOJI_GROUPS.recent = [];
+    saveRecentEmojis();
+    if (getActiveGroup() === "recent") renderEmojiGrid("recent");
+  };
+
+  const getActiveGroup = () => {
+    const active = Array.from(emojiTabs).find(tab => tab.classList.contains("is-active"));
+    return active?.dataset.group || "recent";
+  };
+
+  const renderEmojiGrid = (group, query = "") => {
+    if (!emojiGrid) return;
+    const term = query.trim().toLowerCase();
+    const list = term
+      ? Object.values(EMOJI_GROUPS).flat()
+      : (EMOJI_GROUPS[group] || []);
+
+    emojiGrid.innerHTML = "";
+
+    const filtered = term ? list.filter((emoji) => emoji.includes(term) || emoji === term) : list;
+    if (emojiTitle) emojiTitle.textContent = term ? "Resultados" : (CATEGORY_LABELS[group] || "Emojis");
+    if (emojiClear) emojiClear.style.visibility = (group === "recent" && !term) ? "visible" : "hidden";
+
+    filtered.forEach((emoji) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "emoji-btn";
+      btn.dataset.emoji = emoji;
+      btn.textContent = emoji;
+      btn.addEventListener("click", () => insertEmoji(emoji));
+      emojiGrid.appendChild(btn);
+    });
+  };
+
   if (messageInput) {
     messageInput.addEventListener("input", () => {
       if (messageInput.value.length > MAX_LENGTH) {
@@ -248,8 +377,72 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  if (emojiToggle) {
+    emojiToggle.addEventListener("click", (ev) => {
+      ev.preventDefault();
+      toggleEmojiPanel();
+    });
+  }
+
+  emojiTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const group = tab.dataset.group;
+      emojiTabs.forEach(t => {
+        const isActive = t === tab;
+        t.classList.toggle("is-active", isActive);
+        t.setAttribute("aria-selected", isActive.toString());
+      });
+      if (emojiSearch) emojiSearch.value = "";
+      renderEmojiGrid(group);
+    });
+
+    tab.addEventListener("keydown", (ev) => {
+      if (ev.key !== "ArrowRight" && ev.key !== "ArrowLeft") return;
+      ev.preventDefault();
+      const dir = ev.key === "ArrowRight" ? 1 : -1;
+      const tabs = Array.from(emojiTabs);
+      const currentIndex = tabs.indexOf(tab);
+      const nextIndex = (currentIndex + dir + tabs.length) % tabs.length;
+      const nextTab = tabs[nextIndex];
+      if (nextTab) {
+        nextTab.focus();
+        nextTab.click();
+      }
+    });
+  });
+
+  if (emojiSearch) {
+    emojiSearch.addEventListener("input", () => {
+      renderEmojiGrid(getActiveGroup(), emojiSearch.value);
+    });
+  }
+
+  if (emojiClear) {
+    emojiClear.addEventListener("click", () => clearRecent());
+  }
+
+  document.addEventListener("click", (ev) => {
+    if (!emojiPanel || !emojiToggle) return;
+    const target = ev.target;
+    if (emojiPanel.contains(target) || emojiToggle.contains(target)) return;
+    closeEmojiPanel();
+  });
+
+  document.addEventListener("keydown", (ev) => {
+    if (ev.key !== "Escape") return;
+    if (!emojiPanel || !emojiToggle) return;
+    if (!emojiPanel.classList.contains("is-open")) return;
+    closeEmojiPanel();
+    emojiToggle.focus();
+  });
+
   resizeMessage();
   updateCount();
+
+  loadRecentEmojis();
+  if (emojiTabs.length) {
+    renderEmojiGrid(emojiTabs[0].dataset.group || "recent");
+  }
 
   checkAdmin();
   loadComments();

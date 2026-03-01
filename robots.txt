@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://camila.portafolio.github.io/sitemap.xml

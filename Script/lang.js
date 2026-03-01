@@ -57,29 +57,29 @@ const translations = {
       filterHytale: "Hytale",
       filterWeb: "Web",
       project1Title: "Perfectamente equilibrado (Paper 1.21.1)",
-      project1Desc: "Minijuego donde tenes que equilibrar el libro en tu cabeza para conseguir puntos, minijuego creado para el Geo ware Oddysey.",
-      project2Title: "Fork de UniverseJobs(Paper 1.21.8)",
-      project2Desc: "ReCodeo del plugin de trabajos de Masivo SMP compatible con Folia.",
+      project1Desc: "Minijuego donde tenés que equilibrar el libro en tu cabeza para conseguir puntos, minijuego creado para el Geo ware Oddysey.",
+      project2Title: "Fork de UniverseJobs (Paper 1.21.8)",
+      project2Desc: "ReCodeo del plugin de trabajos de MasivoSMP compatible con Folia.",
       project3Title: "Fork de nocape (Fabric 1.20.4)",
       project3Desc: "Mod para desactivar todas las capas del juego desde el Cliente.",
       project4Title: "Port de Sniffers Delight (Fabric 1.20.1)",
-      project4Desc: "mod de comidas sobre el sniffer.",
+      project4Desc: "Mod de comidas sobre el sniffer.",
       project5Title: "Perspective Lock (Fabric 1.20.4-1.21.1)",
-      project5Desc: "Mod de cliente que recibe packets de un plugin para cambiar de perspectivas y bloquear la camara del jugador en cualquier posicion.",
+      project5Desc: "Mod de cliente que recibe packets de un plugin para cambiar de perspectivas y bloquear la cámara del jugador en cualquier posición.",
       project6Title: "UHC VR Plugin (Paper 1.21.1)",
-      project6Desc: "Plugin el cual se uso para conectar todo con el mod de UHC VR",
+      project6Desc: "Plugin el cual se usó para conectar todo con el mod de UHC VR.",
       project7Title: "ScreamingRTP (Hytale Mod)",
       project7Desc: "Mod de teletransportación aleatoria para Hytale que permite a los jugadores teleportarse a ubicaciones aleatorias en el mundo.",
       project8Title: "Web Portfolio (HTML/CSS/JS)",
       project8Desc: "Portafolio web interactivo con animaciones parallax y diseño responsivo, mostrando proyectos de desarrollo.",
-      project9Title: "Stealing Heart(minijuego) (Paper 1.20.4)",
+      project9Title: "Stealing Heart (minijuego) (Paper 1.20.4)",
       project9Desc: "Minijuego del evento de LilithLuvsYa.",
       project10Title: "SCZombies (Fabric 1.21.1)",
       project10Desc: "Sistema avanzado y personalizado para spawnear hordas de zombies, mod usado para el evento de fin de año de farfadox y RichMC.",
       project11Title: "ScreamingSupport (Paper 1.21.1)",
       project11Desc: "Plugin el cual se encargaba de absolutamente todos los tickets ingame del evento de UHCVR de farfadox.",
       project12Title: "PiruBlock (Fabric 1.21.1)",
-      project12Desc: "OneBlock desarrollado para piru y el grupo de los monos con mecanias unicas y emocionantes al igual que eventos unicos.",
+      project12Desc: "OneBlock desarrollado para piru y el grupo de los monos con mecánicas únicas y emocionantes al igual que eventos únicos.",
       project13Title: "Stealing Hearts 2 minijuego (Fabric 1.21.1)",
       project13Desc: "Minijuego de Stealing Hearts 1 porteado totalmente a Fabric 1.21.1 con ayuda de @kasecamii, @mragus5534, @JerejOwO, @bettendone y @PancraseaX.",
       profileButton: "Perfil",
@@ -104,13 +104,13 @@ const translations = {
 
       experienceTitle: "Experiencia",
       experience1Date: "7 Dec 2024",
-      experience1Desc: "Head Developer de ScreamingLAB",
+      experience1Desc: "Head Developer en ScreamingLAB",
       experience2Date: "16 Mar 2025 → 16 May 2025",
-      experience2Desc: "Dev de Hexa Creators",
+      experience2Desc: "Developer en Hexa Creators",
       experience3Date: "26 Sep 2025",
-      experience3Desc: "Developer De Masivo SMP — MasivoSMP Team",
+      experience3Desc: "Developer en MasivoSMP Team",
       experience4Date: "21 Feb 2026",
-      experience4Desc: "Dev De Hylamity",
+      experience4Desc: "Developer en Hylamity",
       
       collabsTitle: "Gente con la que trabajé",
 
@@ -148,9 +148,11 @@ const translations = {
       onlineStatus: "Online",
       adminOnline: "🟡 Admin Online",
       aboutTitle: "Sobre mí",
-      aboutText: "👋 ¡Hola! Soy Camila, una apasionada desarrolladora de 18 años especializada en software para Minecraft y Hytale. 💻<br><br>Me encanta crear mods, plugins y experiencias únicas para jugadores. <br><br>Actualmente trabajo como head dev en <strong>ScreamingLAB</strong> y como dev en <strong>MasivoSMP Team</strong>. ",
+      aboutText: "👋 ¡Hola! Soy Camila, una apasionada desarrolladora de 18 años especializada en software para Minecraft y Hytale. 💻<br><br>Me encanta crear mods, plugins y experiencias únicas para jugadores. <br><br>Actualmente trabajo como Head Developer en <strong>ScreamingLAB</strong> y como Developer en <strong>MasivoSMP Team</strong>. ",
       rolesTitle: "Roles",
       roleDeveloper: "Developer",
+      roleMinecraftDev: "Minecraft Developer",
+      roleHytaleDev: "Hytale Developer",
       roleEnthusiast: "Minecraft Enthusiast",
       roleBuilder: "Community Builder",
       activityTitle: "Actividad Reciente",
@@ -249,7 +251,7 @@ const translations = {
       project7Desc: "Random teleportation mod for Hytale that allows players to teleport to random locations in the world.",
       project8Title: "Web Portfolio (HTML/CSS/JS)",
       project8Desc: "Interactive web portfolio with parallax animations and responsive design, showcasing development projects.",
-      project9Title: "Stealing Heart(minigame) (Paper 1.20.4)",
+      project9Title: "Stealing Heart (minigame) (Paper 1.20.4)",
       project9Desc: "Minigame from the LilithLuvsYa event.",
       project10Title: "SCZombies (Fabric 1.21.1)",
       project10Desc: "Advanced and customized system for spawning hordes of zombies, mod used for the year-end event of farfadox and RichMC.",
@@ -281,13 +283,13 @@ const translations = {
 
       experienceTitle: "Experience",
       experience1Date: "7 Dec 2024",
-      experience1Desc: "Head Developer of ScreamingLAB",
+      experience1Desc: "Head Developer at ScreamingLAB",
       experience2Date: "16 Mar 2025 → 16 May 2025",
-      experience2Desc: "Dev of Hexa Creators",
+      experience2Desc: "Developer at Hexa Creators",
       experience3Date: "26 Sep 2025",
-      experience3Desc: "Developer of Masivo SMP — MasivoSMP Team",
+      experience3Desc: "Developer at MasivoSMP Team",
       experience4Date: "21 Feb 2026",
-      experience4Desc: "Dev of Hylamity",
+      experience4Desc: "Developer at Hylamity",
 
       collabsTitle: "People I worked with",
 
@@ -325,9 +327,11 @@ const translations = {
       onlineStatus: "Online",
       adminOnline: "🟡 Admin Online",
       aboutTitle: "About me",
-      aboutText: "👋 Hi! I'm Camila, a passionate 18-year-old developer specialized in software for Minecraft and Hytale. 💻<br><br>I love creating mods, plugins and unique experiences for players. <br><br>I'm currently working as head dev at <strong>ScreamingLAB</strong> and as dev at <strong>MasivoSMP Team</strong>. ",
+      aboutText: "👋 Hi! I'm Camila, a passionate 18-year-old developer specialized in software for Minecraft and Hytale. 💻<br><br>I love creating mods, plugins and unique experiences for players. <br><br>I'm currently working as Head Developer at <strong>ScreamingLAB</strong> and as Developer at <strong>MasivoSMP Team</strong>. ",
       rolesTitle: "Roles",
       roleDeveloper: "Developer",
+      roleMinecraftDev: "Minecraft Developer",
+      roleHytaleDev: "Hytale Developer",
       roleEnthusiast: "Minecraft Enthusiast",
       roleBuilder: "Community Builder",
       activityTitle: "Recent Activity",
@@ -659,6 +663,12 @@ function changeLanguage() {
 
     const roleDeveloper = document.querySelector('[data-lang="role-developer"]');
     if (roleDeveloper) roleDeveloper.textContent = trans.roleDeveloper;
+
+    const roleMinecraftDev = document.querySelector('[data-lang="role-minecraft-dev"]');
+    if (roleMinecraftDev) roleMinecraftDev.textContent = trans.roleMinecraftDev;
+
+    const roleHytaleDev = document.querySelector('[data-lang="role-hytale-dev"]');
+    if (roleHytaleDev) roleHytaleDev.textContent = trans.roleHytaleDev;
 
     const roleEnthusiast = document.querySelector('[data-lang="role-enthusiast"]');
     if (roleEnthusiast) roleEnthusiast.textContent = trans.roleEnthusiast;

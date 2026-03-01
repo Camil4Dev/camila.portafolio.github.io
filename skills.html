@@ -6,11 +6,14 @@
   <meta name="description" content="Habilidades, herramientas y experiencia de Camila en desarrollo de Minecraft y Hytale.">
   <meta property="og:title" content="Habilidades - camila.dev">
   <meta property="og:description" content="Habilidades, herramientas y experiencia de Camila en desarrollo de Minecraft y Hytale.">
+  <meta property="og:site_name" content="camila.dev">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://camila.portafolio.github.io/skills.html">
-  <meta property="og:image" content="https://camila.portafolio.github.io/media/camilaProfile.png">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:image" content="https://camila.portafolio.github.io/media/camilaProfile.png">
+  <meta property="og:image" content="https://camila.portafolio.github.io/media/og-image.svg">
+  <meta name="twitter:title" content="Habilidades - camila.dev">
+  <meta name="twitter:description" content="Habilidades, herramientas y experiencia de Camila en desarrollo de Minecraft y Hytale.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://camila.portafolio.github.io/media/og-image.svg">
   <link rel="canonical" href="https://camila.portafolio.github.io/skills.html">
   <title>Habilidades • camila.dev</title>
   <link rel="icon" href="images/icon.ico" type="image/x-icon" />
@@ -20,10 +23,11 @@
   <script src="Script/tw-config.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles/tw.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  
 </head>
 
 <body class="font-body text-slate-100 bg-ink">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
   <div class="pointer-events-none fixed inset-0 -z-30 overflow-hidden">
     <div class="absolute -top-32 -left-24 h-80 w-80 rounded-full bg-neonPink/30 blur-3xl"></div>
     <div class="absolute top-24 right-0 h-96 w-96 rounded-full bg-neonCyan/25 blur-3xl"></div>
@@ -36,21 +40,32 @@
     <a href="index.html" class="font-display text-xl tracking-wide text-white">camila.dev</a>
     <div class="flex flex-wrap items-center gap-3">
       <a href="index.html" class="nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10">
-        <i class="fas fa-home"></i> <span data-lang="back-home">Inicio</span>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 11l9-7 9 7" />
+          <path d="M5 10v10h5v-6h4v6h5V10" />
+        </svg>
+        <span data-lang="back-home">Inicio</span>
       </a>
       <a href="profile.html" class="nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" title="Ver Perfil">
-        <i class="fas fa-user"></i> <span data-lang="skills-profile">Perfil</span>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+          <path d="M4 20a8 8 0 0116 0" />
+        </svg>
+        <span data-lang="skills-profile">Perfil</span>
       </a>
       <a href="projects.html" class="nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" title="Ver Proyectos">
-        <i class="fas fa-folder-open"></i> <span data-lang="skills-projects">Proyectos</span>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 7.5A1.5 1.5 0 014.5 6h4.5l2 2h8.5A1.5 1.5 0 0121 9.5v8A1.5 1.5 0 0119.5 19h-15A1.5 1.5 0 013 17.5v-10z" />
+        </svg>
+        <span data-lang="skills-projects">Proyectos</span>
       </a>
       <button class="nav-button lang-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" id="lang-toggle" data-lang="langButton" title="Cambiar idioma" aria-label="Cambiar idioma">🇺🇸</button>
     </div>
   </nav>
 
-  <header class="relative z-10 mx-auto max-w-6xl px-6 pb-8 pt-2" data-parallax="0.5">
+  <header id="main-content" class="relative z-10 mx-auto max-w-6xl px-6 pb-8 pt-2" data-parallax="0.5">
     <h1 class="font-display text-4xl font-semibold" data-lang="skills-title">Habilidades</h1>
-    <p class="mt-2 text-base text-white/75" data-lang="skills-subtitle">Tecnologias que utilizo diariamente</p>
+    <p class="mt-2 text-base text-white/75" data-lang="skills-subtitle">Tecnologías que utilizo diariamente</p>
   </header>
 
   <section class="skills-section relative z-10 mx-auto max-w-6xl px-6 pb-10" data-parallax="0.7">
@@ -61,80 +76,80 @@
 
     <div class="skills-grid mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-5" data-tooltip="HTML">
-        <img src="images/skills/HTML.svg" alt="HTML" loading="lazy" decoding="async" class="h-12">
+        <img src="images/skills/HTML.svg" alt="HTML" width="48" height="48" loading="lazy" decoding="async" class="h-12">
       </div>
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-5" data-tooltip="CSS">
-        <img src="images/skills/CSS.svg" alt="CSS" loading="lazy" decoding="async" class="h-12">
+        <img src="images/skills/CSS.svg" alt="CSS" width="48" height="48" loading="lazy" decoding="async" class="h-12">
       </div>
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-5" data-tooltip="JavaScript">
-        <img src="images/skills/JavaScript.svg" alt="JavaScript" loading="lazy" decoding="async" class="h-12">
+        <img src="images/skills/JavaScript.svg" alt="JavaScript" width="48" height="48" loading="lazy" decoding="async" class="h-12">
       </div>
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-5" data-tooltip="Java">
-        <img src="images/skills/Java.svg" alt="Java" loading="lazy" decoding="async" class="h-12">
+        <img src="images/skills/Java.svg" alt="Java" width="48" height="48" loading="lazy" decoding="async" class="h-12">
       </div>
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-5" data-tooltip="Python">
-        <img src="images/skills/Python.svg" alt="Python" loading="lazy" decoding="async" class="h-12">
+        <img src="images/skills/Python.svg" alt="Python" width="48" height="48" loading="lazy" decoding="async" class="h-12">
       </div>
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-5" data-tooltip="Fabric API">
-        <img src="images/skills/Fabric.png" alt="Fabric API" loading="lazy" decoding="async" class="h-12">
+        <img src="images/skills/Fabric.png" alt="Fabric API" width="48" height="48" loading="lazy" decoding="async" class="h-12">
       </div>
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-5" data-tooltip="Paper API">
-        <img src="images/skills/Paper.svg" alt="Paper API" loading="lazy" decoding="async" class="h-12">
+        <img src="images/skills/Paper.svg" alt="Paper API" width="48" height="48" loading="lazy" decoding="async" class="h-12">
       </div>
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-5" data-tooltip="Folia API">
-        <img src="images/skills/folia.png" alt="Folia" loading="lazy" decoding="async" class="h-12">
+        <img src="images/skills/folia.png" alt="Folia" width="48" height="48" loading="lazy" decoding="async" class="h-12">
       </div>
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-5" data-tooltip="Hytale API">
-        <img src="images/skills/hytale.png" alt="Hytale" loading="lazy" decoding="async" class="h-12">
+        <img src="images/skills/hytale.png" alt="Hytale" width="48" height="48" loading="lazy" decoding="async" class="h-12">
       </div>
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-5" data-tooltip="Lua">
-        <img src="images/skills/Lua-Light.svg" alt="Lua" loading="lazy" decoding="async" class="h-12">
+        <img src="images/skills/Lua-Light.svg" alt="Lua" width="48" height="48" loading="lazy" decoding="async" class="h-12">
       </div>
     </div>
   </section>
 
   <section class="skills-section relative z-10 mx-auto max-w-6xl px-6 pb-10">
     <div class="flex flex-wrap items-end justify-between gap-6">
-      <h2 class="font-display text-2xl font-semibold" data-lang="tools-title">Herramientas & Tecnologias</h2>
+      <h2 class="font-display text-2xl font-semibold" data-lang="tools-title">Herramientas & Tecnologías</h2>
       <div class="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/70" data-lang="workflow-label">Workflow</div>
     </div>
 
     <div class="skills-grid mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6">
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-4" data-tooltip="Git">
-        <img src="images/skills/Git.svg" alt="Git" loading="lazy" decoding="async" class="h-10">
+        <img src="images/skills/Git.svg" alt="Git" width="40" height="40" loading="lazy" decoding="async" class="h-10">
       </div>
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-4" data-tooltip="Node.js">
-        <img src="images/skills/NodeJS.svg" alt="Node.js" loading="lazy" decoding="async" class="h-10">
+        <img src="images/skills/NodeJS.svg" alt="Node.js" width="40" height="40" loading="lazy" decoding="async" class="h-10">
       </div>
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-4" data-tooltip="VS Code">
-        <img src="images/skills/VSCode.svg" alt="VSCode" loading="lazy" decoding="async" class="h-10">
+        <img src="images/skills/VSCode.svg" alt="VSCode" width="40" height="40" loading="lazy" decoding="async" class="h-10">
       </div>
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-4" data-tooltip="Discord">
-        <img src="images/skills/Discord.svg" alt="Discord" loading="lazy" decoding="async" class="h-10">
+        <img src="images/skills/Discord.svg" alt="Discord" width="40" height="40" loading="lazy" decoding="async" class="h-10">
       </div>
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-4" data-tooltip="GitHub">
-        <img src="images/skills/Github.svg" alt="GitHub" loading="lazy" decoding="async" class="h-10">
+        <img src="images/skills/Github.svg" alt="GitHub" width="40" height="40" loading="lazy" decoding="async" class="h-10">
       </div>
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-4" data-tooltip="IntelliJ IDEA">
-        <img src="images/skills/Idea.svg" alt="IntelliJ IDEA" loading="lazy" decoding="async" class="h-10">
+        <img src="images/skills/Idea.svg" alt="IntelliJ IDEA" width="40" height="40" loading="lazy" decoding="async" class="h-10">
       </div>
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-4" data-tooltip="Discord Bots">
-        <img src="images/skills/DiscordBots.svg" alt="Discord Bots" loading="lazy" decoding="async" class="h-10">
+        <img src="images/skills/DiscordBots.svg" alt="Discord Bots" width="40" height="40" loading="lazy" decoding="async" class="h-10">
       </div>
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-4" data-tooltip="Discord.js">
-        <img src="images/skills/DiscordJS-Light.svg" alt="Discord.js" loading="lazy" decoding="async" class="h-10">
+        <img src="images/skills/DiscordJS-Light.svg" alt="Discord.js" width="40" height="40" loading="lazy" decoding="async" class="h-10">
       </div>
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-4" data-tooltip="MySQL">
-        <img src="images/skills/MySQL-Light.svg" alt="MySQL" loading="lazy" decoding="async" class="h-10">
+        <img src="images/skills/MySQL-Light.svg" alt="MySQL" width="40" height="40" loading="lazy" decoding="async" class="h-10">
       </div>
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-4" data-tooltip="SQLite">
-        <img src="images/skills/SQLite.svg" alt="SQLite" loading="lazy" decoding="async" class="h-10">
+        <img src="images/skills/SQLite.svg" alt="SQLite" width="40" height="40" loading="lazy" decoding="async" class="h-10">
       </div>
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-4" data-tooltip="Roblox Studio">
-        <img src="images/skills/RobloxStudio.svg" alt="Roblox Studio" loading="lazy" decoding="async" class="h-10">
+        <img src="images/skills/RobloxStudio.svg" alt="Roblox Studio" width="40" height="40" loading="lazy" decoding="async" class="h-10">
       </div>
       <div class="skill-card flex items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-4" data-tooltip="Cloudflare">
-        <img src="images/skills/Cloudflare-Light.svg" alt="Cloudflare" loading="lazy" decoding="async" class="h-10">
+        <img src="images/skills/Cloudflare-Light.svg" alt="Cloudflare" width="40" height="40" loading="lazy" decoding="async" class="h-10">
       </div>
     </div>
   </section>
@@ -149,7 +164,7 @@
           <div class="what text-sm font-semibold">Head Developer en ScreamingLAB</div>
         </div>
         <a href="https://x.com/ScreamingLABS" target="_blank" rel="noopener noreferrer" class="timeline-icon">
-          <img src="images/icons/screamingLAB.jpg" alt="ScreamingLAB logo" loading="lazy" decoding="async" class="h-12 w-12 rounded-2xl border border-white/10 object-cover">
+          <img src="images/icons/screamingLAB.jpg" alt="ScreamingLAB logo" width="48" height="48" loading="lazy" decoding="async" class="h-12 w-12 rounded-2xl border border-white/10 object-cover">
         </a>
       </div>
 
@@ -157,10 +172,10 @@
         <div class="dot h-2 w-2 rounded-full bg-neonCyan"></div>
         <div class="text flex-1">
           <div class="when text-xs uppercase tracking-[0.3em] text-white/60">16 Mar 2025 → 16 May 2025</div>
-          <div class="what text-sm font-semibold">Dev en Hexa Creators</div>
+          <div class="what text-sm font-semibold">Developer en Hexa Creators</div>
         </div>
         <a href="https://x.com/HexaCreators" target="_blank" rel="noopener noreferrer" class="timeline-icon">
-          <img src="images/icons/hexa.jpg" alt="Hexa Creators logo" loading="lazy" decoding="async" class="h-12 w-12 rounded-2xl border border-white/10 object-cover">
+          <img src="images/icons/hexa.jpg" alt="Hexa Creators logo" width="48" height="48" loading="lazy" decoding="async" class="h-12 w-12 rounded-2xl border border-white/10 object-cover">
         </a>
       </div>
 
@@ -168,10 +183,10 @@
         <div class="dot h-2 w-2 rounded-full bg-neonPink"></div>
         <div class="text flex-1">
           <div class="when text-xs uppercase tracking-[0.3em] text-white/60">26 Sep 2025</div>
-          <div class="what text-sm font-semibold">Developer of Masivo SMP — MasivoSMP Team</div>
+          <div class="what text-sm font-semibold">Developer en MasivoSMP Team</div>
         </div>
         <a href="https://masivo.gg" target="_blank" rel="noopener noreferrer" class="timeline-icon">
-          <img src="images/icons/masivo_iso.png" alt="Farfania Team logo" loading="lazy" decoding="async" class="h-12 w-12 rounded-2xl border border-white/10 object-cover">
+          <img src="images/icons/masivo_iso.png" alt="Farfania Team logo" width="48" height="48" loading="lazy" decoding="async" class="h-12 w-12 rounded-2xl border border-white/10 object-cover">
         </a>
       </div>
 
@@ -179,22 +194,22 @@
         <div class="dot h-2 w-2 rounded-full bg-neonLime"></div>
         <div class="text flex-1">
           <div class="when text-xs uppercase tracking-[0.3em] text-white/60">21 Feb 2026</div>
-          <div class="what text-sm font-semibold">Dev of Hylamity</div>
+          <div class="what text-sm font-semibold">Developer en Hylamity</div>
         </div>
         <a href="https://x.com/Hylamity" target="_blank" rel="noopener noreferrer" class="timeline-icon">
-          <img src="images/icons/hylamity.jpg" alt="Hylamity logo" loading="lazy" decoding="async" class="h-12 w-12 rounded-2xl border border-white/10 object-cover">
+          <img src="images/icons/hylamity.jpg" alt="Hylamity logo" width="48" height="48" loading="lazy" decoding="async" class="h-12 w-12 rounded-2xl border border-white/10 object-cover">
         </a>
       </div>
     </div>
   </section>
 
   <section class="collabs-section relative z-10 mx-auto max-w-6xl px-6 pb-16">
-    <h2 class="font-display text-2xl font-semibold" data-lang="collabs-title">Gente con la que trabaje</h2>
+    <h2 class="font-display text-2xl font-semibold" data-lang="collabs-title">Gente con la que trabajé</h2>
     <div class="collabs-slider mt-6 overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6">
       <div class="collabs-track flex gap-6 overflow-hidden" id="collabsTrack">
         <div class="collab-card min-w-[240px] rounded-2xl border border-white/10 bg-white/5 p-4">
           <a href="https://x.com/SoyFarfadox" target="_blank" rel="noopener noreferrer">
-            <img src="images/collabs/farfadox.jpg" alt="Farfadox" loading="lazy" decoding="async" class="h-36 w-full rounded-xl object-cover">
+            <img src="images/collabs/farfadox.jpg" alt="Farfadox" width="640" height="360" loading="lazy" decoding="async" class="h-36 w-full rounded-xl object-cover">
           </a>
           <h3 class="mt-3 font-display text-base font-semibold">
             <a href="https://x.com/Farfadox" target="_blank" rel="noopener noreferrer">Farfadox</a>
@@ -202,7 +217,7 @@
           <div class="collab-badges mt-2 flex flex-wrap gap-2">
             <span class="badge" data-lang="collab-badge-masivo">MasivoSMP</span>
             <span class="badge" data-lang="collab-badge-uhcvr">UHC VR</span>
-            <span class="badge" data-lang="collab-badge-year-end">Fin de Ano</span>
+            <span class="badge" data-lang="collab-badge-year-end">Fin de Año</span>
           </div>
           <p class="mt-3 text-xs text-white/70" data-lang="collab-farfadox">
             Desarrollo de plugins y sistemas personalizados para eventos
@@ -213,7 +228,7 @@
 
         <div class="collab-card min-w-[240px] rounded-2xl border border-white/10 bg-white/5 p-4">
           <a href="https://x.com/LilithLuvsYa" target="_blank" rel="noopener noreferrer">
-            <img src="images/collabs/lilith.jpg" alt="LilithLuvsYa" loading="lazy" decoding="async" class="h-36 w-full rounded-xl object-cover">
+            <img src="images/collabs/lilith.jpg" alt="LilithLuvsYa" width="640" height="360" loading="lazy" decoding="async" class="h-36 w-full rounded-xl object-cover">
           </a>
           <h3 class="mt-3 font-display text-base font-semibold">
             <a href="https://x.com/LilithLuvsYa" target="_blank" rel="noopener noreferrer">LilithLuvsYa</a>
@@ -224,14 +239,14 @@
             <span class="badge" data-lang="collab-badge-valentine">Evento San Valentin</span>
           </div>
           <p class="mt-3 text-xs text-white/70" data-lang="collab-lilith">
-            Desarrollo y soporte tecnico para el evento,
+            Desarrollo y soporte técnico para el evento,
             implementando mecanicas personalizadas para <strong>Stealing Hearts</strong> y <strong>Stealing Hearts 2</strong>.
           </p>
         </div>
 
         <div class="collab-card min-w-[240px] rounded-2xl border border-white/10 bg-white/5 p-4">
           <a href="https://x.com/AnsiChan" target="_blank" rel="noopener noreferrer">
-            <img src="images/collabs/ansi.jpg" alt="AnsiChan" loading="lazy" decoding="async" class="h-36 w-full rounded-xl object-cover">
+            <img src="images/collabs/ansi.jpg" alt="AnsiChan" width="640" height="360" loading="lazy" decoding="async" class="h-36 w-full rounded-xl object-cover">
           </a>
           <h3 class="mt-3 font-display text-base font-semibold">
             <a href="https://x.com/AnsiChan" target="_blank" rel="noopener noreferrer">AnsiChan</a>
@@ -240,7 +255,7 @@
             <span class="badge" data-lang="collab-badge-uhcminitas">UHC MINITAS 2</span>
           </div>
           <p class="mt-3 text-xs text-white/70" data-lang="collab-ansi">
-            Desarrollo de sistemas y mecanicas personalizadas
+            Desarrollo de sistemas y mecánicas personalizadas
             para el evento de UHC Minitas 2,
             enfocados en Quality of Life para los jugadores.
           </p>
@@ -248,7 +263,7 @@
 
         <div class="collab-card min-w-[240px] rounded-2xl border border-white/10 bg-white/5 p-4">
           <a href="https://x.com/aldogeotv" target="_blank" rel="noopener noreferrer">
-            <img src="images/collabs/AldoGeo.jpg" alt="AldoGeo" loading="lazy" decoding="async" class="h-36 w-full rounded-xl object-cover">
+            <img src="images/collabs/AldoGeo.jpg" alt="AldoGeo" width="640" height="360" loading="lazy" decoding="async" class="h-36 w-full rounded-xl object-cover">
           </a>
           <h3 class="mt-3 font-display text-base font-semibold">
             <a href="https://x.com/aldogeotv" target="_blank" rel="noopener noreferrer">AldoGeo</a>
@@ -263,7 +278,7 @@
 
         <div class="collab-card min-w-[240px] rounded-2xl border border-white/10 bg-white/5 p-4">
           <a href="https://x.com/Rozsier_" target="_blank" rel="noopener noreferrer">
-            <img src="images/collabs/rozsier.png" alt="Rozsier" loading="lazy" decoding="async" class="h-36 w-full rounded-xl object-cover">
+            <img src="images/collabs/rozsier.png" alt="Rozsier" width="640" height="360" loading="lazy" decoding="async" class="h-36 w-full rounded-xl object-cover">
           </a>
           <h3 class="mt-3 font-display text-base font-semibold">
             <a href="https://x.com/Rozsier_" target="_blank" rel="noopener noreferrer">Rozsier</a>
@@ -279,7 +294,7 @@
 
         <div class="collab-card min-w-[240px] rounded-2xl border border-white/10 bg-white/5 p-4">
           <a href="https://x.com/Pirutastic" target="_blank" rel="noopener noreferrer">
-            <img src="images/collabs/piru.png" alt="pirutastic" loading="lazy" decoding="async" class="h-36 w-full rounded-xl object-cover">
+            <img src="images/collabs/piru.png" alt="pirutastic" width="640" height="360" loading="lazy" decoding="async" class="h-36 w-full rounded-xl object-cover">
           </a>
           <h3 class="mt-3 font-display text-base font-semibold">
             <a href="https://x.com/Pirutastic" target="_blank" rel="noopener noreferrer">Pirutastic</a>
@@ -289,7 +304,7 @@
           </div>
           <p class="mt-3 text-xs text-white/70" data-lang="collab-pirutastic">
             Desarrollo de un mod custom de la modalidad de OneBlock
-            para el evento de oneblock con monos de pirutastic, incluyendo mecanicas personalizadas y sistemas de progresion unicos
+            para el evento de oneblock con monos de pirutastic, incluyendo mecánicas personalizadas y sistemas de progresión únicos
             los cuales fueron Desarrollados con ayuda de <strong>@JerejOwO</strong>, <strong>@mragus5534</strong>,
             <strong>@kasecamii</strong> y <strong>@wckq_</strong>.
           </p>
