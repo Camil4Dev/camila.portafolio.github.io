@@ -4,6 +4,7 @@
     const $$ = sel => Array.from(document.querySelectorAll(sel));
     const root = document.documentElement;
     let lastMove = Date.now();
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     
     function onPointer(e) {
@@ -93,7 +94,7 @@
     });
 
  
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (prefersReducedMotion) {
       document.documentElement.classList.add('reduced-motion');
     }
 
@@ -159,7 +160,14 @@
 
         calculateWidth();
 
+        let collabsRafId = 0;
+
         function autoScroll() {
+          if (prefersReducedMotion || document.hidden) {
+            collabsRafId = 0;
+            return;
+          }
+
           if (singleRowWidth <= 0) {
             calculateWidth();
           }
@@ -172,11 +180,26 @@
           }
           
           track.scrollLeft = scrollPosition;
-          requestAnimationFrame(autoScroll);
+          collabsRafId = requestAnimationFrame(autoScroll);
         }
 
-      
-        autoScroll();
+        function startCollabsScroll() {
+          if (!collabsRafId) autoScroll();
+        }
+
+        function stopCollabsScroll() {
+          if (collabsRafId) {
+            cancelAnimationFrame(collabsRafId);
+            collabsRafId = 0;
+          }
+        }
+
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) stopCollabsScroll();
+          else startCollabsScroll();
+        });
+
+        startCollabsScroll();
       }, 300);
     }
 

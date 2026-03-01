@@ -694,10 +694,16 @@ function changeLanguage() {
     if (commentsTitle) commentsTitle.textContent = trans.commentsTitle;
 
     const commentName = document.querySelector('[data-lang-placeholder="comment-name"]');
-    if (commentName) commentName.placeholder = trans.commentNamePlaceholder;
+    if (commentName) {
+      commentName.placeholder = trans.commentNamePlaceholder;
+      commentName.setAttribute('aria-label', trans.commentNamePlaceholder);
+    }
 
     const commentMessage = document.querySelector('[data-lang-placeholder="comment-message"]');
-    if (commentMessage) commentMessage.placeholder = trans.commentMessagePlaceholder;
+    if (commentMessage) {
+      commentMessage.placeholder = trans.commentMessagePlaceholder;
+      commentMessage.setAttribute('aria-label', trans.commentMessagePlaceholder);
+    }
 
     const commentSend = document.querySelector('[data-lang="comment-send"]');
     if (commentSend) commentSend.textContent = trans.commentSend;
@@ -706,10 +712,16 @@ function changeLanguage() {
     if (adminLoginTitle) adminLoginTitle.textContent = trans.adminLoginTitle;
 
     const adminEmail = document.querySelector('[data-lang-placeholder="admin-email"]');
-    if (adminEmail) adminEmail.placeholder = trans.adminEmailPlaceholder;
+    if (adminEmail) {
+      adminEmail.placeholder = trans.adminEmailPlaceholder;
+      adminEmail.setAttribute('aria-label', trans.adminEmailPlaceholder);
+    }
 
     const adminPassword = document.querySelector('[data-lang-placeholder="admin-password"]');
-    if (adminPassword) adminPassword.placeholder = trans.adminPasswordPlaceholder;
+    if (adminPassword) {
+      adminPassword.placeholder = trans.adminPasswordPlaceholder;
+      adminPassword.setAttribute('aria-label', trans.adminPasswordPlaceholder);
+    }
 
     const adminLoginButton = document.querySelector('[data-lang="admin-login-button"]');
     if (adminLoginButton) adminLoginButton.textContent = trans.adminLoginButton;
