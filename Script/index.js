@@ -100,15 +100,3 @@ document.addEventListener("visibilitychange", () => {
   }
 });
 
-
-const fxCanvas = document.getElementById("parallaxCanvas");
-const fxCtx = fxCanvas.getContext("2d");
-
-function resizeFX() {
-    fxCanvas.width = window.innerWidth;
-    fxCanvas.height = window.innerHeight;
-    initFX();
-}
-resizeFX();
-window.addEventListener("resize", resizeFX);
-

@@ -27,6 +27,7 @@ const translations = {
       contactTitle: "Contacto",
       contactText: "¿Necesitás un plugin, mod o sistema personalizado? Podés escribirme a:",
       footer: "© 2026 camila — Minecraft Developer 🎶",
+      profileButton: "Perfil",
       projectsButton: "Proyectos",
       skillsButton: "Habilidades",
       langButton: "🇺🇸"
@@ -64,6 +65,12 @@ const translations = {
       project10Desc: "Sistema avanzado y personalizado para spawnear hordas de zombies, mod usado para el evento de fin de año de farfadox y RichMC.",
       project11Title: "ScreamingSupport (Paper 1.21.1)",
       project11Desc: "Plugin el cual se encargaba de absolutamente todos los tickets ingame del evento de UHCVR de farfadox.",
+      project12Title: "PiruBlock (Fabric 1.21.1)",
+      project12Desc: "OneBlock desarrollado para piru y el grupo de los monos con mecanias unicas y emocionantes al igual que eventos unicos.",
+      project13Title: "Stealing Hearts 2 minijuego (Fabric 1.21.1)",
+      project13Desc: "Minijuego de Stealing Hearts 1 porteado totalmente a Fabric 1.21.1 con ayuda de @kasecamii, @mragus5534, @JerejOwO, @bettendone y @PancraseaX.",
+      profileButton: "Perfil",
+      skillsButton: "Habilidades",
       backButton: "← Volver al Inicio",
       footer: "© 2026 camila — Minecraft Developer 🎶",
       langButton: "🇺🇸"
@@ -101,6 +108,8 @@ const translations = {
       collabRozsier: "Ayuda en infraestructura y desarrollo en un mod custom de props para su servidor femboy de la triple G.",
 
       backHome: "← Inicio",
+      profileButton: "Perfil",
+      projectsButton: "Proyectos",
       footer: "© 2026 camila — Minecraft Developer 🎶",
       langButton: "🇺🇸"
     },
@@ -157,6 +166,7 @@ const translations = {
       contactTitle: "Contact",
       contactText: "Need a custom plugin, mod, or system? You can write to me at:",
       footer: "© 2026 camila — Minecraft Developer 🎶",
+      profileButton: "Profile",
       projectsButton: "Projects",
       skillsButton: "Skills",
       langButton: "🇪🇸"
@@ -194,6 +204,12 @@ const translations = {
       project10Desc: "Advanced and customized system for spawning hordes of zombies, mod used for the year-end event of farfadox and RichMC.",
       project11Title: "ScreamingSupport (Paper 1.21.1)",
       project11Desc: "Plugin that handled absolutely all in-game tickets for the UHCVR event by farfadox.",
+      project12Title: "PiruBlock (Fabric 1.21.1)",
+      project12Desc: "OneBlock developed for piru and the monos group with unique mechanics and exciting events.",
+      project13Title: "Stealing Hearts 2 minigame (Fabric 1.21.1)",
+      project13Desc: "Stealing Hearts 1 minigame fully ported to Fabric 1.21.1 with help from @kasecamii, @mragus5534, @JerejOwO, @bettendone and @PancraseaX.",
+      profileButton: "Profile",
+      skillsButton: "Skills",
       backButton: "← Back to Home",
       footer: "© 2026 camila — Minecraft Developer 🎶",
       langButton: "🇪🇸"
@@ -231,6 +247,8 @@ const translations = {
       collabRozsier: "Help with infrastructure and development on a custom props mod for their Triple G femboy server.",
 
       backHome: "← Home",
+      profileButton: "Profile",
+      projectsButton: "Projects",
       footer: "© 2026 camila — Minecraft Developer 🎶",
       langButton: "🇪🇸"
     },
@@ -366,11 +384,12 @@ function changeLanguage() {
     document.querySelector(".contact h2").textContent = trans.contactTitle;
     document.querySelector(".contact p").textContent = trans.contactText;
 
-    document.querySelector('.nav-button[href="projects.html"]').innerHTML =
-      `<i class="fas fa-folder-open"></i> ${trans.projectsButton}`;
-
-    document.querySelector('.nav-button[href="skills.html"]').innerHTML =
-      `<i class="fas fa-code"></i> ${trans.skillsButton}`;
+    const navProfile = document.querySelector('[data-lang="nav-profile"]');
+    if (navProfile) navProfile.textContent = trans.profileButton;
+    const navProjects = document.querySelector('[data-lang="nav-projects"]');
+    if (navProjects) navProjects.textContent = trans.projectsButton;
+    const navSkills = document.querySelector('[data-lang="nav-skills"]');
+    if (navSkills) navSkills.textContent = trans.skillsButton;
   }
 
 
@@ -424,8 +443,22 @@ function changeLanguage() {
     projectCards[10].querySelector("h3").textContent = trans.project11Title;
     projectCards[10].querySelector("p").textContent = trans.project11Desc;
 
-    document.querySelector('.nav-button[href="index.html"]').innerHTML =
-      trans.backButton;
+    if (projectCards[11]) {
+      projectCards[11].querySelector("h3").textContent = trans.project12Title;
+      projectCards[11].querySelector("p").textContent = trans.project12Desc;
+    }
+
+    if (projectCards[12]) {
+      projectCards[12].querySelector("h3").textContent = trans.project13Title;
+      projectCards[12].querySelector("p").textContent = trans.project13Desc;
+    }
+
+    const backBtn = document.querySelector('[data-lang="projects-back"]');
+    if (backBtn) backBtn.textContent = trans.backButton;
+    const navProfile = document.querySelector('[data-lang="projects-profile"]');
+    if (navProfile) navProfile.textContent = trans.profileButton;
+    const navSkills = document.querySelector('[data-lang="projects-skills"]');
+    if (navSkills) navSkills.textContent = trans.skillsButton;
   }
 
 
@@ -455,8 +488,12 @@ function changeLanguage() {
   }
 
 
-  const backBtn = document.querySelector('.nav-button[href="index.html"]');
-  if (backBtn) backBtn.innerHTML = trans.backHome;
+  const backBtn = document.querySelector('[data-lang="back-home"]');
+  if (backBtn) backBtn.textContent = trans.backHome;
+  const navProfile = document.querySelector('[data-lang="skills-profile"]');
+  if (navProfile) navProfile.textContent = trans.profileButton;
+  const navProjects = document.querySelector('[data-lang="skills-projects"]');
+  if (navProjects) navProjects.textContent = trans.projectsButton;
   }
 
   if (pageKey === "profile") {
