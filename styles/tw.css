@@ -399,6 +399,84 @@ canvas {
   display: flex;
 }
 
+@media (max-width: 640px) {
+  nav {
+    gap: 8px;
+  }
+
+  .nav-button {
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+  }
+
+  .lang-button {
+    padding: 8px 10px;
+  }
+
+  .icon {
+    width: 1em;
+    height: 1em;
+  }
+
+  .project-image {
+    padding: 6px;
+  }
+
+  .filter-button {
+    font-size: 0.65rem;
+    padding: 6px 10px;
+    letter-spacing: 0.18em;
+  }
+
+  .badge,
+  .stack-tag,
+  .role {
+    font-size: 0.65rem;
+    padding: 4px 10px;
+  }
+
+  .comment-form {
+    padding: 12px;
+  }
+
+  .comment-form button {
+    width: 100%;
+  }
+
+  .comment-form .nav-button {
+    justify-content: center;
+  }
+
+  .contact-link span {
+    word-break: break-word;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .timeline-icon img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .collabs-slider {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  .collabs-track {
+    scroll-snap-type: x mandatory;
+  }
+
+  .collab-card {
+    min-width: 200px;
+    scroll-snap-align: start;
+  }
+}
+
 .emoji-search {
   padding-bottom: 6px;
 }
