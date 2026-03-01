@@ -108,9 +108,9 @@ const translations = {
       experience2Date: "16 Mar 2025 → 16 May 2025",
       experience2Desc: "Dev de Hexa Creators",
       experience3Date: "26 Sep 2025",
-      experience3Desc: "Developer of Masivo SMP — MasivoSMP Team",
+      experience3Desc: "Developer De Masivo SMP — MasivoSMP Team",
       experience4Date: "21 Feb 2026",
-      experience4Desc: "Dev of Hylamity",
+      experience4Desc: "Dev De Hylamity",
       
       collabsTitle: "Gente con la que trabajé",
 
