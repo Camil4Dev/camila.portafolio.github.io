@@ -721,6 +721,11 @@ body.page-entry {
 body.page-exit {
   animation: pageFadeOut 260ms var(--ease) forwards;
 }
+.reduced-motion body.page-exit {
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
 @keyframes pageFadeOut { to { opacity: 0; transform: translateY(6px); } }
 
 

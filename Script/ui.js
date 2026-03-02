@@ -66,6 +66,10 @@
         if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto:') || a.target === '_blank') return;
         a.addEventListener('click', (ev) => {
           ev.preventDefault();
+          if (prefersReducedMotion) {
+            window.location.href = href;
+            return;
+          }
           document.body.classList.add('page-exit');
           setTimeout(()=> window.location.href = href, 280);
         });
@@ -177,6 +181,7 @@
         const scrollSpeed = 1.5; 
         let singleRowWidth = 0;
         let resizeTimer = 0;
+        let collabsVisible = true;
 
         function calculateWidth() {
           singleRowWidth = 0;
@@ -193,7 +198,7 @@
         let collabsRafId = 0;
 
         function autoScroll() {
-          if (prefersReducedMotion || document.hidden) {
+          if (prefersReducedMotion || document.hidden || !collabsVisible) {
             collabsRafId = 0;
             return;
           }
@@ -214,7 +219,7 @@
         }
 
         function startCollabsScroll() {
-          if (!collabsRafId) autoScroll();
+          if (!collabsRafId && collabsVisible) autoScroll();
         }
 
         function stopCollabsScroll() {
@@ -225,9 +230,25 @@
         }
 
         document.addEventListener('visibilitychange', () => {
-          if (document.hidden) stopCollabsScroll();
+          if (document.hidden || !collabsVisible) stopCollabsScroll();
           else startCollabsScroll();
         });
+
+        track.addEventListener('pointerenter', stopCollabsScroll, { passive: true });
+        track.addEventListener('pointerleave', startCollabsScroll, { passive: true });
+        track.addEventListener('focusin', stopCollabsScroll);
+        track.addEventListener('focusout', startCollabsScroll);
+
+        if ('IntersectionObserver' in window) {
+          const visibilityObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              collabsVisible = entry.isIntersecting;
+              if (collabsVisible) startCollabsScroll();
+              else stopCollabsScroll();
+            });
+          }, { threshold: 0.2 });
+          visibilityObserver.observe(track);
+        }
 
         window.addEventListener('resize', () => {
           clearTimeout(resizeTimer);

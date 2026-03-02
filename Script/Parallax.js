@@ -128,7 +128,17 @@
   });
 
   let rafId = 0;
+  let lastFrameTime = 0;
+  const minFrameInterval = isTouch ? (1000 / 30) : 0;
   function loop() {
+    if (minFrameInterval) {
+      const now = performance.now();
+      if (now - lastFrameTime < minFrameInterval) {
+        rafId = requestAnimationFrame(loop);
+        return;
+      }
+      lastFrameTime = now;
+    }
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
     
