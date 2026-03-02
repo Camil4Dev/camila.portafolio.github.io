@@ -427,6 +427,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.currentSort = sortSelect?.value || "recent";
 
   const EMOJI_DATA_URLS = [
+    "data/emoji-mart-data.json",
     "https://cdn.jsdelivr.net/npm/emoji-mart-data@latest/emoji-mart-data.json",
     "https://cdn.jsdelivr.net/npm/emoji-mart-data@1.0.0/emoji-mart-data.json"
   ];
