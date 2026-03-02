@@ -147,6 +147,7 @@ const translations = {
       profileStatus: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
       onlineStatus: "Online",
       adminOnline: "🟡 Admin Online",
+      adminOffline: "⚪ Admin Offline",
       aboutTitle: "Sobre mí",
       aboutText: "👋 ¡Hola! Soy Camila, una apasionada desarrolladora de 18 años especializada en software para Minecraft y Hytale. 💻<br><br>Me encanta crear mods, plugins y experiencias únicas para jugadores. <br><br>Actualmente trabajo como Head Developer en <strong>ScreamingLAB</strong> y como Developer en <strong>MasivoSMP Team</strong>. ",
       rolesTitle: "Roles",
@@ -326,6 +327,7 @@ const translations = {
       profileStatus: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
       onlineStatus: "Online",
       adminOnline: "🟡 Admin Online",
+      adminOffline: "⚪ Admin Offline",
       aboutTitle: "About me",
       aboutText: "👋 Hi! I'm Camila, a passionate 18-year-old developer specialized in software for Minecraft and Hytale. 💻<br><br>I love creating mods, plugins and unique experiences for players. <br><br>I'm currently working as Head Developer at <strong>ScreamingLAB</strong> and as Developer at <strong>MasivoSMP Team</strong>. ",
       rolesTitle: "Roles",
@@ -699,6 +701,9 @@ function changeLanguage() {
 
     const adminOnline = document.querySelector('[data-lang="admin-online"]');
     if (adminOnline) adminOnline.textContent = trans.adminOnline;
+
+    const adminOffline = document.querySelector('[data-lang="admin-offline"]');
+    if (adminOffline) adminOffline.textContent = trans.adminOffline;
 
     const commentsTitle = document.querySelector('[data-lang="comments-title"]');
     if (commentsTitle) commentsTitle.textContent = trans.commentsTitle;

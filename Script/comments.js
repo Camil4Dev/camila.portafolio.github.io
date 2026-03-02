@@ -6,12 +6,116 @@ const ADMIN_UID = "9f531012-2216-4902-8feb-98759d266c44";
 
 const MAX_LENGTH = 500;
 const COMMENT_COOLDOWN = 10000;
+const DRAFT_KEY = "comment_draft";
 
 let lastCommentTime = 0;
 const CREATOR_EMOJI = "📺";
 
 
-async function loadComments() {
+function getInitials(name) {
+  const cleanName = (name || "").replace(CREATOR_EMOJI, "").trim();
+  const parts = cleanName.split(/\s+/).filter(Boolean);
+  if (!parts.length) return "?";
+  const first = parts[0][0] || "";
+  const last = parts.length > 1 ? parts[parts.length - 1][0] : "";
+  return (first + last).toUpperCase();
+}
+
+function showToast(message, type = "success") {
+  const container = document.getElementById("toast-container");
+  if (!container) {
+    alert(message);
+    return;
+  }
+
+  const toast = document.createElement("div");
+  toast.className = `toast ${type}`;
+  toast.textContent = message;
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.style.opacity = "0";
+    toast.style.transform = "translateY(6px)";
+    setTimeout(() => toast.remove(), 250);
+  }, 2600);
+}
+
+function formatRelativeTime(date) {
+  const now = Date.now();
+  const diff = Math.max(0, now - date.getTime());
+  const seconds = Math.floor(diff / 1000);
+  if (seconds < 10) return "ahora";
+  if (seconds < 60) return `hace ${seconds}s`;
+  const minutes = Math.floor(seconds / 60);
+  if (minutes < 60) return `hace ${minutes}m`;
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) return `hace ${hours}h`;
+  const days = Math.floor(hours / 24);
+  if (days < 7) return `hace ${days}d`;
+  const weeks = Math.floor(days / 7);
+  if (weeks < 4) return `hace ${weeks}sem`;
+  const months = Math.floor(days / 30);
+  if (months < 12) return `hace ${months}mes`;
+  const years = Math.floor(days / 365);
+  return `hace ${years}a`;
+}
+
+function updateRelativeTimes() {
+  document.querySelectorAll(".comment-time").forEach((el) => {
+    const ts = el.dataset.timestamp;
+    if (!ts) return;
+    const date = new Date(ts);
+    el.textContent = formatRelativeTime(date);
+  });
+}
+
+function getDraft() {
+  try {
+    const stored = JSON.parse(localStorage.getItem(DRAFT_KEY) || "{}");
+    return {
+      name: stored.name || "",
+      message: stored.message || ""
+    };
+  } catch (e) {
+    return { name: "", message: "" };
+  }
+}
+
+function saveDraft(name, message) {
+  try {
+    localStorage.setItem(DRAFT_KEY, JSON.stringify({ name, message }));
+  } catch (e) { }
+}
+
+function clearDraft() {
+  try {
+    localStorage.removeItem(DRAFT_KEY);
+  } catch (e) { }
+}
+
+function looksLikeSpam(name, message) {
+  const linkMatches = (message.match(/https?:\/\//gi) || []).length;
+  if (linkMatches >= 3) return true;
+  if (/(.)\1{7,}/.test(message)) return true;
+  const tokens = message.toLowerCase().split(/\s+/).filter(Boolean);
+  const freq = tokens.reduce((acc, t) => (acc[t] = (acc[t] || 0) + 1, acc), {});
+  if (Object.values(freq).some(count => count >= 6)) return true;
+  if (name && /https?:\/\//i.test(name)) return true;
+  return false;
+}
+
+function updatePreview(name, message) {
+  const previewName = document.getElementById("comment-preview-name");
+  const previewMessage = document.getElementById("comment-preview-message");
+  const previewAvatar = document.querySelector("#comment-preview-card .comment-avatar");
+  if (previewName) previewName.textContent = name || "Tu nombre";
+  if (previewMessage) {
+    previewMessage.textContent = message || "Escribí tu mensaje para ver la vista previa.";
+  }
+  if (previewAvatar) previewAvatar.textContent = getInitials(name || "?");
+}
+
+async function loadComments(sortMode = "recent") {
   
   const { data: { user } } = await supabaseClient.auth.getUser();
   const isAdmin = user && user.id === ADMIN_UID;
@@ -19,7 +123,7 @@ async function loadComments() {
   const { data, error } = await supabaseClient
     .from("comments")
     .select("*")
-    .order("created_at", { ascending: false });
+    .order("created_at", { ascending: sortMode === "oldest" });
 
   if (error) {
     console.error(error);
@@ -31,16 +135,29 @@ async function loadComments() {
 
   container.innerHTML = "";
 
-  data.forEach((comment, index) => {
+  const filtered = sortMode === "featured"
+    ? data.filter(comment => (comment.name || "").includes(CREATOR_EMOJI))
+    : data;
+
+  filtered.forEach((comment, index) => {
     const div = document.createElement("div");
     div.classList.add("comment-item");
     div.style.animationDelay = `${index * 0.08}s`;
+
+    const avatar = document.createElement("div");
+    avatar.classList.add("comment-avatar");
+    avatar.textContent = getInitials(comment.name);
+    avatar.title = comment.name;
 
     const strong = document.createElement("strong");
     strong.textContent = comment.name;
 
     const span = document.createElement("span");
-    span.textContent = new Date(comment.created_at).toLocaleString();
+    const createdAt = new Date(comment.created_at);
+    span.classList.add("comment-time");
+    span.dataset.timestamp = createdAt.toISOString();
+    span.textContent = formatRelativeTime(createdAt);
+    span.title = createdAt.toLocaleString();
 
     const p = document.createElement("p");
     p.textContent = comment.message;
@@ -48,12 +165,8 @@ async function loadComments() {
     const header = document.createElement("div");
     header.classList.add("comment-header");
 
-    const separator = document.createElement("span");
-    separator.textContent = "•";
-    separator.classList.add("comment-separator");
-
+    header.appendChild(avatar);
     header.appendChild(strong);
-    header.appendChild(separator);
     header.appendChild(span);
 
     div.appendChild(header);
@@ -122,25 +235,45 @@ async function addComment() {
   const nameInput = document.getElementById("comment-name");
   const messageInput = document.getElementById("comment-message");
   const countEl = document.getElementById("comment-count");
+  const sendBtn = document.getElementById("send-comment");
+
+  const setSending = (isSending) => {
+    if (!sendBtn) return;
+    if (!sendBtn.dataset.label) sendBtn.dataset.label = sendBtn.textContent;
+    sendBtn.disabled = isSending;
+    sendBtn.classList.toggle("is-loading", isSending);
+    sendBtn.textContent = isSending ? "Enviando..." : sendBtn.dataset.label;
+  };
 
   const name = nameInput.value.trim();
   const message = messageInput.value.trim();
 
   if (!name || !message) {
-    alert("Completá todos los campos");
+    showToast("Completá todos los campos", "error");
+    setSending(false);
     return;
   }
 
   if (message.length > MAX_LENGTH) {
-    alert("Máximo 500 caracteres");
+    showToast("Máximo 500 caracteres", "error");
+    setSending(false);
     return;
   }
 
   const now = Date.now();
   if (now - lastCommentTime < COMMENT_COOLDOWN) {
-    alert("Esperá 10 segundos antes de comentar otra vez");
+    showToast("Esperá 10 segundos antes de comentar otra vez", "error");
+    setSending(false);
     return;
   }
+
+  if (looksLikeSpam(name, message)) {
+    showToast("Tu comentario parece spam. Probá editarlo.", "error");
+    setSending(false);
+    return;
+  }
+
+  setSending(true);
 
   const { data, error } = await supabaseClient.functions.invoke(
     "super-responder",
@@ -148,13 +281,15 @@ async function addComment() {
   );
 
   if (error) {
-  console.error("ERROR COMPLETO:", error);
-  alert("Error real: " + error.message);
-  return;
-}
+    console.error("ERROR COMPLETO:", error);
+    showToast("Error al enviar el comentario", "error");
+    setSending(false);
+    return;
+  }
 
   if (data?.error) {
-    alert(data.error);
+    showToast(data.error, "error");
+    setSending(false);
     return;
   }
 
@@ -166,7 +301,11 @@ async function addComment() {
 
   if (countEl) countEl.textContent = `0/${MAX_LENGTH}`;
 
-  loadComments();
+  clearDraft();
+  updatePreview("", "");
+  loadComments(currentSort);
+  setSending(false);
+  showToast("Comentario enviado", "success");
 }
 
 async function checkAdmin() {
@@ -176,6 +315,11 @@ async function checkAdmin() {
   const badge = document.getElementById("admin-badge");
 
   if (!adminBtn) return;
+
+  if (badge) {
+    badge.style.display = "inline-flex";
+    badge.classList.remove("is-offline", "is-online");
+  }
 
   if (user && user.id === ADMIN_UID) {
     adminBtn.classList.add("logged-in");
@@ -193,7 +337,7 @@ async function checkAdmin() {
       location.reload();
     };
 
-    if (badge) badge.style.display = "flex";
+    if (badge) badge.classList.add("is-online");
   } else {
     adminBtn.innerHTML = `
       <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -207,7 +351,7 @@ async function checkAdmin() {
       document.getElementById("login-modal").classList.remove("hidden");
     };
 
-    if (badge) badge.style.display = "none";
+    if (badge) badge.classList.add("is-offline");
   }
 }
 
@@ -245,6 +389,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const emojiSearch = document.getElementById("emoji-search");
   const emojiTitle = document.getElementById("emoji-section-title");
   const emojiClear = document.getElementById("emoji-clear");
+  const nameInput = document.getElementById("comment-name");
+  const sortSelect = document.getElementById("comment-sort");
+
+  let draftTimer = 0;
+  window.currentSort = sortSelect?.value || "recent";
 
   const EMOJI_GROUPS = {
     faces: ["😀","😃","😄","😁","😆","😅","🤣","😂","🙂","🙃","😉","😊","😇","🥰","😍","🤩","😘","😗","😚","😙","😋","😜","😝","😛","🫠","🫶","🤗","🤭","🫢","🤫","🤔","😐","😑","😶","🙄","😬","😮","😲","😳","🥳","😎","🤓","🥸","😴","🤤"],
@@ -282,6 +431,13 @@ document.addEventListener("DOMContentLoaded", () => {
     countEl.textContent = `${value}/${MAX_LENGTH}`;
     countEl.classList.toggle("is-warn", value >= 450 && value < MAX_LENGTH);
     countEl.classList.toggle("is-danger", value >= MAX_LENGTH);
+  };
+
+  const syncDraft = () => {
+    clearTimeout(draftTimer);
+    draftTimer = setTimeout(() => {
+      saveDraft(nameInput?.value || "", messageInput?.value || "");
+    }, 300);
   };
 
   const insertEmoji = (emoji) => {
@@ -374,6 +530,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       resizeMessage();
       updateCount();
+      updatePreview(nameInput?.value || "", messageInput.value);
+      syncDraft();
+    });
+  }
+
+  if (nameInput) {
+    nameInput.addEventListener("input", () => {
+      updatePreview(nameInput.value, messageInput?.value || "");
+      syncDraft();
     });
   }
 
@@ -421,6 +586,13 @@ document.addEventListener("DOMContentLoaded", () => {
     emojiClear.addEventListener("click", () => clearRecent());
   }
 
+  if (sortSelect) {
+    sortSelect.addEventListener("change", () => {
+      window.currentSort = sortSelect.value;
+      loadComments(window.currentSort);
+    });
+  }
+
   document.addEventListener("click", (ev) => {
     if (!emojiPanel || !emojiToggle) return;
     const target = ev.target;
@@ -439,13 +611,20 @@ document.addEventListener("DOMContentLoaded", () => {
   resizeMessage();
   updateCount();
 
+  const draft = getDraft();
+  if (nameInput && draft.name) nameInput.value = draft.name;
+  if (messageInput && draft.message) messageInput.value = draft.message;
+  updatePreview(nameInput?.value || "", messageInput?.value || "");
+
   loadRecentEmojis();
   if (emojiTabs.length) {
     renderEmojiGrid(emojiTabs[0].dataset.group || "recent");
   }
 
   checkAdmin();
-  loadComments();
+  loadComments(window.currentSort);
+  updateRelativeTimes();
+  setInterval(updateRelativeTimes, 60000);
 
   const btn = document.getElementById("send-comment");
   if (btn) btn.addEventListener("click", addComment);
