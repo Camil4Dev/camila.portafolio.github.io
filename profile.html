@@ -167,14 +167,23 @@
           </select>
         </label>
       </div>
-      <div class="comment-form mt-6 grid gap-4 md:grid-cols-[1fr_1fr_auto]">
-        <label class="field-label" for="comment-name" data-lang="comment-name-label">Nombre</label>
-        <input type="text" id="comment-name" placeholder="Tu nombre" data-lang-placeholder="comment-name" class="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-white/90 placeholder:text-white/40">
-        <label class="field-label" for="comment-message" data-lang="comment-message-label">Mensaje</label>
-        <textarea id="comment-message" placeholder="Escribí tu mensaje..." data-lang-placeholder="comment-message" class="min-h-[48px] rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-white/90 placeholder:text-white/40 md:col-span-2"></textarea>
-        <button id="emoji-toggle" class="nav-button emoji-toggle rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-white/80" type="button" aria-expanded="false" aria-controls="emoji-panel" title="Emojis">😊</button>
-        <button id="send-comment" class="nav-button comment-submit rounded-2xl bg-neonPink px-6 py-3 text-sm font-semibold text-ink shadow-glow" data-lang="comment-send">Enviar</button>
-        <div id="emoji-panel" class="emoji-panel md:col-span-3" aria-hidden="true">
+      <div class="comment-form mt-6">
+        <div class="comment-form-grid">
+          <div class="comment-field">
+            <label class="field-label" for="comment-name" data-lang="comment-name-label">Nombre</label>
+            <input type="text" id="comment-name" placeholder="Tu nombre" data-lang-placeholder="comment-name" class="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-white/90 placeholder:text-white/40">
+          </div>
+          <div class="comment-field comment-field-message">
+            <label class="field-label" for="comment-message" data-lang="comment-message-label">Mensaje</label>
+            <textarea id="comment-message" placeholder="Escribí tu mensaje..." data-lang-placeholder="comment-message" class="min-h-[48px] rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-white/90 placeholder:text-white/40"></textarea>
+          </div>
+        </div>
+        <div class="comment-actions">
+          <button id="emoji-toggle" class="nav-button emoji-toggle rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-white/80" type="button" aria-expanded="false" aria-controls="emoji-panel" title="Emojis">😊</button>
+          <button id="send-comment" class="nav-button comment-submit rounded-2xl bg-neonPink px-6 py-3 text-sm font-semibold text-ink shadow-glow" data-lang="comment-send">Enviar</button>
+          <span id="comment-count" class="comment-count" aria-live="polite">0/500</span>
+        </div>
+        <div id="emoji-panel" class="emoji-panel" aria-hidden="true">
           <div class="emoji-search">
             <label class="field-label" for="emoji-search" data-lang="emoji-search-label">Buscar emojis</label>
             <input id="emoji-search" type="search" placeholder="Buscar emojis" data-lang-placeholder="emoji-search" aria-label="Buscar emojis">
@@ -196,9 +205,6 @@
             </div>
             <div id="emoji-grid" class="emoji-grid" role="tabpanel"></div>
           </div>
-        </div>
-        <div class="comment-meta md:col-span-3">
-          <span id="comment-count" class="comment-count" aria-live="polite">0/500</span>
         </div>
       </div>
       <div class="comment-preview mt-6">

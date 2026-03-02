@@ -426,15 +426,138 @@ document.addEventListener("DOMContentLoaded", () => {
   let draftTimer = 0;
   window.currentSort = sortSelect?.value || "recent";
 
-  const EMOJI_GROUPS = {
-    faces: ["😀","😃","😄","😁","😆","😅","🤣","😂","🙂","🙃","😉","😊","😇","🥰","😍","🤩","😘","😗","😚","😙","😋","😜","😝","😛","🫠","🫶","🤗","🤭","🫢","🤫","🤔","😐","😑","😶","🙄","😬","😮","😲","😳","🥳","😎","🤓","🥸","😴","🤤"],
-    gestures: ["👍","👎","👏","🙌","🤝","✌️","🤘","🫡","💪","🙏","👌","👀","👋","🤙","🖐️","✋","🤟","☝️","👇","👉","👈","🫰","👐","🤲","🫶","🙅","🙆","🙋","🤷","🤦"],
-    hearts: ["❤️","🧡","💛","💚","💙","💜","🩷","🖤","🤍","🤎","💔","❤️‍🔥","❤️‍🩹","💖","💗","💓","💞","💕","💝","💘","💟"],
-    food: ["🍕","🍔","🍟","🌭","🍿","🥓","🥞","🧇","🍳","🍣","🍜","🍱","🍛","🍙","🍤","🥗","🥪","🍩","🍪","🎂","🍰","🧁","🍫","🍬","🍭","🧋","☕","🧃"],
-    objects: ["🎮","🕹️","🧱","⛏️","🧪","🧠","⚙️","💻","🛠️","📌","📎","📷","🎧","🎵","🎤","🚀","🔥","✨","🧲","🔮","💡","🧩","🪄","📦","📡"],
-    nature: ["🌿","🌱","🌸","🌙","⭐","☀️","⚡","🌊","🍀","🪐","🌌","🌈","🌧️","❄️","🔥","🌋","🪨","🌵","🦋","🐝","🐢"],
-    symbols: ["✅","☑️","✔️","❌","⚠️","❗","❓","💯","🔔","🔕","🔒","🔓","💬","🗯️","💭","🎯","📌","🔹","🔸","🟢","🟡","🔴","⚪","⚫"],
+  const EMOJI_DATA_URLS = [
+    "https://cdn.jsdelivr.net/npm/@emoji-mart/data@1.2.1/emoji-mart-data.json"
+  ];
+  const DEFAULT_EMOJI_GROUPS = {
+    faces: ["😀","😃","😄","😁","😆","😅","🤣","😂","🙂","🙃","😉","😊","😇","🥰","😍","🤩","😘","😗","😚","😙","😋","😜","😝","😛","🫠","🫶","🤗","🤭","🫢","🤫","🤔","😐","😑","😶","🙄","😬","😮","😲","😳","🥳","😎","🤓","🥸","😴","🤤","😪","😵","😵‍💫","🤯","🥺","😏","😒","😅","😡","🤬","😭","😢","🥲","🫣","🤡"],
+    gestures: ["👍","👎","👏","🙌","🤝","✌️","🤘","🫡","💪","🙏","👌","👀","👋","🤙","🖐️","✋","🤟","☝️","👇","👉","👈","🫰","👐","🤲","🫶","🙅","🙆","🙋","🤷","🤦","✍️","🤞","🫶","🤜","🤛","🧎","🧍","🧘"],
+    hearts: ["❤️","🧡","💛","💚","💙","💜","🩷","🖤","🤍","🤎","💔","❤️‍🔥","❤️‍🩹","💖","💗","💓","💞","💕","💝","💘","💟","💌","💐","🫶","💍"],
+    food: ["🍕","🍔","🍟","🌭","🍿","🥓","🥞","🧇","🍳","🍣","🍜","🍱","🍛","🍙","🍤","🥗","🥪","🍩","🍪","🎂","🍰","🧁","🍫","🍬","🍭","🧋","☕","🧃","🥤","🧊","🍓","🍌","🍎","🍇","🍒","🍉","🍪","🍕"],
+    objects: ["🎮","🕹️","🧱","⛏️","🧪","🧠","⚙️","💻","🛠️","📌","📎","📷","🎧","🎵","🎤","🚀","🔥","✨","🧲","🔮","💡","🧩","🪄","📦","📡","🔧","🧰","🔬","🧪","📱","🧯"],
+    nature: ["🌿","🌱","🌸","🌙","⭐","☀️","⚡","🌊","🍀","🪐","🌌","🌈","🌧️","❄️","🔥","🌋","🪨","🌵","🦋","🐝","🐢","🐬","🦊","🐺","🐱","🐶","🦜","🌻"],
+    symbols: ["✅","☑️","✔️","❌","⚠️","❗","❓","💯","🔔","🔕","🔒","🔓","💬","🗯️","💭","🎯","📌","🔹","🔸","🟢","🟡","🔴","⚪","⚫","➕","➖","➗","✴️","⭐","🌟"],
     recent: []
+  };
+
+  let EMOJI_GROUPS = { ...DEFAULT_EMOJI_GROUPS };
+  let EMOJI_INDEX = new Map();
+
+  const buildSearch = (emoji) => {
+    const parts = [emoji.id, emoji.name, ...(emoji.keywords || [])].filter(Boolean);
+    return parts.join(" ").toLowerCase();
+  };
+
+  const getNative = (emoji) => emoji?.skins?.[0]?.native || emoji?.native || "";
+
+  const indexEmoji = (native, search) => {
+    if (!native) return;
+    if (!EMOJI_INDEX.has(native)) EMOJI_INDEX.set(native, search || native);
+  };
+
+  const isGesture = (search, id) => {
+    const hay = `${search} ${id || ""}`;
+    return /(hand|finger|gesture|thumb|clap|pray|wave|fist|sign)/i.test(hay);
+  };
+
+  const isHeart = (search, id) => {
+    const hay = `${search} ${id || ""}`;
+    return /(heart|love|kiss|romance)/i.test(hay);
+  };
+
+  const buildEmojiGroups = (data) => {
+    const categoryMap = {
+      people: "faces",
+      nature: "nature",
+      foods: "food",
+      activity: "objects",
+      places: "objects",
+      objects: "objects",
+      symbols: "symbols",
+      flags: "symbols",
+      "smileys-emotion": "faces",
+      "people-body": "faces",
+      "animals-nature": "nature",
+      "food-drink": "food",
+      "travel-places": "objects",
+      activities: "objects",
+      objects: "objects",
+      symbols: "symbols",
+      flags: "symbols"
+    };
+
+    const groups = {
+      faces: [],
+      gestures: [],
+      hearts: [],
+      food: [],
+      objects: [],
+      nature: [],
+      symbols: []
+    };
+
+    const groupSets = {
+      faces: new Set(),
+      gestures: new Set(),
+      hearts: new Set(),
+      food: new Set(),
+      objects: new Set(),
+      nature: new Set(),
+      symbols: new Set()
+    };
+
+    const addToGroup = (group, native, search) => {
+      if (!native || !groups[group]) return;
+      if (groupSets[group].has(native)) return;
+      groupSets[group].add(native);
+      groups[group].push({ native, search });
+    };
+
+    data.categories.forEach((category) => {
+      const group = categoryMap[category.id];
+      if (!group) return;
+      category.emojis.forEach((emojiId) => {
+        const emoji = data.emojis[emojiId];
+        if (!emoji) return;
+        const native = getNative(emoji);
+        const search = buildSearch(emoji);
+        indexEmoji(native, search);
+        addToGroup(group, native, search);
+        if (category.id === "people" && isGesture(search, emoji.id)) addToGroup("gestures", native, search);
+        if (isHeart(search, emoji.id)) addToGroup("hearts", native, search);
+      });
+    });
+
+    if (!groups.gestures.length) groups.gestures = DEFAULT_EMOJI_GROUPS.gestures.map((native) => ({ native, search: native }));
+    if (!groups.hearts.length) groups.hearts = DEFAULT_EMOJI_GROUPS.hearts.map((native) => ({ native, search: native }));
+
+    return groups;
+  };
+
+  const loadEmojiData = async () => {
+    let data = null;
+    for (const url of EMOJI_DATA_URLS) {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) continue;
+        data = await response.json();
+        break;
+      } catch (e) {
+        continue;
+      }
+    }
+
+    if (data) {
+      EMOJI_INDEX = new Map();
+      const groups = buildEmojiGroups(data);
+      EMOJI_GROUPS = { ...groups, recent: EMOJI_GROUPS.recent };
+      return;
+    }
+
+    EMOJI_INDEX = new Map();
+    Object.values(DEFAULT_EMOJI_GROUPS)
+      .flat()
+      .forEach((native) => indexEmoji(native, native));
   };
 
   const getEmojiLabels = () => ({
@@ -539,7 +662,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     emojiGrid.innerHTML = "";
 
-    const filtered = term ? list.filter((emoji) => emoji.includes(term) || emoji === term) : list;
+    const normalized = list.map((item) => {
+      if (typeof item === "string") {
+        const search = EMOJI_INDEX.get(item) || item;
+        return { native: item, search };
+      }
+      return item;
+    });
+
+    let filtered = term
+      ? normalized.filter((emoji) => (emoji.search || "").includes(term) || emoji.native.includes(term))
+      : normalized;
+
+    if (term) {
+      const dedupe = new Map();
+      filtered.forEach((emoji) => {
+        if (!dedupe.has(emoji.native)) dedupe.set(emoji.native, emoji);
+      });
+      filtered = Array.from(dedupe.values());
+    }
     const labels = getEmojiLabels();
     if (emojiTitle) emojiTitle.textContent = term ? getProfileText("emojiResults", "Resultados") : (labels[group] || "Emojis");
     if (emojiClear) emojiClear.style.visibility = (group === "recent" && !term) ? "visible" : "hidden";
@@ -548,9 +689,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "emoji-btn";
-      btn.dataset.emoji = emoji;
-      btn.textContent = emoji;
-      btn.addEventListener("click", () => insertEmoji(emoji));
+      btn.dataset.emoji = emoji.native;
+      btn.textContent = emoji.native;
+      btn.addEventListener("click", () => insertEmoji(emoji.native));
       emojiGrid.appendChild(btn);
     });
   };
@@ -657,9 +798,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (emojiClear) emojiClear.textContent = getProfileText("emojiClear", "Borrar todo");
 
   loadRecentEmojis();
-  if (emojiTabs.length) {
-    renderEmojiGrid(emojiTabs[0].dataset.group || "recent");
-  }
+  const initialGroup = emojiTabs[0]?.dataset.group || "recent";
+  loadEmojiData().finally(() => {
+    if (emojiTabs.length) renderEmojiGrid(initialGroup);
+  });
 
   checkAdmin();
   loadComments(window.currentSort);
