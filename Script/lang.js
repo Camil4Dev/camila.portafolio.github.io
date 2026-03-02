@@ -42,7 +42,10 @@ const translations = {
       availabilityStatus: "Disponible para nuevos proyectos",
       contactTitle: "Contacto",
       contactText: "¿Necesitás un plugin, mod o sistema personalizado? Podés escribirme a:",
-      contactDiscordCta: "Contactar",
+      contactEmailLabel: "Email directo",
+      contactDmTitle: "DM directo",
+      contactDiscordCta: "Discord",
+      contactXLabel: "X / Twitter",
       contactStatusLabel: "Estado Discord",
       faqTitle: "FAQ rápido",
       faqQ1: "Tiempo de respuesta",
@@ -293,7 +296,10 @@ const translations = {
       availabilityStatus: "Available for new projects",
       contactTitle: "Contact",
       contactText: "Need a custom plugin, mod, or system? You can write to me at:",
-      contactDiscordCta: "Contact",
+      contactEmailLabel: "Direct email",
+      contactDmTitle: "Direct DM",
+      contactDiscordCta: "Discord",
+      contactXLabel: "X / Twitter",
       contactStatusLabel: "Discord status",
       faqTitle: "Quick FAQ",
       faqQ1: "Response time",
@@ -665,11 +671,22 @@ function changeLanguage() {
     const availabilityStatus = document.querySelector('[data-lang="availability-status"]');
     if (availabilityStatus) availabilityStatus.textContent = trans.availabilityStatus;
 
-    document.querySelector(".contact h2").textContent = trans.contactTitle;
-    document.querySelector(".contact p").textContent = trans.contactText;
+    const contactTitle = document.querySelector('[data-lang="contact-title"]');
+    if (contactTitle) contactTitle.textContent = trans.contactTitle;
+    const contactText = document.querySelector('[data-lang="contact-text"]');
+    if (contactText) contactText.textContent = trans.contactText;
+
+    const contactEmailLabel = document.querySelector('[data-lang="contact-email-label"]');
+    if (contactEmailLabel) contactEmailLabel.textContent = trans.contactEmailLabel;
+
+    const contactDmTitle = document.querySelector('[data-lang="contact-dm-title"]');
+    if (contactDmTitle) contactDmTitle.textContent = trans.contactDmTitle;
 
     const contactDiscordCta = document.querySelector('[data-lang="contact-discord-cta"]');
     if (contactDiscordCta) contactDiscordCta.textContent = trans.contactDiscordCta;
+
+    const contactXLabel = document.querySelector('[data-lang="contact-x-cta"]');
+    if (contactXLabel) contactXLabel.textContent = trans.contactXLabel;
 
     const contactStatusLabel = document.querySelector('[data-lang="contact-status-label"]');
     if (contactStatusLabel) contactStatusLabel.textContent = trans.contactStatusLabel;

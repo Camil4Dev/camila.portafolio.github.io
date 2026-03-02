@@ -161,6 +161,30 @@ canvas {
   color: #f8fafc;
 }
 
+.discord-status-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  min-height: 240px;
+}
+
+.discord-status-frame {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
+}
+
+.discord-status-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  background: #0b0b10;
+}
+
 .field-label {
   display: block;
   font-size: 0.7rem;
@@ -642,13 +666,36 @@ canvas {
 
 @media (max-width: 640px) {
   nav {
+    gap: 10px;
+  }
+
+  .site-nav {
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+  }
+
+  .page-header {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .page-hero {
+    padding: 1.25rem;
+  }
+
+  nav > div {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
+    width: 100%;
   }
 
   .nav-button {
     padding: 8px 12px;
     font-size: 0.75rem;
     letter-spacing: 0.02em;
+    justify-content: center;
+    width: 100%;
   }
 
   .lang-button {
@@ -689,6 +736,14 @@ canvas {
     justify-content: center;
   }
 
+  .comment-actions {
+    align-items: stretch;
+  }
+
+  .comment-actions .comment-count {
+    margin-left: 0;
+  }
+
   .comment-tools {
     padding: 8px 10px;
   }
@@ -714,6 +769,19 @@ canvas {
     word-break: break-word;
   }
 
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-payment-icons {
+    margin-left: 0;
+  }
+
+  .discord-status-frame {
+    max-width: 100%;
+    padding: 12px;
+  }
+
   .timeline-item {
     flex-direction: column;
     align-items: flex-start;
@@ -736,6 +804,32 @@ canvas {
   .collab-card {
     min-width: 200px;
     scroll-snap-align: start;
+  }
+
+  .font-display.text-4xl {
+    font-size: 2.1rem;
+    line-height: 2.4rem;
+  }
+
+  .font-display.text-2xl {
+    font-size: 1.35rem;
+    line-height: 1.75rem;
+  }
+
+  .text-lg {
+    font-size: 1rem;
+  }
+
+  .text-base {
+    font-size: 0.95rem;
+  }
+
+  .project-card h3 {
+    font-size: 1rem;
+  }
+
+  .project-card p {
+    font-size: 0.82rem;
   }
 }
 

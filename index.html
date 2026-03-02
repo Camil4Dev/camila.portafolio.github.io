@@ -71,7 +71,7 @@
   <canvas id="parallaxCanvas" class="fixed inset-0 -z-20"></canvas>
   <canvas id="particles" class="fixed inset-0 -z-10 opacity-70"></canvas>
 
-  <nav class="relative z-10 mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-6">
+  <nav class="site-nav relative z-10 mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-6">
     <a href="index.html" class="font-display text-xl tracking-wide text-white">camila.dev</a>
     <div class="flex flex-wrap items-center gap-3">
       <a href="profile.html" class="nav-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" title="Ver Perfil">
@@ -101,7 +101,7 @@
   <span id="lang-live" class="sr-only" aria-live="polite" aria-atomic="true"></span>
 
   <main id="main-content" class="relative z-10">
-    <header class="mx-auto grid max-w-6xl items-center gap-10 px-6 pb-12 pt-6 lg:grid-cols-[1.2fr_0.8fr]" data-parallax="0.5">
+    <header class="page-header mx-auto grid max-w-6xl items-center gap-10 px-6 pb-12 pt-6 lg:grid-cols-[1.2fr_0.8fr]" data-parallax="0.5">
       <div class="space-y-6">
         <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/80" data-lang="hero-badge">
           <span class="h-2 w-2 rounded-full bg-neonLime shadow-glow"></span>
@@ -251,29 +251,42 @@
     <section id="contact" class="contact mx-auto max-w-6xl px-6 py-12" data-parallax="0.6" data-reveal>
       <div class="grid gap-8 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-card lg:grid-cols-[1.1fr_0.9fr]">
         <div>
-          <h2 class="font-display text-2xl font-semibold">Contacto</h2>
-          <p class="mt-2 text-white/70">¿Necesitás un plugin, mod o sistema personalizado? Podés escribirme a:</p>
-          <div class="mt-6 flex flex-col gap-4">
-            <a href="mailto:c.carpincho.gaucho@gmail.com" class="contact-link flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm font-semibold text-white/90 transition hover:border-white/40" title="Enviar email">
+          <h2 class="font-display text-2xl font-semibold" data-lang="contact-title">Contacto</h2>
+          <p class="mt-2 text-white/70" data-lang="contact-text">¿Necesitás un plugin, mod o sistema personalizado? Podés escribirme a:</p>
+          <div class="mt-6 grid gap-3">
+            <span class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60" data-lang="contact-email-label">Email directo</span>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=c.carpincho.gaucho@gmail.com&su=Nuevo%20proyecto%20desde%20camila.dev" class="contact-link flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm font-semibold text-white/90 transition hover:border-white/40" title="Enviar email" target="_blank" rel="noopener noreferrer">
               <svg class="icon text-neonLime" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M3 6.75h18v10.5H3z" />
                 <path d="M3 6.75l9 6 9-6" />
               </svg>
               <span>c.carpincho.gaucho@gmail.com</span>
             </a>
-            <a href="https://discord.com/users/932721517995888650" class="contact-link flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm font-semibold text-white/90 transition hover:border-white/40" title="Ver perfil en Discord">
-              <svg class="icon text-neonCyan" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5.25 5.25h13.5A2.25 2.25 0 0121 7.5v7.5a2.25 2.25 0 01-2.25 2.25H9l-5.25 3V7.5A2.25 2.25 0 015.25 5.25z" />
-                <path d="M9 10.5h.01M15 10.5h.01" />
-              </svg>
-              <span data-lang="contact-discord-cta">Contactar</span>
-            </a>
+          </div>
+          <div class="mt-6">
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60" data-lang="contact-dm-title">DM directo</p>
+            <div class="mt-3 grid gap-3 sm:grid-cols-2">
+              <a href="https://discord.com/users/932721517995888650" class="contact-link flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm font-semibold text-white/90 transition hover:border-white/40" title="Ver perfil en Discord" target="_blank" rel="noopener noreferrer">
+                <svg class="icon text-neonCyan" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5.25 5.25h13.5A2.25 2.25 0 0121 7.5v7.5a2.25 2.25 0 01-2.25 2.25H9l-5.25 3V7.5A2.25 2.25 0 015.25 5.25z" />
+                  <path d="M9 10.5h.01M15 10.5h.01" />
+                </svg>
+                <span data-lang="contact-discord-cta">Discord</span>
+              </a>
+              <a href="https://twitter.com/CamilaDev_" class="contact-link flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm font-semibold text-white/90 transition hover:border-white/40" title="Abrir perfil en X" target="_blank" rel="noopener noreferrer">
+                <svg class="icon text-white" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 4l14 16" />
+                  <path d="M19 4L5 20" />
+                </svg>
+                <span data-lang="contact-x-cta">X / Twitter</span>
+              </a>
+            </div>
           </div>
         </div>
-        <div class="rounded-2xl border border-white/10 bg-white/10 p-5">
+        <div class="discord-status-card rounded-2xl border border-white/10 bg-white/10 p-5">
           <p class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60" data-lang="contact-status-label">Estado Discord</p>
-          <div class="mt-4 overflow-hidden rounded-2xl border border-white/10">
-            <img src="https://lanyard.cnrad.dev/api/932721517995888650?hideActivity=true&showDisplayName=true" alt="Estado de Discord" loading="lazy" decoding="async" class="w-full">
+          <div class="discord-status-frame mt-4 w-full max-w-xl overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4">
+            <img src="https://lanyard.cnrad.dev/api/932721517995888650?hideActivity=true&showDisplayName=true&theme=dark&bg=0b0b10&borderRadius=16px" alt="Estado de Discord" loading="lazy" decoding="async" class="discord-status-image w-full">
           </div>
         </div>
       </div>
