@@ -33,9 +33,6 @@ function resizeCanvas() {
   initParticles();
 }
 
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
-
 class Particle {
   constructor() {
     this.reset();
@@ -89,6 +86,8 @@ function stopParticles() {
   }
 }
 
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
 initParticles();
 startParticles();
 
