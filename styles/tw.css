@@ -634,7 +634,7 @@ canvas {
 }
 
 .emoji-panel.is-open {
-  max-height: 320px;
+  max-height: 360px;
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
@@ -813,6 +813,8 @@ canvas {
 }
 
 .emoji-section {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
   min-height: 0;
 }
 
@@ -836,6 +838,8 @@ canvas {
   max-height: none;
   overflow-y: auto;
   padding-right: 4px;
+  min-height: 0;
+  -webkit-overflow-scrolling: touch;
 }
 
 .emoji-btn {
