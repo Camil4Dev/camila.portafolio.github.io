@@ -3,40 +3,60 @@
     const $ = sel => document.querySelector(sel);
     const $$ = sel => Array.from(document.querySelectorAll(sel));
     const root = document.documentElement;
-    let lastMove = Date.now();
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let pointerRafId = 0;
+    let pointerResetTimer = 0;
+    let pendingPointer = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 
     
-    function onPointer(e) {
-      const x = (e.clientX ?? (e.touches && e.touches[0].clientX) ?? window.innerWidth/2);
-      const y = (e.clientY ?? (e.touches && e.touches[0].clientY) ?? window.innerHeight/2);
+    function commitPointer() {
+      const x = pendingPointer.x;
+      const y = pendingPointer.y;
       root.style.setProperty('--mx', ((x / window.innerWidth) * 2 - 1).toFixed(3));
       root.style.setProperty('--my', ((y / window.innerHeight) * 2 - 1).toFixed(3));
-      lastMove = Date.now();
+      pointerRafId = 0;
     }
-    window.addEventListener('mousemove', onPointer, {passive:true});
-    window.addEventListener('touchmove', onPointer, {passive:true});
-    setInterval(()=> {
-      if (Date.now() - lastMove > 2500) {
-        root.style.setProperty('--mx','0');
-        root.style.setProperty('--my','0');
+
+    function schedulePointerUpdate(e) {
+      const x = (e.clientX ?? (e.touches && e.touches[0].clientX) ?? window.innerWidth / 2);
+      const y = (e.clientY ?? (e.touches && e.touches[0].clientY) ?? window.innerHeight / 2);
+      pendingPointer = { x, y };
+
+      if (!pointerRafId) {
+        pointerRafId = requestAnimationFrame(commitPointer);
       }
-    }, 1200);
+
+      if (pointerResetTimer) clearTimeout(pointerResetTimer);
+      pointerResetTimer = setTimeout(() => {
+        root.style.setProperty('--mx', '0');
+        root.style.setProperty('--my', '0');
+      }, 2500);
+    }
+
+    if (!prefersReducedMotion) {
+      window.addEventListener('mousemove', schedulePointerUpdate, { passive: true });
+      window.addEventListener('touchmove', schedulePointerUpdate, { passive: true });
+    } else {
+      root.style.setProperty('--mx', '0');
+      root.style.setProperty('--my', '0');
+    }
 
    
     const revealEls = $$('[data-reveal]');
     if (revealEls.length) {
-      const obs = new IntersectionObserver((entries, ob) => {
-        entries.forEach(en => {
-          if (en.isIntersecting) {
-            en.target.classList.add('is-revealed');
-            ob.unobserve(en.target);
-          }
-        });
-      }, { threshold: 0.12 });
-      revealEls.forEach(el => obs.observe(el));
-    } else {
-      console.info('ui.js: no elements with [data-reveal] found.');
+      if (prefersReducedMotion) {
+        revealEls.forEach(el => el.classList.add('is-revealed'));
+      } else {
+        const obs = new IntersectionObserver((entries, ob) => {
+          entries.forEach(en => {
+            if (en.isIntersecting) {
+              en.target.classList.add('is-revealed');
+              ob.unobserve(en.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        revealEls.forEach(el => obs.observe(el));
+      }
     }
 
    
@@ -54,12 +74,13 @@
 
     
     function ripple(e){
+      if (prefersReducedMotion) return;
       const btn = e.currentTarget;
       const rect = btn.getBoundingClientRect();
       const span = document.createElement('span');
       span.className = 'ripple';
-      const clientX = e.clientX ?? (e.touches && e.touches[0].clientX) ?? (rect.left + rect.width/2);
-      const clientY = e.clientY ?? (e.touches && e.touches[0].clientY) ?? (rect.top + rect.height/2);
+      const clientX = e.clientX ?? (e.touches && e.touches[0].clientX) ?? (rect.left + rect.width / 2);
+      const clientY = e.clientY ?? (e.touches && e.touches[0].clientY) ?? (rect.top + rect.height / 2);
       span.style.left = (clientX - rect.left) + 'px';
       span.style.top = (clientY - rect.top) + 'px';
       btn.appendChild(span);
@@ -67,7 +88,7 @@
     }
     $$('button, .nav-button, .skill-card, .project-card, .contact-link').forEach(el => {
       el.style.position = el.style.position || 'relative';
-      el.addEventListener('click', ripple);
+      el.addEventListener('pointerdown', ripple, { passive: true });
     });
 
     
@@ -137,9 +158,6 @@
     }
 
   
-    console.info('ui.js loaded — reveal elements:', revealEls.length);
-
-  
     const track = document.getElementById("collabsTrack");
     if (track && track.children.length > 0) {
       const originalCardCount = track.children.length;
@@ -158,9 +176,9 @@
         let scrollPosition = 0;
         const scrollSpeed = 1.5; 
         let singleRowWidth = 0;
+        let resizeTimer = 0;
 
         function calculateWidth() {
-        
           singleRowWidth = 0;
           for (let i = 0; i < originalCardCount; i++) {
             const card = track.children[i];
@@ -168,7 +186,6 @@
               singleRowWidth += card.offsetWidth + 28; 
             }
           }
-          console.log('Single row width:', singleRowWidth);
         }
 
         calculateWidth();
@@ -211,6 +228,11 @@
           if (document.hidden) stopCollabsScroll();
           else startCollabsScroll();
         });
+
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(calculateWidth, 150);
+        }, { passive: true });
 
         startCollabsScroll();
       }, 300);
