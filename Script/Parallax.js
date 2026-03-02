@@ -1,8 +1,19 @@
 (function () {
 
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   let scrollY = 0;
   let lastScrollY = 0;
   let ticking = false;
+
+  if (prefersReducedMotion) {
+    document.querySelectorAll('[data-parallax]').forEach(element => {
+      element.style.transform = 'none';
+    });
+    const canvas = document.getElementById('parallaxCanvas');
+    if (canvas) canvas.style.transform = 'none';
+    return;
+  }
 
   window.addEventListener('scroll', () => {
     scrollY = window.scrollY;
@@ -35,7 +46,6 @@
   const fxCanvas = document.getElementById('parallaxCanvas');
   if (!fxCanvas) return;
   const ctx = fxCanvas.getContext('2d', { alpha: true });
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let w = 0, h = 0, dpr = 1;
   let objects = [];

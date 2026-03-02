@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
     food: "Comida",
     objects: "Objetos",
     nature: "Naturaleza",
-    symbols: "Simbolos"
+    symbols: "Símbolos"
   };
 
   const RECENT_KEY = "emoji_recent";

@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0b10">
+  <meta name="color-scheme" content="dark">
   <meta name="description" content="Perfil y roles de Camila, desarrolladora de Minecraft y Hytale.">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:locale:alternate" content="en_US">
   <meta property="og:title" content="Perfil - camila.dev">
   <meta property="og:description" content="Perfil y roles de Camila, desarrolladora de Minecraft y Hytale.">
   <meta property="og:site_name" content="camila.dev">
@@ -20,8 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="Script/tw-config.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles/tailwind.css">
   <link rel="stylesheet" href="styles/tw.css">
   
 </head>
@@ -141,12 +144,15 @@
         <span data-lang="comments-title">Comentarios</span>
       </h3>
       <div class="comment-form mt-6 grid gap-4 md:grid-cols-[1fr_1fr_auto]">
+        <label class="sr-only" for="comment-name">Nombre</label>
         <input type="text" id="comment-name" placeholder="Tu nombre" data-lang-placeholder="comment-name" class="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-white/90 placeholder:text-white/40">
-        <textarea id="comment-message" placeholder="Escribi tu mensaje..." data-lang-placeholder="comment-message" class="min-h-[48px] rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-white/90 placeholder:text-white/40 md:col-span-2"></textarea>
+        <label class="sr-only" for="comment-message">Mensaje</label>
+        <textarea id="comment-message" placeholder="Escribí tu mensaje..." data-lang-placeholder="comment-message" class="min-h-[48px] rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-white/90 placeholder:text-white/40 md:col-span-2"></textarea>
         <button id="emoji-toggle" class="nav-button rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-white/80" type="button" aria-expanded="false" aria-controls="emoji-panel" title="Emojis">😊</button>
         <button id="send-comment" class="nav-button rounded-2xl bg-neonPink px-6 py-3 text-sm font-semibold text-ink shadow-glow" data-lang="comment-send">Enviar</button>
         <div id="emoji-panel" class="emoji-panel md:col-span-3" aria-hidden="true">
           <div class="emoji-search">
+            <label class="sr-only" for="emoji-search">Buscar emojis</label>
             <input id="emoji-search" type="search" placeholder="Buscar emojis" aria-label="Buscar emojis">
           </div>
           <div class="emoji-categories" role="tablist" aria-label="Categorias de emojis">
@@ -168,10 +174,10 @@
           </div>
         </div>
         <div class="comment-meta md:col-span-3">
-          <span id="comment-count" class="comment-count">0/500</span>
+          <span id="comment-count" class="comment-count" aria-live="polite">0/500</span>
         </div>
       </div>
-      <div id="comments-list" class="comments-list mt-6 grid gap-4"></div>
+      <div id="comments-list" class="comments-list mt-6 grid gap-4" aria-live="polite"></div>
     </section>
   </main>
 
@@ -186,7 +192,9 @@
         <span data-lang="admin-login-title">Admin Login</span>
       </h3>
       <div class="mt-4 grid gap-3">
+        <label class="sr-only" for="admin-email">Email</label>
         <input type="email" id="admin-email" placeholder="Email" data-lang-placeholder="admin-email" class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm text-white/90 placeholder:text-white/40">
+        <label class="sr-only" for="admin-password">Password</label>
         <input type="password" id="admin-password" placeholder="Password" data-lang-placeholder="admin-password" class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm text-white/90 placeholder:text-white/40">
       </div>
       <div class="modal-buttons">
