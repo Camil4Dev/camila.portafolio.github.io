@@ -4,11 +4,12 @@ const translations = {
     index: {
       title: "camila.dev",
       h1: "camila",
-      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
+      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team • Hylamity",
       heroBadge: "Disponible para proyectos",
       heroCopy: "Construyo experiencias inmersivas para servidores y comunidades, con foco en rendimiento, jugabilidad y detalles que hacen la diferencia.",
       ctaProjects: "Ver proyectos",
       ctaContact: "Contactar",
+      ctaAvailability: "Ver disponibilidad",
       infoSpecialtyLabel: "Especialidad",
       infoSpecialtyValue: "Plugins & Mods",
       infoStackLabel: "Stack",
@@ -35,21 +36,34 @@ const translations = {
       stackHytale: "Hytale",
       stackMysql: "MySQL",
       stackSqlite: "SQLite",
+      availabilityLabel: "Estado",
+      availabilityTitle: "Disponibilidad",
+      availabilityCopy: "Estoy tomando proyectos nuevos. Respondo en 24 a 48 horas y propongo un plan claro desde el primer mensaje.",
+      availabilityStatus: "Disponible para nuevos proyectos",
       contactTitle: "Contacto",
       contactText: "¿Necesitás un plugin, mod o sistema personalizado? Podés escribirme a:",
       contactDiscordCta: "Contactar",
       contactStatusLabel: "Estado Discord",
+      faqTitle: "FAQ rápido",
+      faqQ1: "Tiempo de respuesta",
+      faqA1: "24 a 48 horas hábiles.",
+      faqQ2: "Métodos de pago",
+      faqA2: "Mercado Pago y PayPal.",
+      faqQ3: "Alcance",
+      faqA3: "Plugins, mods, sistemas y soporte post-lanzamiento.",
       footer: "© 2026 camila — Minecraft Developer 🎶",
       profileButton: "Perfil",
       projectsButton: "Proyectos",
       skillsButton: "Habilidades",
-      langButton: "🇺🇸"
+      ctaFixed: "Contratar",
+      langButton: "🇺🇸",
+      langLive: "Idioma actualizado."
     },
 
     projects: {
       title: "Proyectos - camila.dev",
       h1: "camila",
-      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
+      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team • Hylamity",
       projectsTitle: "Proyectos destacados",
       filterAll: "Todos",
       filterPaper: "Paper",
@@ -86,13 +100,15 @@ const translations = {
       skillsButton: "Habilidades",
       backButton: "← Volver al Inicio",
       footer: "© 2026 camila — Minecraft Developer 🎶",
-      langButton: "🇺🇸"
+      ctaFixed: "Contratar",
+      langButton: "🇺🇸",
+      langLive: "Idioma actualizado."
     },
 
     skills: {
       title: "Habilidades - camila.dev",
       h1: "camila",
-      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
+      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team • Hylamity",
 
       skillsTitle: "Habilidades",
       skillsSubtitle: "Tecnologías que utilizo diariamente",
@@ -123,6 +139,7 @@ const translations = {
       collabAldo: "Desarrollo de minijuegos para el Geo Ware Oddysey 3.",
 
       collabRozsier: "Ayuda en infraestructura y desarrollo en un mod custom de props para su servidor femboy de la triple G.",
+      collabPirutastic: "Desarrollo de un mod custom de la modalidad de OneBlock para el evento de oneblock con monos de pirutastic, incluyendo mecánicas personalizadas y sistemas de progresión únicos los cuales fueron Desarrollados con ayuda de <strong>@JerejOwO</strong>, <strong>@mragus5534</strong>, <strong>@kasecamii</strong> y <strong>@wckq_</strong>.",
       collabBadgeMasivo: "MasivoSMP",
       collabBadgeUhcvr: "UHC VR",
       collabBadgeYearEnd: "Fin de Año",
@@ -139,12 +156,14 @@ const translations = {
       profileButton: "Perfil",
       projectsButton: "Proyectos",
       footer: "© 2026 camila — Minecraft Developer 🎶",
-      langButton: "🇺🇸"
+      ctaFixed: "Contratar",
+      langButton: "🇺🇸",
+      langLive: "Idioma actualizado."
     },
 
     profile: {
       title: "Perfil - camila.dev",
-      profileStatus: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
+      profileStatus: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team • Hylamity",
       onlineStatus: "Online",
       adminOnline: "🟡 Admin Online",
       adminOffline: "⚪ Admin Offline",
@@ -159,12 +178,62 @@ const translations = {
       activityTitle: "Actividad Reciente",
       activityText: "Trabajando en cosas increíbles",
       commentsTitle: "Comentarios",
+      commentNameLabel: "Nombre",
+      commentMessageLabel: "Mensaje",
+      emojiSearchLabel: "Buscar emojis",
+      commentToolsTitle: "Feedback",
+      commentSortLabel: "Ordenar comentarios",
+      commentSortRecent: "Recientes",
+      commentSortOldest: "Antiguos",
+      commentSortFeatured: "Destacados",
+      commentPreviewTitle: "Vista previa",
+      commentPreviewName: "Tu nombre",
+      commentPreviewPlaceholder: "Escribí tu mensaje para ver la vista previa.",
+      commentPreviewNow: "Ahora",
       commentNamePlaceholder: "Tu nombre",
       commentMessagePlaceholder: "Escribí tu mensaje...",
       commentSend: "Enviar",
+      commentSending: "Enviando...",
+      commentEmpty: "Completá todos los campos",
+      commentMax: "Máximo 500 caracteres",
+      commentCooldown: "Esperá 10 segundos antes de comentar otra vez",
+      commentSpam: "Tu comentario parece spam. Probá editarlo.",
+      commentSendError: "Error al enviar el comentario",
+      commentSendSuccess: "Comentario enviado",
+      commentCreatorAdd: "Agregar 📺",
+      commentCreatorRemove: "Quitar 📺",
+      commentDelete: "Borrar",
+      commentDeleteConfirm: "¿Seguro que querés borrar este comentario?",
+      commentUnauthorized: "No autorizado",
+      emojiSearchPlaceholder: "Buscar emojis",
+      emojiClear: "Borrar todo",
+      emojiResults: "Resultados",
+      emojiLabelRecent: "Recientes",
+      emojiLabelFaces: "Emoticonos y personas",
+      emojiLabelGestures: "Gestos",
+      emojiLabelHearts: "Corazones",
+      emojiLabelFood: "Comida",
+      emojiLabelObjects: "Objetos",
+      emojiLabelNature: "Naturaleza",
+      emojiLabelSymbols: "Símbolos",
+      timeNow: "ahora",
+      timeAgoPrefix: "hace ",
+      timeAgoSuffix: "",
+      timeSecondShort: "s",
+      timeMinuteShort: "m",
+      timeHourShort: "h",
+      timeDayShort: "d",
+      timeWeekShort: "sem",
+      timeMonthShort: "mes",
+      timeYearShort: "a",
+      adminLabel: "Admin",
+      adminLogout: "Salir",
+      adminLoginError: "Credenciales incorrectas",
       adminLoginTitle: "Admin Login",
       adminEmailPlaceholder: "Email",
       adminPasswordPlaceholder: "Password",
+      adminEmailLabel: "Email",
+      adminPasswordLabel: "Password",
       adminLoginButton: "Entrar",
       adminCancelButton: "Cancelar",
       footer: "© 2026 camila — Minecraft Developer 🎶",
@@ -175,7 +244,9 @@ const translations = {
       skillsButton: "Habilidades",
       skillsText: "Habilidades",
       pronounsLabel: "Pronombres:",
-      langButton: "🇺🇸"
+      ctaFixed: "Contratar",
+      langButton: "🇺🇸",
+      langLive: "Idioma actualizado."
     }
   },
 
@@ -184,11 +255,12 @@ const translations = {
     index: {
       title: "camila.dev",
       h1: "camila",
-      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
+      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team • Hylamity",
       heroBadge: "Available for projects",
       heroCopy: "I build immersive experiences for servers and communities, focused on performance, gameplay, and the details that make the difference.",
       ctaProjects: "View projects",
       ctaContact: "Contact",
+      ctaAvailability: "View availability",
       infoSpecialtyLabel: "Specialty",
       infoSpecialtyValue: "Plugins & Mods",
       infoStackLabel: "Stack",
@@ -215,21 +287,34 @@ const translations = {
       stackHytale: "Hytale",
       stackMysql: "MySQL",
       stackSqlite: "SQLite",
+      availabilityLabel: "Status",
+      availabilityTitle: "Availability",
+      availabilityCopy: "I am taking new projects. I reply within 24 to 48 hours and propose a clear plan from the first message.",
+      availabilityStatus: "Available for new projects",
       contactTitle: "Contact",
       contactText: "Need a custom plugin, mod, or system? You can write to me at:",
       contactDiscordCta: "Contact",
       contactStatusLabel: "Discord status",
+      faqTitle: "Quick FAQ",
+      faqQ1: "Response time",
+      faqA1: "Within 24 to 48 business hours.",
+      faqQ2: "Payment methods",
+      faqA2: "Mercado Pago and PayPal.",
+      faqQ3: "Scope",
+      faqA3: "Plugins, mods, systems, and post-launch support.",
       footer: "© 2026 camila — Minecraft Developer 🎶",
       profileButton: "Profile",
       projectsButton: "Projects",
       skillsButton: "Skills",
-      langButton: "🇪🇸"
+      ctaFixed: "Hire me",
+      langButton: "🇪🇸",
+      langLive: "Language updated."
     },
 
     projects: {
       title: "Projects - camila.dev",
       h1: "camila",
-      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
+      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team • Hylamity",
       projectsTitle: "Featured Projects",
       filterAll: "All",
       filterPaper: "Paper",
@@ -266,13 +351,15 @@ const translations = {
       skillsButton: "Skills",
       backButton: "← Back to Home",
       footer: "© 2026 camila — Minecraft Developer 🎶",
-      langButton: "🇪🇸"
+      ctaFixed: "Hire me",
+      langButton: "🇪🇸",
+      langLive: "Language updated."
     },
 
     skills: {
       title: "Skills - camila.dev",
       h1: "camila",
-      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
+      subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team • Hylamity",
 
       skillsTitle: "Skills",
       skillsSubtitle: "Technologies I use daily",
@@ -303,6 +390,7 @@ const translations = {
       collabAldo: "Minigame development for Geo Ware Oddysey 3.",
 
       collabRozsier: "Help with infrastructure and development on a custom props mod for their Triple G femboy server.",
+      collabPirutastic: "Development of a custom OneBlock mode mod for Pirutastic's oneblock event with monos, including custom mechanics and unique progression systems built with help from <strong>@JerejOwO</strong>, <strong>@mragus5534</strong>, <strong>@kasecamii</strong> and <strong>@wckq_</strong>.",
       collabBadgeMasivo: "MasivoSMP",
       collabBadgeUhcvr: "UHC VR",
       collabBadgeYearEnd: "Year End",
@@ -319,12 +407,14 @@ const translations = {
       profileButton: "Profile",
       projectsButton: "Projects",
       footer: "© 2026 camila — Minecraft Developer 🎶",
-      langButton: "🇪🇸"
+      ctaFixed: "Hire me",
+      langButton: "🇪🇸",
+      langLive: "Language updated."
     },
 
     profile: {
       title: "Profile - camila.dev",
-      profileStatus: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team",
+      profileStatus: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team • Hylamity",
       onlineStatus: "Online",
       adminOnline: "🟡 Admin Online",
       adminOffline: "⚪ Admin Offline",
@@ -339,12 +429,62 @@ const translations = {
       activityTitle: "Recent Activity",
       activityText: "Working on amazing things",
       commentsTitle: "Comments",
+      commentNameLabel: "Name",
+      commentMessageLabel: "Message",
+      emojiSearchLabel: "Search emojis",
+      commentToolsTitle: "Feedback",
+      commentSortLabel: "Sort comments",
+      commentSortRecent: "Recent",
+      commentSortOldest: "Oldest",
+      commentSortFeatured: "Featured",
+      commentPreviewTitle: "Preview",
+      commentPreviewName: "Your name",
+      commentPreviewPlaceholder: "Write your message to see the preview.",
+      commentPreviewNow: "Now",
       commentNamePlaceholder: "Your name",
       commentMessagePlaceholder: "Write your message...",
       commentSend: "Send",
+      commentSending: "Sending...",
+      commentEmpty: "Please fill out all fields",
+      commentMax: "Maximum 500 characters",
+      commentCooldown: "Please wait 10 seconds before commenting again",
+      commentSpam: "Your comment looks like spam. Please edit it.",
+      commentSendError: "Error sending the comment",
+      commentSendSuccess: "Comment sent",
+      commentCreatorAdd: "Add 📺",
+      commentCreatorRemove: "Remove 📺",
+      commentDelete: "Delete",
+      commentDeleteConfirm: "Are you sure you want to delete this comment?",
+      commentUnauthorized: "Not authorized",
+      emojiSearchPlaceholder: "Search emojis",
+      emojiClear: "Clear all",
+      emojiResults: "Results",
+      emojiLabelRecent: "Recent",
+      emojiLabelFaces: "Faces & people",
+      emojiLabelGestures: "Gestures",
+      emojiLabelHearts: "Hearts",
+      emojiLabelFood: "Food",
+      emojiLabelObjects: "Objects",
+      emojiLabelNature: "Nature",
+      emojiLabelSymbols: "Symbols",
+      timeNow: "now",
+      timeAgoPrefix: "",
+      timeAgoSuffix: " ago",
+      timeSecondShort: "s",
+      timeMinuteShort: "m",
+      timeHourShort: "h",
+      timeDayShort: "d",
+      timeWeekShort: "w",
+      timeMonthShort: "mo",
+      timeYearShort: "y",
+      adminLabel: "Admin",
+      adminLogout: "Log out",
+      adminLoginError: "Invalid credentials",
       adminLoginTitle: "Admin Login",
       adminEmailPlaceholder: "Email",
       adminPasswordPlaceholder: "Password",
+      adminEmailLabel: "Email",
+      adminPasswordLabel: "Password",
       adminLoginButton: "Log in",
       adminCancelButton: "Cancel",
       footer: "© 2026 camila — Minecraft Developer 🎶",
@@ -355,7 +495,9 @@ const translations = {
       skillsButton: "Skills",
       skillsText: "Skills",
       pronounsLabel: "Pronouns:",
-      langButton: "🇪🇸"
+      ctaFixed: "Hire me",
+      langButton: "🇪🇸",
+      langLive: "Language updated."
     }
   }
 };
@@ -396,8 +538,22 @@ function changeLanguage() {
   const footerP = document.querySelector("footer p");
   if (footerP) footerP.textContent = trans.footer;
 
+  const ctaFixed = document.querySelectorAll('[data-lang="cta-fixed"]');
+  ctaFixed.forEach(el => {
+    if (trans.ctaFixed) el.textContent = trans.ctaFixed;
+    if (trans.ctaFixed) el.setAttribute("aria-label", trans.ctaFixed);
+  });
+
   const langToggle = document.getElementById("lang-toggle");
   if (langToggle) langToggle.innerHTML = trans.langButton;
+
+  const langLive = document.getElementById("lang-live");
+  if (langLive && trans.langLive) {
+    langLive.textContent = trans.langLive;
+    setTimeout(() => {
+      langLive.textContent = "";
+    }, 1200);
+  }
 
   const collabsTitle = document.querySelector('[data-lang="collabs-title"]');
   if (collabsTitle) collabsTitle.textContent = trans.collabsTitle;
@@ -417,6 +573,9 @@ function changeLanguage() {
   const collabRozsier = document.querySelector('[data-lang="collab-rozsier"]');
   if (collabRozsier) collabRozsier.innerHTML = trans.collabRozsier;
 
+  const collabPirutastic = document.querySelector('[data-lang="collab-pirutastic"]');
+  if (collabPirutastic) collabPirutastic.innerHTML = trans.collabPirutastic;
+
 
 
   if (pageKey === "index") {
@@ -431,6 +590,9 @@ function changeLanguage() {
 
     const ctaContact = document.querySelectorAll('[data-lang="cta-contact"]');
     ctaContact.forEach(el => el.textContent = trans.ctaContact);
+
+    const ctaAvailability = document.querySelectorAll('[data-lang="cta-availability"]');
+    ctaAvailability.forEach(el => el.textContent = trans.ctaAvailability);
 
     const infoSpecialtyLabel = document.querySelector('[data-lang="info-specialty-label"]');
     if (infoSpecialtyLabel) infoSpecialtyLabel.textContent = trans.infoSpecialtyLabel;
@@ -493,6 +655,16 @@ function changeLanguage() {
     const stackSqlite = document.querySelector('[data-lang="stack-sqlite"]');
     if (stackSqlite) stackSqlite.textContent = trans.stackSqlite;
 
+    const availabilityLabel = document.querySelector('[data-lang="availability-label"]');
+    if (availabilityLabel) availabilityLabel.textContent = trans.availabilityLabel;
+
+    const availabilityTitle = document.querySelector('[data-lang="availability-title"]');
+    if (availabilityTitle) availabilityTitle.textContent = trans.availabilityTitle;
+    const availabilityCopy = document.querySelector('[data-lang="availability-copy"]');
+    if (availabilityCopy) availabilityCopy.textContent = trans.availabilityCopy;
+    const availabilityStatus = document.querySelector('[data-lang="availability-status"]');
+    if (availabilityStatus) availabilityStatus.textContent = trans.availabilityStatus;
+
     document.querySelector(".contact h2").textContent = trans.contactTitle;
     document.querySelector(".contact p").textContent = trans.contactText;
 
@@ -501,6 +673,21 @@ function changeLanguage() {
 
     const contactStatusLabel = document.querySelector('[data-lang="contact-status-label"]');
     if (contactStatusLabel) contactStatusLabel.textContent = trans.contactStatusLabel;
+
+    const faqTitle = document.querySelector('[data-lang="faq-title"]');
+    if (faqTitle) faqTitle.textContent = trans.faqTitle;
+    const faqQ1 = document.querySelector('[data-lang="faq-q1"]');
+    if (faqQ1) faqQ1.textContent = trans.faqQ1;
+    const faqA1 = document.querySelector('[data-lang="faq-a1"]');
+    if (faqA1) faqA1.textContent = trans.faqA1;
+    const faqQ2 = document.querySelector('[data-lang="faq-q2"]');
+    if (faqQ2) faqQ2.textContent = trans.faqQ2;
+    const faqA2 = document.querySelector('[data-lang="faq-a2"]');
+    if (faqA2) faqA2.textContent = trans.faqA2;
+    const faqQ3 = document.querySelector('[data-lang="faq-q3"]');
+    if (faqQ3) faqQ3.textContent = trans.faqQ3;
+    const faqA3 = document.querySelector('[data-lang="faq-a3"]');
+    if (faqA3) faqA3.textContent = trans.faqA3;
 
     const navProfile = document.querySelector('[data-lang="nav-profile"]');
     if (navProfile) navProfile.textContent = trans.profileButton;
@@ -570,6 +757,17 @@ function changeLanguage() {
       projectCards[12].querySelector("h3").textContent = trans.project13Title;
       projectCards[12].querySelector("p").textContent = trans.project13Desc;
     }
+
+    const metricConcurrent = document.querySelectorAll('[data-lang="metric-concurrent"]');
+    metricConcurrent.forEach(el => el.textContent = trans.metricConcurrent);
+    const metricUptime = document.querySelectorAll('[data-lang="metric-uptime"]');
+    metricUptime.forEach(el => el.textContent = trans.metricUptime);
+    const metricDelivery = document.querySelectorAll('[data-lang="metric-delivery"]');
+    metricDelivery.forEach(el => el.textContent = trans.metricDelivery);
+    const metricVersions = document.querySelectorAll('[data-lang="metric-versions"]');
+    metricVersions.forEach(el => el.textContent = trans.metricVersions);
+    const metricServers = document.querySelectorAll('[data-lang="metric-servers"]');
+    metricServers.forEach(el => el.textContent = trans.metricServers);
 
     const backBtn = document.querySelector('[data-lang="projects-back"]');
     if (backBtn) backBtn.textContent = trans.backButton;
@@ -714,11 +912,54 @@ function changeLanguage() {
       commentName.setAttribute('aria-label', trans.commentNamePlaceholder);
     }
 
+    const commentNameLabel = document.querySelector('[data-lang="comment-name-label"]');
+    if (commentNameLabel) commentNameLabel.textContent = trans.commentNameLabel;
+
+    const commentToolsTitle = document.querySelector('[data-lang="comment-tools-title"]');
+    if (commentToolsTitle) commentToolsTitle.textContent = trans.commentToolsTitle;
+
+    const commentSortLabel = document.querySelector('[data-lang="comment-sort-label"]');
+    if (commentSortLabel) commentSortLabel.textContent = trans.commentSortLabel;
+
+    const commentSortRecent = document.querySelector('[data-lang="comment-sort-recent"]');
+    if (commentSortRecent) commentSortRecent.textContent = trans.commentSortRecent;
+    const commentSortOldest = document.querySelector('[data-lang="comment-sort-oldest"]');
+    if (commentSortOldest) commentSortOldest.textContent = trans.commentSortOldest;
+    const commentSortFeatured = document.querySelector('[data-lang="comment-sort-featured"]');
+    if (commentSortFeatured) commentSortFeatured.textContent = trans.commentSortFeatured;
+
     const commentMessage = document.querySelector('[data-lang-placeholder="comment-message"]');
     if (commentMessage) {
       commentMessage.placeholder = trans.commentMessagePlaceholder;
       commentMessage.setAttribute('aria-label', trans.commentMessagePlaceholder);
     }
+
+    const commentMessageLabel = document.querySelector('[data-lang="comment-message-label"]');
+    if (commentMessageLabel) commentMessageLabel.textContent = trans.commentMessageLabel;
+
+    const emojiSearchLabel = document.querySelector('[data-lang="emoji-search-label"]');
+    if (emojiSearchLabel) emojiSearchLabel.textContent = trans.emojiSearchLabel;
+
+    const emojiSearch = document.querySelector('[data-lang-placeholder="emoji-search"]');
+    if (emojiSearch) {
+      emojiSearch.placeholder = trans.emojiSearchPlaceholder;
+      emojiSearch.setAttribute('aria-label', trans.emojiSearchPlaceholder);
+    }
+
+    const emojiClear = document.querySelector('[data-lang="emoji-clear"]');
+    if (emojiClear) emojiClear.textContent = trans.emojiClear;
+
+    const commentPreviewTitle = document.querySelector('[data-lang="comment-preview-title"]');
+    if (commentPreviewTitle) commentPreviewTitle.textContent = trans.commentPreviewTitle;
+    const commentPreviewName = document.querySelector('[data-lang="comment-preview-name"]');
+    if (commentPreviewName) commentPreviewName.textContent = trans.commentPreviewName;
+    const commentPreviewPlaceholder = document.querySelector('[data-lang="comment-preview-placeholder"]');
+    if (commentPreviewPlaceholder) commentPreviewPlaceholder.textContent = trans.commentPreviewPlaceholder;
+    const commentPreviewNow = document.querySelector('[data-lang="comment-preview-now"]');
+    if (commentPreviewNow) commentPreviewNow.textContent = trans.commentPreviewNow;
+
+    const emojiSectionTitle = document.getElementById("emoji-section-title");
+    if (emojiSectionTitle) emojiSectionTitle.textContent = trans.emojiLabelRecent;
 
     const commentSend = document.querySelector('[data-lang="comment-send"]');
     if (commentSend) commentSend.textContent = trans.commentSend;
@@ -732,11 +973,17 @@ function changeLanguage() {
       adminEmail.setAttribute('aria-label', trans.adminEmailPlaceholder);
     }
 
+    const adminEmailLabel = document.querySelector('[data-lang="admin-email-label"]');
+    if (adminEmailLabel) adminEmailLabel.textContent = trans.adminEmailLabel;
+
     const adminPassword = document.querySelector('[data-lang-placeholder="admin-password"]');
     if (adminPassword) {
       adminPassword.placeholder = trans.adminPasswordPlaceholder;
       adminPassword.setAttribute('aria-label', trans.adminPasswordPlaceholder);
     }
+
+    const adminPasswordLabel = document.querySelector('[data-lang="admin-password-label"]');
+    if (adminPasswordLabel) adminPasswordLabel.textContent = trans.adminPasswordLabel;
 
     const adminLoginButton = document.querySelector('[data-lang="admin-login-button"]');
     if (adminLoginButton) adminLoginButton.textContent = trans.adminLoginButton;

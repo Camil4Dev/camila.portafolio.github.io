@@ -1,0 +1,5 @@
+node_modules
+media
+images
+styles/tailwind.css
+package-lock.json

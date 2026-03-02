@@ -12,13 +12,16 @@
   <meta property="og:description" content="Portafolio de Camila, desarrolladora de plugins y mods para Minecraft y Hytale.">
   <meta property="og:site_name" content="camila.dev">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://camila.portafolio.github.io/index.html">
+  <meta property="og:url" content="https://camila.portafolio.github.io/">
   <meta property="og:image" content="https://camila.portafolio.github.io/media/og-image.svg">
+  <meta property="og:updated_time" content="2026-03-02">
+  <meta name="twitter:site" content="@CamilaDev_">
   <meta name="twitter:title" content="camila.dev">
   <meta name="twitter:description" content="Portafolio de Camila, desarrolladora de plugins y mods para Minecraft y Hytale.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://camila.portafolio.github.io/media/og-image.svg">
-  <link rel="canonical" href="https://camila.portafolio.github.io/index.html">
+  <meta name="author" content="Camila">
+  <link rel="canonical" href="https://camila.portafolio.github.io/">
   <title>camila.dev</title>
   <link rel="icon" href="images/icon.ico" type="image/x-icon" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -95,6 +98,7 @@
       <button class="nav-button lang-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" id="lang-toggle" title="Cambiar idioma" aria-label="Cambiar idioma">🇺🇸</button>
     </div>
   </nav>
+  <span id="lang-live" class="sr-only" aria-live="polite" aria-atomic="true"></span>
 
   <main id="main-content" class="relative z-10">
     <header class="mx-auto grid max-w-6xl items-center gap-10 px-6 pb-12 pt-6 lg:grid-cols-[1.2fr_0.8fr]" data-parallax="0.5">
@@ -104,13 +108,14 @@
           Disponible para proyectos
         </div>
         <h1 class="font-display text-4xl font-semibold tracking-tight text-white md:text-6xl">camila</h1>
-        <p class="text-lg text-white/80 md:text-xl">Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team</p>
+        <p class="text-lg text-white/80 md:text-xl">Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team • Hylamity</p>
         <p class="max-w-xl text-base text-white/70" data-lang="hero-copy">
           Construyo experiencias inmersivas para servidores y comunidades, con foco en rendimiento, jugabilidad y detalles que hacen la diferencia.
         </p>
         <div class="flex flex-wrap items-center gap-4">
           <a href="projects.html" class="nav-button rounded-full bg-neonPink px-6 py-3 text-sm font-semibold text-ink shadow-glow transition hover:-translate-y-0.5" data-lang="cta-projects">Ver proyectos</a>
-          <a href="#contact" class="nav-button rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/50" data-lang="cta-contact">Contactar</a>
+          <a href="#contact" class="nav-button secondary rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/50" data-lang="cta-contact">Contactar</a>
+          <a href="#availability" class="nav-button secondary rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white/90 transition hover:border-white/50" data-lang="cta-availability">Ver disponibilidad</a>
         </div>
         <div class="flex flex-wrap items-center gap-4 text-lg text-white/70">
           <a href="https://twitter.com/CamilaDev_" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="transition hover:text-neonCyan">
@@ -225,6 +230,24 @@
       </div>
     </section>
 
+    <section id="availability" class="availability-section mx-auto max-w-6xl px-6 py-10" data-parallax="0.62" data-reveal>
+      <div class="availability-card grid gap-6 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-card md:grid-cols-[1.1fr_0.9fr]">
+        <div>
+          <h2 class="font-display text-2xl font-semibold" data-lang="availability-title">Disponibilidad</h2>
+          <p class="mt-3 text-white/75" data-lang="availability-copy">
+            Estoy tomando proyectos nuevos. Respondo en 24 a 48 horas y propongo un plan claro desde el primer mensaje.
+          </p>
+        </div>
+        <div class="availability-status rounded-2xl border border-white/10 bg-white/10 p-4">
+          <div class="availability-label text-xs font-semibold uppercase tracking-[0.3em] text-white/70" data-lang="availability-label">Estado</div>
+          <div class="availability-pill mt-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white">
+            <span class="availability-dot" aria-hidden="true"></span>
+            <span data-lang="availability-status">Disponible para nuevos proyectos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="contact" class="contact mx-auto max-w-6xl px-6 py-12" data-parallax="0.6" data-reveal>
       <div class="grid gap-8 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-card lg:grid-cols-[1.1fr_0.9fr]">
         <div>
@@ -254,12 +277,31 @@
           </div>
         </div>
       </div>
+      <div class="faq mt-8 grid gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 shadow-card">
+        <h3 class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60" data-lang="faq-title">FAQ rapido</h3>
+        <div class="faq-grid text-sm">
+          <span class="faq-label" data-lang="faq-q1">Tiempo de respuesta</span>
+          <span class="faq-value" data-lang="faq-a1">24 a 48 horas habiles.</span>
+          <span class="faq-label" data-lang="faq-q2">Metodos de pago</span>
+          <span class="faq-value faq-value-payment">
+            <span data-lang="faq-a2">Mercado Pago y PayPal.</span>
+            <span class="faq-payment-icons" aria-hidden="true">
+              <img src="images/icons/mercado-pago.png" alt="" loading="lazy" decoding="async">
+              <img src="images/icons/paypal.svg" alt="" loading="lazy" decoding="async">
+            </span>
+          </span>
+          <span class="faq-label" data-lang="faq-q3">Alcance</span>
+          <span class="faq-value" data-lang="faq-a3">Plugins, mods, sistemas y soporte post‑lanzamiento.</span>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="relative z-10 border-t border-white/10 px-6 py-8 text-center text-sm text-white/60">
     <p>© 2026 camila — Minecraft Developer 🎶</p>
   </footer>
+
+  <a href="#contact" class="cta-float" data-lang="cta-fixed" aria-label="Contratar">Contratar</a>
 
   <script src="Script/Parallax.js" defer></script>
   <script src="Script/lang.js" defer></script>

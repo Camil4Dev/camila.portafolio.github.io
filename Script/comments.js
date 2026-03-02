@@ -11,6 +11,22 @@ const DRAFT_KEY = "comment_draft";
 let lastCommentTime = 0;
 const CREATOR_EMOJI = "📺";
 
+function getLang() {
+  if (typeof currentLang !== "undefined") return currentLang;
+  if (typeof window.currentLang !== "undefined") return window.currentLang;
+  return "es";
+}
+
+function getProfileText(key, fallback) {
+  try {
+    const lang = getLang();
+    const map = translations?.[lang]?.profile;
+    return map && map[key] ? map[key] : fallback;
+  } catch (e) {
+    return fallback;
+  }
+}
+
 
 function getInitials(name) {
   const cleanName = (name || "").replace(CREATOR_EMOJI, "").trim();
@@ -41,23 +57,35 @@ function showToast(message, type = "success") {
 }
 
 function formatRelativeTime(date) {
+  const prefix = getProfileText("timeAgoPrefix", "hace ");
+  const suffix = getProfileText("timeAgoSuffix", "");
+  const nowText = getProfileText("timeNow", "ahora");
+  const units = {
+    s: getProfileText("timeSecondShort", "s"),
+    m: getProfileText("timeMinuteShort", "m"),
+    h: getProfileText("timeHourShort", "h"),
+    d: getProfileText("timeDayShort", "d"),
+    w: getProfileText("timeWeekShort", "sem"),
+    mo: getProfileText("timeMonthShort", "mes"),
+    y: getProfileText("timeYearShort", "a")
+  };
   const now = Date.now();
   const diff = Math.max(0, now - date.getTime());
   const seconds = Math.floor(diff / 1000);
-  if (seconds < 10) return "ahora";
-  if (seconds < 60) return `hace ${seconds}s`;
+  if (seconds < 10) return nowText;
+  if (seconds < 60) return `${prefix}${seconds}${units.s}${suffix}`;
   const minutes = Math.floor(seconds / 60);
-  if (minutes < 60) return `hace ${minutes}m`;
+  if (minutes < 60) return `${prefix}${minutes}${units.m}${suffix}`;
   const hours = Math.floor(minutes / 60);
-  if (hours < 24) return `hace ${hours}h`;
+  if (hours < 24) return `${prefix}${hours}${units.h}${suffix}`;
   const days = Math.floor(hours / 24);
-  if (days < 7) return `hace ${days}d`;
+  if (days < 7) return `${prefix}${days}${units.d}${suffix}`;
   const weeks = Math.floor(days / 7);
-  if (weeks < 4) return `hace ${weeks}sem`;
+  if (weeks < 4) return `${prefix}${weeks}${units.w}${suffix}`;
   const months = Math.floor(days / 30);
-  if (months < 12) return `hace ${months}mes`;
+  if (months < 12) return `${prefix}${months}${units.mo}${suffix}`;
   const years = Math.floor(days / 365);
-  return `hace ${years}a`;
+  return `${prefix}${years}${units.y}${suffix}`;
 }
 
 function updateRelativeTimes() {
@@ -108,9 +136,9 @@ function updatePreview(name, message) {
   const previewName = document.getElementById("comment-preview-name");
   const previewMessage = document.getElementById("comment-preview-message");
   const previewAvatar = document.querySelector("#comment-preview-card .comment-avatar");
-  if (previewName) previewName.textContent = name || "Tu nombre";
+  if (previewName) previewName.textContent = name || getProfileText("commentPreviewName", "Tu nombre");
   if (previewMessage) {
-    previewMessage.textContent = message || "Escribí tu mensaje para ver la vista previa.";
+    previewMessage.textContent = message || getProfileText("commentPreviewPlaceholder", "Escribí tu mensaje para ver la vista previa.");
   }
   if (previewAvatar) previewAvatar.textContent = getInitials(name || "?");
 }
@@ -177,8 +205,8 @@ async function loadComments(sortMode = "recent") {
       const creatorBtn = document.createElement("button");
       creatorBtn.classList.add("creator-btn");
       creatorBtn.textContent = comment.name.includes(CREATOR_EMOJI)
-        ? "Quitar 📺"
-        : "Agregar 📺";
+        ? getProfileText("commentCreatorRemove", "Quitar 📺")
+        : getProfileText("commentCreatorAdd", "Agregar 📺");
 
       creatorBtn.addEventListener("click", async () => {
         const hasEmoji = strong.textContent.includes(CREATOR_EMOJI);
@@ -192,22 +220,23 @@ async function loadComments(sortMode = "recent") {
           .eq("id", comment.id);
 
         if (error) {
-          alert("No autorizado");
+          showToast(getProfileText("commentUnauthorized", "No autorizado"), "error");
           return;
         }
 
         strong.textContent = nextName;
         creatorBtn.textContent = nextName.includes(CREATOR_EMOJI)
-          ? "Quitar 📺"
-          : "Agregar 📺";
+          ? getProfileText("commentCreatorRemove", "Quitar 📺")
+          : getProfileText("commentCreatorAdd", "Agregar 📺");
       });
 
       const deleteBtn = document.createElement("button");
-      deleteBtn.textContent = "Borrar";
+      deleteBtn.textContent = getProfileText("commentDelete", "Borrar");
       deleteBtn.classList.add("delete-btn");
 
       deleteBtn.addEventListener("click", async () => {
-        if (!confirm("¿Seguro que querés borrar este comentario?")) return;
+        const confirmText = getProfileText("commentDeleteConfirm", "¿Seguro que querés borrar este comentario?");
+        if (!confirm(confirmText)) return;
 
         const { data, error } = await supabaseClient.functions.invoke(
           "delete-comment",
@@ -215,7 +244,7 @@ async function loadComments(sortMode = "recent") {
         );
 
         if (error || data?.error) {
-          alert("No autorizado");
+          showToast(getProfileText("commentUnauthorized", "No autorizado"), "error");
           return;
         }
 
@@ -242,33 +271,33 @@ async function addComment() {
     if (!sendBtn.dataset.label) sendBtn.dataset.label = sendBtn.textContent;
     sendBtn.disabled = isSending;
     sendBtn.classList.toggle("is-loading", isSending);
-    sendBtn.textContent = isSending ? "Enviando..." : sendBtn.dataset.label;
+    sendBtn.textContent = isSending ? getProfileText("commentSending", "Enviando...") : sendBtn.dataset.label;
   };
 
   const name = nameInput.value.trim();
   const message = messageInput.value.trim();
 
   if (!name || !message) {
-    showToast("Completá todos los campos", "error");
+    showToast(getProfileText("commentEmpty", "Completá todos los campos"), "error");
     setSending(false);
     return;
   }
 
   if (message.length > MAX_LENGTH) {
-    showToast("Máximo 500 caracteres", "error");
+    showToast(getProfileText("commentMax", "Máximo 500 caracteres"), "error");
     setSending(false);
     return;
   }
 
   const now = Date.now();
   if (now - lastCommentTime < COMMENT_COOLDOWN) {
-    showToast("Esperá 10 segundos antes de comentar otra vez", "error");
+    showToast(getProfileText("commentCooldown", "Esperá 10 segundos antes de comentar otra vez"), "error");
     setSending(false);
     return;
   }
 
   if (looksLikeSpam(name, message)) {
-    showToast("Tu comentario parece spam. Probá editarlo.", "error");
+    showToast(getProfileText("commentSpam", "Tu comentario parece spam. Probá editarlo."), "error");
     setSending(false);
     return;
   }
@@ -282,7 +311,7 @@ async function addComment() {
 
   if (error) {
     console.error("ERROR COMPLETO:", error);
-    showToast("Error al enviar el comentario", "error");
+    showToast(getProfileText("commentSendError", "Error al enviar el comentario"), "error");
     setSending(false);
     return;
   }
@@ -305,7 +334,7 @@ async function addComment() {
   updatePreview("", "");
   loadComments(currentSort);
   setSending(false);
-  showToast("Comentario enviado", "success");
+  showToast(getProfileText("commentSendSuccess", "Comentario enviado"), "success");
 }
 
 async function checkAdmin() {
@@ -323,6 +352,7 @@ async function checkAdmin() {
 
   if (user && user.id === ADMIN_UID) {
     adminBtn.classList.add("logged-in");
+    const logoutLabel = getProfileText("adminLogout", "Logout");
     adminBtn.innerHTML = `
       <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M9 12h10" />
@@ -330,7 +360,7 @@ async function checkAdmin() {
         <path d="M5 5h7a2 2 0 012 2v2" />
         <path d="M14 15v2a2 2 0 01-2 2H5" />
       </svg>
-      <span>Logout</span>
+      <span>${logoutLabel}</span>
     `;
     adminBtn.onclick = async () => {
       await supabaseClient.auth.signOut();
@@ -339,13 +369,14 @@ async function checkAdmin() {
 
     if (badge) badge.classList.add("is-online");
   } else {
+    const adminLabel = getProfileText("adminLabel", "Admin");
     adminBtn.innerHTML = `
       <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 3l7.5 4v5.5c0 4.5-3.4 8.7-7.5 9.5-4.1-0.8-7.5-5-7.5-9.5V7l7.5-4z" />
         <path d="M12 8v5" />
         <path d="M12 16h.01" />
       </svg>
-      <span>Admin</span>
+      <span>${adminLabel}</span>
     `;
     adminBtn.onclick = () => {
       document.getElementById("login-modal").classList.remove("hidden");
@@ -365,7 +396,7 @@ document.getElementById("admin-login-btn").addEventListener("click", async () =>
   });
 
   if (error) {
-    alert("Credenciales incorrectas");
+    showToast(getProfileText("adminLoginError", "Credenciales incorrectas"), "error");
     return;
   }
 
@@ -406,16 +437,16 @@ document.addEventListener("DOMContentLoaded", () => {
     recent: []
   };
 
-  const CATEGORY_LABELS = {
-    recent: "Recientes",
-    faces: "Emoticonos y personas",
-    gestures: "Gestos",
-    hearts: "Corazones",
-    food: "Comida",
-    objects: "Objetos",
-    nature: "Naturaleza",
-    symbols: "Símbolos"
-  };
+  const getEmojiLabels = () => ({
+    recent: getProfileText("emojiLabelRecent", "Recientes"),
+    faces: getProfileText("emojiLabelFaces", "Emoticonos y personas"),
+    gestures: getProfileText("emojiLabelGestures", "Gestos"),
+    hearts: getProfileText("emojiLabelHearts", "Corazones"),
+    food: getProfileText("emojiLabelFood", "Comida"),
+    objects: getProfileText("emojiLabelObjects", "Objetos"),
+    nature: getProfileText("emojiLabelNature", "Naturaleza"),
+    symbols: getProfileText("emojiLabelSymbols", "Símbolos")
+  });
 
   const RECENT_KEY = "emoji_recent";
 
@@ -509,7 +540,8 @@ document.addEventListener("DOMContentLoaded", () => {
     emojiGrid.innerHTML = "";
 
     const filtered = term ? list.filter((emoji) => emoji.includes(term) || emoji === term) : list;
-    if (emojiTitle) emojiTitle.textContent = term ? "Resultados" : (CATEGORY_LABELS[group] || "Emojis");
+    const labels = getEmojiLabels();
+    if (emojiTitle) emojiTitle.textContent = term ? getProfileText("emojiResults", "Resultados") : (labels[group] || "Emojis");
     if (emojiClear) emojiClear.style.visibility = (group === "recent" && !term) ? "visible" : "hidden";
 
     filtered.forEach((emoji) => {
@@ -615,6 +647,14 @@ document.addEventListener("DOMContentLoaded", () => {
   if (nameInput && draft.name) nameInput.value = draft.name;
   if (messageInput && draft.message) messageInput.value = draft.message;
   updatePreview(nameInput?.value || "", messageInput?.value || "");
+
+  if (emojiSearch) {
+    const placeholder = getProfileText("emojiSearchPlaceholder", "Buscar emojis");
+    emojiSearch.placeholder = placeholder;
+    emojiSearch.setAttribute("aria-label", placeholder);
+  }
+
+  if (emojiClear) emojiClear.textContent = getProfileText("emojiClear", "Borrar todo");
 
   loadRecentEmojis();
   if (emojiTabs.length) {

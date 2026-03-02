@@ -14,10 +14,13 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://camila.portafolio.github.io/profile.html">
   <meta property="og:image" content="https://camila.portafolio.github.io/media/og-image.svg">
+  <meta property="og:updated_time" content="2026-03-02">
+  <meta name="twitter:site" content="@CamilaDev_">
   <meta name="twitter:title" content="Perfil - camila.dev">
   <meta name="twitter:description" content="Perfil y roles de Camila, desarrolladora de Minecraft y Hytale.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://camila.portafolio.github.io/media/og-image.svg">
+  <meta name="author" content="Camila">
   <link rel="canonical" href="https://camila.portafolio.github.io/profile.html">
   <title data-lang="profile-title">Perfil - camila.dev</title>
   <link rel="icon" href="images/icon.ico" type="image/x-icon" />
@@ -75,6 +78,7 @@
       <button class="nav-button lang-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" id="lang-toggle" data-lang="langButton" title="Cambiar idioma" aria-label="Cambiar idioma">🇺🇸</button>
     </div>
   </nav>
+  <span id="lang-live" class="sr-only" aria-live="polite" aria-atomic="true"></span>
 
   <main id="main-content" class="relative z-10 mx-auto max-w-6xl px-6 pb-16" data-parallax="0.5">
     <section class="grid gap-10 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-card lg:grid-cols-[0.85fr_1.15fr]">
@@ -108,7 +112,7 @@
       <div class="space-y-6">
         <div>
           <h1 class="profile-username font-display text-4xl font-semibold text-white">camila</h1>
-          <p class="profile-status mt-3 text-base text-white/80" data-lang="profile-status">Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team</p>
+          <p class="profile-status mt-3 text-base text-white/80" data-lang="profile-status">Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team • Hylamity</p>
         </div>
         <div class="profile-bio rounded-3xl border border-white/10 bg-white/5 p-6">
           <h3 class="font-display text-xl font-semibold"><span data-lang="about-title">Sobre mí</span></h3>
@@ -146,9 +150,9 @@
         <span data-lang="comments-title">Comentarios</span>
       </h3>
       <div class="comment-tools mt-4 flex flex-wrap items-center justify-between gap-3">
-        <div class="comment-tools-left text-xs font-semibold uppercase tracking-[0.3em] text-white/60">Feedback</div>
+        <div class="comment-tools-left text-xs font-semibold uppercase tracking-[0.3em] text-white/60" data-lang="comment-tools-title">Feedback</div>
         <label class="comment-sort">
-          <span class="sr-only">Ordenar comentarios</span>
+          <span class="sr-only" data-lang="comment-sort-label">Ordenar comentarios</span>
           <span class="sort-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M6 7h12" />
@@ -157,23 +161,23 @@
             </svg>
           </span>
           <select id="comment-sort" class="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
-            <option value="recent">Recientes</option>
-            <option value="oldest">Antiguos</option>
-            <option value="featured">Destacados</option>
+            <option value="recent" data-lang="comment-sort-recent">Recientes</option>
+            <option value="oldest" data-lang="comment-sort-oldest">Antiguos</option>
+            <option value="featured" data-lang="comment-sort-featured">Destacados</option>
           </select>
         </label>
       </div>
       <div class="comment-form mt-6 grid gap-4 md:grid-cols-[1fr_1fr_auto]">
-        <label class="sr-only" for="comment-name">Nombre</label>
+        <label class="field-label" for="comment-name" data-lang="comment-name-label">Nombre</label>
         <input type="text" id="comment-name" placeholder="Tu nombre" data-lang-placeholder="comment-name" class="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-white/90 placeholder:text-white/40">
-        <label class="sr-only" for="comment-message">Mensaje</label>
+        <label class="field-label" for="comment-message" data-lang="comment-message-label">Mensaje</label>
         <textarea id="comment-message" placeholder="Escribí tu mensaje..." data-lang-placeholder="comment-message" class="min-h-[48px] rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-white/90 placeholder:text-white/40 md:col-span-2"></textarea>
         <button id="emoji-toggle" class="nav-button emoji-toggle rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-white/80" type="button" aria-expanded="false" aria-controls="emoji-panel" title="Emojis">😊</button>
         <button id="send-comment" class="nav-button comment-submit rounded-2xl bg-neonPink px-6 py-3 text-sm font-semibold text-ink shadow-glow" data-lang="comment-send">Enviar</button>
         <div id="emoji-panel" class="emoji-panel md:col-span-3" aria-hidden="true">
           <div class="emoji-search">
-            <label class="sr-only" for="emoji-search">Buscar emojis</label>
-            <input id="emoji-search" type="search" placeholder="Buscar emojis" aria-label="Buscar emojis">
+            <label class="field-label" for="emoji-search" data-lang="emoji-search-label">Buscar emojis</label>
+            <input id="emoji-search" type="search" placeholder="Buscar emojis" data-lang-placeholder="emoji-search" aria-label="Buscar emojis">
           </div>
           <div class="emoji-categories" role="tablist" aria-label="Categorias de emojis">
             <button type="button" class="emoji-tab is-active" role="tab" aria-selected="true" data-group="recent">🕘</button>
@@ -188,7 +192,7 @@
           <div class="emoji-section">
             <div class="emoji-section-header">
               <span id="emoji-section-title">Recientes</span>
-              <button type="button" id="emoji-clear" class="emoji-clear">Borrar todo</button>
+              <button type="button" id="emoji-clear" class="emoji-clear" data-lang="emoji-clear">Borrar todo</button>
             </div>
             <div id="emoji-grid" class="emoji-grid" role="tabpanel"></div>
           </div>
@@ -198,14 +202,14 @@
         </div>
       </div>
       <div class="comment-preview mt-6">
-        <div class="comment-preview-title">Vista previa</div>
+        <div class="comment-preview-title" data-lang="comment-preview-title">Vista previa</div>
         <div id="comment-preview-card" class="comment-preview-card">
           <div class="comment-header">
             <div class="comment-avatar">??</div>
-            <strong id="comment-preview-name">Tu nombre</strong>
-            <span class="comment-time">Ahora</span>
+            <strong id="comment-preview-name" data-lang="comment-preview-name">Tu nombre</strong>
+            <span class="comment-time" data-lang="comment-preview-now">Ahora</span>
           </div>
-          <p id="comment-preview-message">Escribí tu mensaje para ver la vista previa.</p>
+          <p id="comment-preview-message" data-lang="comment-preview-placeholder">Escribí tu mensaje para ver la vista previa.</p>
         </div>
       </div>
       <div id="comments-list" class="comments-list mt-6 grid gap-4" aria-live="polite"></div>
@@ -223,9 +227,9 @@
         <span data-lang="admin-login-title">Admin Login</span>
       </h3>
       <div class="mt-4 grid gap-3">
-        <label class="sr-only" for="admin-email">Email</label>
+        <label class="field-label" for="admin-email" data-lang="admin-email-label">Email</label>
         <input type="email" id="admin-email" placeholder="Email" data-lang-placeholder="admin-email" class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm text-white/90 placeholder:text-white/40">
-        <label class="sr-only" for="admin-password">Password</label>
+        <label class="field-label" for="admin-password" data-lang="admin-password-label">Password</label>
         <input type="password" id="admin-password" placeholder="Password" data-lang-placeholder="admin-password" class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm text-white/90 placeholder:text-white/40">
       </div>
       <div class="modal-buttons">
@@ -238,6 +242,8 @@
   <footer class="relative z-10 border-t border-white/10 px-6 py-8 text-center text-sm text-white/60">
     <p data-lang="footer">© 2026 camila — Minecraft Developer 🎶</p>
   </footer>
+
+  <a href="index.html#contact" class="cta-float" data-lang="cta-fixed" aria-label="Contratar">Contratar</a>
 
   <script src="Script/Parallax.js" defer></script>
   <script src="Script/lang.js" defer></script>

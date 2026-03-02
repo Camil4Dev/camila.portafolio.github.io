@@ -42,11 +42,16 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
+select:focus-visible,
 .nav-button:focus-visible,
 .filter-button:focus-visible,
 .contact-link:focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.6);
   outline-offset: 3px;
+}
+
+::placeholder {
+  color: rgba(226, 232, 240, 0.7);
 }
 
 .icon {
@@ -139,6 +144,30 @@ canvas {
 .nav-button {
   position: relative;
   overflow: hidden;
+}
+
+.nav-button.secondary {
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.nav-button.secondary:hover {
+  border-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.contact-link {
+  color: #f8fafc;
+}
+
+.field-label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.7);
+  margin-bottom: 6px;
 }
 
 .filter-button.active {
@@ -801,6 +830,122 @@ canvas {
   color: #fb7185;
   border-color: rgba(251, 113, 133, 0.4);
   background: rgba(251, 113, 133, 0.1);
+}
+
+.availability-section {
+  position: relative;
+  z-index: 1;
+}
+
+.availability-card {
+  background: linear-gradient(135deg, rgba(12, 12, 22, 0.75), rgba(8, 8, 16, 0.55));
+}
+
+.availability-status {
+  position: relative;
+}
+
+.availability-pill {
+  background: linear-gradient(120deg, rgba(76, 245, 255, 0.15), rgba(200, 255, 89, 0.12));
+}
+
+.availability-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, #c8ff59 0%, #7bff8a 45%, rgba(0, 0, 0, 0.15) 75%);
+  box-shadow: 0 0 12px rgba(200, 255, 89, 0.7), 0 0 18px rgba(76, 245, 255, 0.35);
+  animation: pulseStatus 1.8s ease-in-out infinite;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  column-gap: 20px;
+  row-gap: 12px;
+  align-items: start;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.faq-label {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.faq-value {
+  min-width: 0;
+}
+
+.faq-value-payment {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.faq-payment-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.faq-payment-icons img {
+  width: 52px;
+  height: 52px;
+  opacity: 0.95;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.4));
+}
+
+.cta-float {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 9999px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #0b0b10;
+  background: linear-gradient(120deg, rgba(255, 79, 216, 0.95), rgba(76, 245, 255, 0.9));
+  box-shadow: 0 16px 36px rgba(255, 79, 216, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.cta-float:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 22px 44px rgba(255, 79, 216, 0.45);
+}
+
+.cta-float:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.7);
+  outline-offset: 4px;
+}
+
+@media (max-width: 640px) {
+  .cta-float {
+    left: 16px;
+    right: auto;
+    bottom: 16px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+.comment-submit.is-loading,
+.comment-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  box-shadow: none;
+  filter: saturate(0.85);
+}
+
+.contact p {
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .admin-badge {
