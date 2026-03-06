@@ -6,9 +6,10 @@ const translations = {
       h1: "camila",
       subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team • Hylamity",
       heroBadge: "Disponible para proyectos",
+      skipContent: "Saltar al contenido",
       heroCopy: "Construyo experiencias inmersivas para servidores y comunidades, con foco en rendimiento, jugabilidad y detalles que hacen la diferencia.",
       ctaProjects: "Ver proyectos",
-      ctaContact: "Contactar",
+      ctaContact: "Agendar llamada",
       ctaAvailability: "Ver disponibilidad",
       infoSpecialtyLabel: "Especialidad",
       infoSpecialtyValue: "Plugins & Mods",
@@ -47,6 +48,23 @@ const translations = {
       contactDiscordCta: "Discord",
       contactXLabel: "X / Twitter",
       contactStatusLabel: "Estado Discord",
+      briefTitle: "Brief rapido del proyecto",
+      briefCopy: "Completa esto y te devuelvo alcance, tiempos y presupuesto inicial.",
+      briefNameLabel: "Nombre",
+      briefTypeLabel: "Tipo de proyecto",
+      briefBudgetLabel: "Rango de presupuesto",
+      briefMessageLabel: "Objetivo",
+      briefTypePlaceholder: "Elegi una opcion",
+      briefTypePaper: "Plugin Paper",
+      briefTypeFabric: "Mod Fabric",
+      briefTypeHytale: "Mod Hytale",
+      briefTypeEvent: "Sistema para evento",
+      briefBudgetPlaceholder: "Elegi una opcion",
+      briefBudgetLow: "Menos de USD 100",
+      briefBudgetMid: "USD 100 a 300",
+      briefBudgetHigh: "USD 300 a 800",
+      briefBudgetPro: "USD 800+",
+      briefSubmit: "Pedir presupuesto inicial",
       faqTitle: "FAQ rápido",
       faqQ1: "Tiempo de respuesta",
       faqA1: "24 a 48 horas hábiles.",
@@ -58,6 +76,15 @@ const translations = {
       profileButton: "Perfil",
       projectsButton: "Proyectos",
       skillsButton: "Habilidades",
+      navProfileTitle: "Ver Perfil",
+      navProjectsTitle: "Ver Proyectos",
+      navSkillsTitle: "Ver Habilidades",
+      langToggleLabel: "Cambiar idioma",
+      contactEmailTitle: "Enviar email",
+      contactDiscordTitle: "Ver perfil en Discord",
+      contactXTitle: "Abrir perfil en X",
+      briefNamePlaceholder: "Tu nombre",
+      briefMessagePlaceholder: "Contame qué querés construir, fecha ideal y requisitos clave.",
       ctaFixed: "Contratar",
       langButton: "🇺🇸",
       langLive: "Idioma actualizado."
@@ -99,8 +126,18 @@ const translations = {
       project12Desc: "OneBlock desarrollado para piru y el grupo de los monos con mecánicas únicas y emocionantes al igual que eventos únicos.",
       project13Title: "Stealing Hearts 2 minijuego (Fabric 1.21.1)",
       project13Desc: "Minijuego de Stealing Hearts 1 porteado totalmente a Fabric 1.21.1 con ayuda de @kasecamii, @mragus5534, @JerejOwO, @bettendone y @PancraseaX.",
+      projectPrivate: "Privado / NDA",
+      metricConcurrent: "Concurrentes: Por definir",
+      metricUptime: "Uptime: Por definir",
+      metricDelivery: "Entrega: Por definir",
+      metricVersions: "Versiones: Por definir",
+      metricServers: "Servidores: Por definir",
       profileButton: "Perfil",
       skillsButton: "Habilidades",
+      profileTitleLink: "Ver Perfil",
+      skillsTitleLink: "Ver Habilidades",
+      langToggleLabel: "Cambiar idioma",
+      projectsFiltersAria: "Filtros de proyectos",
       backButton: "← Volver al Inicio",
       footer: "© 2026 camila — Minecraft Developer 🎶",
       ctaFixed: "Contratar",
@@ -154,10 +191,14 @@ const translations = {
       collabBadgeInfra: "Infraestructura",
       collabBadgeTripleG: "Triple G",
       collabBadgePirublock: "pirublock",
+      collabsTogglePause: "Pausar scroll",
 
       backHome: "← Inicio",
       profileButton: "Perfil",
       projectsButton: "Proyectos",
+      profileTitleLink: "Ver Perfil",
+      projectsTitleLink: "Ver Proyectos",
+      langToggleLabel: "Cambiar idioma",
       footer: "© 2026 camila — Minecraft Developer 🎶",
       ctaFixed: "Contratar",
       langButton: "🇺🇸",
@@ -246,6 +287,11 @@ const translations = {
       projectsText: "Proyectos",
       skillsButton: "Habilidades",
       skillsText: "Habilidades",
+      homeTitleLink: "Inicio",
+      projectsTitleLink: "Ver Proyectos",
+      skillsTitleLink: "Ver Habilidades",
+      langToggleLabel: "Cambiar idioma",
+      emojiCategoriesLabel: "Categorias de emojis",
       pronounsLabel: "Pronombres:",
       ctaFixed: "Contratar",
       langButton: "🇺🇸",
@@ -260,9 +306,10 @@ const translations = {
       h1: "camila",
       subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team • Hylamity",
       heroBadge: "Available for projects",
+      skipContent: "Skip to content",
       heroCopy: "I build immersive experiences for servers and communities, focused on performance, gameplay, and the details that make the difference.",
       ctaProjects: "View projects",
-      ctaContact: "Contact",
+      ctaContact: "Book a call",
       ctaAvailability: "View availability",
       infoSpecialtyLabel: "Specialty",
       infoSpecialtyValue: "Plugins & Mods",
@@ -301,6 +348,23 @@ const translations = {
       contactDiscordCta: "Discord",
       contactXLabel: "X / Twitter",
       contactStatusLabel: "Discord status",
+      briefTitle: "Quick project brief",
+      briefCopy: "Fill this in and I will reply with scope, timeline, and initial budget.",
+      briefNameLabel: "Name",
+      briefTypeLabel: "Project type",
+      briefBudgetLabel: "Budget range",
+      briefMessageLabel: "Goal",
+      briefTypePlaceholder: "Choose an option",
+      briefTypePaper: "Paper plugin",
+      briefTypeFabric: "Fabric mod",
+      briefTypeHytale: "Hytale mod",
+      briefTypeEvent: "Event system",
+      briefBudgetPlaceholder: "Choose an option",
+      briefBudgetLow: "Under USD 100",
+      briefBudgetMid: "USD 100 to 300",
+      briefBudgetHigh: "USD 300 to 800",
+      briefBudgetPro: "USD 800+",
+      briefSubmit: "Request initial quote",
       faqTitle: "Quick FAQ",
       faqQ1: "Response time",
       faqA1: "Within 24 to 48 business hours.",
@@ -312,6 +376,15 @@ const translations = {
       profileButton: "Profile",
       projectsButton: "Projects",
       skillsButton: "Skills",
+      navProfileTitle: "View profile",
+      navProjectsTitle: "View projects",
+      navSkillsTitle: "View skills",
+      langToggleLabel: "Switch language",
+      contactEmailTitle: "Send email",
+      contactDiscordTitle: "Open Discord profile",
+      contactXTitle: "Open X profile",
+      briefNamePlaceholder: "Your name",
+      briefMessagePlaceholder: "Tell me what you want to build, ideal date, and key requirements.",
       ctaFixed: "Hire me",
       langButton: "🇪🇸",
       langLive: "Language updated."
@@ -353,8 +426,18 @@ const translations = {
       project12Desc: "OneBlock developed for piru and the monos group with unique mechanics and exciting events.",
       project13Title: "Stealing Hearts 2 minigame (Fabric 1.21.1)",
       project13Desc: "Stealing Hearts 1 minigame fully ported to Fabric 1.21.1 with help from @kasecamii, @mragus5534, @JerejOwO, @bettendone and @PancraseaX.",
+      projectPrivate: "Private / NDA",
+      metricConcurrent: "Concurrent: TBD",
+      metricUptime: "Uptime: TBD",
+      metricDelivery: "Delivery: TBD",
+      metricVersions: "Versions: TBD",
+      metricServers: "Servers: TBD",
       profileButton: "Profile",
       skillsButton: "Skills",
+      profileTitleLink: "View profile",
+      skillsTitleLink: "View skills",
+      langToggleLabel: "Switch language",
+      projectsFiltersAria: "Project filters",
       backButton: "← Back to Home",
       footer: "© 2026 camila — Minecraft Developer 🎶",
       ctaFixed: "Hire me",
@@ -408,10 +491,14 @@ const translations = {
       collabBadgeInfra: "Infrastructure",
       collabBadgeTripleG: "Triple G",
       collabBadgePirublock: "pirublock",
+      collabsTogglePause: "Pause scroll",
 
       backHome: "← Home",
       profileButton: "Profile",
       projectsButton: "Projects",
+      profileTitleLink: "View profile",
+      projectsTitleLink: "View projects",
+      langToggleLabel: "Switch language",
       footer: "© 2026 camila — Minecraft Developer 🎶",
       ctaFixed: "Hire me",
       langButton: "🇪🇸",
@@ -500,6 +587,11 @@ const translations = {
       projectsText: "Projects",
       skillsButton: "Skills",
       skillsText: "Skills",
+      homeTitleLink: "Home",
+      projectsTitleLink: "View projects",
+      skillsTitleLink: "View skills",
+      langToggleLabel: "Switch language",
+      emojiCategoriesLabel: "Emoji categories",
       pronounsLabel: "Pronouns:",
       ctaFixed: "Hire me",
       langButton: "🇪🇸",
@@ -552,6 +644,10 @@ function changeLanguage() {
 
   const langToggle = document.getElementById("lang-toggle");
   if (langToggle) langToggle.innerHTML = trans.langButton;
+  if (langToggle && trans.langToggleLabel) {
+    langToggle.setAttribute("title", trans.langToggleLabel);
+    langToggle.setAttribute("aria-label", trans.langToggleLabel);
+  }
 
   const langLive = document.getElementById("lang-live");
   if (langLive && trans.langLive) {
@@ -582,9 +678,24 @@ function changeLanguage() {
   const collabPirutastic = document.querySelector('[data-lang="collab-pirutastic"]');
   if (collabPirutastic) collabPirutastic.innerHTML = trans.collabPirutastic;
 
+  const collabsToggle = document.querySelector('[data-lang="collabs-toggle-pause"]');
+  if (collabsToggle) collabsToggle.textContent = trans.collabsTogglePause;
+
 
 
   if (pageKey === "index") {
+    const skipLink = document.querySelector('.skip-link');
+    if (skipLink) skipLink.textContent = trans.skipContent;
+
+    const navProfileButton = document.querySelector('a[href="profile.html"]');
+    if (navProfileButton) navProfileButton.setAttribute('title', trans.navProfileTitle);
+
+    const navProjectsButton = document.querySelector('a[href="projects.html"]');
+    if (navProjectsButton) navProjectsButton.setAttribute('title', trans.navProjectsTitle);
+
+    const navSkillsButton = document.querySelector('a[href="skills.html"]');
+    if (navSkillsButton) navSkillsButton.setAttribute('title', trans.navSkillsTitle);
+
     const heroBadge = document.querySelector('[data-lang="hero-badge"]');
     if (heroBadge) heroBadge.textContent = trans.heroBadge;
 
@@ -691,6 +802,54 @@ function changeLanguage() {
     const contactStatusLabel = document.querySelector('[data-lang="contact-status-label"]');
     if (contactStatusLabel) contactStatusLabel.textContent = trans.contactStatusLabel;
 
+    const briefTitle = document.querySelector('[data-lang="brief-title"]');
+    if (briefTitle) briefTitle.textContent = trans.briefTitle;
+    const briefCopy = document.querySelector('[data-lang="brief-copy"]');
+    if (briefCopy) briefCopy.textContent = trans.briefCopy;
+    const briefNameLabel = document.querySelector('[data-lang="brief-name-label"]');
+    if (briefNameLabel) briefNameLabel.textContent = trans.briefNameLabel;
+    const briefNameInput = document.getElementById('brief-name');
+    if (briefNameInput) briefNameInput.placeholder = trans.briefNamePlaceholder;
+    const briefTypeLabel = document.querySelector('[data-lang="brief-type-label"]');
+    if (briefTypeLabel) briefTypeLabel.textContent = trans.briefTypeLabel;
+    const briefBudgetLabel = document.querySelector('[data-lang="brief-budget-label"]');
+    if (briefBudgetLabel) briefBudgetLabel.textContent = trans.briefBudgetLabel;
+    const briefMessageLabel = document.querySelector('[data-lang="brief-message-label"]');
+    if (briefMessageLabel) briefMessageLabel.textContent = trans.briefMessageLabel;
+    const briefMessageInput = document.getElementById('brief-message');
+    if (briefMessageInput) briefMessageInput.placeholder = trans.briefMessagePlaceholder;
+    const briefTypePlaceholder = document.querySelector('[data-lang="brief-type-placeholder"]');
+    if (briefTypePlaceholder) briefTypePlaceholder.textContent = trans.briefTypePlaceholder;
+    const briefTypePaper = document.querySelector('[data-lang="brief-type-paper"]');
+    if (briefTypePaper) briefTypePaper.textContent = trans.briefTypePaper;
+    const briefTypeFabric = document.querySelector('[data-lang="brief-type-fabric"]');
+    if (briefTypeFabric) briefTypeFabric.textContent = trans.briefTypeFabric;
+    const briefTypeHytale = document.querySelector('[data-lang="brief-type-hytale"]');
+    if (briefTypeHytale) briefTypeHytale.textContent = trans.briefTypeHytale;
+    const briefTypeEvent = document.querySelector('[data-lang="brief-type-event"]');
+    if (briefTypeEvent) briefTypeEvent.textContent = trans.briefTypeEvent;
+    const briefBudgetPlaceholder = document.querySelector('[data-lang="brief-budget-placeholder"]');
+    if (briefBudgetPlaceholder) briefBudgetPlaceholder.textContent = trans.briefBudgetPlaceholder;
+    const briefBudgetLow = document.querySelector('[data-lang="brief-budget-low"]');
+    if (briefBudgetLow) briefBudgetLow.textContent = trans.briefBudgetLow;
+    const briefBudgetMid = document.querySelector('[data-lang="brief-budget-mid"]');
+    if (briefBudgetMid) briefBudgetMid.textContent = trans.briefBudgetMid;
+    const briefBudgetHigh = document.querySelector('[data-lang="brief-budget-high"]');
+    if (briefBudgetHigh) briefBudgetHigh.textContent = trans.briefBudgetHigh;
+    const briefBudgetPro = document.querySelector('[data-lang="brief-budget-pro"]');
+    if (briefBudgetPro) briefBudgetPro.textContent = trans.briefBudgetPro;
+    const briefSubmit = document.querySelector('[data-lang="brief-submit"]');
+    if (briefSubmit) briefSubmit.textContent = trans.briefSubmit;
+
+    const contactMailLink = document.querySelector('a[href*="mail.google.com"]');
+    if (contactMailLink) contactMailLink.setAttribute('title', trans.contactEmailTitle);
+
+    const contactDiscordLink = document.querySelector('a[href*="discord.com/users"]');
+    if (contactDiscordLink) contactDiscordLink.setAttribute('title', trans.contactDiscordTitle);
+
+    const contactXLink = document.querySelector('a[href*="twitter.com/CamilaDev_"]');
+    if (contactXLink) contactXLink.setAttribute('title', trans.contactXTitle);
+
     const faqTitle = document.querySelector('[data-lang="faq-title"]');
     if (faqTitle) faqTitle.textContent = trans.faqTitle;
     const faqQ1 = document.querySelector('[data-lang="faq-q1"]');
@@ -717,6 +876,15 @@ function changeLanguage() {
 
 
   if (pageKey === "projects") {
+    const projectsProfileLink = document.querySelector('a[href="profile.html"]');
+    if (projectsProfileLink) projectsProfileLink.setAttribute('title', trans.profileTitleLink);
+
+    const projectsSkillsLink = document.querySelector('a[href="skills.html"]');
+    if (projectsSkillsLink) projectsSkillsLink.setAttribute('title', trans.skillsTitleLink);
+
+    const projectsFilters = document.querySelector('.project-filters');
+    if (projectsFilters) projectsFilters.setAttribute('aria-label', trans.projectsFiltersAria);
+
     document.querySelector(".projects h2").textContent = trans.projectsTitle;
 
     const filterAll = document.querySelector('[data-lang="filter-all"]');
@@ -785,6 +953,8 @@ function changeLanguage() {
     metricVersions.forEach(el => el.textContent = trans.metricVersions);
     const metricServers = document.querySelectorAll('[data-lang="metric-servers"]');
     metricServers.forEach(el => el.textContent = trans.metricServers);
+    const projectPrivate = document.querySelectorAll('[data-lang="project-private"]');
+    projectPrivate.forEach(el => el.textContent = trans.projectPrivate);
 
     const backBtn = document.querySelector('[data-lang="projects-back"]');
     if (backBtn) backBtn.textContent = trans.backButton;
@@ -797,6 +967,12 @@ function changeLanguage() {
 
 
   if (pageKey === "skills") {
+
+  const skillsProfileLink = document.querySelector('a[href="profile.html"]');
+  if (skillsProfileLink) skillsProfileLink.setAttribute('title', trans.profileTitleLink);
+
+  const skillsProjectsLink = document.querySelector('a[href="projects.html"]');
+  if (skillsProjectsLink) skillsProjectsLink.setAttribute('title', trans.projectsTitleLink);
 
   document.querySelector('[data-lang="skills-title"]').textContent = trans.skillsTitle;
   document.querySelector('[data-lang="skills-subtitle"]').textContent = trans.skillsSubtitle;
@@ -863,6 +1039,15 @@ function changeLanguage() {
   }
 
   if (pageKey === "profile") {
+    const profileHomeLink = document.querySelector('a[href="index.html"]');
+    if (profileHomeLink) profileHomeLink.setAttribute('title', trans.homeTitleLink);
+
+    const profileProjectsLink = document.querySelector('a[href="projects.html"]');
+    if (profileProjectsLink) profileProjectsLink.setAttribute('title', trans.projectsTitleLink);
+
+    const profileSkillsLink = document.querySelector('a[href="skills.html"]');
+    if (profileSkillsLink) profileSkillsLink.setAttribute('title', trans.skillsTitleLink);
+
     const profileStatus = document.querySelector('[data-lang="profile-status"]');
     if (profileStatus) profileStatus.textContent = trans.profileStatus;
 
@@ -962,6 +1147,9 @@ function changeLanguage() {
       emojiSearch.placeholder = trans.emojiSearchPlaceholder;
       emojiSearch.setAttribute('aria-label', trans.emojiSearchPlaceholder);
     }
+
+    const emojiCategories = document.querySelector('.emoji-categories');
+    if (emojiCategories) emojiCategories.setAttribute('aria-label', trans.emojiCategoriesLabel);
 
     const emojiClear = document.querySelector('[data-lang="emoji-clear"]');
     if (emojiClear) emojiClear.textContent = trans.emojiClear;

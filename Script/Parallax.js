@@ -1,17 +1,25 @@
 (function () {
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const autoPerformanceLite = !!(
+    (navigator.connection && navigator.connection.saveData) ||
+    (window.matchMedia('(max-width: 768px)').matches && ((navigator.deviceMemory || 4) <= 4 || (navigator.hardwareConcurrency || 4) <= 4))
+  );
+  const performanceLite = document.documentElement.classList.contains('performance-lite') || autoPerformanceLite;
 
   let scrollY = 0;
   let lastScrollY = 0;
   let ticking = false;
 
-  if (prefersReducedMotion) {
+  if (prefersReducedMotion || performanceLite) {
     document.querySelectorAll('[data-parallax]').forEach(element => {
       element.style.transform = 'none';
     });
     const canvas = document.getElementById('parallaxCanvas');
-    if (canvas) canvas.style.transform = 'none';
+    if (canvas) {
+      canvas.style.transform = 'none';
+      if (performanceLite) canvas.style.display = 'none';
+    }
     return;
   }
 

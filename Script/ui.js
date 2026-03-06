@@ -1,10 +1,27 @@
 (function(){
+  const earlySmallScreen = window.matchMedia('(max-width: 768px)').matches;
+  const earlySaveData = navigator.connection && navigator.connection.saveData;
+  const earlyLowMemory = (navigator.deviceMemory || 4) <= 4;
+  const earlyLowCores = (navigator.hardwareConcurrency || 4) <= 4;
+  if (earlySaveData || (earlySmallScreen && (earlyLowMemory || earlyLowCores))) {
+    document.documentElement.classList.add('performance-lite');
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     const $ = sel => document.querySelector(sel);
     const $$ = sel => Array.from(document.querySelectorAll(sel));
     const root = document.documentElement;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
+    const saveData = navigator.connection && navigator.connection.saveData;
+    const lowMemory = (navigator.deviceMemory || 4) <= 4;
+    const lowCores = (navigator.hardwareConcurrency || 4) <= 4;
+    const performanceLite = !!(saveData || (isSmallScreen && (lowMemory || lowCores)));
     let pointerRafId = 0;
+        if (performanceLite) {
+          document.documentElement.classList.add('performance-lite');
+        }
+
     let pointerResetTimer = 0;
     let pendingPointer = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 
@@ -33,7 +50,7 @@
       }, 2500);
     }
 
-    if (!prefersReducedMotion) {
+    if (!prefersReducedMotion && !performanceLite) {
       window.addEventListener('mousemove', schedulePointerUpdate, { passive: true });
       window.addEventListener('touchmove', schedulePointerUpdate, { passive: true });
     } else {
@@ -44,7 +61,7 @@
    
     const revealEls = $$('[data-reveal]');
     if (revealEls.length) {
-      if (prefersReducedMotion) {
+      if (prefersReducedMotion || performanceLite) {
         revealEls.forEach(el => el.classList.add('is-revealed'));
       } else {
         const obs = new IntersectionObserver((entries, ob) => {
@@ -78,7 +95,7 @@
 
     
     function ripple(e){
-      if (prefersReducedMotion) return;
+      if (prefersReducedMotion || performanceLite) return;
       const btn = e.currentTarget;
       const rect = btn.getBoundingClientRect();
       const span = document.createElement('span');
@@ -93,6 +110,12 @@
     $$('button, .nav-button, .skill-card, .project-card, .contact-link').forEach(el => {
       el.style.position = el.style.position || 'relative';
       el.addEventListener('pointerdown', ripple, { passive: true });
+    });
+
+    $$('.skill-card[data-tooltip], .logo-tooltip[data-tooltip]').forEach(el => {
+      if (!el.hasAttribute('tabindex')) el.tabIndex = 0;
+      const tip = el.getAttribute('data-tooltip');
+      if (tip && !el.getAttribute('aria-label')) el.setAttribute('aria-label', tip);
     });
 
     
@@ -178,10 +201,12 @@
       
       setTimeout(() => {
         let scrollPosition = 0;
-        const scrollSpeed = 1.5; 
+        const scrollSpeed = performanceLite ? 1 : 1.5;
         let singleRowWidth = 0;
         let resizeTimer = 0;
         let collabsVisible = true;
+        let manualPaused = false;
+        const collabsToggleBtn = document.getElementById('collabs-toggle');
 
         function calculateWidth() {
           singleRowWidth = 0;
@@ -198,7 +223,7 @@
         let collabsRafId = 0;
 
         function autoScroll() {
-          if (prefersReducedMotion || document.hidden || !collabsVisible) {
+          if (prefersReducedMotion || document.hidden || !collabsVisible || manualPaused) {
             collabsRafId = 0;
             return;
           }
@@ -219,7 +244,7 @@
         }
 
         function startCollabsScroll() {
-          if (!collabsRafId && collabsVisible) autoScroll();
+          if (!collabsRafId && collabsVisible && !manualPaused) autoScroll();
         }
 
         function stopCollabsScroll() {
@@ -255,6 +280,26 @@
           resizeTimer = setTimeout(calculateWidth, 150);
         }, { passive: true });
 
+        if (collabsToggleBtn) {
+          const setToggleLabel = () => {
+            const pausedLabel = root.lang === 'en' ? 'Resume scroll' : 'Reanudar scroll';
+            const runningLabel = root.lang === 'en' ? 'Pause scroll' : 'Pausar scroll';
+            const label = manualPaused ? pausedLabel : runningLabel;
+            collabsToggleBtn.textContent = label;
+            collabsToggleBtn.dataset.paused = manualPaused ? 'true' : 'false';
+            collabsToggleBtn.setAttribute('aria-pressed', manualPaused ? 'true' : 'false');
+          };
+
+          collabsToggleBtn.addEventListener('click', () => {
+            manualPaused = !manualPaused;
+            if (manualPaused) stopCollabsScroll();
+            else startCollabsScroll();
+            setToggleLabel();
+          });
+
+          setToggleLabel();
+        }
+
         startCollabsScroll();
       }, 300);
     }
@@ -280,6 +325,44 @@
       );
 
       observer.observe(collabsSection);
+    }
+
+    const briefForm = document.getElementById('brief-form');
+    if (briefForm) {
+      const status = document.getElementById('brief-status');
+      const setStatus = (text, isError = false) => {
+        if (!status) return;
+        status.textContent = text;
+        status.style.color = isError ? '#fda4af' : 'rgba(255, 255, 255, 0.75)';
+      };
+
+      briefForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formData = new FormData(briefForm);
+        const honeypot = (formData.get('website') || '').toString().trim();
+        if (honeypot) {
+          setStatus(root.lang === 'en' ? 'Request blocked.' : 'Solicitud bloqueada.', true);
+          return;
+        }
+
+        const name = (formData.get('name') || '').toString().trim();
+        const type = (formData.get('type') || '').toString().trim();
+        const budget = (formData.get('budget') || '').toString().trim();
+        const message = (formData.get('message') || '').toString().trim();
+
+        if (!name || !type || !budget || !message) {
+          setStatus(root.lang === 'en' ? 'Please complete all fields.' : 'Completá todos los campos.', true);
+          return;
+        }
+
+        const subject = encodeURIComponent(`Nuevo proyecto desde camila.dev - ${type}`);
+        const body = encodeURIComponent(
+          `Nombre: ${name}\nTipo: ${type}\nPresupuesto: ${budget}\n\nObjetivo:\n${message}`
+        );
+        const href = `https://mail.google.com/mail/?view=cm&fs=1&to=c.carpincho.gaucho@gmail.com&su=${subject}&body=${body}`;
+        setStatus(root.lang === 'en' ? 'Opening email draft...' : 'Abriendo borrador de email...');
+        window.open(href, '_blank', 'noopener,noreferrer');
+      });
     }
   });
 })();

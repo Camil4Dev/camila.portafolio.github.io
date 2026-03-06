@@ -14,14 +14,22 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://camila.portafolio.github.io/">
   <meta property="og:image" content="https://camila.portafolio.github.io/media/og-image.svg">
+  <meta property="og:image:secure_url" content="https://camila.portafolio.github.io/media/og-image.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="camila.dev portfolio preview">
   <meta property="og:updated_time" content="2026-03-02">
   <meta name="twitter:site" content="@CamilaDev_">
+  <meta name="twitter:creator" content="@CamilaDev_">
   <meta name="twitter:title" content="camila.dev">
   <meta name="twitter:description" content="Portafolio de Camila, desarrolladora de plugins y mods para Minecraft y Hytale.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://camila.portafolio.github.io/media/og-image.svg">
   <meta name="author" content="Camila">
   <link rel="canonical" href="https://camila.portafolio.github.io/">
+  <link rel="alternate" hreflang="es" href="https://camila.portafolio.github.io/">
+  <link rel="alternate" hreflang="en" href="https://camila.portafolio.github.io/">
+  <link rel="alternate" hreflang="x-default" href="https://camila.portafolio.github.io/">
   <title>camila.dev</title>
   <link rel="icon" href="images/icon.ico" type="image/x-icon" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -114,7 +122,7 @@
         </p>
         <div class="flex flex-wrap items-center gap-4">
           <a href="projects.html" class="nav-button rounded-full bg-neonPink px-6 py-3 text-sm font-semibold text-ink shadow-glow transition hover:-translate-y-0.5" data-lang="cta-projects">Ver proyectos</a>
-          <a href="#contact" class="nav-button secondary rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/50" data-lang="cta-contact">Contactar</a>
+          <a href="#contact-brief" class="nav-button secondary rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/50" data-lang="cta-contact">Agendar llamada</a>
           <a href="#availability" class="nav-button secondary rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white/90 transition hover:border-white/50" data-lang="cta-availability">Ver disponibilidad</a>
         </div>
         <div class="flex flex-wrap items-center gap-4 text-lg text-white/70">
@@ -249,62 +257,112 @@
     </section>
 
     <section id="contact" class="contact mx-auto max-w-6xl px-6 py-12" data-parallax="0.6" data-reveal>
-      <div class="grid gap-8 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-card lg:grid-cols-[1.1fr_0.9fr]">
-        <div>
+      <div class="contact-shell rounded-3xl border border-white/10 p-6 shadow-card md:p-8">
+        <div class="contact-head">
           <h2 class="font-display text-2xl font-semibold" data-lang="contact-title">Contacto</h2>
           <p class="mt-2 text-white/70" data-lang="contact-text">¿Necesitás un plugin, mod o sistema personalizado? Podés escribirme a:</p>
-          <div class="mt-6 grid gap-3">
-            <span class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60" data-lang="contact-email-label">Email directo</span>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=c.carpincho.gaucho@gmail.com&su=Nuevo%20proyecto%20desde%20camila.dev" class="contact-link flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm font-semibold text-white/90 transition hover:border-white/40" title="Enviar email" target="_blank" rel="noopener noreferrer">
-              <svg class="icon text-neonLime" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 6.75h18v10.5H3z" />
-                <path d="M3 6.75l9 6 9-6" />
-              </svg>
-              <span>c.carpincho.gaucho@gmail.com</span>
-            </a>
-          </div>
-          <div class="mt-6">
-            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60" data-lang="contact-dm-title">DM directo</p>
-            <div class="mt-3 grid gap-3 sm:grid-cols-2">
-              <a href="https://discord.com/users/932721517995888650" class="contact-link flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm font-semibold text-white/90 transition hover:border-white/40" title="Ver perfil en Discord" target="_blank" rel="noopener noreferrer">
-                <svg class="icon text-neonCyan" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5.25 5.25h13.5A2.25 2.25 0 0121 7.5v7.5a2.25 2.25 0 01-2.25 2.25H9l-5.25 3V7.5A2.25 2.25 0 015.25 5.25z" />
-                  <path d="M9 10.5h.01M15 10.5h.01" />
+        </div>
+
+        <div class="contact-grid mt-6 grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
+          <div class="contact-column grid gap-5">
+            <div class="contact-panel p-5">
+              <span class="contact-kicker" data-lang="contact-email-label">Email directo</span>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=c.carpincho.gaucho@gmail.com&su=Nuevo%20proyecto%20desde%20camila.dev" class="contact-link mt-3 flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold text-white/90" title="Enviar email" target="_blank" rel="noopener noreferrer">
+                <svg class="icon text-neonLime" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 6.75h18v10.5H3z" />
+                  <path d="M3 6.75l9 6 9-6" />
                 </svg>
-                <span data-lang="contact-discord-cta">Discord</span>
+                <span>c.carpincho.gaucho@gmail.com</span>
               </a>
-              <a href="https://twitter.com/CamilaDev_" class="contact-link flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm font-semibold text-white/90 transition hover:border-white/40" title="Abrir perfil en X" target="_blank" rel="noopener noreferrer">
-                <svg class="icon text-white" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 4l14 16" />
-                  <path d="M19 4L5 20" />
-                </svg>
-                <span data-lang="contact-x-cta">X / Twitter</span>
-              </a>
+
+              <span class="contact-kicker mt-5" data-lang="contact-dm-title">DM directo</span>
+              <div class="mt-3 grid gap-3 sm:grid-cols-2">
+                <a href="https://discord.com/users/932721517995888650" class="contact-link flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold text-white/90" title="Ver perfil en Discord" target="_blank" rel="noopener noreferrer">
+                  <svg class="icon text-neonCyan" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5.25 5.25h13.5A2.25 2.25 0 0121 7.5v7.5a2.25 2.25 0 01-2.25 2.25H9l-5.25 3V7.5A2.25 2.25 0 015.25 5.25z" />
+                    <path d="M9 10.5h.01M15 10.5h.01" />
+                  </svg>
+                  <span data-lang="contact-discord-cta">Discord</span>
+                </a>
+                <a href="https://twitter.com/CamilaDev_" class="contact-link flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold text-white/90" title="Abrir perfil en X" target="_blank" rel="noopener noreferrer">
+                  <svg class="icon text-white" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 4l14 16" />
+                    <path d="M19 4L5 20" />
+                  </svg>
+                  <span data-lang="contact-x-cta">X / Twitter</span>
+                </a>
+              </div>
+            </div>
+
+            <div id="contact-brief" class="contact-panel contact-brief p-5">
+              <h3 class="font-display text-lg font-semibold" data-lang="brief-title">Brief rápido del proyecto</h3>
+              <p class="mt-2 text-sm text-white/70" data-lang="brief-copy">Completá esto y te devuelvo alcance, tiempos y presupuesto inicial.</p>
+              <form id="brief-form" class="mt-5 grid gap-4" novalidate>
+                <div class="grid gap-2">
+                  <label for="brief-name" class="field-label" data-lang="brief-name-label">Nombre</label>
+                  <input id="brief-name" name="name" type="text" class="rounded-2xl px-4 py-3 text-sm text-white/90 placeholder:text-white/40" placeholder="Tu nombre" required>
+                </div>
+                <div class="grid gap-2 sm:grid-cols-2">
+                  <div class="grid gap-2">
+                    <label for="brief-type" class="field-label" data-lang="brief-type-label">Tipo de proyecto</label>
+                    <select id="brief-type" name="type" class="rounded-2xl px-4 py-3 text-sm text-white/90" required>
+                      <option value="" data-lang="brief-type-placeholder">Elegí una opción</option>
+                      <option value="paper" data-lang="brief-type-paper">Plugin Paper</option>
+                      <option value="fabric" data-lang="brief-type-fabric">Mod Fabric</option>
+                      <option value="hytale" data-lang="brief-type-hytale">Mod Hytale</option>
+                      <option value="event" data-lang="brief-type-event">Sistema para evento</option>
+                    </select>
+                  </div>
+                  <div class="grid gap-2">
+                    <label for="brief-budget" class="field-label" data-lang="brief-budget-label">Rango de presupuesto</label>
+                    <select id="brief-budget" name="budget" class="rounded-2xl px-4 py-3 text-sm text-white/90" required>
+                      <option value="" data-lang="brief-budget-placeholder">Elegí una opción</option>
+                      <option value="<100" data-lang="brief-budget-low">Menos de USD 100</option>
+                      <option value="100-300" data-lang="brief-budget-mid">USD 100 a 300</option>
+                      <option value="300-800" data-lang="brief-budget-high">USD 300 a 800</option>
+                      <option value=">800" data-lang="brief-budget-pro">USD 800+</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="grid gap-2">
+                  <label for="brief-message" class="field-label" data-lang="brief-message-label">Objetivo</label>
+                  <textarea id="brief-message" name="message" rows="4" maxlength="800" class="rounded-2xl px-4 py-3 text-sm text-white/90 placeholder:text-white/40" placeholder="Contame qué querés construir, fecha ideal y requisitos clave." required></textarea>
+                </div>
+                <input type="text" id="brief-website" name="website" class="brief-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <div class="flex flex-wrap items-center gap-3">
+                  <button type="submit" class="nav-button rounded-full bg-neonCyan px-6 py-3 text-sm font-semibold text-ink transition hover:-translate-y-0.5" data-lang="brief-submit">Pedir presupuesto inicial</button>
+                  <span id="brief-status" class="text-xs font-semibold text-white/70" aria-live="polite"></span>
+                </div>
+              </form>
             </div>
           </div>
-        </div>
-        <div class="discord-status-card rounded-2xl border border-white/10 bg-white/10 p-5">
-          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60" data-lang="contact-status-label">Estado Discord</p>
-          <div class="discord-status-frame mt-4 w-full max-w-xl overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4">
-            <img src="https://lanyard.cnrad.dev/api/932721517995888650?hideActivity=true&showDisplayName=true&theme=dark&bg=0b0b10&borderRadius=16px" alt="Estado de Discord" loading="lazy" decoding="async" class="discord-status-image w-full">
+
+          <div class="contact-column grid gap-5">
+            <div class="contact-panel contact-presence p-5">
+              <p class="contact-kicker" data-lang="contact-status-label">Estado Discord</p>
+              <div class="discord-status-frame mt-4 w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4">
+                <img src="https://lanyard.cnrad.dev/api/932721517995888650?hideActivity=true&showDisplayName=true&theme=dark&bg=0b0b10&borderRadius=16px" alt="Estado de Discord" loading="lazy" decoding="async" class="discord-status-image w-full">
+              </div>
+            </div>
+
+            <div class="contact-panel contact-faq p-5">
+              <h3 class="contact-kicker" data-lang="faq-title">FAQ rapido</h3>
+              <div class="faq-grid mt-4 text-sm">
+                <span class="faq-label" data-lang="faq-q1">Tiempo de respuesta</span>
+                <span class="faq-value" data-lang="faq-a1">24 a 48 horas habiles.</span>
+                <span class="faq-label" data-lang="faq-q2">Metodos de pago</span>
+                <span class="faq-value faq-value-payment">
+                  <span data-lang="faq-a2">Mercado Pago y PayPal.</span>
+                  <span class="faq-payment-icons" aria-hidden="true">
+                    <img src="images/icons/mercado-pago.png" alt="" loading="lazy" decoding="async">
+                    <img src="images/icons/paypal.svg" alt="" loading="lazy" decoding="async">
+                  </span>
+                </span>
+                <span class="faq-label" data-lang="faq-q3">Alcance</span>
+                <span class="faq-value" data-lang="faq-a3">Plugins, mods, sistemas y soporte post‑lanzamiento.</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="faq mt-8 grid gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 shadow-card">
-        <h3 class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60" data-lang="faq-title">FAQ rapido</h3>
-        <div class="faq-grid text-sm">
-          <span class="faq-label" data-lang="faq-q1">Tiempo de respuesta</span>
-          <span class="faq-value" data-lang="faq-a1">24 a 48 horas habiles.</span>
-          <span class="faq-label" data-lang="faq-q2">Metodos de pago</span>
-          <span class="faq-value faq-value-payment">
-            <span data-lang="faq-a2">Mercado Pago y PayPal.</span>
-            <span class="faq-payment-icons" aria-hidden="true">
-              <img src="images/icons/mercado-pago.png" alt="" loading="lazy" decoding="async">
-              <img src="images/icons/paypal.svg" alt="" loading="lazy" decoding="async">
-            </span>
-          </span>
-          <span class="faq-label" data-lang="faq-q3">Alcance</span>
-          <span class="faq-value" data-lang="faq-a3">Plugins, mods, sistemas y soporte post‑lanzamiento.</span>
         </div>
       </div>
     </section>

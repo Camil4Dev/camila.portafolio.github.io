@@ -1,6 +1,11 @@
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const autoPerformanceLite = !!(
+  (navigator.connection && navigator.connection.saveData) ||
+  (window.matchMedia("(max-width: 768px)").matches && ((navigator.deviceMemory || 4) <= 4 || (navigator.hardwareConcurrency || 4) <= 4))
+);
+const performanceLite = document.documentElement.classList.contains("performance-lite") || autoPerformanceLite;
 
 let viewWidth = window.innerWidth;
 let viewHeight = window.innerHeight;
@@ -75,7 +80,7 @@ function animate() {
 }
 
 function startParticles() {
-  if (prefersReducedMotion) return;
+  if (prefersReducedMotion || performanceLite) return;
   if (!rafId) animate();
 }
 
@@ -90,6 +95,10 @@ resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
 initParticles();
 startParticles();
+
+if (performanceLite) {
+  canvas.style.display = "none";
+}
 
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) {
