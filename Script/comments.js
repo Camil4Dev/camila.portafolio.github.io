@@ -347,7 +347,6 @@ async function checkAdmin() {
 
   if (badge) {
     badge.style.display = "inline-flex";
-    badge.classList.remove("is-offline", "is-online");
   }
 
   if (user && user.id === ADMIN_UID) {
@@ -367,7 +366,6 @@ async function checkAdmin() {
       location.reload();
     };
 
-    if (badge) badge.classList.add("is-online");
   } else {
     const adminLabel = getProfileText("adminLabel", "Admin");
     adminBtn.innerHTML = `
@@ -382,7 +380,6 @@ async function checkAdmin() {
       document.getElementById("login-modal").classList.remove("hidden");
     };
 
-    if (badge) badge.classList.add("is-offline");
   }
 }
 
@@ -805,6 +802,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (emojiTabs.length) renderEmojiGrid(initialGroup);
   });
 
+  if (window.PresenceBadge && typeof window.PresenceBadge.start === "function") {
+    window.PresenceBadge.start({ badgeId: "admin-badge" });
+  }
   checkAdmin();
   loadComments(window.currentSort);
   updateRelativeTimes();

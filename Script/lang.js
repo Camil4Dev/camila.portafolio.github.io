@@ -211,6 +211,11 @@ const translations = {
       onlineStatus: "Online",
       adminOnline: "🟡 Admin Online",
       adminOffline: "⚪ Admin Offline",
+      adminPresenceOnline: "Admin online",
+      adminPresenceIdle: "Admin ausente",
+      adminPresenceDnd: "Admin en no molestar",
+      adminPresenceOffline: "Admin offline",
+      adminPresenceUnavailable: "Estado no disponible",
       aboutTitle: "Sobre mí",
       aboutText: "👋 ¡Hola! Soy Camila, una apasionada desarrolladora de 18 años especializada en software para Minecraft y Hytale. 💻<br><br>Me encanta crear mods, plugins y experiencias únicas para jugadores. <br><br>Actualmente trabajo como Head Developer en <strong>ScreamingLAB</strong> y como Developer en <strong>MasivoSMP Team</strong>. ",
       rolesTitle: "Roles",
@@ -511,6 +516,11 @@ const translations = {
       onlineStatus: "Online",
       adminOnline: "🟡 Admin Online",
       adminOffline: "⚪ Admin Offline",
+      adminPresenceOnline: "Admin online",
+      adminPresenceIdle: "Admin idle",
+      adminPresenceDnd: "Admin in do not disturb",
+      adminPresenceOffline: "Admin offline",
+      adminPresenceUnavailable: "Status unavailable",
       aboutTitle: "About me",
       aboutText: "👋 Hi! I'm Camila, a passionate 18-year-old developer specialized in software for Minecraft and Hytale. 💻<br><br>I love creating mods, plugins and unique experiences for players. <br><br>I'm currently working as Head Developer at <strong>ScreamingLAB</strong> and as Developer at <strong>MasivoSMP Team</strong>. ",
       rolesTitle: "Roles",
@@ -1104,6 +1114,21 @@ function changeLanguage() {
 
     const adminOffline = document.querySelector('[data-lang="admin-offline"]');
     if (adminOffline) adminOffline.textContent = trans.adminOffline;
+
+    const adminPresenceOnline = document.querySelector('[data-lang="admin-presence-online"]');
+    if (adminPresenceOnline) adminPresenceOnline.textContent = trans.adminPresenceOnline;
+
+    const adminPresenceIdle = document.querySelector('[data-lang="admin-presence-idle"]');
+    if (adminPresenceIdle) adminPresenceIdle.textContent = trans.adminPresenceIdle;
+
+    const adminPresenceDnd = document.querySelector('[data-lang="admin-presence-dnd"]');
+    if (adminPresenceDnd) adminPresenceDnd.textContent = trans.adminPresenceDnd;
+
+    const adminPresenceOffline = document.querySelector('[data-lang="admin-presence-offline"]');
+    if (adminPresenceOffline) adminPresenceOffline.textContent = trans.adminPresenceOffline;
+
+    const adminPresenceUnavailable = document.querySelector('[data-lang="admin-presence-unavailable"]');
+    if (adminPresenceUnavailable) adminPresenceUnavailable.textContent = trans.adminPresenceUnavailable;
 
     const commentsTitle = document.querySelector('[data-lang="comments-title"]');
     if (commentsTitle) commentsTitle.textContent = trans.commentsTitle;

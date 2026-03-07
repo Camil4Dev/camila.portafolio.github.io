@@ -108,8 +108,11 @@
         <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
           <div id="admin-badge" class="admin-badge mb-3 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
             <span class="admin-dot" aria-hidden="true"></span>
-            <span class="admin-text admin-text-online" data-lang="admin-online">Admin Online</span>
-            <span class="admin-text admin-text-offline" data-lang="admin-offline">Admin Offline</span>
+            <span class="admin-text admin-text-online" data-lang="admin-presence-online">Admin Online</span>
+            <span class="admin-text admin-text-idle" data-lang="admin-presence-idle">Admin Idle</span>
+            <span class="admin-text admin-text-dnd" data-lang="admin-presence-dnd">Admin in DND</span>
+            <span class="admin-text admin-text-offline" data-lang="admin-presence-offline">Admin Offline</span>
+            <span class="admin-text admin-text-unavailable" data-lang="admin-presence-unavailable">Estado no disponible</span>
           </div>
           <div class="flex items-center gap-2 text-sm text-white/70">
             🏳️‍⚧️ <span data-lang="pronouns-label">Pronombres:</span> <strong class="text-white">she/her</strong>
@@ -264,6 +267,7 @@
   <script src="Script/ui.js" defer></script>
   <script src="Script/index.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="Script/presence.js" defer></script>
   <script src="Script/comments.js" defer></script>
   <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
 </body>
