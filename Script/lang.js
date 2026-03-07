@@ -65,6 +65,8 @@ const translations = {
       briefBudgetHigh: "USD 300 a 800",
       briefBudgetPro: "USD 800+",
       briefSubmit: "Pedir presupuesto inicial",
+      briefCopyButton: "Copiar resumen",
+      briefSummaryTitle: "Resumen listo para enviar",
       faqTitle: "FAQ rápido",
       faqQ1: "Tiempo de respuesta",
       faqA1: "24 a 48 horas hábiles.",
@@ -370,6 +372,8 @@ const translations = {
       briefBudgetHigh: "USD 300 to 800",
       briefBudgetPro: "USD 800+",
       briefSubmit: "Request initial quote",
+      briefCopyButton: "Copy summary",
+      briefSummaryTitle: "Summary ready to send",
       faqTitle: "Quick FAQ",
       faqQ1: "Response time",
       faqA1: "Within 24 to 48 business hours.",
@@ -850,6 +854,10 @@ function changeLanguage() {
     if (briefBudgetPro) briefBudgetPro.textContent = trans.briefBudgetPro;
     const briefSubmit = document.querySelector('[data-lang="brief-submit"]');
     if (briefSubmit) briefSubmit.textContent = trans.briefSubmit;
+    const briefCopyButton = document.querySelector('[data-lang="brief-copy-button"]');
+    if (briefCopyButton) briefCopyButton.textContent = trans.briefCopyButton;
+    const briefSummaryTitle = document.querySelector('[data-lang="brief-summary-title"]');
+    if (briefSummaryTitle) briefSummaryTitle.textContent = trans.briefSummaryTitle;
 
     const contactMailLink = document.querySelector('a[href*="mail.google.com"]');
     if (contactMailLink) contactMailLink.setAttribute('title', trans.contactEmailTitle);
