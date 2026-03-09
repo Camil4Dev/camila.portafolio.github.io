@@ -46,8 +46,9 @@ select:focus-visible,
 .nav-button:focus-visible,
 .filter-button:focus-visible,
 .contact-link:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline: 2px solid rgba(255, 255, 255, 0.75);
   outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(76, 245, 255, 0.2);
 }
 
 ::placeholder {
@@ -189,6 +190,14 @@ canvas {
 
 .contact-head p {
   max-width: 62ch;
+  color: rgba(248, 250, 252, 0.84);
+}
+
+.services p,
+.about p,
+.availability-section p,
+.contact p {
+  color: rgba(248, 250, 252, 0.82);
 }
 
 .contact-grid {
@@ -983,6 +992,14 @@ canvas {
 
   .contact-shell {
     padding: 1.15rem;
+  }
+
+  .page-header .absolute {
+    display: none;
+  }
+
+  .contact-shell::before {
+    opacity: 0.6;
   }
 
   .contact-panel {

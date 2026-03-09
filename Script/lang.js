@@ -7,7 +7,8 @@ const translations = {
       subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team • Hylamity",
       heroBadge: "Disponible para proyectos",
       skipContent: "Saltar al contenido",
-      heroCopy: "Construyo experiencias inmersivas para servidores y comunidades, con foco en rendimiento, jugabilidad y detalles que hacen la diferencia.",
+      heroCopy: "Desarrollo plugins Paper y mods Fabric/Hytale para creadores de contenido y comunidades competitivas. Respondo en 24 a 48 horas con un plan de alcance, tiempos y presupuesto inicial.",
+      heroProof: "Brief en 2 minutos · Respuesta en 24-48h · Entregas por hitos",
       ctaProjects: "Ver proyectos",
       ctaContact: "Agendar llamada",
       ctaAvailability: "Ver disponibilidad",
@@ -52,6 +53,7 @@ const translations = {
       briefCopy: "Completa esto y te devuelvo alcance, tiempos y presupuesto inicial.",
       briefNameLabel: "Nombre",
       briefTypeLabel: "Tipo de proyecto",
+      briefChannelLabel: "Canal preferido",
       briefBudgetLabel: "Rango de presupuesto",
       briefMessageLabel: "Objetivo",
       briefTypePlaceholder: "Elegi una opcion",
@@ -59,6 +61,9 @@ const translations = {
       briefTypeFabric: "Mod Fabric",
       briefTypeHytale: "Mod Hytale",
       briefTypeEvent: "Sistema para evento",
+      briefChannelPlaceholder: "Elegi una opcion",
+      briefChannelDiscord: "Discord",
+      briefChannelEmail: "Email",
       briefBudgetPlaceholder: "Elegi una opcion",
       briefBudgetLow: "Menos de USD 100",
       briefBudgetMid: "USD 100 a 300",
@@ -67,6 +72,9 @@ const translations = {
       briefSubmit: "Pedir presupuesto inicial",
       briefCopyButton: "Copiar resumen",
       briefSummaryTitle: "Resumen listo para enviar",
+      briefSla: "SLA: respondo en 24 a 48 horas habiles.",
+      briefWeeklyTitle: "Disponibilidad semanal",
+      briefWeeklyValue: "Lunes a viernes: 15:00 a 23:00 (UTC-3). Sabados: revisiones y soporte.",
       faqTitle: "FAQ rápido",
       faqQ1: "Tiempo de respuesta",
       faqA1: "24 a 48 horas hábiles.",
@@ -314,7 +322,8 @@ const translations = {
       subtitle: "Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team • Hylamity",
       heroBadge: "Available for projects",
       skipContent: "Skip to content",
-      heroCopy: "I build immersive experiences for servers and communities, focused on performance, gameplay, and the details that make the difference.",
+      heroCopy: "I develop Paper plugins and Fabric/Hytale mods for creators and competitive communities. I reply within 24 to 48 hours with scope, timeline, and an initial budget plan.",
+      heroProof: "2-minute brief · 24-48h response · Milestone-based delivery",
       ctaProjects: "View projects",
       ctaContact: "Book a call",
       ctaAvailability: "View availability",
@@ -359,6 +368,7 @@ const translations = {
       briefCopy: "Fill this in and I will reply with scope, timeline, and initial budget.",
       briefNameLabel: "Name",
       briefTypeLabel: "Project type",
+      briefChannelLabel: "Preferred channel",
       briefBudgetLabel: "Budget range",
       briefMessageLabel: "Goal",
       briefTypePlaceholder: "Choose an option",
@@ -366,6 +376,9 @@ const translations = {
       briefTypeFabric: "Fabric mod",
       briefTypeHytale: "Hytale mod",
       briefTypeEvent: "Event system",
+      briefChannelPlaceholder: "Choose an option",
+      briefChannelDiscord: "Discord",
+      briefChannelEmail: "Email",
       briefBudgetPlaceholder: "Choose an option",
       briefBudgetLow: "Under USD 100",
       briefBudgetMid: "USD 100 to 300",
@@ -374,6 +387,9 @@ const translations = {
       briefSubmit: "Request initial quote",
       briefCopyButton: "Copy summary",
       briefSummaryTitle: "Summary ready to send",
+      briefSla: "SLA: I reply within 24 to 48 business hours.",
+      briefWeeklyTitle: "Weekly availability",
+      briefWeeklyValue: "Monday to Friday: 15:00 to 23:00 (UTC-3). Saturdays: revisions and support.",
       faqTitle: "Quick FAQ",
       faqQ1: "Response time",
       faqA1: "Within 24 to 48 business hours.",
@@ -716,6 +732,9 @@ function changeLanguage() {
     const heroCopy = document.querySelector('[data-lang="hero-copy"]');
     if (heroCopy) heroCopy.textContent = trans.heroCopy;
 
+    const heroProof = document.querySelector('[data-lang="hero-proof"]');
+    if (heroProof) heroProof.textContent = trans.heroProof;
+
     const ctaProjects = document.querySelectorAll('[data-lang="cta-projects"]');
     ctaProjects.forEach(el => el.textContent = trans.ctaProjects);
 
@@ -826,6 +845,8 @@ function changeLanguage() {
     if (briefNameInput) briefNameInput.placeholder = trans.briefNamePlaceholder;
     const briefTypeLabel = document.querySelector('[data-lang="brief-type-label"]');
     if (briefTypeLabel) briefTypeLabel.textContent = trans.briefTypeLabel;
+    const briefChannelLabel = document.querySelector('[data-lang="brief-channel-label"]');
+    if (briefChannelLabel) briefChannelLabel.textContent = trans.briefChannelLabel;
     const briefBudgetLabel = document.querySelector('[data-lang="brief-budget-label"]');
     if (briefBudgetLabel) briefBudgetLabel.textContent = trans.briefBudgetLabel;
     const briefMessageLabel = document.querySelector('[data-lang="brief-message-label"]');
@@ -842,6 +863,12 @@ function changeLanguage() {
     if (briefTypeHytale) briefTypeHytale.textContent = trans.briefTypeHytale;
     const briefTypeEvent = document.querySelector('[data-lang="brief-type-event"]');
     if (briefTypeEvent) briefTypeEvent.textContent = trans.briefTypeEvent;
+    const briefChannelPlaceholder = document.querySelector('[data-lang="brief-channel-placeholder"]');
+    if (briefChannelPlaceholder) briefChannelPlaceholder.textContent = trans.briefChannelPlaceholder;
+    const briefChannelDiscord = document.querySelector('[data-lang="brief-channel-discord"]');
+    if (briefChannelDiscord) briefChannelDiscord.textContent = trans.briefChannelDiscord;
+    const briefChannelEmail = document.querySelector('[data-lang="brief-channel-email"]');
+    if (briefChannelEmail) briefChannelEmail.textContent = trans.briefChannelEmail;
     const briefBudgetPlaceholder = document.querySelector('[data-lang="brief-budget-placeholder"]');
     if (briefBudgetPlaceholder) briefBudgetPlaceholder.textContent = trans.briefBudgetPlaceholder;
     const briefBudgetLow = document.querySelector('[data-lang="brief-budget-low"]');
@@ -858,6 +885,12 @@ function changeLanguage() {
     if (briefCopyButton) briefCopyButton.textContent = trans.briefCopyButton;
     const briefSummaryTitle = document.querySelector('[data-lang="brief-summary-title"]');
     if (briefSummaryTitle) briefSummaryTitle.textContent = trans.briefSummaryTitle;
+    const briefSla = document.querySelector('[data-lang="brief-sla"]');
+    if (briefSla) briefSla.textContent = trans.briefSla;
+    const briefWeeklyTitle = document.querySelector('[data-lang="brief-weekly-title"]');
+    if (briefWeeklyTitle) briefWeeklyTitle.textContent = trans.briefWeeklyTitle;
+    const briefWeeklyValue = document.querySelector('[data-lang="brief-weekly-value"]');
+    if (briefWeeklyValue) briefWeeklyValue.textContent = trans.briefWeeklyValue;
 
     const contactMailLink = document.querySelector('a[href*="mail.google.com"]');
     if (contactMailLink) contactMailLink.setAttribute('title', trans.contactEmailTitle);
