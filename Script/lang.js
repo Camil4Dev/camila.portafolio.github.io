@@ -174,7 +174,7 @@ const translations = {
       experience2Date: "16 Mar 2025 → 16 May 2025",
       experience2Desc: "Developer en Hexa Creators",
       experience3Date: "26 Sep 2025",
-      experience3Desc: "Developer en MasivoSMP Team",
+      experience3Desc: "Consultant en MasivoSMP Team",
       experience4Date: "21 Feb 2026",
       experience4Desc: "Developer en Hylamity",
       
@@ -489,7 +489,7 @@ const translations = {
       experience2Date: "16 Mar 2025 → 16 May 2025",
       experience2Desc: "Developer at Hexa Creators",
       experience3Date: "26 Sep 2025",
-      experience3Desc: "Developer at MasivoSMP Team",
+      experience3Desc: "Consultant at MasivoSMP Team",
       experience4Date: "21 Feb 2026",
       experience4Desc: "Developer at Hylamity",
 
