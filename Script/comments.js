@@ -1,6 +1,11 @@
-const supabaseUrl = "https://fldqudjajhuxgvmrjduq.supabase.co";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZsZHF1ZGphamh1eGd2bXJqZHVxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1MTg3OTcsImV4cCI6MjA4NzA5NDc5N30.u9BKB3av9UD4hGSwh17Ty7MQ1ctKU7hRbao6pxn59R4";
-const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
+const supabaseConfig = window.SupabaseConfig || {};
+const supabaseUrl = supabaseConfig.url || "https://fldqudjajhuxgvmrjduq.supabase.co";
+const supabaseKey = supabaseConfig.key || "sb_publishable_ucvN_ohgRXwKvK-GPs96jw_CObwLo9D";
+const supabaseClient = window.supabase
+  ? window.supabase.createClient(supabaseUrl, supabaseKey)
+  : null;
+let supabaseEnabled = true;
+let supabaseNotified = false;
 
 const ADMIN_UID = "9f531012-2216-4902-8feb-98759d266c44";
 
@@ -66,6 +71,36 @@ function showToast(message, type = "success") {
   }, 2600);
 }
 
+function notifySupabase(messageKey, fallback) {
+  if (supabaseNotified) return;
+  showToast(getProfileText(messageKey, fallback), "error");
+  supabaseNotified = true;
+}
+
+function handleSupabaseError(error) {
+  const message = (error && error.message) ? error.message : String(error || "");
+  if (message.includes("ERR_NAME_NOT_RESOLVED") || message.includes("Failed to fetch")) {
+    notifySupabase("supabaseNetwork", "No se pudo conectar a Supabase. Revisa tu conexion o DNS.");
+    supabaseEnabled = false;
+    return;
+  }
+  notifySupabase("supabaseError", "Error al conectar con Supabase.");
+}
+
+function ensureSupabase() {
+  if (!supabaseEnabled) return false;
+  if (!supabaseClient) {
+    notifySupabase("supabaseMissing", "Supabase no esta disponible.");
+    supabaseEnabled = false;
+    return false;
+  }
+  if (typeof navigator !== "undefined" && !navigator.onLine) {
+    notifySupabase("supabaseOffline", "Sin conexion. Reintenta cuando vuelvas a estar online.");
+    return false;
+  }
+  return true;
+}
+
 
 function updateRelativeTimes() {
   document.querySelectorAll(".comment-time").forEach((el) => {
@@ -113,19 +148,22 @@ function updatePreview(name, message) {
 }
 
 async function loadComments(sortMode = "recent") {
-  
-  const { data: { user } } = await supabaseClient.auth.getUser();
-  const isAdmin = user && user.id === ADMIN_UID;
+  if (!ensureSupabase()) return;
 
-  const { data, error } = await supabaseClient
-    .from("comments")
-    .select("*")
-    .order("created_at", { ascending: sortMode === "oldest" });
+  try {
+    const { data: { user } } = await supabaseClient.auth.getUser();
+    const isAdmin = user && user.id === ADMIN_UID;
 
-  if (error) {
-    console.error(error);
-    return;
-  }
+    const { data, error } = await supabaseClient
+      .from("comments")
+      .select("*")
+      .order("created_at", { ascending: sortMode === "oldest" });
+
+    if (error) {
+      console.error(error);
+      handleSupabaseError(error);
+      return;
+    }
 
   const container = document.getElementById("comments-list");
   if (!container) return;
@@ -136,7 +174,7 @@ async function loadComments(sortMode = "recent") {
     ? data.filter(comment => (comment.name || "").includes(CREATOR_EMOJI))
     : data;
 
-  filtered.forEach((comment, index) => {
+    filtered.forEach((comment, index) => {
     const div = document.createElement("div");
     div.classList.add("comment-item");
     div.style.animationDelay = `${index * 0.08}s`;
@@ -225,11 +263,16 @@ async function loadComments(sortMode = "recent") {
     }
 
     container.appendChild(div);
-  });
+    });
+  } catch (error) {
+    console.error(error);
+    handleSupabaseError(error);
+  }
 }
 
 
 async function addComment() {
+  if (!ensureSupabase()) return;
   const nameInput = document.getElementById("comment-name");
   const messageInput = document.getElementById("comment-message");
   const countEl = document.getElementById("comment-count");
@@ -307,6 +350,7 @@ async function addComment() {
 }
 
 async function checkAdmin() {
+  if (!ensureSupabase()) return;
   const { data: { user } } = await supabaseClient.auth.getUser();
 
   const adminBtn = document.getElementById("admin-toggle");
@@ -353,6 +397,7 @@ async function checkAdmin() {
 }
 
 document.getElementById("admin-login-btn").addEventListener("click", async () => {
+  if (!ensureSupabase()) return;
   const email = document.getElementById("admin-email").value;
   const password = document.getElementById("admin-password").value;
 
@@ -781,6 +826,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const btn = document.getElementById("send-comment");
   if (btn) btn.addEventListener("click", addComment);
+
+  window.addEventListener("online", () => {
+    supabaseEnabled = true;
+    supabaseNotified = false;
+    loadComments(window.currentSort);
+  });
 });
 
 window.addComment = addComment;
