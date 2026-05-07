@@ -236,6 +236,8 @@ const translations = {
       roleBuilder: "Community Builder",
       activityTitle: "Actividad Reciente",
       activityText: "Trabajando en cosas increíbles",
+      badgesTitle: "Insignias",
+      connectionsTitle: "Conexiones",
       commentsTitle: "Comentarios",
       commentNameLabel: "Nombre",
       commentMessageLabel: "Mensaje",
@@ -551,6 +553,8 @@ const translations = {
       roleBuilder: "Community Builder",
       activityTitle: "Recent Activity",
       activityText: "Working on amazing things",
+      badgesTitle: "Badges",
+      connectionsTitle: "Connections",
       commentsTitle: "Comments",
       commentNameLabel: "Name",
       commentMessageLabel: "Message",
@@ -1149,6 +1153,12 @@ function changeLanguage() {
 
     const pronounsLabel = document.querySelector('[data-lang="pronouns-label"]');
     if (pronounsLabel) pronounsLabel.textContent = trans.pronounsLabel;
+
+    const badgesTitle = document.querySelector('[data-lang="badges-title"]');
+    if (badgesTitle) badgesTitle.textContent = trans.badgesTitle;
+
+    const connectionsTitle = document.querySelector('[data-lang="connections-title"]');
+    if (connectionsTitle) connectionsTitle.textContent = trans.connectionsTitle;
 
     const adminOnline = document.querySelector('[data-lang="admin-online"]');
     if (adminOnline) adminOnline.textContent = trans.adminOnline;

@@ -89,186 +89,166 @@
         </svg>
         <span data-lang="skills-text">Habilidades</span>
       </a>
-      <button class="nav-button admin-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" id="admin-toggle">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 3l7.5 4v5.5c0 4.5-3.4 8.7-7.5 9.5-4.1-0.8-7.5-5-7.5-9.5V7l7.5-4z" />
-          <path d="M12 8v5" />
-          <path d="M12 16h.01" />
-        </svg>
-        <span>Admin</span>
-      </button>
       <button class="nav-button lang-button rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white transition hover:border-white/40 hover:bg-white/10" id="lang-toggle" data-lang="langButton" title="Cambiar idioma" aria-label="Cambiar idioma">🇺🇸</button>
     </div>
   </nav>
   <span id="lang-live" class="sr-only" aria-live="polite" aria-atomic="true"></span>
 
   <main id="main-content" class="relative z-10 mx-auto max-w-6xl px-6 pb-16" data-parallax="0.5">
-    <section class="page-hero grid gap-10 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-card lg:grid-cols-[0.85fr_1.15fr]">
-      <div class="space-y-6">
-        <div class="relative rounded-3xl border border-white/10 bg-white/10 p-6">
-          <img src="media/camilaProfile.png" alt="Foto de perfil" class="mx-auto h-40 w-40 rounded-3xl object-cover ring-2 ring-white/20" width="160" height="160" loading="eager" decoding="async">
-          <div class="mt-4 flex flex-wrap justify-center gap-3">
-            <span class="logo-tooltip" data-tooltip="MasivoSMP">
-              <img src="images/icons/masivo_iso.png" alt="Badge Masivo" class="h-10 w-10 rounded-2xl border border-white/20 object-cover" width="40" height="40" loading="lazy" decoding="async">
-            </span>
-            <span class="logo-tooltip" data-tooltip="ScreamingLAB">
-              <img src="media/proyectos/icon.png" alt="Badge ScreamingLAB" class="h-10 w-10 rounded-2xl border border-white/20 object-cover" width="40" height="40" loading="lazy" decoding="async">
-            </span>
-            <span class="logo-tooltip" data-tooltip="Hylamity">
-              <img src="media/proyectos/hylamity.jpg" alt="Badge Hylamity" class="h-10 w-10 rounded-2xl border border-white/20 object-cover" width="40" height="40" loading="lazy" decoding="async">
-            </span>
-          </div>
-        </div>
-        <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
-          <div id="admin-badge" class="admin-badge mb-3 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
-            <span class="admin-dot" aria-hidden="true"></span>
-            <span class="admin-text admin-text-online" data-lang="admin-presence-online">Admin Online</span>
-            <span class="admin-text admin-text-idle" data-lang="admin-presence-idle">Admin Idle</span>
-            <span class="admin-text admin-text-dnd" data-lang="admin-presence-dnd">Admin in DND</span>
-            <span class="admin-text admin-text-offline" data-lang="admin-presence-offline">Admin Offline</span>
-            <span class="admin-text admin-text-unavailable" data-lang="admin-presence-unavailable">Estado no disponible</span>
-          </div>
-          <div class="flex items-center gap-2 text-sm text-white/70">
-            🏳️‍⚧️ <span data-lang="pronouns-label">Pronombres:</span> <strong class="text-white">she/her</strong>
-          </div>
-        </div>
-      </div>
-
-      <div class="space-y-6">
-        <div>
-          <h1 class="profile-username font-display text-4xl font-semibold text-white">camila</h1>
-          <p class="profile-status mt-3 text-base text-white/80" data-lang="profile-status">Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team • Hylamity</p>
-        </div>
-        <div class="profile-bio rounded-3xl border border-white/10 bg-white/5 p-6">
-          <h3 class="font-display text-xl font-semibold"><span data-lang="about-title">Sobre mí</span></h3>
-          <p class="mt-3 text-sm text-white/75" data-lang="about-text">
-            👋 ¡Hola! Soy Camila, una apasionada desarrolladora de 18 años especializada en software para Minecraft y Hytale. 💻<br><br>
-            Me encanta crear mods, plugins y experiencias únicas para jugadores. <br><br>
-            Actualmente trabajo como Head Developer en <strong>ScreamingLAB</strong> y como Developer en <strong>MasivoSMP Team</strong>.
-          </p>
-        </div>
-        <div class="grid gap-6 md:grid-cols-2">
-          <div class="profile-roles rounded-3xl border border-white/10 bg-white/5 p-6">
-            <h4 class="font-display text-base font-semibold"><span data-lang="roles-title">Roles</span></h4>
-            <div class="roles-list mt-4 flex flex-wrap gap-2">
-              <span class="role" data-lang="role-developer">Developer</span>
-              <span class="role" data-lang="role-enthusiast">Minecraft Enthusiast</span>
-              <span class="role" data-lang="role-minecraft-dev">Minecraft Developer</span>
-              <span class="role" data-lang="role-hytale-dev">Hytale Developer</span>
+    <section class="page-hero rounded-3xl border border-white/10 bg-white/5 p-8 shadow-card" data-reveal>
+      <div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+        <div class="space-y-6">
+          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5">
+            <div class="absolute inset-0 bg-gradient-to-br from-white/10 via-neonCyan/10 to-neonPink/15"></div>
+            <div class="relative p-6">
+              <div class="flex flex-wrap items-end gap-4">
+                <div class="relative -mb-8">
+                  <img src="media/camilaProfile.png" alt="Foto de perfil" class="h-28 w-28 rounded-3xl border border-white/20 object-cover ring-4 ring-ink/80" width="112" height="112" loading="eager" decoding="async">
+                  <span class="absolute -bottom-1 -right-1 h-5 w-5 rounded-full border-2 border-ink bg-neonLime shadow-glow" aria-hidden="true"></span>
+                </div>
+                <div class="pb-2">
+                  <h1 class="profile-username font-display text-4xl font-semibold text-white">camila</h1>
+                  <p class="profile-status mt-2 text-sm text-white/80" data-lang="profile-status">Developer • Minecraft Plugins & Mods • ScreamingLAB • MasivoSMP Team • Hylamity</p>
+                </div>
+              </div>
+              <div class="mt-6">
+                <div class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60" data-lang="roles-title">Roles</div>
+                <div class="profile-roles-bar mt-4 flex flex-wrap gap-2 text-xs font-semibold text-white/80">
+                  <span class="discord-role inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 20v-2" />
+                      <path d="M8 22h8" />
+                      <path d="M6 4h12v8a6 6 0 01-12 0z" />
+                    </svg>
+                    Developer
+                  </span>
+                  <span class="discord-role inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M8 7h8" />
+                      <path d="M6 11h12" />
+                      <path d="M10 15h4" />
+                      <rect x="4" y="3" width="16" height="18" rx="2" />
+                    </svg>
+                    Minecraft
+                  </span>
+                  <span class="discord-role inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="8" />
+                      <path d="M4 12h16" />
+                      <path d="M12 4a12 12 0 010 16" />
+                      <path d="M12 4a12 12 0 000 16" />
+                    </svg>
+                    Hytale
+                  </span>
+                  <span class="discord-role inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 7h12v10H6z" />
+                      <path d="M9 7V5h6v2" />
+                      <path d="M9 17v2h6v-2" />
+                    </svg>
+                    Plugins
+                  </span>
+                  <span class="discord-role inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 3l7 4v8l-7 4-7-4V7z" />
+                      <path d="M12 7l4 2.3v5.4L12 17l-4-2.3V9.3z" />
+                    </svg>
+                    Mods
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="profile-activity rounded-3xl border border-white/10 bg-white/5 p-6">
-            <h4 class="font-display text-base font-semibold"><span data-lang="activity-title">Actividad Reciente</span></h4>
-            <p class="mt-3 text-sm text-white/75" data-lang="activity-text">Trabajando en cosas increíbles</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="profile-comments comments-section mt-10 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-card" data-reveal>
-      <h3 class="font-display text-xl font-semibold">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 6.75A2.25 2.25 0 016.25 4.5h11.5A2.25 2.25 0 0120 6.75v7.5A2.25 2.25 0 0117.75 16.5H9L4 20.25V6.75z" />
-          <path d="M8.5 9.5h7" />
-          <path d="M8.5 12.5h5" />
-        </svg>
-        <span data-lang="comments-title">Comentarios</span>
-      </h3>
-      <div class="comment-tools mt-4 flex flex-wrap items-center justify-between gap-3">
-        <div class="comment-tools-left text-xs font-semibold uppercase tracking-[0.3em] text-white/60" data-lang="comment-tools-title">Feedback</div>
-        <label class="comment-sort">
-          <span class="sr-only" data-lang="comment-sort-label">Ordenar comentarios</span>
-          <span class="sort-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M6 7h12" />
-              <path d="M6 12h9" />
-              <path d="M6 17h6" />
-            </svg>
-          </span>
-          <select id="comment-sort" class="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
-            <option value="recent" data-lang="comment-sort-recent">Recientes</option>
-            <option value="oldest" data-lang="comment-sort-oldest">Antiguos</option>
-            <option value="featured" data-lang="comment-sort-featured">Destacados</option>
-          </select>
-        </label>
-      </div>
-      <div class="comment-form mt-6">
-        <div class="comment-form-grid">
-          <div class="comment-field">
-            <label class="field-label" for="comment-name" data-lang="comment-name-label">Nombre</label>
-            <input type="text" id="comment-name" placeholder="Tu nombre" data-lang-placeholder="comment-name" class="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-white/90 placeholder:text-white/40">
+          <div class="profile-bio rounded-3xl border border-white/10 bg-white/5 p-6">
+            <h3 class="font-display text-xl font-semibold"><span data-lang="about-title">Sobre mí</span></h3>
+            <p class="mt-3 text-sm text-white/75" data-lang="about-text">
+              👋 ¡Hola! Soy Camila, una apasionada desarrolladora de 18 años especializada en software para Minecraft y Hytale. 💻<br><br>
+              Me encanta crear mods, plugins y experiencias únicas para jugadores. <br><br>
+              Actualmente trabajo como Head Developer en <strong>ScreamingLAB</strong> y como Developer en <strong>MasivoSMP Team</strong>.
+            </p>
           </div>
-          <div class="comment-field comment-field-message">
-            <label class="field-label" for="comment-message" data-lang="comment-message-label">Mensaje</label>
-            <textarea id="comment-message" placeholder="Escribí tu mensaje..." data-lang-placeholder="comment-message" class="min-h-[48px] rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-white/90 placeholder:text-white/40"></textarea>
-          </div>
-        </div>
-        <div class="comment-actions">
-          <button id="emoji-toggle" class="nav-button emoji-toggle rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-white/80" type="button" aria-expanded="false" aria-controls="emoji-panel" title="Emojis">😊</button>
-          <button id="send-comment" class="nav-button comment-submit rounded-2xl bg-neonPink px-6 py-3 text-sm font-semibold text-ink shadow-glow" data-lang="comment-send">Enviar</button>
-          <span id="comment-count" class="comment-count" aria-live="polite">0/500</span>
-        </div>
-        <div id="emoji-panel" class="emoji-panel" aria-hidden="true">
-          <div class="emoji-search">
-            <label class="field-label" for="emoji-search" data-lang="emoji-search-label">Buscar emojis</label>
-            <input id="emoji-search" type="search" placeholder="Buscar emojis" data-lang-placeholder="emoji-search" aria-label="Buscar emojis">
-          </div>
-          <div class="emoji-categories" role="tablist" aria-label="Categorias de emojis">
-            <button type="button" class="emoji-tab is-active" role="tab" aria-selected="true" data-group="recent">🕘</button>
-            <button type="button" class="emoji-tab" role="tab" aria-selected="false" data-group="faces">🙂</button>
-            <button type="button" class="emoji-tab" role="tab" aria-selected="false" data-group="gestures">✌️</button>
-            <button type="button" class="emoji-tab" role="tab" aria-selected="false" data-group="hearts">❤️</button>
-            <button type="button" class="emoji-tab" role="tab" aria-selected="false" data-group="food">🍜</button>
-            <button type="button" class="emoji-tab" role="tab" aria-selected="false" data-group="objects">🎮</button>
-            <button type="button" class="emoji-tab" role="tab" aria-selected="false" data-group="nature">🌿</button>
-            <button type="button" class="emoji-tab" role="tab" aria-selected="false" data-group="symbols">✨</button>
-          </div>
-          <div class="emoji-section">
-            <div class="emoji-section-header">
-              <span id="emoji-section-title">Recientes</span>
-              <button type="button" id="emoji-clear" class="emoji-clear" data-lang="emoji-clear">Borrar todo</button>
+
+          <div class="grid gap-6 md:grid-cols-2">
+            <div class="profile-roles rounded-3xl border border-white/10 bg-white/5 p-6">
+              <h4 class="font-display text-base font-semibold"><span data-lang="roles-title">Roles</span></h4>
+              <div class="roles-list mt-4 flex flex-wrap gap-2">
+                <span class="role" data-lang="role-developer">Developer</span>
+                <span class="role" data-lang="role-enthusiast">Minecraft Enthusiast</span>
+                <span class="role" data-lang="role-minecraft-dev">Minecraft Developer</span>
+                <span class="role" data-lang="role-hytale-dev">Hytale Developer</span>
+              </div>
             </div>
-            <div id="emoji-grid" class="emoji-grid" role="tabpanel"></div>
+            <div class="profile-activity rounded-3xl border border-white/10 bg-white/5 p-6">
+              <h4 class="font-display text-base font-semibold"><span data-lang="activity-title">Actividad Reciente</span></h4>
+              <p class="mt-3 text-sm text-white/75" data-lang="activity-text">Trabajando en cosas increíbles</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="comment-preview mt-6">
-        <div class="comment-preview-title" data-lang="comment-preview-title">Vista previa</div>
-        <div id="comment-preview-card" class="comment-preview-card">
-          <div class="comment-header">
-            <div class="comment-avatar">??</div>
-            <strong id="comment-preview-name" data-lang="comment-preview-name">Tu nombre</strong>
-            <span class="comment-time" data-lang="comment-preview-now">Ahora</span>
+
+        <aside class="space-y-6">
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+            <div id="admin-badge" class="admin-badge mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
+              <span class="admin-dot" aria-hidden="true"></span>
+              <span class="admin-text admin-text-online" data-lang="admin-presence-online">Admin Online</span>
+              <span class="admin-text admin-text-idle" data-lang="admin-presence-idle">Admin Idle</span>
+              <span class="admin-text admin-text-dnd" data-lang="admin-presence-dnd">Admin in DND</span>
+              <span class="admin-text admin-text-offline" data-lang="admin-presence-offline">Admin Offline</span>
+              <span class="admin-text admin-text-unavailable" data-lang="admin-presence-unavailable">Estado no disponible</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-white/70">
+              🏳️‍⚧️ <span data-lang="pronouns-label">Pronombres:</span> <strong class="text-white">she/her</strong>
+            </div>
+            <div class="mt-6">
+              <div class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60" data-lang="badges-title">Badges</div>
+              <div class="mt-4 flex flex-wrap gap-3">
+                <span class="logo-tooltip" data-tooltip="MasivoSMP">
+                  <img src="images/icons/masivo_iso.png" alt="Badge Masivo" class="h-10 w-10 rounded-2xl border border-white/20 object-cover" width="40" height="40" loading="lazy" decoding="async">
+                </span>
+                <span class="logo-tooltip" data-tooltip="ScreamingLAB">
+                  <img src="media/proyectos/icon.png" alt="Badge ScreamingLAB" class="h-10 w-10 rounded-2xl border border-white/20 object-cover" width="40" height="40" loading="lazy" decoding="async">
+                </span>
+                <span class="logo-tooltip" data-tooltip="Hylamity">
+                  <img src="media/proyectos/hylamity.jpg" alt="Badge Hylamity" class="h-10 w-10 rounded-2xl border border-white/20 object-cover" width="40" height="40" loading="lazy" decoding="async">
+                </span>
+              </div>
+            </div>
           </div>
-          <p id="comment-preview-message" data-lang="comment-preview-placeholder">Escribí tu mensaje para ver la vista previa.</p>
-        </div>
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+            <div class="text-xs font-semibold uppercase tracking-[0.3em] text-white/60" data-lang="connections-title">Conexiones</div>
+            <div class="mt-4 grid gap-3">
+              <a class="connection-card nav-button flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white/80 transition hover:border-white/30 hover:bg-white/10" href="https://github.com/Camil4Dev" target="_blank" rel="noopener noreferrer">
+                <span class="connection-icon flex h-9 w-9 items-center justify-center rounded-xl border border-white/15 bg-white/10">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                    <path d="M12 2a10 10 0 00-3.16 19.49c.5.1.68-.22.68-.48v-1.7c-2.77.6-3.35-1.19-3.35-1.19-.45-1.17-1.1-1.48-1.1-1.48-.9-.63.07-.62.07-.62 1 .07 1.53 1.03 1.53 1.03.9 1.54 2.36 1.1 2.94.84.09-.66.35-1.1.64-1.35-2.22-.25-4.56-1.1-4.56-4.95 0-1.1.4-2 .99-2.7-.1-.25-.43-1.27.1-2.64 0 0 .82-.26 2.7 1.02A9.3 9.3 0 0112 6.8c.85 0 1.7.12 2.5.34 1.88-1.28 2.7-1.02 2.7-1.02.53 1.37.2 2.39.1 2.64.62.7 1 1.6 1 2.7 0 3.86-2.34 4.7-4.57 4.95.36.3.68.9.68 1.83v2.72c0 .27.18.59.69.49A10 10 0 0012 2z" />
+                  </svg>
+                </span>
+                GitHub
+              </a>
+              <a class="connection-card nav-button flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white/80 transition hover:border-white/30 hover:bg-white/10" href="https://x.com/CamilaDev_" target="_blank" rel="noopener noreferrer">
+                <span class="connection-icon flex h-9 w-9 items-center justify-center rounded-xl border border-white/15 bg-white/10">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                    <path d="M18.9 2H21l-7.5 8.6L22 22h-6.6l-5.1-6.7L4.1 22H2l8.1-9.3L2 2h6.7l4.6 6.1L18.9 2zm-3.7 18h1.8L8.9 4H7.1l8.1 16z" />
+                  </svg>
+                </span>
+                X (Twitter)
+              </a>
+              <a class="connection-card nav-button flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white/80 transition hover:border-white/30 hover:bg-white/10" href="https://instagram.com/camila.cami.camiladev" target="_blank" rel="noopener noreferrer">
+                <span class="connection-icon flex h-9 w-9 items-center justify-center rounded-xl border border-white/15 bg-white/10">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="17" cy="7" r="1" />
+                  </svg>
+                </span>
+                Instagram
+              </a>
+            </div>
+          </div>
+        </aside>
       </div>
-      <div id="comments-list" class="comments-list mt-6 grid gap-4" aria-live="polite"></div>
     </section>
   </main>
-
-  <div id="login-modal" class="modal hidden">
-    <div class="modal-content">
-      <h3 class="font-display text-lg font-semibold">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 3l7.5 4v5.5c0 4.5-3.4 8.7-7.5 9.5-4.1-0.8-7.5-5-7.5-9.5V7l7.5-4z" />
-          <path d="M12 8v5" />
-          <path d="M12 16h.01" />
-        </svg>
-        <span data-lang="admin-login-title">Admin Login</span>
-      </h3>
-      <div class="mt-4 grid gap-3">
-        <label class="field-label" for="admin-email" data-lang="admin-email-label">Email</label>
-        <input type="email" id="admin-email" placeholder="Email" data-lang-placeholder="admin-email" class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm text-white/90 placeholder:text-white/40">
-        <label class="field-label" for="admin-password" data-lang="admin-password-label">Password</label>
-        <input type="password" id="admin-password" placeholder="Password" data-lang-placeholder="admin-password" class="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm text-white/90 placeholder:text-white/40">
-      </div>
-      <div class="modal-buttons">
-        <button id="admin-login-btn" class="nav-button rounded-2xl bg-neonCyan px-4 py-2 text-sm font-semibold text-ink" data-lang="admin-login-button">Entrar</button>
-        <button id="admin-cancel-btn" class="secondary nav-button rounded-2xl px-4 py-2 text-sm font-semibold text-white/80" data-lang="admin-cancel-button">Cancelar</button>
-      </div>
-    </div>
-  </div>
 
   <footer class="relative z-10 border-t border-white/10 px-6 py-8 text-center text-sm text-white/60">
     <p data-lang="footer">© 2026 camila — Minecraft Developer 🎶</p>
@@ -280,11 +260,7 @@
   <script src="Script/lang.js" defer></script>
   <script src="Script/ui.js" defer></script>
   <script src="Script/index.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-  <script src="Script/supabase.config.js" defer></script>
-  <script src="Script/comments.shared.js" defer></script>
   <script src="Script/presence.js" defer></script>
-  <script src="Script/comments.js" defer></script>
   <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>
