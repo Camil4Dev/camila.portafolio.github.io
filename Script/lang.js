@@ -243,6 +243,17 @@ const translations = {
       badgesTitle: "Insignias",
       connectionsTitle: "Conexiones",
       commentsTitle: "Comentarios",
+      profileAnimeTitle: "Anime",
+      profileAnimeCurrent: "Viendo",
+      profileAnimeCompleted: "Vistos",
+      profileAnimePaused: "Pausados",
+      profileAnimeDropped: "Droppeados",
+      profileAnimePlanning: "Planning",
+      profileAnimeLoading: "Cargando anime...",
+      profileAnimeEmpty: "No hay anime para mostrar.",
+      profileSongsTitle: "Canciones favoritas",
+      profileSongsLoading: "Cargando canciones...",
+      profileSongsEmpty: "Agregá tu playlist de Spotify para mostrar canciones.",
       commentNameLabel: "Nombre",
       commentMessageLabel: "Mensaje",
       emojiSearchLabel: "Buscar emojis",
@@ -564,6 +575,17 @@ const translations = {
       badgesTitle: "Badges",
       connectionsTitle: "Connections",
       commentsTitle: "Comments",
+      profileAnimeTitle: "Anime",
+      profileAnimeCurrent: "Watching",
+      profileAnimeCompleted: "Completed",
+      profileAnimePaused: "Paused",
+      profileAnimeDropped: "Dropped",
+      profileAnimePlanning: "Planning",
+      profileAnimeLoading: "Loading anime...",
+      profileAnimeEmpty: "No anime to show.",
+      profileSongsTitle: "Favorite songs",
+      profileSongsLoading: "Loading songs...",
+      profileSongsEmpty: "Add your Spotify playlist to show songs.",
       commentNameLabel: "Name",
       commentMessageLabel: "Message",
       emojiSearchLabel: "Search emojis",
@@ -1177,6 +1199,29 @@ function changeLanguage() {
 
     const connectionsTitle = document.querySelector('[data-lang="connections-title"]');
     if (connectionsTitle) connectionsTitle.textContent = trans.connectionsTitle;
+
+    const profileAnimeTitle = document.querySelector('[data-lang="profile-anime-title"]');
+    if (profileAnimeTitle) profileAnimeTitle.textContent = trans.profileAnimeTitle;
+    const profileAnimeCurrent = document.querySelector('[data-lang="profile-anime-current"]');
+    if (profileAnimeCurrent) profileAnimeCurrent.textContent = trans.profileAnimeCurrent;
+    const profileAnimeCompleted = document.querySelector('[data-lang="profile-anime-completed"]');
+    if (profileAnimeCompleted) profileAnimeCompleted.textContent = trans.profileAnimeCompleted;
+    const profileAnimePaused = document.querySelector('[data-lang="profile-anime-paused"]');
+    if (profileAnimePaused) profileAnimePaused.textContent = trans.profileAnimePaused;
+    const profileAnimeDropped = document.querySelector('[data-lang="profile-anime-dropped"]');
+    if (profileAnimeDropped) profileAnimeDropped.textContent = trans.profileAnimeDropped;
+    const profileAnimePlanning = document.querySelector('[data-lang="profile-anime-planning"]');
+    if (profileAnimePlanning) profileAnimePlanning.textContent = trans.profileAnimePlanning;
+    const profileAnimeLoading = document.querySelector('[data-lang="profile-anime-loading"]');
+    if (profileAnimeLoading) profileAnimeLoading.textContent = trans.profileAnimeLoading;
+    const profileAnimeEmpty = document.querySelector('[data-lang="profile-anime-empty"]');
+    if (profileAnimeEmpty) profileAnimeEmpty.textContent = trans.profileAnimeEmpty;
+    const profileSongsTitle = document.querySelector('[data-lang="profile-songs-title"]');
+    if (profileSongsTitle) profileSongsTitle.textContent = trans.profileSongsTitle;
+    const profileSongsLoading = document.querySelector('[data-lang="profile-songs-loading"]');
+    if (profileSongsLoading) profileSongsLoading.textContent = trans.profileSongsLoading;
+    const profileSongsEmpty = document.querySelector('[data-lang="profile-songs-empty"]');
+    if (profileSongsEmpty) profileSongsEmpty.textContent = trans.profileSongsEmpty;
 
     const adminOnline = document.querySelector('[data-lang="admin-online"]');
     if (adminOnline) adminOnline.textContent = trans.adminOnline;
