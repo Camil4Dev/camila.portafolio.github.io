@@ -37,44 +37,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/tailwind.css">
   <link rel="stylesheet" href="styles/tw.css">
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "camila.dev projects",
-      "url": "https://camila.portafolio.github.io/projects.html",
-      "itemListElement": [
-        {
-          "@type": "CreativeWork",
-          "position": 1,
-          "name": "Perfectamente equilibrado",
-          "inLanguage": "es",
-          "creator": {
-            "@type": "Person",
-            "name": "Camila"
-          }
-        },
-        {
-          "@type": "CreativeWork",
-          "position": 2,
-          "name": "Perspective Lock",
-          "creator": {
-            "@type": "Person",
-            "name": "Camila"
-          }
-        },
-        {
-          "@type": "CreativeWork",
-          "position": 3,
-          "name": "SCZombies",
-          "creator": {
-            "@type": "Person",
-            "name": "Camila"
-          }
-        }
-      ]
-    }
-  </script>
+  <script src="Script/projects-ld.js" defer></script>
 </head>
 
 <body class="font-body text-slate-100 bg-ink">
@@ -226,6 +189,18 @@
         </div>
       </a>
 
+      <a href="https://www.curseforge.com/hytale/mods/hylamity" target="_blank" rel="noopener noreferrer" class="project-link" data-tags="hytale,java">
+        <div class="project-card rounded-3xl border border-white/10 bg-white/5 p-5 shadow-card transition hover:-translate-y-1">
+          <img src="media/proyectos/hylamity.jpg" alt="Hylamity - mod Hytale" class="project-image w-full rounded-2xl" width="1280" height="720" loading="lazy" decoding="async">
+          <h3 class="mt-4 font-display text-lg font-semibold">Hylamity (Hytale Mod)</h3>
+          <p class="mt-2 text-sm text-white/70">Hylamity is a mod that brings reimagined and original content from the Calamity Mod and Terraria to the world of Hytale.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge">Java</span>
+            <span class="badge">Hytale</span>
+          </div>
+        </div>
+      </a>
+
       <div class="project-link disabled" aria-disabled="true" role="link" data-tags="web,html,css,js">
         <div class="project-card rounded-3xl border border-white/10 bg-white/5 p-5 shadow-card">
           <img src="media/proyectos/WEB.png" alt="Web portfolio - HTML CSS JavaScript" class="project-image w-full rounded-2xl" width="1280" height="720" loading="lazy" decoding="async">
@@ -243,6 +218,19 @@
           </div>
         </div>
       </div>
+
+      <a href="https://modrinth.com/plugin/quests-epic" target="_blank" rel="noopener noreferrer" class="project-link" data-tags="paper,folia,java">
+        <div class="project-card rounded-3xl border border-white/10 bg-white/5 p-5 shadow-card transition hover:-translate-y-1">
+          <img src="media/proyectos/Quests.png" alt="Quests Epic - plugin Paper/Folia" class="project-image w-full rounded-2xl" width="1280" height="720" loading="lazy" decoding="async">
+          <h3 class="mt-4 font-display text-lg font-semibold">Quests Epic (Paper/Folia)</h3>
+          <p class="mt-2 text-sm text-white/70">Plugin de misiones con GUI moderna, editor in-game, rotaciones diarias/semanales, reputacion por faccion y un sistema avanzado de recompensas, con integraciones y API para desarrolladores.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge">Java</span>
+            <span class="badge">Paper</span>
+            <span class="badge">Folia</span>
+          </div>
+        </div>
+      </a>
 
       <div class="project-link disabled" aria-disabled="true" role="link" data-tags="paper,java">
         <div class="project-card rounded-3xl border border-white/10 bg-white/5 p-5 shadow-card">
@@ -301,7 +289,7 @@
         </div>
       </a>
 
-      <div class="project-link disabled" aria-disabled="true" role="link" data-tags="paper,java">
+      <div class="project-link disabled" aria-disabled="true" role="link" data-tags="fabric,java">
         <div class="project-card rounded-3xl border border-white/10 bg-white/5 p-5 shadow-card">
           <img src="media/proyectos/heart_allay_fky.gif" alt="Stealing Hearts 2 - minijuego Fabric" class="project-image w-full rounded-2xl" width="1280" height="720" loading="lazy" decoding="async">
           <h3 class="mt-4 font-display text-lg font-semibold">Stealing Hearts 2 minijuego (Fabric 1.21.1)</h3>

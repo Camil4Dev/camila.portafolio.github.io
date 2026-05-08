@@ -124,18 +124,22 @@ const translations = {
       project6Desc: "Plugin el cual se usó para conectar todo con el mod de UHC VR.",
       project7Title: "ScreamingRTP (Hytale Mod)",
       project7Desc: "Mod de teletransportación aleatoria para Hytale que permite a los jugadores teleportarse a ubicaciones aleatorias en el mundo.",
-      project8Title: "Web Portfolio (HTML/CSS/JS)",
-      project8Desc: "Portafolio web interactivo con animaciones parallax y diseño responsivo, mostrando proyectos de desarrollo.",
-      project9Title: "Stealing Heart (minijuego) (Paper 1.20.4)",
-      project9Desc: "Minijuego del evento de LilithLuvsYa.",
-      project10Title: "SCZombies (Fabric 1.21.1)",
-      project10Desc: "Sistema avanzado y personalizado para spawnear hordas de zombies, mod usado para el evento de fin de año de farfadox y RichMC.",
-      project11Title: "ScreamingSupport (Paper 1.21.1)",
-      project11Desc: "Plugin el cual se encargaba de absolutamente todos los tickets ingame del evento de UHCVR de farfadox.",
-      project12Title: "PiruBlock (Fabric 1.21.1)",
-      project12Desc: "OneBlock desarrollado para piru y el grupo de los monos con mecánicas únicas y emocionantes al igual que eventos únicos.",
-      project13Title: "Stealing Hearts 2 minijuego (Fabric 1.21.1)",
-      project13Desc: "Minijuego de Stealing Hearts 1 porteado totalmente a Fabric 1.21.1 con ayuda de @kasecamii, @mragus5534, @JerejOwO, @bettendone y @PancraseaX.",
+      project8Title: "Hylamity (Hytale Mod)",
+      project8Desc: "Hylamity es un mod que trae contenido reimaginado y original del Calamity Mod y Terraria al mundo de Hytale.",
+      project9Title: "Web Portfolio (HTML/CSS/JS)",
+      project9Desc: "Portafolio web interactivo con animaciones parallax y diseño responsivo, mostrando proyectos de desarrollo.",
+      project10Title: "Quests Epic (Paper/Folia)",
+      project10Desc: "Plugin de misiones con GUI moderna, editor in-game, rotaciones diarias/semanales, reputación por facción y un sistema avanzado de recompensas, con integraciones y API para desarrolladores.",
+      project11Title: "Stealing Heart (minijuego) (Paper 1.20.4)",
+      project11Desc: "Minijuego del evento de LilithLuvsYa.",
+      project12Title: "SCZombies (Fabric 1.21.1)",
+      project12Desc: "Sistema avanzado y personalizado para spawnear hordas de zombies, mod usado para el evento de fin de año de farfadox y RichMC.",
+      project13Title: "ScreamingSupport (Paper 1.21.1)",
+      project13Desc: "Plugin el cual se encargaba de absolutamente todos los tickets ingame del evento de UHCVR de farfadox.",
+      project14Title: "PiruBlock (Fabric 1.21.1)",
+      project14Desc: "OneBlock desarrollado para piru y el grupo de los monos con mecánicas únicas y emocionantes al igual que eventos únicos.",
+      project15Title: "Stealing Hearts 2 minijuego (Fabric 1.21.1)",
+      project15Desc: "Minijuego de Stealing Hearts 1 porteado totalmente a Fabric 1.21.1 con ayuda de @kasecamii, @mragus5534, @JerejOwO, @bettendone y @PancraseaX.",
       projectPrivate: "Privado / NDA",
       metricConcurrent: "Concurrentes: Por definir",
       metricUptime: "Uptime: Por definir",
@@ -441,18 +445,22 @@ const translations = {
       project6Desc: "Plugin used to connect everything with the UHC VR mod",
       project7Title: "ScreamingRTP (Hytale Mod)",
       project7Desc: "Random teleportation mod for Hytale that allows players to teleport to random locations in the world.",
-      project8Title: "Web Portfolio (HTML/CSS/JS)",
-      project8Desc: "Interactive web portfolio with parallax animations and responsive design, showcasing development projects.",
-      project9Title: "Stealing Heart (minigame) (Paper 1.20.4)",
-      project9Desc: "Minigame from the LilithLuvsYa event.",
-      project10Title: "SCZombies (Fabric 1.21.1)",
-      project10Desc: "Advanced and customized system for spawning hordes of zombies, mod used for the year-end event of farfadox and RichMC.",
-      project11Title: "ScreamingSupport (Paper 1.21.1)",
-      project11Desc: "Plugin that handled absolutely all in-game tickets for the UHCVR event by farfadox.",
-      project12Title: "PiruBlock (Fabric 1.21.1)",
-      project12Desc: "OneBlock developed for piru and the monos group with unique mechanics and exciting events.",
-      project13Title: "Stealing Hearts 2 minigame (Fabric 1.21.1)",
-      project13Desc: "Stealing Hearts 1 minigame fully ported to Fabric 1.21.1 with help from @kasecamii, @mragus5534, @JerejOwO, @bettendone and @PancraseaX.",
+      project8Title: "Hylamity (Hytale Mod)",
+      project8Desc: "Hylamity is a mod that brings reimagined and original content from the Calamity Mod and Terraria to the world of Hytale.",
+      project9Title: "Web Portfolio (HTML/CSS/JS)",
+      project9Desc: "Interactive web portfolio with parallax animations and responsive design, showcasing development projects.",
+      project10Title: "Quests Epic (Paper/Folia)",
+      project10Desc: "Quest plugin with a modern GUI, in-game editor, daily/weekly rotations, faction reputation, and an advanced rewards system with integrations and a developer API.",
+      project11Title: "Stealing Heart (minigame) (Paper 1.20.4)",
+      project11Desc: "Minigame from the LilithLuvsYa event.",
+      project12Title: "SCZombies (Fabric 1.21.1)",
+      project12Desc: "Advanced and customized system for spawning hordes of zombies, mod used for the year-end event of farfadox and RichMC.",
+      project13Title: "ScreamingSupport (Paper 1.21.1)",
+      project13Desc: "Plugin that handled absolutely all in-game tickets for the UHCVR event by farfadox.",
+      project14Title: "PiruBlock (Fabric 1.21.1)",
+      project14Desc: "OneBlock developed for piru and the monos group with unique mechanics and exciting events.",
+      project15Title: "Stealing Hearts 2 minigame (Fabric 1.21.1)",
+      project15Desc: "Stealing Hearts 1 minigame fully ported to Fabric 1.21.1 with help from @kasecamii, @mragus5534, @JerejOwO, @bettendone and @PancraseaX.",
       projectPrivate: "Private / NDA",
       metricConcurrent: "Concurrent: TBD",
       metricUptime: "Uptime: TBD",
@@ -996,6 +1004,16 @@ function changeLanguage() {
     if (projectCards[12]) {
       projectCards[12].querySelector("h3").textContent = trans.project13Title;
       projectCards[12].querySelector("p").textContent = trans.project13Desc;
+    }
+
+    if (projectCards[13]) {
+      projectCards[13].querySelector("h3").textContent = trans.project14Title;
+      projectCards[13].querySelector("p").textContent = trans.project14Desc;
+    }
+
+    if (projectCards[14]) {
+      projectCards[14].querySelector("h3").textContent = trans.project15Title;
+      projectCards[14].querySelector("p").textContent = trans.project15Desc;
     }
 
     const metricConcurrent = document.querySelectorAll('[data-lang="metric-concurrent"]');
