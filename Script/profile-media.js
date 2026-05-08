@@ -228,6 +228,9 @@
     }
 
     trackIds.forEach((trackId) => {
+      const card = document.createElement("div");
+      card.className = "song-card";
+
       const iframe = document.createElement("iframe");
       iframe.src = `https://open.spotify.com/embed/track/${trackId}`;
       iframe.width = "100%";
@@ -235,7 +238,9 @@
       iframe.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
       iframe.loading = "lazy";
       iframe.className = "song-iframe";
-      if (songsContent) songsContent.appendChild(iframe);
+
+      card.appendChild(iframe);
+      if (songsContent) songsContent.appendChild(card);
     });
   }
 
