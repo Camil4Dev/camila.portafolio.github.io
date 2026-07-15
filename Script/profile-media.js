@@ -232,9 +232,9 @@
       card.className = "song-card";
 
       const iframe = document.createElement("iframe");
-      iframe.src = `https://open.spotify.com/embed/track/${trackId}`;
+      iframe.src = `https://open.spotify.com/embed/track/${trackId}?theme=0`;
       iframe.width = "100%";
-      iframe.height = "152";
+      iframe.height = "80";
       iframe.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
       iframe.loading = "lazy";
       iframe.className = "song-iframe";
