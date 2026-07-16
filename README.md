@@ -5,17 +5,17 @@ portfolio camilaDev
 Install dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
 Build CSS once:
 
 ```bash
-npm run build:css
+pnpm run build:css
 ```
 
 Watch during development:
 
 ```bash
-npm run watch:css
+pnpm run watch:css
 ```
