@@ -71,6 +71,15 @@
       }
     }
 
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    $$('a.nav-button').forEach((a) => {
+      const href = (a.getAttribute('href') || '').split('#')[0].split('/').pop();
+      if (href && href === currentPage) {
+        a.classList.add('nav-active');
+        a.setAttribute('aria-current', 'page');
+      }
+    });
+
     $$('a, .nav-button').forEach((a) => {
       try {
         const href = a.getAttribute('href');

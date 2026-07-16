@@ -9,6 +9,8 @@
     const summaryBox = document.getElementById('brief-summary-box');
     const summaryPre = document.getElementById('brief-summary');
 
+    const submitBtn = briefForm.querySelector('[type="submit"]');
+
     const uiText = {
       es: {
         blocked: 'Solicitud bloqueada.',
@@ -19,6 +21,7 @@
         copied: 'Resumen copiado al portapapeles.',
         copyError: 'No pude copiar automaticamente. Copialo manualmente.',
         copyFirst: 'Primero completá el brief para generar el resumen.',
+        sending: 'Preparando...',
         name: 'Nombre',
         type: 'Tipo',
         budget: 'Presupuesto',
@@ -34,11 +37,26 @@
         copied: 'Summary copied to clipboard.',
         copyError: 'Could not copy automatically. Please copy it manually.',
         copyFirst: 'Complete the brief first to generate the summary.',
+        sending: 'Preparing...',
         name: 'Name',
         type: 'Type',
         budget: 'Budget',
         channel: 'Preferred channel',
         goal: 'Goal'
+      }
+    };
+
+    const setLoading = (loading) => {
+      if (!submitBtn) return;
+      if (loading) {
+        submitBtn._originalText = submitBtn.textContent;
+        submitBtn.textContent = getUiText().sending;
+        submitBtn.disabled = true;
+        submitBtn.classList.add('is-loading');
+      } else {
+        submitBtn.textContent = submitBtn._originalText || submitBtn.textContent;
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('is-loading');
       }
     };
 
@@ -150,6 +168,8 @@
         return;
       }
 
+      setLoading(true);
+
       const summary = buildBriefSummary(payload);
       updateSummary(summary);
 
@@ -158,6 +178,8 @@
         : `Nuevo proyecto desde camila.dev - ${payload.type}`;
 
       openEmailDraft(subject, summary);
+
+      setTimeout(() => setLoading(false), 2000);
     });
   });
 })();

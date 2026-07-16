@@ -31,6 +31,20 @@ const translations = {
       service3Text: "Arquitecturas para eventos, progresión y economía.",
       service4Title: "Hytale",
       service4Text: "Mods y herramientas experimentales para proyectos nuevos.",
+      service1Example: "Ej: Quests Epic, Perfectamente equilibrado",
+      service2Example: "Ej: MineWebUI, Perspective Lock, PiruBlock",
+      service3Example: "Ej: SCZombies, Stealing Hearts 1 & 2",
+      service4Example: "Ej: ScreamingRTP, Hylamity",
+      clientsTitle: "Con quiénes trabajé",
+      clientsSubtitle: "Equipos y proyectos donde participé como desarrolladora.",
+      clientsMore: "Ver colaboraciones →",
+      clientsRoleScreaming: "Head Developer · dic 2024 → presente",
+      clientsRoleMasivo: "Consultant · sep 2025 → presente",
+      clientsRoleHylamity: "Developer · feb 2026 → presente",
+      clientsRoleHexa: "Developer · mar–may 2025",
+      heroPreviousMore: "Ver todos",
+      contactDiscordHint: "Respuesta más rápida",
+      contactXHint: "DM abierto",
       stackTitle: "Stack favorito",
       stackJava: "Java",
       stackPaper: "Paper",
@@ -51,6 +65,7 @@ const translations = {
       contactStatusLabel: "Estado Discord",
       briefTitle: "Brief rapido del proyecto",
       briefCopy: "Completa esto y te devuelvo alcance, tiempos y presupuesto inicial.",
+      briefDestination: "Vas a recibir respuesta por el canal que elijas — Discord o email — en 24 a 48 horas hábiles.",
       briefNameLabel: "Nombre",
       briefTypeLabel: "Tipo de proyecto",
       briefChannelLabel: "Canal preferido",
@@ -138,8 +153,10 @@ const translations = {
       project13Desc: "Plugin el cual se encargaba de absolutamente todos los tickets ingame del evento de UHCVR de farfadox.",
       project14Title: "PiruBlock (Fabric 1.21.1)",
       project14Desc: "OneBlock desarrollado para piru y el grupo de los monos con mecánicas únicas y emocionantes al igual que eventos únicos.",
-      project15Title: "Stealing Hearts 2 minijuego (Fabric 1.21.1)",
-      project15Desc: "Minijuego de Stealing Hearts 1 porteado totalmente a Fabric 1.21.1 con ayuda de @kasecamii, @mragus5534, @JerejOwO, @bettendone y @PancraseaX.",
+      project15Title: "MineWebUI (Fabric 1.21.1)",
+      project15Desc: "Mod de Fabric que permite crear interfaces personalizadas en Minecraft usando HTML, CSS y JavaScript. Soporta Screens de pantalla completa y HUDs persistentes sobre el gameplay, con acceso a datos del jugador, motor de layout flexbox y runtime JavaScript via GraalVM.",
+      project16Title: "Stealing Hearts 2 minijuego (Fabric 1.21.1)",
+      project16Desc: "Minijuego de Stealing Hearts 1 porteado totalmente a Fabric 1.21.1 con ayuda de @kasecamii, @mragus5534, @JerejOwO, @bettendone y @PancraseaX.",
       projectPrivate: "Privado / NDA",
       metricConcurrent: "Concurrentes: Por definir",
       metricUptime: "Uptime: Por definir",
@@ -363,6 +380,20 @@ const translations = {
       service3Text: "Architectures for events, progression, and economy.",
       service4Title: "Hytale",
       service4Text: "Experimental mods and tools for new projects.",
+      service1Example: "E.g: Quests Epic, Perfectly Balanced",
+      service2Example: "E.g: MineWebUI, Perspective Lock, PiruBlock",
+      service3Example: "E.g: SCZombies, Stealing Hearts 1 & 2",
+      service4Example: "E.g: ScreamingRTP, Hylamity",
+      clientsTitle: "Who I've worked with",
+      clientsSubtitle: "Teams and projects where I participated as a developer.",
+      clientsMore: "See collaborations →",
+      clientsRoleScreaming: "Head Developer · Dec 2024 → present",
+      clientsRoleMasivo: "Consultant · Sep 2025 → present",
+      clientsRoleHylamity: "Developer · Feb 2026 → present",
+      clientsRoleHexa: "Developer · Mar–May 2025",
+      heroPreviousMore: "View all",
+      contactDiscordHint: "Fastest response",
+      contactXHint: "DM open",
       stackTitle: "Favorite stack",
       stackJava: "Java",
       stackPaper: "Paper",
@@ -383,6 +414,7 @@ const translations = {
       contactStatusLabel: "Discord status",
       briefTitle: "Quick project brief",
       briefCopy: "Fill this in and I will reply with scope, timeline, and initial budget.",
+      briefDestination: "You'll receive a reply through your chosen channel — Discord or email — within 24 to 48 business hours.",
       briefNameLabel: "Name",
       briefTypeLabel: "Project type",
       briefChannelLabel: "Preferred channel",
@@ -470,8 +502,10 @@ const translations = {
       project13Desc: "Plugin that handled absolutely all in-game tickets for the UHCVR event by farfadox.",
       project14Title: "PiruBlock (Fabric 1.21.1)",
       project14Desc: "OneBlock developed for piru and the monos group with unique mechanics and exciting events.",
-      project15Title: "Stealing Hearts 2 minigame (Fabric 1.21.1)",
-      project15Desc: "Stealing Hearts 1 minigame fully ported to Fabric 1.21.1 with help from @kasecamii, @mragus5534, @JerejOwO, @bettendone and @PancraseaX.",
+      project15Title: "MineWebUI (Fabric 1.21.1)",
+      project15Desc: "Fabric mod that lets developers create custom Minecraft interfaces using HTML, CSS and JavaScript. Supports fullscreen Screens and persistent HUD overlays, with access to player data, a flexbox layout engine and a JavaScript runtime via GraalVM.",
+      project16Title: "Stealing Hearts 2 minigame (Fabric 1.21.1)",
+      project16Desc: "Stealing Hearts 1 minigame fully ported to Fabric 1.21.1 with help from @kasecamii, @mragus5534, @JerejOwO, @bettendone and @PancraseaX.",
       projectPrivate: "Private / NDA",
       metricConcurrent: "Concurrent: TBD",
       metricUptime: "Uptime: TBD",
@@ -824,6 +858,37 @@ function changeLanguage() {
     const service4Text = document.querySelector('[data-lang="service-4-text"]');
     if (service4Text) service4Text.textContent = trans.service4Text;
 
+    const service1Example = document.querySelector('[data-lang="service-1-example"]');
+    if (service1Example) service1Example.childNodes[service1Example.childNodes.length - 1].textContent = " " + trans.service1Example;
+    const service2Example = document.querySelector('[data-lang="service-2-example"]');
+    if (service2Example) service2Example.childNodes[service2Example.childNodes.length - 1].textContent = " " + trans.service2Example;
+    const service3Example = document.querySelector('[data-lang="service-3-example"]');
+    if (service3Example) service3Example.childNodes[service3Example.childNodes.length - 1].textContent = " " + trans.service3Example;
+    const service4Example = document.querySelector('[data-lang="service-4-example"]');
+    if (service4Example) service4Example.childNodes[service4Example.childNodes.length - 1].textContent = " " + trans.service4Example;
+
+    const clientsTitle = document.querySelector('[data-lang="clients-title"]');
+    if (clientsTitle) clientsTitle.textContent = trans.clientsTitle;
+    const clientsSubtitle = document.querySelector('[data-lang="clients-subtitle"]');
+    if (clientsSubtitle) clientsSubtitle.textContent = trans.clientsSubtitle;
+    const clientsMore = document.querySelector('[data-lang="clients-more"]');
+    if (clientsMore) clientsMore.textContent = trans.clientsMore;
+    const clientsRoleScreaming = document.querySelector('[data-lang="clients-role-screaming"]');
+    if (clientsRoleScreaming) clientsRoleScreaming.textContent = trans.clientsRoleScreaming;
+    const clientsRoleMasivo = document.querySelector('[data-lang="clients-role-masivo"]');
+    if (clientsRoleMasivo) clientsRoleMasivo.textContent = trans.clientsRoleMasivo;
+    const clientsRoleHylamity = document.querySelector('[data-lang="clients-role-hylamity"]');
+    if (clientsRoleHylamity) clientsRoleHylamity.textContent = trans.clientsRoleHylamity;
+    const clientsRoleHexa = document.querySelector('[data-lang="clients-role-hexa"]');
+    if (clientsRoleHexa) clientsRoleHexa.textContent = trans.clientsRoleHexa;
+
+    const heroPreviousMore = document.querySelector('[data-lang="hero-preview-more"]');
+    if (heroPreviousMore) heroPreviousMore.textContent = trans.heroPreviousMore;
+    const contactDiscordHint = document.querySelector('[data-lang="contact-discord-hint"]');
+    if (contactDiscordHint) contactDiscordHint.textContent = trans.contactDiscordHint;
+    const contactXHint = document.querySelector('[data-lang="contact-x-hint"]');
+    if (contactXHint) contactXHint.textContent = trans.contactXHint;
+
     const stackTitle = document.querySelector('[data-lang="stack-title"]');
     if (stackTitle) stackTitle.textContent = trans.stackTitle;
     const stackJava = document.querySelector('[data-lang="stack-java"]');
@@ -873,6 +938,8 @@ function changeLanguage() {
     if (briefTitle) briefTitle.textContent = trans.briefTitle;
     const briefCopy = document.querySelector('[data-lang="brief-copy"]');
     if (briefCopy) briefCopy.textContent = trans.briefCopy;
+    const briefDestination = document.querySelector('[data-lang="brief-destination"]');
+    if (briefDestination) briefDestination.textContent = trans.briefDestination;
     const briefNameLabel = document.querySelector('[data-lang="brief-name-label"]');
     if (briefNameLabel) briefNameLabel.textContent = trans.briefNameLabel;
     const briefNameInput = document.getElementById('brief-name');
@@ -1036,6 +1103,11 @@ function changeLanguage() {
     if (projectCards[14]) {
       projectCards[14].querySelector("h3").textContent = trans.project15Title;
       projectCards[14].querySelector("p").textContent = trans.project15Desc;
+    }
+
+    if (projectCards[15]) {
+      projectCards[15].querySelector("h3").textContent = trans.project16Title;
+      projectCards[15].querySelector("p").textContent = trans.project16Desc;
     }
 
     const metricConcurrent = document.querySelectorAll('[data-lang="metric-concurrent"]');
