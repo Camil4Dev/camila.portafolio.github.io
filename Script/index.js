@@ -63,7 +63,9 @@ class Particle {
   draw() {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(214,185,40,${this.opacity})`;
+    const roll = (this.x * 13 + this.y * 7) % 3;
+    const base = roll < 2 ? '116,172,223' : '246,180,14';
+    ctx.fillStyle = `rgba(${base},${this.opacity})`;
     ctx.fill();
   }
 }

@@ -65,9 +65,9 @@
   const qualityFactor = (deviceMemory <= 4 || cpuCores <= 4) ? 0.65 : 0.9;
 
   const LAYERS = [
-    { count: Math.round(18 * qualityFactor), size: 80, speed: 0.08, color: 'rgba(214,185,40,0.14)' },
-    { count: Math.round(42 * qualityFactor), size: 45, speed: 0.22, color: 'rgba(214,185,40,0.22)' },
-    { count: Math.round(100 * qualityFactor), size: 20, speed: 0.5, color: 'rgba(214,185,40,0.32)' }
+    { count: Math.round(18 * qualityFactor), size: 80, speed: 0.08, color: 'rgba(116,172,223,0.13)' },
+    { count: Math.round(42 * qualityFactor), size: 45, speed: 0.22, color: 'rgba(116,172,223,0.20)' },
+    { count: Math.round(100 * qualityFactor), size: 20, speed: 0.5, color: 'rgba(255,255,255,0.18)' }
   ];
 
   const FLOATING_BASE = Math.round(60 * qualityFactor);
@@ -176,7 +176,7 @@
         if (obj.y < -10 || obj.y > window.innerHeight + 10) obj.y = Math.random() * window.innerHeight;
 
         ctx.globalAlpha = obj.opacity;
-        ctx.fillStyle = 'rgba(214,185,40,1)';
+        ctx.fillStyle = Math.random() > 0.4 ? 'rgba(116,172,223,1)' : 'rgba(246,180,14,1)';
         ctx.beginPath();
         ctx.arc(obj.x, obj.y, obj.size, 0, Math.PI * 2);
         ctx.fill();

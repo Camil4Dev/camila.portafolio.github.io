@@ -70,11 +70,8 @@
 
 <body class="font-body text-slate-100 bg-ink">
   <a class="skip-link" href="#main-content">Saltar al contenido</a>
-  <div class="pointer-events-none fixed inset-0 -z-30 overflow-hidden">
-    <div class="absolute -top-32 -left-24 h-80 w-80 rounded-full bg-neonPink/30 blur-3xl"></div>
-    <div class="absolute top-20 right-0 h-96 w-96 rounded-full bg-neonCyan/25 blur-3xl"></div>
-    <div class="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-neonLime/20 blur-3xl"></div>
-  </div>
+  <div class="pointer-events-none fixed inset-0 -z-30" style="background:linear-gradient(to bottom, rgba(116,172,223,0.22) 0%, rgba(116,172,223,0.08) 30%, rgba(255,255,255,0.06) 50%, rgba(116,172,223,0.08) 70%, rgba(116,172,223,0.22) 100%)"></div>
+  <div class="pointer-events-none fixed -z-29" style="top:35%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;border-radius:9999px;background:radial-gradient(circle, rgba(246,180,14,0.18) 0%, rgba(246,180,14,0.06) 50%, transparent 70%);filter:blur(60px)"></div>
 
   <canvas id="parallaxCanvas" class="fixed inset-0 -z-20"></canvas>
   <canvas id="particles" class="fixed inset-0 -z-10 opacity-70"></canvas>
@@ -126,25 +123,28 @@
           <a href="projects.html" class="nav-button secondary rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/50" data-lang="cta-projects">Ver proyectos</a>
         </div>
 
-        <div class="hero-previews mt-2">
-          <a href="projects.html" class="hero-preview-item" aria-label="Ver Quests Epic">
-            <img src="media/proyectos/Quests.png" alt="Quests Epic" loading="lazy" decoding="async">
-            <span class="hero-preview-label">Quests Epic</span>
-          </a>
-          <a href="projects.html" class="hero-preview-item" aria-label="Ver PiruBlock">
-            <img src="media/proyectos/oneblock.png" alt="PiruBlock" loading="lazy" decoding="async">
-            <span class="hero-preview-label">PiruBlock</span>
-          </a>
-          <a href="projects.html" class="hero-preview-item" aria-label="Ver Perspective Lock">
-            <img src="media/proyectos/PerspectiveLock.png" alt="Perspective Lock" loading="lazy" decoding="async">
-            <span class="hero-preview-label">Perspective Lock</span>
-          </a>
-          <a href="projects.html" class="hero-preview-item" aria-label="Ver más proyectos">
-            <div class="hero-preview-more">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </div>
-            <span class="hero-preview-label" data-lang="hero-preview-more">Ver todos</span>
-          </a>
+        <div class="mt-4">
+          <p class="hero-previews-kicker" data-lang="hero-previews-kicker">Últimos proyectos</p>
+          <div class="hero-previews mt-2">
+            <a href="projects.html" class="hero-preview-item" aria-label="Ver Quests Epic">
+              <img src="media/proyectos/Quests.png" alt="Quests Epic" loading="lazy" decoding="async">
+              <span class="hero-preview-label">Quests Epic</span>
+            </a>
+            <a href="projects.html" class="hero-preview-item" aria-label="Ver PiruBlock">
+              <img src="media/proyectos/oneblock.png" alt="PiruBlock" loading="lazy" decoding="async">
+              <span class="hero-preview-label">PiruBlock</span>
+            </a>
+            <a href="projects.html" class="hero-preview-item" aria-label="Ver Perspective Lock">
+              <img src="media/proyectos/PerspectiveLock.png" alt="Perspective Lock" loading="lazy" decoding="async">
+              <span class="hero-preview-label">Perspective Lock</span>
+            </a>
+            <a href="projects.html" class="hero-preview-item" aria-label="Ver más proyectos">
+              <div class="hero-preview-more">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+              <span class="hero-preview-label" data-lang="hero-preview-more">Ver todos</span>
+            </a>
+          </div>
         </div>
 
         <div class="flex flex-wrap items-center gap-4 text-lg text-white/70">
@@ -203,17 +203,41 @@
       </div>
     </header>
 
+    <section class="stats mx-auto max-w-6xl px-6 pt-4 pb-2" data-parallax="0.72" data-reveal>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">15+</span>
+          <span class="stat-label" data-lang="stat-projects">proyectos completados</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">4</span>
+          <span class="stat-label" data-lang="stat-teams">equipos con los que trabajé</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2+</span>
+          <span class="stat-label" data-lang="stat-years">años de experiencia</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">24-48h</span>
+          <span class="stat-label" data-lang="stat-response">tiempo de respuesta</span>
+        </div>
+      </div>
+    </section>
+
     <section class="about mx-auto max-w-6xl px-6 py-12" data-parallax="0.7" data-reveal>
       <div class="grid gap-8 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-card md:grid-cols-[0.6fr_1fr]">
-        <h2 class="font-display text-2xl font-semibold text-white">Sobre mí</h2>
-        <p class="text-base text-white/75">
-          Soy desarrolladora especializada en la creación de <strong>plugins para Paper</strong>,
-          <strong>mods Fabric</strong> y sistemas avanzados para servidores.
-          Trabajo con Mixin, GeckoLib, entidades personalizadas, packets, mundos dinámicos
-          y mecánicas complejas para minijuegos.
-          <br><br>
-          Actualmente desarrollo en <strong>ScreamingLAB</strong> y colaboro en proyectos privados.
-        </p>
+        <div>
+          <h2 class="font-display text-2xl font-semibold text-white" data-lang="about-title">Cómo trabajo</h2>
+          <div class="mt-3 inline-flex items-center gap-2 rounded-full border border-neonLime/25 bg-neonLime/10 px-3 py-1 text-xs font-semibold text-neonLime/80">
+            <span class="h-1.5 w-1.5 rounded-full bg-neonLime"></span>
+            <span data-lang="about-status">Disponible ahora</span>
+          </div>
+        </div>
+        <div class="space-y-4 text-base text-white/75">
+          <p data-lang="about-p1">Arranco con un brief corto para entender el objetivo, no solo los requisitos técnicos. Propongo alcance, tiempos y presupuesto en el primer mensaje.</p>
+          <p data-lang="about-p2">Entrego por hitos con builds intermedias. Sin sorpresas al final — si algo cambia, lo hablo antes de seguir.</p>
+          <p data-lang="about-p3">Trabajo con Mixin, GeckoLib, packets, mundos dinámicos y mecánicas de minijuegos. Si necesitás algo específico, preguntá.</p>
+        </div>
       </div>
     </section>
 
@@ -318,23 +342,6 @@
       </div>
     </section>
 
-    <section id="availability" class="availability-section mx-auto max-w-6xl px-6 py-12" data-parallax="0.62" data-reveal>
-      <div class="availability-card grid gap-6 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-card md:grid-cols-[1.1fr_0.9fr]">
-        <div>
-          <h2 class="font-display text-2xl font-semibold" data-lang="availability-title">Disponibilidad</h2>
-          <p class="mt-3 text-white/75" data-lang="availability-copy">
-            Estoy tomando proyectos nuevos. Respondo en 24 a 48 horas y propongo un plan claro desde el primer mensaje.
-          </p>
-        </div>
-        <div class="availability-status rounded-2xl border border-white/10 bg-white/10 p-4">
-          <div class="availability-label text-xs font-semibold uppercase tracking-[0.3em] text-white/70" data-lang="availability-label">Estado</div>
-          <div class="availability-pill mt-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white">
-            <span class="availability-dot" aria-hidden="true"></span>
-            <span data-lang="availability-status">Disponible para nuevos proyectos</span>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section id="contact" class="contact mx-auto max-w-6xl px-6 py-14" data-parallax="0.6" data-reveal>
 
@@ -471,7 +478,10 @@
     <p>© 2026 camila — Minecraft Developer 🎶</p>
   </footer>
 
-  <a href="#contact" class="cta-float" data-lang="cta-fixed" aria-label="Contratar">Contratar</a>
+  <a href="https://discord.com/users/932721517995888650" target="_blank" rel="noopener noreferrer" class="cta-float" aria-label="Escribir por Discord">
+    <svg style="width:1rem;height:1rem;margin-right:0.45rem;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.25 5.25h13.5A2.25 2.25 0 0121 7.5v7.5a2.25 2.25 0 01-2.25 2.25H9l-5.25 3V7.5A2.25 2.25 0 015.25 5.25z"/></svg>
+    <span data-lang="cta-fixed">Discord</span>
+  </a>
 
   <script src="Script/Parallax.js" defer></script>
   <script src="Script/lang.js" defer></script>

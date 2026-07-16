@@ -18,8 +18,16 @@ const translations = {
       infoStackValue: "Java / Fabric / Paper",
       infoCollabLabel: "Colaboraciones",
       infoCollabValue: "Eventos a medida",
-      aboutTitle: "Sobre mí",
-      aboutText: "Soy desarrolladora especializada en la creación de <strong>plugins para Paper</strong>, <strong>mods Fabric</strong> y sistemas avanzados para servidores. Trabajo con Mixin, GeckoLib, entidades personalizadas, packets, mundos dinámicos y mecánicas complejas para minijuegos. <br><br> Actualmente desarrollo en <strong>ScreamingLAB</strong> y colaboro en proyectos privados.",
+      statProjects: "proyectos completados",
+      statTeams: "equipos con los que trabajé",
+      statYears: "años de experiencia",
+      statResponse: "tiempo de respuesta",
+      aboutTitle: "Cómo trabajo",
+      aboutStatus: "Disponible ahora",
+      aboutP1: "Arranco con un brief corto para entender el objetivo, no solo los requisitos técnicos. Propongo alcance, tiempos y presupuesto en el primer mensaje.",
+      aboutP2: "Entrego por hitos con builds intermedias. Sin sorpresas al final — si algo cambia, lo hablo antes de seguir.",
+      aboutP3: "Trabajo con Mixin, GeckoLib, packets, mundos dinámicos y mecánicas de minijuegos. Si necesitás algo específico, preguntá.",
+      heroPreviews_kicker: "Últimos proyectos",
       servicesTitle: "Servicios",
       servicesSubtitle: "Soluciones a medida para servidores y comunidades.",
       servicesBadge: "Plugins, mods, eventos",
@@ -110,7 +118,7 @@ const translations = {
       contactXTitle: "Abrir perfil en X",
       briefNamePlaceholder: "Tu nombre",
       briefMessagePlaceholder: "Contame qué querés construir, fecha ideal y requisitos clave.",
-      ctaFixed: "Contratar",
+      ctaFixed: "Discord",
       langButton: "🇺🇸",
       langLive: "Idioma actualizado."
     },
@@ -171,7 +179,7 @@ const translations = {
       projectsFiltersAria: "Filtros de proyectos",
       backButton: "← Volver al Inicio",
       footer: "© 2026 camila — Minecraft Developer 🎶",
-      ctaFixed: "Contratar",
+      ctaFixed: "Discord",
       langButton: "🇺🇸",
       langLive: "Idioma actualizado."
     },
@@ -231,7 +239,7 @@ const translations = {
       projectsTitleLink: "Ver Proyectos",
       langToggleLabel: "Cambiar idioma",
       footer: "© 2026 camila — Minecraft Developer 🎶",
-      ctaFixed: "Contratar",
+      ctaFixed: "Discord",
       langButton: "🇺🇸",
       langLive: "Idioma actualizado."
     },
@@ -342,7 +350,7 @@ const translations = {
       langToggleLabel: "Cambiar idioma",
       emojiCategoriesLabel: "Categorias de emojis",
       pronounsLabel: "Pronombres:",
-      ctaFixed: "Contratar",
+      ctaFixed: "Discord",
       langButton: "🇺🇸",
       langLive: "Idioma actualizado."
     }
@@ -367,8 +375,16 @@ const translations = {
       infoStackValue: "Java / Fabric / Paper",
       infoCollabLabel: "Collaborations",
       infoCollabValue: "Custom events",
-      aboutTitle: "About Me",
-      aboutText: "I am a developer specialized in creating <strong>Paper plugins</strong>, <strong>Fabric mods</strong>, and advanced server systems. I work with Mixin, GeckoLib, custom entities, packets, dynamic worlds, and complex minigame mechanics. <br><br> Currently developing at <strong>ScreamingLAB</strong> and collaborating on private projects.",
+      statProjects: "completed projects",
+      statTeams: "teams I've worked with",
+      statYears: "years of experience",
+      statResponse: "response time",
+      aboutTitle: "How I work",
+      aboutStatus: "Available now",
+      aboutP1: "I start with a short brief to understand the goal, not just the technical requirements. I propose scope, timeline, and budget in the first message.",
+      aboutP2: "I deliver in milestones with intermediate builds. No surprises at the end — if something changes, I discuss it before continuing.",
+      aboutP3: "I work with Mixin, GeckoLib, packets, dynamic worlds, and minigame mechanics. If you need something specific, just ask.",
+      heroPreviews_kicker: "Latest projects",
       servicesTitle: "Services",
       servicesSubtitle: "Custom solutions for servers and communities.",
       servicesBadge: "Plugins, mods, events",
@@ -459,7 +475,7 @@ const translations = {
       contactXTitle: "Open X profile",
       briefNamePlaceholder: "Your name",
       briefMessagePlaceholder: "Tell me what you want to build, ideal date, and key requirements.",
-      ctaFixed: "Hire me",
+      ctaFixed: "Discord",
       langButton: "🇪🇸",
       langLive: "Language updated."
     },
@@ -520,7 +536,7 @@ const translations = {
       projectsFiltersAria: "Project filters",
       backButton: "← Back to Home",
       footer: "© 2026 camila — Minecraft Developer 🎶",
-      ctaFixed: "Hire me",
+      ctaFixed: "Discord",
       langButton: "🇪🇸",
       langLive: "Language updated."
     },
@@ -580,7 +596,7 @@ const translations = {
       projectsTitleLink: "View projects",
       langToggleLabel: "Switch language",
       footer: "© 2026 camila — Minecraft Developer 🎶",
-      ctaFixed: "Hire me",
+      ctaFixed: "Discord",
       langButton: "🇪🇸",
       langLive: "Language updated."
     },
@@ -691,7 +707,7 @@ const translations = {
       langToggleLabel: "Switch language",
       emojiCategoriesLabel: "Emoji categories",
       pronounsLabel: "Pronouns:",
-      ctaFixed: "Hire me",
+      ctaFixed: "Discord",
       langButton: "🇪🇸",
       langLive: "Language updated."
     }
@@ -884,6 +900,26 @@ function changeLanguage() {
 
     const heroPreviousMore = document.querySelector('[data-lang="hero-preview-more"]');
     if (heroPreviousMore) heroPreviousMore.textContent = trans.heroPreviousMore;
+    const heroPreviewsKicker = document.querySelector('[data-lang="hero-previews-kicker"]');
+    if (heroPreviewsKicker) heroPreviewsKicker.textContent = trans.heroPreviews_kicker;
+
+    const statProjects = document.querySelector('[data-lang="stat-projects"]');
+    if (statProjects) statProjects.textContent = trans.statProjects;
+    const statTeams = document.querySelector('[data-lang="stat-teams"]');
+    if (statTeams) statTeams.textContent = trans.statTeams;
+    const statYears = document.querySelector('[data-lang="stat-years"]');
+    if (statYears) statYears.textContent = trans.statYears;
+    const statResponse = document.querySelector('[data-lang="stat-response"]');
+    if (statResponse) statResponse.textContent = trans.statResponse;
+
+    const aboutStatus = document.querySelector('[data-lang="about-status"]');
+    if (aboutStatus) aboutStatus.textContent = trans.aboutStatus;
+    const aboutP1 = document.querySelector('[data-lang="about-p1"]');
+    if (aboutP1) aboutP1.textContent = trans.aboutP1;
+    const aboutP2 = document.querySelector('[data-lang="about-p2"]');
+    if (aboutP2) aboutP2.textContent = trans.aboutP2;
+    const aboutP3 = document.querySelector('[data-lang="about-p3"]');
+    if (aboutP3) aboutP3.textContent = trans.aboutP3;
     const contactDiscordHint = document.querySelector('[data-lang="contact-discord-hint"]');
     if (contactDiscordHint) contactDiscordHint.textContent = trans.contactDiscordHint;
     const contactXHint = document.querySelector('[data-lang="contact-x-hint"]');
