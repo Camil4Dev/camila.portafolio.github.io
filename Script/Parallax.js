@@ -65,12 +65,12 @@
   const qualityFactor = (deviceMemory <= 4 || cpuCores <= 4) ? 0.65 : 0.9;
 
   const LAYERS = [
-    { count: Math.round(18 * qualityFactor), size: 80, speed: 0.08, color: 'rgba(116,172,223,0.13)' },
-    { count: Math.round(42 * qualityFactor), size: 45, speed: 0.22, color: 'rgba(116,172,223,0.20)' },
-    { count: Math.round(100 * qualityFactor), size: 20, speed: 0.5, color: 'rgba(255,255,255,0.18)' }
+    { count: Math.round(9 * qualityFactor), size: 80, speed: 0.08, color: 'rgba(116,172,223,0.13)' },
+    { count: Math.round(20 * qualityFactor), size: 45, speed: 0.22, color: 'rgba(116,172,223,0.20)' },
+    { count: Math.round(48 * qualityFactor), size: 20, speed: 0.5, color: 'rgba(255,255,255,0.18)' }
   ];
 
-  const FLOATING_BASE = Math.round(60 * qualityFactor);
+  const FLOATING_BASE = Math.round(30 * qualityFactor);
 
   function resize() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -109,7 +109,8 @@
         size: Math.random() * 2 + 0.8,
         speedX: (Math.random() - 0.5) * 0.5,
         speedY: (0.2 + Math.random() * 0.6),
-        opacity: 0.15 + Math.random() * 0.6
+        opacity: 0.15 + Math.random() * 0.6,
+        color: Math.random() > 0.4 ? 'rgba(116,172,223,1)' : 'rgba(246,180,14,1)'
       });
     }
   }
@@ -176,7 +177,7 @@
         if (obj.y < -10 || obj.y > window.innerHeight + 10) obj.y = Math.random() * window.innerHeight;
 
         ctx.globalAlpha = obj.opacity;
-        ctx.fillStyle = Math.random() > 0.4 ? 'rgba(116,172,223,1)' : 'rgba(246,180,14,1)';
+        ctx.fillStyle = obj.color;
         ctx.beginPath();
         ctx.arc(obj.x, obj.y, obj.size, 0, Math.PI * 2);
         ctx.fill();

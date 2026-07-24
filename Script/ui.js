@@ -71,6 +71,11 @@
       }
     }
 
+    const bgVideo = document.querySelector('.bg-lain');
+    if (bgVideo && bgVideo.tagName === 'VIDEO' && prefersReducedMotion) {
+      bgVideo.pause();
+    }
+
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     $$('a.nav-button').forEach((a) => {
       const href = (a.getAttribute('href') || '').split('#')[0].split('/').pop();
