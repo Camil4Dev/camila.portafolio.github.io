@@ -277,6 +277,9 @@ const translations = {
       profileAnimeLoading: "Cargando anime...",
       profileAnimeEmpty: "No hay anime para mostrar.",
       profileSongsTitle: "Canciones favoritas",
+      visitorsTitle: "Visitas",
+      visitorsSubtitle: "Dejá tu reacción si pasaste por acá ✨",
+      visitorsCountLabel: "visitas",
       profileSongsLoading: "Cargando canciones...",
       profileSongsEmpty: "Agregá tu playlist de Spotify para mostrar canciones.",
       commentNameLabel: "Nombre",
@@ -634,6 +637,9 @@ const translations = {
       profileAnimeLoading: "Loading anime...",
       profileAnimeEmpty: "No anime to show.",
       profileSongsTitle: "Favorite songs",
+      visitorsTitle: "Visitors",
+      visitorsSubtitle: "Leave a reaction if you stopped by ✨",
+      visitorsCountLabel: "views",
       profileSongsLoading: "Loading songs...",
       profileSongsEmpty: "Add your Spotify playlist to show songs.",
       commentNameLabel: "Name",
@@ -1326,6 +1332,12 @@ function changeLanguage() {
     if (profileAnimeEmpty) profileAnimeEmpty.textContent = trans.profileAnimeEmpty;
     const profileSongsTitle = document.querySelector('[data-lang="profile-songs-title"]');
     if (profileSongsTitle) profileSongsTitle.textContent = trans.profileSongsTitle;
+    const visitorsTitle = document.querySelector('[data-lang="visitors-title"]');
+    if (visitorsTitle) visitorsTitle.textContent = trans.visitorsTitle;
+    const visitorsSubtitle = document.querySelector('[data-lang="visitors-subtitle"]');
+    if (visitorsSubtitle) visitorsSubtitle.textContent = trans.visitorsSubtitle;
+    const visitorsCountLabel = document.querySelector('[data-lang="visitors-count-label"]');
+    if (visitorsCountLabel) visitorsCountLabel.textContent = trans.visitorsCountLabel;
     const profileSongsLoading = document.querySelector('[data-lang="profile-songs-loading"]');
     if (profileSongsLoading) profileSongsLoading.textContent = trans.profileSongsLoading;
     const profileSongsEmpty = document.querySelector('[data-lang="profile-songs-empty"]');

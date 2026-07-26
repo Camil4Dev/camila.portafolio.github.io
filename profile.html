@@ -271,6 +271,21 @@
         <div id="songs-content" class="songs-grid"></div>
       </div>
     </section>
+
+    <section class="profile-card mt-8 rounded-3xl border border-white/10 bg-white/5 p-6 shadow-card" id="visitors-section" data-reveal>
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <div class="media-kicker" data-lang="visitors-title">Visitas</div>
+          <p class="mt-1 text-sm text-white/60" data-lang="visitors-subtitle">Dejá tu reacción si pasaste por acá ✨</p>
+        </div>
+        <div class="visitor-counter">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.8"/></svg>
+          <span id="visitor-count">—</span>
+          <span class="visitor-counter-label" data-lang="visitors-count-label">visitas</span>
+        </div>
+      </div>
+      <div id="reactions-row" class="reactions-row mt-5" aria-label="Reacciones"></div>
+    </section>
   </main>
 
   <footer class="relative z-10 border-t border-white/10 px-6 py-8 text-center text-sm text-white/60">
@@ -283,6 +298,7 @@
   <script src="Script/lang.js" defer></script>
   <script src="Script/ui.js" defer></script>
   <script src="Script/music.js" defer></script>
+  <script src="Script/visits.js" defer></script>
   <script src="Script/presence.js" defer></script>
   <script src="Script/profile-media.js" defer></script>
   <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
